@@ -2,7 +2,7 @@
 # in the same project.
 
 # The name of this app. Must be unique within a project.
-name: 'cbcny'
+name: 'app'
 
 # The runtime the application uses.
 type: 'php:7.0'
@@ -60,7 +60,6 @@ dependencies:
   php:
     'drush/drush': '~8'
     'drupal/console': '@stable'
-  nodejs:
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
