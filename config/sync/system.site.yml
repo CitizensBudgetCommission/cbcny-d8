@@ -1,4 +1,4 @@
-uuid: a2c89202-f658-47b1-81f9-01dcbca4fcea
+uuid: fd5a4f97-e38d-4b9c-9691-98b27c73c4a1
 name: 'Citizens Budget Commission of New York'
 mail: info@cbcny.org
 slogan: ''
@@ -12,5 +12,3 @@ langcode: en
 default_langcode: en
 _core:
   default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
-mail_notification: ''
-uid: fd5a4f97-e38d-4b9c-9691-98b27c73c4a1

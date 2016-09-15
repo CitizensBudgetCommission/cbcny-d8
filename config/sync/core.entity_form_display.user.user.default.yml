@@ -1,8 +1,12 @@
-uuid: c1af714a-f7ec-4652-b317-0f50d6b5bd88
+uuid: 94818114-3c08-4b30-9b76-e1a1494e1a72
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
+    - image
     - user
 _core:
   default_config_hash: LLAieeozVsoZDb-2PbFxRJpQqnKmpR7-4OoRJnduz-U
@@ -19,4 +23,11 @@ content:
     weight: 0
   timezone:
     weight: 6
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: -1
 hidden: {  }
