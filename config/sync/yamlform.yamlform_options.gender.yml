@@ -1,0 +1,9 @@
+uuid: f727a9d4-d1db-4838-9bc6-fc3a559b0f6c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: n2yQ_A1wnzihfhhEJ1vHfnhVGfAxp5uKqlMdZQNdjf0
+id: gender
+label: Gender
+options: "Male: Male\nFemale: Female\n"
