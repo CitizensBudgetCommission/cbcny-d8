@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "314faed4f3e66df5b9b9af475c10b429",
-    "content-hash": "2dc4e763404f17ca43b8b2e9f51adec7",
+    "hash": "ccae02af6341e820f430f604a0b4e552",
+    "content-hash": "92c7093fc630ec2c160d904185daba5f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1227,6 +1227,111 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "time": "2016-09-07 19:16:42"
+        },
+        {
+            "name": "drupal/ctools",
+            "version": "8.3.0-alpha27",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ctools",
+                "reference": "231e2649678d58901368a9e5681f36865ce84e73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ctools-8.x-3.0-alpha27.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "replace": {
+                "drupal/ctools_block": "self.version",
+                "drupal/ctools_views": "self.version"
+            },
+            "suggest": {
+                "drupal/block": "Required by drupal/ctools_views",
+                "drupal/core": "Required by drupal/ctools_block, drupal/ctools_views",
+                "drupal/views": "Required by drupal/ctools_views"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-3.x": "8.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides a number of utility and helper APIs for Drupal developers and site builders.",
+            "homepage": "https://www.drupal.org/project/ctools",
+            "time": "2016-08-20 19:59:03"
+        },
+        {
+            "name": "drupal/pathauto",
+            "version": "8.1.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/pathauto",
+                "reference": "c4952e15e2906ff2040bc01f5e8f37d23950269e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.0-alpha3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*",
+                "drupal/ctools": "~8.3.0-alpha21",
+                "drupal/path": "8.*",
+                "drupal/token": "~8.1.0-alpha2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides a mechanism for modules to automatically generate aliases for the content they manage.",
+            "homepage": "https://www.drupal.org/project/pathauto",
+            "time": "2016-04-18 18:44:27"
+        },
+        {
+            "name": "drupal/token",
+            "version": "8.1.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/token",
+                "reference": "1c68e82525fda1bd12021502da81b929b9ae5c02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.0-beta1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Provides a user interface for the Token API and some missing core tokens.",
+            "homepage": "https://www.drupal.org/project/token",
+            "time": "2016-08-09 07:03:16"
         },
         {
             "name": "drush/drush",
