@@ -1,7 +1,7 @@
 {
   "name": "forumone",
   "version": "0.1.0",
-  "themePath": "web/themes/gesso",
+  "themePath": "web/themes/cbcny_theme",
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-contrib-watch": "^0.6.1",
