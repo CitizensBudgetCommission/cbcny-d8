@@ -19,3 +19,5 @@ matchers:
       bundles: {  }
       group_by_bundle: false
       include_unpublished: false
+      metadata: ''
+      substitution_type: canonical
