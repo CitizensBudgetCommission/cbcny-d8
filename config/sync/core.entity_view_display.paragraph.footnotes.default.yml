@@ -1,0 +1,23 @@
+uuid: 136a2c26-a369-4932-8f07-9d481c750ef5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footnotes.field_reference
+    - paragraphs.paragraphs_type.footnotes
+  module:
+    - text
+id: paragraph.footnotes.default
+targetEntityType: paragraph
+bundle: footnotes
+mode: default
+content:
+  field_reference:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  uid: true

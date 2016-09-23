@@ -6,7 +6,13 @@ dependencies:
     - field.storage.paragraph.field_wysiwyg
     - paragraphs.paragraphs_type.full_text
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    footnotes: footnotes
+    full_html: '0'
+    plain_text: '0'
 id: paragraph.full_text.field_wysiwyg
 field_name: field_wysiwyg
 entity_type: paragraph

@@ -1,0 +1,21 @@
+uuid: d2a36232-a1a5-477b-85f5-ab4bb117cd6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reference
+    - paragraphs.paragraphs_type.footnotes
+  module:
+    - text
+id: paragraph.footnotes.field_reference
+field_name: field_reference
+entity_type: paragraph
+bundle: footnotes
+label: Reference
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

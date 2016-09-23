@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a2305085cde87dd83fec3a34d599266",
-    "content-hash": "d4c38bc8c6558ad9974239cc92530298",
+    "hash": "86b3ee8f6cdb56feafe805f6aa2aecbe",
+    "content-hash": "0eb95cbb90e0cdd781dc89277e4aa671",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -963,6 +963,39 @@
                 "source": "http://cgit.drupalcode.org/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
             }
+        },
+        {
+            "name": "drupal/allowed_formats",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/allowed_formats.git",
+                "reference": "2d10a4ac8617780751537eb8b9205176b5f4babd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/allowed_formats-8.x-1.0.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*",
+                "drupal/field": "8.*",
+                "drupal/filter": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Limit which text formats are available for each field instance.",
+            "homepage": "https://www.drupal.org/project/allowed_formats",
+            "time": "2016-04-25 14:07:17"
         },
         {
             "name": "drupal/chosen",

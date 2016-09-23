@@ -1,0 +1,25 @@
+uuid: 5523c11d-8055-4814-868c-f0d4fffdbb6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footnotes.field_reference
+    - paragraphs.paragraphs_type.footnotes
+  module:
+    - text
+id: paragraph.footnotes.default
+targetEntityType: paragraph
+bundle: footnotes
+mode: default
+content:
+  field_reference:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+hidden:
+  created: true
+  status: true
+  uid: true
