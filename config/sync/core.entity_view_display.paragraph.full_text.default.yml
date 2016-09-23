@@ -1,0 +1,23 @@
+uuid: 33e40eda-9d28-4ba4-b2f1-7089f0b464dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.full_text.field_wysiwyg
+    - paragraphs.paragraphs_type.full_text
+  module:
+    - text
+id: paragraph.full_text.default
+targetEntityType: paragraph
+bundle: full_text
+mode: default
+content:
+  field_wysiwyg:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  uid: true

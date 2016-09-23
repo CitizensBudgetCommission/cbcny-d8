@@ -1,0 +1,6 @@
+uuid: f8d66c0a-0abc-4b89-a42d-5693ee72c7d4
+langcode: en
+status: true
+dependencies: {  }
+id: full_text
+label: 'Full Text'
