@@ -1,0 +1,29 @@
+uuid: b6dae7b4-96d3-465c-abfd-d0b6b6e8b5dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pullquote.field_attribution
+    - field.field.paragraph.pullquote.field_quote
+    - paragraphs.paragraphs_type.pullquote
+id: paragraph.pullquote.default
+targetEntityType: paragraph
+bundle: pullquote
+mode: default
+content:
+  field_attribution:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_quote:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  created: true
+  uid: true
