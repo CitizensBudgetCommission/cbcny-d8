@@ -1,0 +1,23 @@
+uuid: 85d0d7ee-5f93-4396-b936-b94ff0986aaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.author.field_author
+    - paragraphs.paragraphs_type.author
+id: paragraph.author.default
+targetEntityType: paragraph
+bundle: author
+mode: default
+content:
+  field_author:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

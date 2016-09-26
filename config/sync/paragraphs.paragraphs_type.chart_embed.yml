@@ -1,0 +1,6 @@
+uuid: 31d8f148-05ae-49a2-a7f1-d5d42f37e3f8
+langcode: en
+status: true
+dependencies: {  }
+id: chart_embed
+label: 'Chart Embed'

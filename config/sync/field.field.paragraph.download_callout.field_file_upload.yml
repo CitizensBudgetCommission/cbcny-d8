@@ -1,0 +1,27 @@
+uuid: 40864d87-50ef-4ae4-bcab-5969dea3ba9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_upload
+    - paragraphs.paragraphs_type.download_callout
+  module:
+    - file
+id: paragraph.download_callout.field_file_upload
+field_name: field_file_upload
+entity_type: paragraph
+bundle: download_callout
+label: 'File Upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: media/files
+  file_extensions: 'txt pdf docx'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

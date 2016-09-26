@@ -1,0 +1,25 @@
+uuid: abb01510-81b9-4a39-871a-3964252f871a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.aside.field_wysiwyg
+    - paragraphs.paragraphs_type.aside
+  module:
+    - text
+id: paragraph.aside.default
+targetEntityType: paragraph
+bundle: aside
+mode: default
+content:
+  field_wysiwyg:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+hidden:
+  created: true
+  status: true
+  uid: true

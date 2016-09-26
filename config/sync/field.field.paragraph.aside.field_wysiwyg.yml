@@ -1,26 +1,27 @@
-uuid: 78c89f34-8ae0-499a-b233-4467dd636545
+uuid: e515a949-8a29-4fe1-ace3-e9a816252386
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_wysiwyg
-    - paragraphs.paragraphs_type.full_text
+    - paragraphs.paragraphs_type.aside
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
+    aside: aside
+    full_html: '0'
     footnotes: '0'
     plain_text: '0'
-id: paragraph.full_text.field_wysiwyg
+id: paragraph.aside.field_wysiwyg
 field_name: field_wysiwyg
 entity_type: paragraph
-bundle: full_text
+bundle: aside
 label: WYSIWYG
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

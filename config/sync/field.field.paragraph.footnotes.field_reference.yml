@@ -6,7 +6,13 @@ dependencies:
     - field.storage.paragraph.field_reference
     - paragraphs.paragraphs_type.footnotes
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    footnotes: footnotes
+    full_html: '0'
+    plain_text: '0'
 id: paragraph.footnotes.field_reference
 field_name: field_reference
 entity_type: paragraph

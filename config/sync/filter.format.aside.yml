@@ -1,0 +1,32 @@
+uuid: 8211497c-3abd-475b-adcd-05924866e5cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - linkit
+name: Aside
+format: aside
+weight: -8
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<ul type> <ol start type> <li> <h2 id> <a href hreflang data-entity-type data-entity-uuid title> <p>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -15
+    settings:
+      title: true
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

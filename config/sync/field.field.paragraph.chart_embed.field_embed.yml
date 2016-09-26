@@ -1,23 +1,25 @@
-uuid: 78c89f34-8ae0-499a-b233-4467dd636545
+uuid: 46135c43-d16e-412d-860a-ffe423341185
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_wysiwyg
-    - paragraphs.paragraphs_type.full_text
+    - field.storage.paragraph.field_embed
+    - paragraphs.paragraphs_type.chart_embed
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
+    html_no_editor: html_no_editor
+    full_html: '0'
     footnotes: '0'
+    aside: '0'
     plain_text: '0'
-id: paragraph.full_text.field_wysiwyg
-field_name: field_wysiwyg
+id: paragraph.chart_embed.field_embed
+field_name: field_embed
 entity_type: paragraph
-bundle: full_text
-label: WYSIWYG
+bundle: chart_embed
+label: Embed
 description: ''
 required: false
 translatable: false

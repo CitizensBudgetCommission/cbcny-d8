@@ -15,14 +15,14 @@ mode: default
 content:
   field_image_caption:
     weight: 1
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_image_upload:
     weight: 0
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''

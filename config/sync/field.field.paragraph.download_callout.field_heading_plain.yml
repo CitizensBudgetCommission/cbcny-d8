@@ -1,0 +1,19 @@
+uuid: 1b3602fb-a41b-454a-a22b-1a6f2e863687
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_plain
+    - paragraphs.paragraphs_type.download_callout
+id: paragraph.download_callout.field_heading_plain
+field_name: field_heading_plain
+entity_type: paragraph
+bundle: download_callout
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

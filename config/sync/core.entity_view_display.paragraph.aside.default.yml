@@ -1,15 +1,15 @@
-uuid: 33e40eda-9d28-4ba4-b2f1-7089f0b464dc
+uuid: c7893bf2-e2fa-4a6d-975e-85dc465aa30a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.full_text.field_wysiwyg
-    - paragraphs.paragraphs_type.full_text
+    - field.field.paragraph.aside.field_wysiwyg
+    - paragraphs.paragraphs_type.aside
   module:
     - text
-id: paragraph.full_text.default
+id: paragraph.aside.default
 targetEntityType: paragraph
-bundle: full_text
+bundle: aside
 mode: default
 content:
   field_wysiwyg:

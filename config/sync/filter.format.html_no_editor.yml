@@ -1,0 +1,8 @@
+uuid: 8142f671-7a3f-44df-8744-5996f54c7cbb
+langcode: en
+status: true
+dependencies: {  }
+name: 'HTML (No Editor)'
+format: html_no_editor
+weight: -7
+filters: {  }

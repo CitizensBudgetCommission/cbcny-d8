@@ -1,0 +1,38 @@
+uuid: e153d641-96e8-4cd2-96b9-fb9bb94a3d16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.download_callout.field_description_plain
+    - field.field.paragraph.download_callout.field_file_upload
+    - field.field.paragraph.download_callout.field_heading_plain
+    - paragraphs.paragraphs_type.download_callout
+  module:
+    - file
+id: paragraph.download_callout.default
+targetEntityType: paragraph
+bundle: download_callout
+mode: default
+content:
+  field_description_plain:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_file_upload:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_heading_plain:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true
