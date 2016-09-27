@@ -1,0 +1,45 @@
+uuid: a6da7801-ac54-49ff-b20f-e2cb9213bbcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.intro
+  module:
+    - ckeditor
+format: intro
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+            - Anchor
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Tools
+          items:
+            - Source
+  plugins:
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

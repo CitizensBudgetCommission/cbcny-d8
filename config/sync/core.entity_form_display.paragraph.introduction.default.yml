@@ -1,0 +1,32 @@
+uuid: dafb969e-3e6b-43b0-a579-1f496778bb32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.introduction.field_introduction
+    - field.field.paragraph.introduction.field_published_date
+    - paragraphs.paragraphs_type.introduction
+  module:
+    - datetime
+    - text
+id: paragraph.introduction.default
+targetEntityType: paragraph
+bundle: introduction
+mode: default
+content:
+  field_introduction:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_published_date:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+hidden:
+  created: true
+  status: true
+  uid: true
