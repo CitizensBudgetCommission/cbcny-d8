@@ -1,0 +1,33 @@
+uuid: 6725c1be-5966-44ac-8f73-aea8e66897c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.introduction.field_introduction
+    - field.field.paragraph.introduction.field_published_date
+    - paragraphs.paragraphs_type.introduction
+  module:
+    - datetime
+    - text
+id: paragraph.introduction.default
+targetEntityType: paragraph
+bundle: introduction
+mode: default
+content:
+  field_introduction:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_published_date:
+    weight: 0
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+hidden:
+  created: true
+  uid: true

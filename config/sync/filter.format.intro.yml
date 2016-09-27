@@ -1,0 +1,26 @@
+uuid: b196dcce-8540-4e68-9c58-f3718fc5959b
+langcode: en
+status: true
+dependencies:
+  module:
+    - linkit
+name: Intro
+format: intro
+weight: -7
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <a href hreflang data-entity-type data-entity-uuid title name>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  linkit:
+    id: linkit
+    provider: linkit
+    status: true
+    weight: -15
+    settings:
+      title: true

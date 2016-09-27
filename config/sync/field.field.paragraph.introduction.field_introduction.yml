@@ -1,0 +1,30 @@
+uuid: bd8d41c1-dee0-42e9-987b-17b139906aa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_introduction
+    - paragraphs.paragraphs_type.introduction
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    intro: intro
+    full_html: '0'
+    footnotes: '0'
+    aside: '0'
+    html_no_editor: '0'
+    plain_text: '0'
+id: paragraph.introduction.field_introduction
+field_name: field_introduction
+entity_type: paragraph
+bundle: introduction
+label: Introduction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

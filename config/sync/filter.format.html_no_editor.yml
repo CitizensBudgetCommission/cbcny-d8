@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: 'HTML (No Editor)'
 format: html_no_editor
-weight: -7
+weight: -6
 filters: {  }
