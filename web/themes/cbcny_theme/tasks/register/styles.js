@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-  grunt.registerTask('gessoBuildStyles', [
+  grunt.registerTask('styles', [
     'sass_globbing:gesso',
     'sass:gesso',
     'postcss:gesso'
