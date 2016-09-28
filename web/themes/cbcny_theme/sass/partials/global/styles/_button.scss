@@ -1,0 +1,48 @@
+// @file
+// Button styles
+
+$button-color-bg: #f9f9f9 !default;
+$button-color-text: #333 !default;
+$button-font-size: map-get($font-size, s) !default;
+$button-gradient-top: $gradient-light !default;
+$button-gradient-bottom: $gradient-dark !default;
+
+@mixin button($bg-color: $button-color-bg, $text-color: $button-color-text, $font-size: $button-font-size) {
+  @extend %base-font-family;
+  background-color: $bg-color;
+  background-image: linear-gradient(to bottom, $button-gradient-top 0%, $button-gradient-bottom 100%);
+  border: 1px solid darken($bg-color, 20%);
+  border-bottom-color: darken($bg-color, 25%);
+  border-top-color: darken($bg-color, 15%);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: $button-color-text;
+  cursor: pointer;
+  display: inline-block;
+  font-size: rem($font-size);
+  line-height: $base-line-height;
+  margin: 0 0 1em;
+  padding: 0 0.5em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: baseline;
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *line-height: normal;
+    *zoom: 1;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: lighten($bg-color, 20%);
+    border-color: darken($bg-color, 50%);
+    color: $button-color-text;
+    outline: 0;
+  }
+
+  &:active {
+    background-color: darken($bg-color, 10%);
+    border-color: darken($bg-color, 30%);
+  }
+}
