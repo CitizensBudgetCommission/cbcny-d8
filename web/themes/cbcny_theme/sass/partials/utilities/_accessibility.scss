@@ -3,10 +3,12 @@
 //
 // Included from global/helpers/_accessibility.scss.
 
+.visually-hidden,
 .u-visually-hidden {
   @include visually-hidden-important;
 }
 
+.focusable,
 .u-focusable {
   @include visually-hidden-important;
 
@@ -16,10 +18,12 @@
   }
 }
 
+.hidden,
 .u-hidden {
   @include hidden-important;
 }
 
+.invisible,
 .u-invisible {
   @include invisible-important;
 }

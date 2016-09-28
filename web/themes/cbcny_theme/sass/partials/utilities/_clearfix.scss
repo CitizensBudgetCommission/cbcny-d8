@@ -3,6 +3,7 @@
 //
 // Included from global/helpers/_clearfix.scss.
 
+.clearfix,
 .u-clearfix {
   @include clearfix-important;
 }
