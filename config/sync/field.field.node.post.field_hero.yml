@@ -1,0 +1,60 @@
+uuid: 9ce5372d-70b6-422f-bd57-7842303956cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero
+    - node.type.post
+    - paragraphs.paragraphs_type.hero
+  module:
+    - entity_reference_revisions
+id: node.post.field_hero
+field_name: field_hero
+entity_type: node
+bundle: post
+label: Hero
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero: hero
+    target_bundles_drag_drop:
+      hero:
+        enabled: true
+        weight: 12
+      aside:
+        weight: 13
+        enabled: false
+      author:
+        weight: 14
+        enabled: false
+      chart_embed:
+        weight: 15
+        enabled: false
+      download_callout:
+        weight: 16
+        enabled: false
+      footnotes:
+        weight: 17
+        enabled: false
+      full_text:
+        weight: 18
+        enabled: false
+      image_caption:
+        weight: 19
+        enabled: false
+      introduction:
+        weight: 20
+        enabled: false
+      pullquote:
+        weight: 21
+        enabled: false
+      video_embed:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions
