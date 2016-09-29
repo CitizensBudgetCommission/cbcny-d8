@@ -1,0 +1,77 @@
+uuid: a6a98ae4-37f3-4b72-acef-9907aa517630
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.post.field_hero
+    - field.field.node.post.field_page_content
+    - field.field.node.post.field_published_date
+    - field.field.node.post.field_subtitle
+    - field.field.node.post.field_teaser_plain
+    - field.field.node.post.field_term_post_type
+    - field.field.node.post.field_topic
+    - node.type.post
+  module:
+    - datetime
+    - entity_reference_revisions
+    - user
+id: node.post.default
+targetEntityType: node
+bundle: post
+mode: default
+content:
+  field_hero:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_page_content:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_published_date:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F d, Y'
+    third_party_settings: {  }
+    type: datetime_custom
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_term_post_type:
+    weight: 5
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_topic:
+    weight: 6
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  field_teaser_plain: true
+  links: true

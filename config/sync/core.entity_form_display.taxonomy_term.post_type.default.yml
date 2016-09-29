@@ -1,0 +1,21 @@
+uuid: a8efafe6-3cf0-4a90-8d16-87268c6282cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.post_type
+id: taxonomy_term.post_type.default
+targetEntityType: taxonomy_term
+bundle: post_type
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

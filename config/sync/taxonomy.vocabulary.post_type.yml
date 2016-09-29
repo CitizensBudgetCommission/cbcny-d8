@@ -1,0 +1,9 @@
+uuid: bcdac32e-f359-4d2a-8ad3-24a3bc3e4152
+langcode: en
+status: true
+dependencies: {  }
+name: 'Post Type'
+vid: post_type
+description: ''
+hierarchy: 0
+weight: 0
