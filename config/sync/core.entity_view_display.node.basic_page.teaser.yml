@@ -1,0 +1,33 @@
+uuid: 685f934c-de70-4f81-b1bb-8307e6677d87
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.basic_page.field_hero
+    - field.field.node.basic_page.field_page_content
+    - field.field.node.basic_page.field_teaser_plain
+    - node.type.basic_page
+  module:
+    - title
+    - user
+id: node.basic_page.teaser
+targetEntityType: node
+bundle: basic_page
+mode: teaser
+content:
+  links:
+    weight: 100
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_hero: true
+  field_page_content: true
+  field_teaser_plain: true
