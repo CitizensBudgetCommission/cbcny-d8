@@ -11,84 +11,62 @@ dependencies:
     - node.type.longform_report
   module:
     - datetime
-    - entity_reference_revisions
     - link
-    - path
+    - paragraphs
 id: node.longform_report.default
 targetEntityType: node
 bundle: longform_report
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
   field_field_social_links:
-    weight: 34
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
   field_hero:
-    weight: 31
+    weight: 0
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
     third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
   field_page_content:
-    weight: 33
+    weight: 3
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: select
+      form_display_mode: default
     third_party_settings: {  }
-    type: entity_reference_revisions_autocomplete
+    type: entity_reference_paragraphs
   field_published_date:
-    weight: 35
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_subtitle:
-    weight: 32
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  path:
-    type: path
-    weight: 30
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 15
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

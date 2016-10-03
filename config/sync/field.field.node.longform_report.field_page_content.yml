@@ -5,6 +5,15 @@ dependencies:
   config:
     - field.storage.node.field_page_content
     - node.type.longform_report
+    - paragraphs.paragraphs_type.aside
+    - paragraphs.paragraphs_type.author
+    - paragraphs.paragraphs_type.chart_embed
+    - paragraphs.paragraphs_type.footnotes
+    - paragraphs.paragraphs_type.full_text
+    - paragraphs.paragraphs_type.image_caption
+    - paragraphs.paragraphs_type.introduction
+    - paragraphs.paragraphs_type.pullquote
+    - paragraphs.paragraphs_type.video_embed
   module:
     - entity_reference_revisions
 id: node.longform_report.field_page_content
@@ -19,5 +28,49 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
-  handler_settings: {  }
+  handler_settings:
+    target_bundles:
+      aside: aside
+      author: author
+      chart_embed: chart_embed
+      footnotes: footnotes
+      full_text: full_text
+      image_caption: image_caption
+      introduction: introduction
+      pullquote: pullquote
+      video_embed: video_embed
+    target_bundles_drag_drop:
+      aside:
+        enabled: true
+        weight: 12
+      author:
+        enabled: true
+        weight: 13
+      chart_embed:
+        enabled: true
+        weight: 14
+      download_callout:
+        weight: 15
+        enabled: false
+      footnotes:
+        enabled: true
+        weight: 16
+      full_text:
+        enabled: true
+        weight: 17
+      hero:
+        weight: 18
+        enabled: false
+      image_caption:
+        enabled: true
+        weight: 19
+      introduction:
+        enabled: true
+        weight: 20
+      pullquote:
+        enabled: true
+        weight: 21
+      video_embed:
+        enabled: true
+        weight: 22
 field_type: entity_reference_revisions

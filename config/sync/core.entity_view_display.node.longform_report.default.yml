@@ -20,8 +20,8 @@ bundle: longform_report
 mode: default
 content:
   field_field_social_links:
-    weight: 104
-    label: above
+    weight: 3
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -31,43 +31,42 @@ content:
     third_party_settings: {  }
     type: link
   field_hero:
-    weight: 101
-    label: above
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
   field_page_content:
-    weight: 103
-    label: above
+    weight: 2
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_published_date:
-    weight: 105
-    label: above
+    weight: 4
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
   field_subtitle:
-    weight: 102
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  links:
-    weight: 100
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 112
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
