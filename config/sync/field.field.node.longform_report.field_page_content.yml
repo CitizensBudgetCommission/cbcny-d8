@@ -1,0 +1,23 @@
+uuid: 0ef18fef-3c03-4250-b5fa-8d9190e68e29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.longform_report
+  module:
+    - entity_reference_revisions
+id: node.longform_report.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: longform_report
+label: 'Page Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings: {  }
+field_type: entity_reference_revisions

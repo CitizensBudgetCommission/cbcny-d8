@@ -1,0 +1,19 @@
+uuid: 4843cabc-217b-4abe-9983-34659d2b904b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.longform_report
+id: node.longform_report.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: longform_report
+label: Subtitle
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: d5b399cd-27fe-41d4-b1ea-802d03ac2016
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero
+    - node.type.longform_report
+  module:
+    - entity_reference_revisions
+id: node.longform_report.field_hero
+field_name: field_hero
+entity_type: node
+bundle: longform_report
+label: Hero
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings: {  }
+field_type: entity_reference_revisions

@@ -1,0 +1,73 @@
+uuid: c5d25114-259f-4f99-b019-4a669e88c066
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.longform_report.field_field_social_links
+    - field.field.node.longform_report.field_hero
+    - field.field.node.longform_report.field_page_content
+    - field.field.node.longform_report.field_published_date
+    - field.field.node.longform_report.field_subtitle
+    - node.type.longform_report
+  module:
+    - datetime
+    - entity_reference_revisions
+    - link
+    - user
+id: node.longform_report.default
+targetEntityType: node
+bundle: longform_report
+mode: default
+content:
+  field_field_social_links:
+    weight: 104
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_hero:
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_page_content:
+    weight: 103
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_published_date:
+    weight: 105
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_subtitle:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 100
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

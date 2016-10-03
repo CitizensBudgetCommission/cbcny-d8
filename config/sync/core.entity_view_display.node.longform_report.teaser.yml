@@ -1,0 +1,24 @@
+uuid: 61fd61ea-fc8b-4001-8249-9418973f9b64
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.longform_report
+  module:
+    - user
+id: node.longform_report.teaser
+targetEntityType: node
+bundle: longform_report
+mode: teaser
+content:
+  links:
+    weight: 100
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }
