@@ -1,0 +1,24 @@
+uuid: 6270a2eb-154b-4206-9c86-fe59ef3b51ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_date
+    - node.type.longform_report
+  module:
+    - datetime
+id: node.longform_report.field_published_date
+field_name: field_published_date
+entity_type: node
+bundle: longform_report
+label: 'Published date'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

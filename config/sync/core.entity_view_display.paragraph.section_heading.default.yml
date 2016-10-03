@@ -1,0 +1,22 @@
+uuid: feb9d75e-da4a-4b4a-a1d6-2a711d9ad6de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section_heading.field_heading
+    - paragraphs.paragraphs_type.section_heading
+id: paragraph.section_heading.default
+targetEntityType: paragraph
+bundle: section_heading
+mode: default
+content:
+  field_heading:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

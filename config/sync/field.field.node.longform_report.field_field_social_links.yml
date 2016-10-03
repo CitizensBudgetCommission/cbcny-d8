@@ -1,0 +1,23 @@
+uuid: ad1d6cfc-52ab-46e9-9f47-feb1c24e5a2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_social_links
+    - node.type.longform_report
+  module:
+    - link
+id: node.longform_report.field_field_social_links
+field_name: field_field_social_links
+entity_type: node
+bundle: longform_report
+label: 'Social links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,81 @@
+uuid: 0ef18fef-3c03-4250-b5fa-8d9190e68e29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.longform_report
+    - paragraphs.paragraphs_type.aside
+    - paragraphs.paragraphs_type.author
+    - paragraphs.paragraphs_type.chart_embed
+    - paragraphs.paragraphs_type.footnotes
+    - paragraphs.paragraphs_type.full_text
+    - paragraphs.paragraphs_type.image_caption
+    - paragraphs.paragraphs_type.introduction
+    - paragraphs.paragraphs_type.pullquote
+    - paragraphs.paragraphs_type.section_heading
+    - paragraphs.paragraphs_type.video_embed
+  module:
+    - entity_reference_revisions
+id: node.longform_report.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: longform_report
+label: 'Page Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      aside: aside
+      author: author
+      chart_embed: chart_embed
+      footnotes: footnotes
+      full_text: full_text
+      image_caption: image_caption
+      introduction: introduction
+      pullquote: pullquote
+      section_heading: section_heading
+      video_embed: video_embed
+    target_bundles_drag_drop:
+      aside:
+        enabled: true
+        weight: -25
+      author:
+        enabled: true
+        weight: -24
+      chart_embed:
+        enabled: true
+        weight: -23
+      download_callout:
+        weight: -22
+        enabled: false
+      footnotes:
+        enabled: true
+        weight: -21
+      full_text:
+        enabled: true
+        weight: -20
+      hero:
+        weight: -19
+        enabled: false
+      image_caption:
+        enabled: true
+        weight: -18
+      introduction:
+        enabled: true
+        weight: -17
+      pullquote:
+        enabled: true
+        weight: -16
+      section_heading:
+        enabled: true
+        weight: -15
+      video_embed:
+        enabled: true
+        weight: -14
+field_type: entity_reference_revisions
