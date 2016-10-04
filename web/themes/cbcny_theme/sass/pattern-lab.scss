@@ -11,49 +11,76 @@
 // The container for the 'view all' screen, which contains the list of patterns.
 #sg-patterns {
   box-sizing: border-box !important;
-	max-width: 100%; // Fully fluid by default, but can be modified by giving it a different `max-width`
-	padding: 0 0.5em; // this determines the gutter between the edge of the viewport and the pattern container
+  margin-left: auto;
+  margin-right: auto;
+  max-width: em($max-page-width);
+  padding: 0 $gutter-width / 2;
 }
 
 // Demo box for animation
 .demo-animate {
-	background: #ddd;
+  background: #ddd;
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 1em;
-	padding: 1em;
-	text-align: center;
+  padding: 1em;
+  text-align: center;
 }
 
 // Color swatch list
 .sg-colors {
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none !important;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none !important;
   margin: 0 !important;
-	padding: 0 !important;
+  padding: 0 !important;
 
-	li {
+  li {
     border: 1px solid #ddd;
-		border-radius: 8px;
-		flex: auto;
+    border-radius: 8px;
+    flex: auto;
     margin: 0 0.5em 0.5em 0;
     max-width: 14em;
-		min-width: 5em;
-		padding: 0.3em;
-	}
+    min-width: 5em;
+    padding: 0.3em;
+  }
 }
 
 // Color swatch tile
 .sg-swatch {
-	display: block;
-	height: 4em;
-	margin-bottom: 0.3em;
-	border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: 0.3em;
+  border-radius: 5px;
 }
 
 // Color swatch label
 .sg-label {
-	font-size: 90%;
-	line-height: 1;
+  font-size: 90%;
+  line-height: 1;
+}
+
+.sg-subtype {
+  h2 {
+    font-family: HelveticaNeue, Helvetica, Arial, sans-serif !important;
+    font-weight: 700;
+    line-height: 1;
+    margin: 1em 0 0;
+    padding: 0;
+    text-transform: capitalize !important;
+  }
+
+  a {
+    color: grey !important;
+    padding: 1em 0 .3rem;
+    text-decoration: none;
+
+    &:hover {
+      color: #000 !important;
+    }
+  }
+}
+
+.sg-pattern-title {
+  border-bottom: 1px solid grey;
 }
