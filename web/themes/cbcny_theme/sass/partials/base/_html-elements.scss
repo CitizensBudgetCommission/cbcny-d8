@@ -52,7 +52,7 @@ audio {}
 b {}
 
 blockquote {
-  margin: 0 1.5em 1.5em;
+  margin: 0 1.5em em($base-line-height);
 }
 
 body {
@@ -84,7 +84,7 @@ colgroup {}
 datalist {}
 
 dd {
-  margin-bottom: 1.5em;
+  margin-bottom: em($base-line-height);
 }
 
 del {}
@@ -96,7 +96,7 @@ dfn {
 }
 
 dl {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 dt {}
@@ -110,7 +110,7 @@ fieldset {}
 figcaption {}
 
 figure {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 footer {}
@@ -124,8 +124,10 @@ form {
 
 %hN {
   color: $heading-text-color;
+  font-weight: 400;
   hyphens: none;
-  line-height: 1.1;
+  line-height: 1.25;
+  margin: 0 0 rem(10px);
   text-rendering: optimizeLegibility;
 }
 
@@ -133,43 +135,37 @@ h1,
 %h1 {
   @extend %hN;
   @extend %secondary-font-family;
+  color: rgb(0, 127, 170);
   font-size: em(map-get($font-size, xxl));
-  margin: 0 0 1em;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 0;
 }
 
 h2,
 %h2 {
   @extend %hN;
+  color: rgb(0, 73, 99);
   font-size: em(map-get($font-size, xl));
-  margin: 0 0 1em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 h3,
 %h3 {
   @extend %hN;
   font-size: em(map-get($font-size, l));
-  margin: 0 0 1em;
+  font-weight: 600;
 }
 
 h4,
-%h4 {
+%h4,
+h5,
+h6 {
   @extend %hN;
   font-size: em(map-get($font-size, m));
-  margin: 0 0 1.5em;
-}
-
-h5,
-%h5 {
-  @extend %hN;
-  font-size: em(map-get($font-size, s));
-  margin: 0 0 1.5em;
-}
-
-h6,
-%h6 {
-  @extend %hN;
-  font-size: em(map-get($font-size, xs));
-  margin: 0 0 1.5em;
+  font-weight: 700;
 }
 
 header {}
@@ -283,7 +279,7 @@ nav {}
 object {}
 
 ol {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
   padding: 0 0 0 1.5em; // LTR
 
   @if $support-for-rtl {
@@ -307,13 +303,13 @@ option {}
 output {}
 
 p {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 param {}
 
 pre {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
   overflow: auto;
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     white-space: pre;
@@ -376,7 +372,7 @@ tr {}
 u {}
 
 ul {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
   padding: 0 0 0 1.2em; // LTR
 
   @if $support-for-rtl {
