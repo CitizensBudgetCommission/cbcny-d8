@@ -2,14 +2,21 @@
 // Color variables
 // http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
 
-$primary-text-color: #333;
+$cbcny-blue: #007faa;
+$cbcny-dark-blue: #004963;
+$cbcny-light-blue: #12afe4;
+$cbcny-gray: #616161;
+$cbcny-dark-gray: #414141;
+$cbcny-white: #fff;
+
+$primary-text-color: $cbcny-gray;
 $secondary-text-color: #555;
-$heading-text-color: #333;
-$body-color: #fff;
-$link-color: blue;
-$link-hover-color: green;
-$selection-background: blue;
-$selection-foreground: #fff;
+$heading-text-color: $cbcny-dark-gray;
+$body-color: $cbcny-white;
+$link-color: $cbcny-blue;
+$link-hover-color: $cbcny-light-blue;
+$selection-background: rgba(253, 209, 73, 0.62);
+$selection-foreground: #4b4b4b;
 $gradient-light: rgba(255, 255, 255, 0.1) !default;
 $gradient-dark: rgba(0, 0, 0, 0.1) !default;
 $border-color: #ccc;

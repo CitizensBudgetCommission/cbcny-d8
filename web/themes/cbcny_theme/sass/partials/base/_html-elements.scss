@@ -11,7 +11,7 @@
   // Universal transitions
   transition-duration: 0.2s;
   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-  transition-timing-function: linear;
+  transition-timing-function: ease-in-out;
 }
 
 a {
@@ -19,6 +19,7 @@ a {
   color: $link-color;
   // Improves readability when focused.
   outline-offset: em(2px);
+  text-decoration: none;
 
   &:active,
   &:hover {
@@ -135,7 +136,7 @@ h1,
 %h1 {
   @extend %hN;
   @extend %secondary-font-family;
-  color: rgb(0, 127, 170);
+  color: $cbcny-blue;
   font-size: em(map-get($font-size, xxl));
   font-weight: 400;
   letter-spacing: -1px;
@@ -146,7 +147,7 @@ h1,
 h2,
 %h2 {
   @extend %hN;
-  color: rgb(0, 73, 99);
+  color: $cbcny-dark-blue;
   font-size: em(map-get($font-size, xl));
   font-weight: 700;
   line-height: 1.3;
