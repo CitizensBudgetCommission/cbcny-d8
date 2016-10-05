@@ -4,9 +4,12 @@
 
 $cbcny-blue: #007faa;
 $cbcny-dark-blue: #004963;
-$cbcny-light-blue: #12afe4;
+$cbcny-light-blue: #0194d3;
+$cbcny-extra-light-blue: #12afe4;
 $cbcny-gray: #616161;
 $cbcny-dark-gray: #414141;
+$cbcny-extra-dark-gray: #383838;
+$cbcny-off-white: #e9e9e9;
 $cbcny-white: #fff;
 
 $primary-text-color: $cbcny-gray;
@@ -14,7 +17,7 @@ $secondary-text-color: #555;
 $heading-text-color: $cbcny-dark-gray;
 $body-color: $cbcny-white;
 $link-color: $cbcny-blue;
-$link-hover-color: $cbcny-light-blue;
+$link-hover-color: $cbcny-extra-light-blue;
 $selection-background: rgba(253, 209, 73, 0.62);
 $selection-foreground: #4b4b4b;
 $gradient-light: rgba(255, 255, 255, 0.1) !default;
