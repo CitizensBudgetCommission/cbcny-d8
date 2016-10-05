@@ -1,8 +1,16 @@
-<h2>Heading font: {{ font.headings }}</h2>
-<h2><em>Heading font italic: {{ font.headings }}</em></h2>
 <p>Primary font: {{ font.primary }}</p>
 <p><em>Primary font italic: {{ font.primary }}</em></p>
 <p><strong>Primary font bold: {{ font.primary }}</strong></p>
+<p><strong><em>Primary font bold italic: {{ font.primary }}</em></strong></p>
+<p style="font-family:{{ font.secondary }}">Secondary font: {{ font.secondary }}</p>
+<p style="font-family:{{ font.secondary }}"><em>Secondary font italic: {{ font.secondary }}</em></p>
+<p style="font-family:{{ font.secondary }}"><strong>Secondary font bold: {{ font.secondary }}</strong></p>
+<p style="font-family:{{ font.secondary }}"><strong><em>Secondary font bold italic: {{ font.secondary }}</em></strong></p>
 <p><code>Monospace font: {{ font.monospace }}</code></p>
 <p><code><em>Monospace font italic: {{ font.monospace }}</em></code></p>
 <p><code><strong>Monospace font bold: {{ font.monospace }}</strong></code></p>
+<p><code><strong><em>Monospace font bold italic: {{ font.monospace }}</em></strong></code></p>
+<p style="font-family:{{ font.system }}">System font: {{ font.system }}</p>
+<p style="font-family:{{ font.system }}"><em>System font italic: {{ font.system }}</em></p>
+<p style="font-family:{{ font.system }}"><strong>System font bold: {{ font.system }}</strong></p>
+<p style="font-family:{{ font.system }}"><strong><em>System font bold italic: {{ font.system }}</em></strong></p>

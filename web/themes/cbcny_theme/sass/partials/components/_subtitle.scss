@@ -1,0 +1,11 @@
+// @file
+// Styles for the subtitle.
+
+.subtitle {
+  @extend %hN;
+  color: rgb(76, 76, 76);
+  font-size: em(28.8px);
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0;
+}

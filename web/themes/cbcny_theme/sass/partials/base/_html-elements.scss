@@ -11,7 +11,7 @@
   // Universal transitions
   transition-duration: 0.2s;
   transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-  transition-timing-function: linear;
+  transition-timing-function: ease-in-out;
 }
 
 a {
@@ -19,6 +19,7 @@ a {
   color: $link-color;
   // Improves readability when focused.
   outline-offset: em(2px);
+  text-decoration: none;
 
   &:active,
   &:hover {
@@ -52,7 +53,7 @@ audio {}
 b {}
 
 blockquote {
-  margin: 0 1.5em 1.5em;
+  margin: 0 1.5em em($base-line-height);
 }
 
 body {
@@ -71,7 +72,10 @@ button {
 
 canvas {}
 
-caption {}
+caption {
+  font-weight: 600;
+  padding: 0 rem(20px) rem(14px);
+}
 
 cite {}
 
@@ -84,7 +88,7 @@ colgroup {}
 datalist {}
 
 dd {
-  margin-bottom: 1.5em;
+  margin-bottom: em($base-line-height);
 }
 
 del {}
@@ -96,7 +100,7 @@ dfn {
 }
 
 dl {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 dt {}
@@ -110,7 +114,7 @@ fieldset {}
 figcaption {}
 
 figure {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 footer {}
@@ -123,62 +127,58 @@ form {
 }
 
 %hN {
-  @extend %header-font-family;
   color: $heading-text-color;
+  font-weight: 400;
   hyphens: none;
-  line-height: 1.1;
+  line-height: 1.25;
+  margin: 0 0 rem(10px);
   text-rendering: optimizeLegibility;
 }
 
 h1,
 %h1 {
   @extend %hN;
+  @extend %secondary-font-family;
+  color: $cbcny-blue;
   font-size: em(map-get($font-size, xxl));
-  margin: 0 0 1em;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 0;
 }
 
 h2,
 %h2 {
   @extend %hN;
+  color: $cbcny-dark-blue;
   font-size: em(map-get($font-size, xl));
-  margin: 0 0 1em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 h3,
 %h3 {
   @extend %hN;
   font-size: em(map-get($font-size, l));
-  margin: 0 0 1em;
+  font-weight: 600;
 }
 
 h4,
-%h4 {
+%h4,
+h5,
+h6 {
   @extend %hN;
   font-size: em(map-get($font-size, m));
-  margin: 0 0 1.5em;
-}
-
-h5,
-%h5 {
-  @extend %hN;
-  font-size: em(map-get($font-size, s));
-  margin: 0 0 1.5em;
-}
-
-h6,
-%h6 {
-  @extend %hN;
-  font-size: em(map-get($font-size, xs));
-  margin: 0 0 1.5em;
+  font-weight: 700;
 }
 
 header {}
 
 hr {
-  border: 1px solid $secondary-text-color;
+  border: 1px solid $cbcny-gray;
   box-sizing: content-box;
   height: 0;
-  margin: 1.5em 0;
+  margin: em($base-line-height) 0;
   padding-bottom: -1px;
 }
 
@@ -263,7 +263,18 @@ legend {
   }
 }
 
-li {}
+li {
+  line-height: 1.5;
+  margin-bottom: rem(15px);
+  padding-left: rem(8px); // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding-left: 0;
+      padding-right: rem(8px);
+    }
+  }
+}
 
 main {}
 
@@ -283,7 +294,7 @@ nav {}
 object {}
 
 ol {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
   padding: 0 0 0 1.5em; // LTR
 
   @if $support-for-rtl {
@@ -294,7 +305,7 @@ ol {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem(15px) 0 0;
   }
 }
 
@@ -307,13 +318,13 @@ option {}
 output {}
 
 p {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
 }
 
 param {}
 
 pre {
-  margin: 0 0 1.5em;
+  margin: 0 0 em($base-line-height);
   overflow: auto;
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
     white-space: pre;
@@ -353,11 +364,19 @@ sup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  padding: 0 0 em($base-line-height);
 }
 
 tbody {}
 
-td {}
+td {
+  background-color: $cbcny-off-white;
+  border-bottom: 2px solid $cbcny-white;
+  color: $cbcny-extra-dark-gray;
+  font-size: em(map-get($font-size, s));
+  line-height: 1.2;
+  padding: rem(13px) rem(20px);
+}
 
 textarea {
   overflow: auto;
@@ -365,7 +384,29 @@ textarea {
 
 tfoot {}
 
-th {}
+th {
+  border-bottom: 2px transparent;
+  color: $cbcny-dark-blue;
+  font-size: em(map-get($font-size, s));
+  font-weight: 600;
+  line-height: 1.2;
+  padding: rem(13px) rem(20px);
+
+  tfoot & {
+    background-color: $cbcny-light-blue;
+    border: 0;
+    color: $cbcny-white;
+    font-size: em(map-get($font-size, xs));
+    line-height: 1.1;
+    padding: rem(18px) rem(20px) rem(15px);
+    text-align: left;
+  }
+
+  thead & {
+    border: 0;
+    padding: 0 rem(20px) rem(14px);
+  }
+}
 
 thead {}
 
@@ -376,7 +417,8 @@ tr {}
 u {}
 
 ul {
-  margin: 0 0 1.5em;
+  list-style-image: url(../images/bg/bullet--square.svg);
+  margin: 0 0 em($base-line-height);
   padding: 0 0 0 1.2em; // LTR
 
   @if $support-for-rtl {
@@ -387,7 +429,11 @@ ul {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem(15px) 0 0;
+  }
+
+  ul {
+    list-style-image: url(../images/bg/bullet--small.svg);
   }
 }
 
