@@ -1,0 +1,22 @@
+// @file
+// Styles for figures.
+
+.figure {
+  margin-bottom: em($base-line-height);
+}
+
+.figure__caption {
+  color: $cbcny-dark-gray;
+  font-size: em(map-get($font-size, s));
+  line-height: 1.5;
+  padding-top: rem(15px);
+}
+
+.figure--image {
+  background-color: $cbcny-white;
+  padding: em(40px);
+
+  .figure__caption {
+    margin-bottom: rem(-12px);
+  }
+}
