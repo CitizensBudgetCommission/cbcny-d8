@@ -1,0 +1,16 @@
+// @file
+// Styles for responsive objects.
+
+%responsive-object {
+  height: 0;
+  position: relative;
+
+  > div,
+  > iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

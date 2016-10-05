@@ -19,6 +19,7 @@
   "summary": "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>",
   "title": "Title",
   "url": "#",
+  "vimeoEmbed": "168964714",
 
   "file": {
     "icon": "../../drupal/images/application-pdf.png",
