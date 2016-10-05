@@ -260,7 +260,18 @@ legend {
   }
 }
 
-li {}
+li {
+  line-height: 1.5;
+  margin-bottom: rem(15px);
+  padding-left: rem(8px); // LTR
+
+  @if $support-for-rtl {
+    [dir='rtl'] & {
+      padding-left: 0;
+      padding-right: rem(8px);
+    }
+  }
+}
 
 main {}
 
@@ -291,7 +302,7 @@ ol {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem(15px) 0 0;
   }
 }
 
@@ -373,6 +384,7 @@ tr {}
 u {}
 
 ul {
+  list-style-image: url(../images/bg/bullet--square.svg);
   margin: 0 0 em($base-line-height);
   padding: 0 0 0 1.2em; // LTR
 
@@ -384,7 +396,11 @@ ul {
 
   ol,
   ul {
-    margin: 0;
+    margin: rem(15px) 0 0;
+  }
+
+  ul {
+    list-style-image: url(../images/bg/bullet--small.svg);
   }
 }
 
