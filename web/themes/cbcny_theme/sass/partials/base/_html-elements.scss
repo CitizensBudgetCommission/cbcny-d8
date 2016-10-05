@@ -346,7 +346,7 @@ section {}
 select {}
 
 small {
-  font-size: em(map-get($font-size, s));
+  font-size: em(map-get($font-size, xs));
 }
 
 strong {}
@@ -373,7 +373,7 @@ td {
   background-color: $cbcny-off-white;
   border-bottom: 2px solid $cbcny-white;
   color: $cbcny-extra-dark-gray;
-  font-size: em(map-get($font-size, s));
+  font-size: em(map-get($font-size, xs));
   line-height: 1.2;
   padding: rem(13px) rem(20px);
 }
@@ -387,7 +387,7 @@ tfoot {}
 th {
   border-bottom: 2px transparent;
   color: $cbcny-dark-blue;
-  font-size: em(map-get($font-size, s));
+  font-size: em(map-get($font-size, xs));
   font-weight: 600;
   line-height: 1.2;
   padding: rem(13px) rem(20px);
@@ -396,7 +396,7 @@ th {
     background-color: $cbcny-light-blue;
     border: 0;
     color: $cbcny-white;
-    font-size: em(map-get($font-size, xs));
+    font-size: em(map-get($font-size, xxs));
     line-height: 1.1;
     padding: rem(18px) rem(20px) rem(15px);
     text-align: left;

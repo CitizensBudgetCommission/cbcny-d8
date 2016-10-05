@@ -6,6 +6,11 @@
   padding: 0;
 }
 
+.nav__item {
+  margin: 0;
+  padding: 0;
+}
+
 // Extendable nav styles.
 @import 'nav/nav--inline';
 @import 'nav/nav--pillbox';
