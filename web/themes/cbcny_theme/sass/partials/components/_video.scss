@@ -1,0 +1,9 @@
+// @file
+// Styles for a video iframe.
+
+$video-aspect-ratio: (9 / 16); // 16:9
+
+.video {
+  @extend %responsive-object;
+  padding-bottom: $video-aspect-ratio * 100%;
+}
