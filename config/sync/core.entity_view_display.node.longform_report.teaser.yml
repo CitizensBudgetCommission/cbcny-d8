@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.longform_report.field_field_social_links
     - field.field.node.longform_report.field_hero
     - field.field.node.longform_report.field_page_content
     - field.field.node.longform_report.field_published_date
@@ -27,7 +26,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
-  field_field_social_links: true
   field_hero: true
   field_page_content: true
   field_published_date: true
