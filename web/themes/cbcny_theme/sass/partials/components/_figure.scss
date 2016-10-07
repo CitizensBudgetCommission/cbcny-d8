@@ -2,6 +2,7 @@
 // Styles for figures.
 
 .figure {
+  background-color: $cbcny-white;
   margin-bottom: em($base-line-height);
 }
 
@@ -13,7 +14,6 @@
 }
 
 .figure--image {
-  background-color: $cbcny-white;
   padding: em(40px);
 
   .figure__caption {
