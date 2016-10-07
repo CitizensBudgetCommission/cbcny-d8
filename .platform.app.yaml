@@ -60,6 +60,8 @@ dependencies:
   php:
     'drush/drush': '~8'
     'drupal/console': '@stable'
+  nodejs: {}
+  python: {}
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
