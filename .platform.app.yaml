@@ -60,16 +60,13 @@ dependencies:
   php:
     'drush/drush': '~8'
     'drupal/console': '@stable'
-  nodejs: {}
-  python: {}
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
     build: |
-      pip install -U pip wheel
       cd web/themes/cbcny_theme
-      npm install --cache-min 99999999
-      grunt build -v
+      npm install
+      grunt build
 
     deploy: |
       cd web
