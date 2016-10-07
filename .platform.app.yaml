@@ -65,6 +65,7 @@ dependencies:
 hooks:
     build: |
       cd web/themes/cbcny_theme
+      npm install -g grunt-cli
       npm install
       grunt build
 
