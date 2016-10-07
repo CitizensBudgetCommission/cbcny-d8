@@ -63,6 +63,11 @@ dependencies:
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
+    build: |
+      cd web/themes/cbcny_theme
+      npm install
+      grunt build
+
     deploy: |
       cd web
       drush -y cache-rebuild
