@@ -67,7 +67,7 @@ dependencies:
 hooks:
     build: |
       cd web/themes/cbcny_theme
-      npm install
+      npm install --cache-min 99999999
       grunt build -v
 
     deploy: |
