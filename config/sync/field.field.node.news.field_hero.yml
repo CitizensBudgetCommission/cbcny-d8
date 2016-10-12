@@ -1,0 +1,63 @@
+uuid: 98cfad68-7826-4dc4-8637-0c0d65c2150f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero
+    - node.type.news
+    - paragraphs.paragraphs_type.hero
+  module:
+    - entity_reference_revisions
+id: node.news.field_hero
+field_name: field_hero
+entity_type: node
+bundle: news
+label: Hero
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero: hero
+    target_bundles_drag_drop:
+      aside:
+        weight: 13
+        enabled: false
+      author:
+        weight: 14
+        enabled: false
+      chart_embed:
+        weight: 15
+        enabled: false
+      download_callout:
+        weight: 16
+        enabled: false
+      footnotes:
+        weight: 17
+        enabled: false
+      full_text:
+        weight: 18
+        enabled: false
+      hero:
+        enabled: true
+        weight: 19
+      image_caption:
+        weight: 20
+        enabled: false
+      introduction:
+        weight: 21
+        enabled: false
+      pullquote:
+        weight: 22
+        enabled: false
+      section_heading:
+        weight: 23
+        enabled: false
+      video_embed:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions
