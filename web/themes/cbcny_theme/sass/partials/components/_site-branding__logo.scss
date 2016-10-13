@@ -1,0 +1,25 @@
+// @file
+// Styles site logo
+
+.site-branding__logo {
+	@include svg-background(logo);
+	background-color: transparent;
+	background-size: 100% auto;
+	display: block;
+	height: 61px;
+	margin: 0;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	width: 176px;
+
+	img {
+		display: none;
+	}
+
+	.is-fixed & {
+		@include svg-background(logo-sm);
+		height: 35px;
+		width: 107px;
+	}
+}
