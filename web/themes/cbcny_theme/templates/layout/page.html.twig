@@ -43,8 +43,8 @@
  * @see html.html.twig
  */
 #}
-<div class="l-constrain">
-  <header class="header" role="banner">
+<div class="page">
+  <header class="header l-constrain" role="banner">
     {{ page.header }}
   </header>
 
@@ -56,7 +56,7 @@
 
   {{ page.help }}
 
-  <main id="main" class="main" role="main" tabindex="-1">
+  <main id="main" class="main l-constrain" role="main" tabindex="-1">
 
     {{ page.preface}}
 
@@ -78,9 +78,8 @@
   </main>
 
   {% if page.footer %}
-    <footer class="footer" role="contentinfo">
+    <footer class="footer l-constrain" role="contentinfo">
       {{ page.footer }}
     </footer>
   {% endif %}
-
 </div>
