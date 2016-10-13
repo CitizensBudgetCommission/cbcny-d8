@@ -4,6 +4,38 @@
 .nav--main {
   @extend %nav--inline;
 
+  > .nav__item {
+	  padding-right: 36px;
+	  
+	  &:last-child {
+	  	padding-right: 0;
+	  }
+
+	  > .nav__link {
+	  	color: $cbcny-dark-gray;
+	  	font-family: $base-font-family;
+		  font-weight: 500;
+		  text-transform: uppercase;
+	  	transition: color 200ms ease-in-out;
+
+	  	&:hover,
+	  	&:focus,
+	  	&.active {
+	  		color: $cbcny-blue;
+	  	}
+	  }
+	}
+
+	&.scrolled {
+		> .nav__item {
+			padding-right: 26px;
+		
+			> .nav__link {
+				font-size: 78%;
+			}
+		}
+	}
+
   @media print {
     display: none;
   }

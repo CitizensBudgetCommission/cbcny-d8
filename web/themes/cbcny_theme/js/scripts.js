@@ -21,4 +21,13 @@
     TO = setTimeout(resizeStuff, 200);
   }).resize();
 
+  // add .fixed class to #header 
+  $(window).scroll(function() {
+    var value = $(this).scrollTop();
+    if (value > 93)
+      $("#header").addClass("is-fixed");
+    else
+      $("#header").removeClass("is-fixed");
+  });
+
 })(jQuery);
