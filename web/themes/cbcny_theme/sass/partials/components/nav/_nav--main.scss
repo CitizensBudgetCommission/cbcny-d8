@@ -3,6 +3,7 @@
 
 .nav--main {
   @extend %nav--inline;
+  margin: 0;
 
   > .nav__item {
 	  padding-right: 36px;
@@ -26,7 +27,7 @@
 	  }
 	}
 
-	&.scrolled {
+	.header-is-fixed & {
 		> .nav__item {
 			padding-right: 26px;
 		
