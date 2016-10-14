@@ -5,7 +5,7 @@
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
-    background: #fff;
+    background: url(../images/blue-52px.png) repeat-x top center;
     box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
     display: block;
 
@@ -26,6 +26,7 @@
   }
 
   .header-is-fixed & {
+    background: none;
     height: 55px;
     left: 50%;
     position: fixed;

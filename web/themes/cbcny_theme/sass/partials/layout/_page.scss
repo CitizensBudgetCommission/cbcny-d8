@@ -2,15 +2,7 @@
 // Styles for the page
 
 .page {
-  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
-    background: url(../images/blue-52px.png) repeat-x top center;
-    
-    &.header-is-fixed {
-      background: none;
-    }
-  }
-}
-
-.main {
-  min-height: 1000px;
+	.main {
+  	min-height: 1000px;
+	}
 }
