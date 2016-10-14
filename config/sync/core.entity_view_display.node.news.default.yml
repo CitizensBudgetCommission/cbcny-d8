@@ -4,14 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_hero
+    - field.field.node.news.field_introduction
     - field.field.node.news.field_page_content
-    - field.field.node.news.field_published_date
     - field.field.node.news.field_subtitle
     - field.field.node.news.field_teaser_plain
     - field.field.node.news.field_term_post_type
     - node.type.news
   module:
-    - datetime
     - entity_reference_revisions
     - title
     - user
@@ -21,58 +20,57 @@ bundle: news
 mode: default
 content:
   field_hero:
-    weight: 102
-    label: above
+    weight: 2
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_introduction:
+    type: entity_reference_revisions_entity_view
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_page_content:
-    weight: 107
-    label: above
+    weight: 4
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
-  field_published_date:
-    weight: 105
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
   field_subtitle:
-    weight: 104
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_teaser_plain:
-    weight: 106
-    label: above
+    weight: 6
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_term_post_type:
-    weight: 103
-    label: above
+    weight: 3
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-  links:
-    weight: 100
   title:
     type: linked_and_wrapped
     settings:
       tag: h1
       linked: false
       classes: ''
-    weight: -5
-    label: above
+    weight: 0
+    label: hidden
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
