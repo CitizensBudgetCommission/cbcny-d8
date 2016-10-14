@@ -12,6 +12,7 @@
       var $mobileNav = $('<nav class="mobile-menu" role="navigation"></nav>'),
           $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
           $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
+          $utilityMenu = $('.header', context).find('.nav--account').not('.contextual-links').first().clone(),
           $mainMenu = $('.header', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
           $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
@@ -44,6 +45,7 @@
 
         // Insert the cloned menus into the mobile menu container.
         $mainMenu.appendTo($mobileLinks);
+        $utilityMenu.children('li').appendTo($mobileLinks.children('.nav'));
 
         // insert search button and clone/append search bar, if it exists.
         if (!($('.mobile-menu .mobile-menu__search').length > 0)) {
