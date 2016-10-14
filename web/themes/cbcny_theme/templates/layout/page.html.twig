@@ -80,8 +80,10 @@
   </main>
 
   {% if page.footer %}
-    <footer class="footer l-constrain" role="contentinfo">
-      {{ page.footer }}
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner l-constrain">
+        {{ page.footer }}
+      </div>
     </footer>
   {% endif %}
 </div>
