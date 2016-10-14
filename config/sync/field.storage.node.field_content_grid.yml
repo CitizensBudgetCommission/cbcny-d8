@@ -1,0 +1,20 @@
+uuid: 1d937b89-f14b-4f39-983d-0df5e410f51d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - views
+id: node.field_content_grid
+field_name: field_content_grid
+entity_type: node
+type: entity_reference
+settings:
+  target_type: view
+module: core
+locked: false
+cardinality: 12
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

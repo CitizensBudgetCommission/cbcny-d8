@@ -1,0 +1,23 @@
+uuid: b0a103b9-0fa5-4750-9ec2-a1b52f4bd235
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_grid
+    - node.type.section_pages
+id: node.section_pages.field_content_grid
+field_name: field_content_grid
+entity_type: node
+bundle: section_pages
+label: 'Content Grid'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

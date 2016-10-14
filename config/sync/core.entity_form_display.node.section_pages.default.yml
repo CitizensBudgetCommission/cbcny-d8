@@ -1,0 +1,57 @@
+uuid: 42dbbd15-ff75-42ad-bf10-62e67d08e1ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.section_pages.field_content_grid
+    - field.field.node.section_pages.field_feature_cards
+    - field.field.node.section_pages.field_other_topics
+    - field.field.node.section_pages.field_topic
+    - node.type.section_pages
+id: node.section_pages.default
+targetEntityType: node
+bundle: section_pages
+mode: default
+content:
+  field_content_grid:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_feature_cards:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_other_topics:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_topic:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

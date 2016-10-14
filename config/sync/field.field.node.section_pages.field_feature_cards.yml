@@ -1,0 +1,35 @@
+uuid: cbf82b98-2a00-4476-8ab4-d1a4232fbef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feature_cards
+    - node.type.basic_page
+    - node.type.longform_report
+    - node.type.news
+    - node.type.post
+    - node.type.section_pages
+id: node.section_pages.field_feature_cards
+field_name: field_feature_cards
+entity_type: node
+bundle: section_pages
+label: 'Feature Cards'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      basic_page: basic_page
+      longform_report: longform_report
+      news: news
+      post: post
+      section_pages: section_pages
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: post
+field_type: entity_reference
