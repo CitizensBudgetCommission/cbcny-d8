@@ -1,0 +1,240 @@
+// @file
+// Styles for the footer
+
+.footer {
+  background-color: #e8e8e8;
+  background-image: url(http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d07d55448751ec4b05887c_City-Silhouette-BG.png);
+  background-position: 50% 100%;
+  background-size: 1470px;
+  background-repeat: no-repeat;
+
+  .footer__inner {
+    padding-bottom: 40px;
+    padding-top: 60px;
+  }
+
+  .social-media-and-promo-container {
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    width: 80%;
+
+    .social-media-container {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+      text-align: center;
+    }
+
+    .promo-container {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 50%;
+      -ms-flex: 0 50%;
+      flex: 0 50%;
+      text-align: center;
+    }
+
+    .footer-heading {
+      color: $cbcny-dark-blue;
+      font-family: $base-font-family;
+      font-size: 1.61em;
+      margin-bottom: 30px;
+      margin-top: 0px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .social-media-button {
+      background-color: $cbcny-dark-blue;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      border-radius: 90px;
+      height: 60px;
+      margin-left: 12px;
+      margin-right: 12px;
+      -webkit-transition: all 200ms ease-in-out;
+      transition: all 200ms ease-in-out;
+      width: 60px;
+
+      &:hover {
+        background-color: #09c;
+      }
+    
+      &.facebook-button {
+        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09cabfe085a11561b1a38_icon-facebook.svg");
+        background-size: auto 37px;
+      }
+
+      &.twitter-button {
+        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09db4b5e3067a0d4b4189_icon-twitter.svg");
+        background-size: auto 29px;
+      }
+
+      &.linkedin-button {
+        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09e594c75f0326f62f22d_icon-linkedin.svg");
+        background-size: auto 30px;
+      }
+
+      &.vimeo-button {
+        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09ecf4c75f0326f62f2ed_icon-vimeo.svg");
+        background-size: auto 27px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    
+      .social-media-container {
+        margin-bottom: 44px;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .promo-container {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+    }
+  }
+
+  .contact-information-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: auto;
+    max-width: 1200px;
+    width: 80%;
+
+    .about-cbcny-container {
+      -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+
+      .about-cbcny-text {
+        color: #494949;
+        font-size: 1em;
+        line-height: 1.76em;
+      }
+    }
+
+    .cbcny-footer-logo {
+      @include svg-background(logo);
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      display: block;
+      height: 90px;
+      overflow: hidden;
+      text-align: center;
+      text-indent: 100%;
+      white-space: nowrap;
+      width: 261px;
+    }
+
+    .cbcny-address-container {
+      -webkit-flex-basis: 30%;
+      -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+
+      .cbcny-address {
+        color: #494949;
+        font-size: 1em;
+        line-height: 1.76em;
+      }
+    }
+
+    @media (max-width: 991px) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    
+      .about-cbcny-container {
+        margin-bottom: 21px;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .cbcny-footer-logo {
+        align-self: center;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        margin: 1.5em 0;
+      }
+
+      .cbcny-address-container {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+      }
+
+      .cbcny-address,
+      .about-cbcny-text {
+        text-align: center;
+      }
+    }
+  }
+
+  .legal-information-container {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+    .copyright-text {
+      display: inline-block;
+      color: #666;
+      font-size: 0.88em;
+    }
+
+    .legal-link {
+      display: inline-block;
+      margin-left: 40px;
+      -webkit-transition: color 200ms ease-in-out;
+      transition: color 200ms ease-in-out;
+      color: #007196;
+      font-size: 0.88em;
+      text-decoration: none;
+
+      @media (max-width: 991px) {
+        margin-left: 20px;
+      }
+    }
+
+    .legal-link:hover {
+      color: #09c;
+    }
+  }
+
+  .footer-hr {
+    margin-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+  }
+}
