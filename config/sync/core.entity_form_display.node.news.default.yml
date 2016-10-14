@@ -1,0 +1,84 @@
+uuid: c4cef0cf-d56c-493c-9bba-1bb05f6a6621
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news.field_hero
+    - field.field.node.news.field_introduction
+    - field.field.node.news.field_page_content
+    - field.field.node.news.field_subtitle
+    - field.field.node.news.field_teaser_plain
+    - field.field.node.news.field_term_post_type
+    - node.type.news
+  module:
+    - paragraphs
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  field_hero:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+  field_introduction:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_page_content:
+    weight: 5
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+  field_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_teaser_plain:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_term_post_type:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true
