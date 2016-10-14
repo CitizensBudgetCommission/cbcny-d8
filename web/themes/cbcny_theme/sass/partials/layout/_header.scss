@@ -5,6 +5,7 @@
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+    background: #fff;
     box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
     display: block;
 
