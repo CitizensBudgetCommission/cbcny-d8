@@ -1,0 +1,22 @@
+uuid: 3201c7bf-0e6d-4c8d-bb5e-6123fe930a33
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cbcny_theme
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: cbcny_theme_breadcrumbs
+theme: cbcny_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
