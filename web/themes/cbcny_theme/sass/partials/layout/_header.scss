@@ -5,33 +5,42 @@
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
+    display: block;
 
-  nav:first-child {
-    align-self: center;
-    flex-basis: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
+    .header__inner {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      nav:first-child {
+        align-self: center;
+        flex-basis: 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+    }
   }
 
   .header-is-fixed & {
-    background-color: #fff;
     height: 55px;
-    justify-content: space-between;
     left: 50%;
     position: fixed;
     top: 0%;
     transform: translateX(-50%);
     width: 100%;
 
-    nav:first-child {
-      flex-basis: auto;
-      order: 2;
+    .header__inner {
+      height: 55px;
+      justify-content: space-between;
+      width: 100%;
+
+      nav:first-child {
+        flex-basis: auto;
+        order: 2;
+      }
     }
   }
 }
