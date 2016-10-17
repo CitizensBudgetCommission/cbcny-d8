@@ -1,0 +1,7 @@
+uuid: df4b2284-47fd-459f-98a3-8dac4e0f77e4
+langcode: en
+status: true
+dependencies: {  }
+formId: yamlform_submission_contact_form
+captchaType: image_captcha/Image
+label: yamlform_submission_contact_form

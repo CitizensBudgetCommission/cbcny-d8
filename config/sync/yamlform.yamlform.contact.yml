@@ -9,7 +9,7 @@ template: false
 id: contact
 title: Contact
 description: 'Basic email contact form.'
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:mail]'\nsubject:\n  '#title': 'Subject'\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact form from [site:name]'\nmessage:\n  '#title': 'Message'\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\n"
+elements: "name:\n  '#type': textfield\n  '#title': Name\n  '#default_value': '[yamlform-authenticated-user:display-name]'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[yamlform-authenticated-user:mail]'\n  '#required': true\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\ncaptcha:\n  '#type': captcha\n"
 settings:
   page: true
   page_submit_path: ''
