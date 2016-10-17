@@ -10,6 +10,7 @@ $button-gradient-bottom: $gradient-dark !default;
 @mixin button($bg-color: $button-color-bg, $text-color: $button-color-text, $font-size: $button-font-size) {
   @extend %base-font-family;
   background-color: $bg-color;
+  border: none;
   box-shadow: 0 3px 10px -4px rgba(0, 0, 0, .49);
   color: $button-color-text;
   cursor: pointer;
