@@ -1,6 +1,6 @@
-uuid: d9eec10c-f088-4870-aef9-193c51254a40
+uuid: 87f3394b-3c9d-4912-a566-107d374f4c16
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -12,8 +12,8 @@ _core:
   default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
 id: cbcny_theme_footer
 theme: cbcny_theme
-region: header
-weight: 0
+region: '-1'
+weight: -5
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

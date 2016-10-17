@@ -1,4 +1,4 @@
-uuid: dc97dd30-9b25-44e9-8d24-ecd6763d555e
+uuid: 9b79ea82-3b02-479b-abf8-088edf2ebd60
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ _core:
 id: cbcny_theme_page_title
 theme: cbcny_theme
 region: content
-weight: -50
+weight: -6
 provider: null
 plugin: page_title_block
 settings:
