@@ -9,7 +9,10 @@ $form-text-size: map-get($font-size, m) !default;
 
 .form-item--textfield,
 .form-item--textarea,
+.form-item--name,
 .form-item--password,
+.form-item-name,
+.form-item-password,
 .form-item--radios,
 .form-item--checkbox,
 .form-item--checkboxes {
