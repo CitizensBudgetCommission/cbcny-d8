@@ -77,7 +77,7 @@ $form-text-size: map-get($font-size, m) !default;
   width: 100%;
 
   &:focus {
-    border-color: $cbcny-light-blue;
+    border-color: #000 #f3f3f3 $cbcny-light-blue;
     outline: 0;
   }
 }
