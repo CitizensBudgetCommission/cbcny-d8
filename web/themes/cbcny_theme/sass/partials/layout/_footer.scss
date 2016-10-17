@@ -19,6 +19,11 @@
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -26,18 +31,19 @@
     width: 80%;
 
     .social-media-container {
+      margin-bottom: 44px;
       -webkit-box-flex: 0;
-      -webkit-flex: 0 50%;
-      -ms-flex: 0 50%;
-      flex: 0 50%;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
       text-align: center;
     }
 
     .promo-container {
       -webkit-box-flex: 0;
-      -webkit-flex: 0 50%;
-      -ms-flex: 0 50%;
-      flex: 0 50%;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
       text-align: center;
     }
 
@@ -88,26 +94,25 @@
       }
     }
 
-    @media (max-width: 991px) {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-    
+    @include breakpoint($bp-footer-switch, $no-query: true) {
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+
       .social-media-container {
-        margin-bottom: 44px;
         -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+        -webkit-flex: 0 50%;
+        -ms-flex: 0 50%;
+        flex: 0 50%;
+        margin: 0;
       }
 
       .promo-container {
         -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+        -webkit-flex: 0 50%;
+        -ms-flex: 0 50%;
+        flex: 0 50%;
       }
     }
   }
@@ -117,6 +122,11 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
@@ -128,23 +138,32 @@
     width: 80%;
 
     .about-cbcny-container {
-      -webkit-flex-basis: 30%;
-      -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      margin-bottom: 21px;
 
       .about-cbcny-text {
         color: #494949;
         font-size: 1em;
         line-height: 1.76em;
+        text-align: center;
       }
     }
 
     .cbcny-footer-logo {
+      align-self: center;
       @include svg-background(logo);
       background-repeat: no-repeat;
       background-size: 100% auto;
       display: block;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
       height: 90px;
+      margin: 1.5em 0;
       overflow: hidden;
       text-align: center;
       text-indent: 100%;
@@ -153,51 +172,52 @@
     }
 
     .cbcny-address-container {
-      -webkit-flex-basis: 30%;
-      -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
-
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      
       .cbcny-address {
         color: #494949;
         font-size: 1em;
         line-height: 1.76em;
+        text-align: center;
       }
     }
 
-    @media (max-width: 991px) {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-    
+    @include breakpoint($bp-footer-switch, $no-query: true) {
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+
+      .cbcny-address-container {
+        -webkit-flex-basis: 30%;
+        -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+      
+        .cbcny-address {
+          text-align: left;
+        }
+      }
+
       .about-cbcny-container {
-        margin-bottom: 21px;
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+        -webkit-flex-basis: 30%;
+        -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+        margin: 0;
+
+        .about-cbcny-text {
+          text-align: left;
+        }
       }
 
       .cbcny-footer-logo {
-        align-self: center;
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-        margin: 1.5em 0;
-      }
-
-      .cbcny-address-container {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 auto;
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-      }
-
-      .cbcny-address,
-      .about-cbcny-text {
-        text-align: center;
+        align-self: flex-start;
+        -webkit-flex-basis: auto;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+        margin: 0;
       }
     }
   }
@@ -216,15 +236,15 @@
 
     .legal-link {
       display: inline-block;
-      margin-left: 40px;
+      margin-left: 20px;
       -webkit-transition: color 200ms ease-in-out;
       transition: color 200ms ease-in-out;
       color: #007196;
       font-size: 0.88em;
       text-decoration: none;
 
-      @media (max-width: 991px) {
-        margin-left: 20px;
+      @include breakpoint($bp-footer-switch, $no-query: true) {
+        margin-left: 40px;
       }
     }
 
