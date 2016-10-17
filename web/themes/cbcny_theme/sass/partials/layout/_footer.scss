@@ -3,7 +3,7 @@
 
 .footer {
   background-color: #e8e8e8;
-  background-image: url(http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d07d55448751ec4b05887c_City-Silhouette-BG.png);
+  background-image: url(../images/City-Silhouette-BG.png);
   background-position: 50% 100%;
   background-size: 1470px;
   background-repeat: no-repeat;
@@ -68,22 +68,22 @@
       }
     
       &.facebook-button {
-        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09cabfe085a11561b1a38_icon-facebook.svg");
+        @include svg-background(icon-facebook);
         background-size: auto 37px;
       }
 
       &.twitter-button {
-        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09db4b5e3067a0d4b4189_icon-twitter.svg");
+        @include svg-background(icon-twitter);
         background-size: auto 29px;
       }
 
       &.linkedin-button {
-        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09e594c75f0326f62f22d_icon-linkedin.svg");
+        @include svg-background(icon-linkedin);
         background-size: auto 30px;
       }
 
       &.vimeo-button {
-        background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d09ecf4c75f0326f62f2ed_icon-vimeo.svg");
+        @include svg-background(icon-vimeo);
         background-size: auto 27px;
       }
     }
