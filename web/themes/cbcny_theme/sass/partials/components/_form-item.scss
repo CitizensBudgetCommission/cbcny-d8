@@ -74,7 +74,7 @@ $form-text-size: map-get($font-size, m) !default;
   width: 100%;
 
   &:focus {
-    border-color: darken($form-border-color, 50%);
+    border-color: $cbcny-light-blue;
     outline: 0;
   }
 }
@@ -88,6 +88,13 @@ $form-text-size: map-get($font-size, m) !default;
 .form-text,
 .form-textarea {
   margin-bottom: 0;
+}
+
+.form-select {
+  @include svg-background(icon-meatball-hover);
+    background-position: 95% 50%;
+    background-size: 7px;
+    background-repeat: no-repeat;
 }
 
 // Custom form item styles.
