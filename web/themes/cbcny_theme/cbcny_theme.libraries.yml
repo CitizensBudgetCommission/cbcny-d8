@@ -15,5 +15,5 @@ mobile-menu:
   js:
     js/mobile-menu.js: {}
   dependencies:
-    - core/drupal
     - core/jquery
+    - core/drupal
