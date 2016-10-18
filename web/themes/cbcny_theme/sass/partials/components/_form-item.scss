@@ -71,7 +71,6 @@ $form-text-size: map-get($font-size, m) !default;
   font-size: em($form-text-size);
   height: 60px;
   padding: em(20px);
-  -webkit-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
   vertical-align: middle;
   width: 100%;
