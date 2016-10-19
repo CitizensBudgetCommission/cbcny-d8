@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.section_pages.field_content_grid
     - field.field.node.section_pages.field_feature_cards
     - field.field.node.section_pages.field_other_topics
     - field.field.node.section_pages.field_topic
@@ -29,7 +28,6 @@ content:
     label: above
     third_party_settings: {  }
 hidden:
-  field_content_grid: true
   field_feature_cards: true
   field_other_topics: true
   field_topic: true

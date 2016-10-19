@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_topic
     - node.type.section_pages
+    - taxonomy.vocabulary.topics
 id: node.section_pages.field_topic
 field_name: field_topic
 entity_type: node
@@ -17,5 +18,11 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
-  handler_settings: {  }
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

@@ -1,0 +1,6 @@
+uuid: 6978a036-fa10-4163-939b-e1a3d6de1004
+langcode: en
+status: true
+dependencies: {  }
+id: view_embed
+label: 'View Embed'
