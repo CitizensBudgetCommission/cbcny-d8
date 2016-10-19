@@ -1,0 +1,21 @@
+uuid: 57ecaa4b-712c-4b77-8f60-c4426a0e5bed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_name
+    - paragraphs.paragraphs_type.view_embed
+id: paragraph.view_embed.field_view_name
+field_name: field_view_name
+entity_type: paragraph
+bundle: view_embed
+label: 'View name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: entity_reference

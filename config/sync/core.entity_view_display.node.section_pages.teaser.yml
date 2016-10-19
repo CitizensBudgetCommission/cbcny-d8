@@ -1,0 +1,33 @@
+uuid: 853a9b51-ee3e-444f-99e2-18e84578d90c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.section_pages.field_feature_cards
+    - field.field.node.section_pages.field_other_topics
+    - field.field.node.section_pages.field_topic
+    - node.type.section_pages
+  module:
+    - title
+    - user
+id: node.section_pages.teaser
+targetEntityType: node
+bundle: section_pages
+mode: teaser
+content:
+  links:
+    weight: 100
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_feature_cards: true
+  field_other_topics: true
+  field_topic: true
