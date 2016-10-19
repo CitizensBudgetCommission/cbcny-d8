@@ -7,12 +7,18 @@
 	background-color: transparent;
 	background-size: 100% auto;
 	display: block;
-	height: 61px;
+	height: 47px;
 	margin: 15px 0;
 	overflow: hidden;
+	padding: 0;
 	text-indent: 150%;
 	white-space: nowrap;
-	width: 176px;
+	width: 137px;
+
+	@include breakpoint($bp-footer-switch, $no-query: true) {
+		height: 61px;
+		width: 176px;
+	}
 
 	.header-is-fixed & {
 		@include svg-background(logo-sm);
