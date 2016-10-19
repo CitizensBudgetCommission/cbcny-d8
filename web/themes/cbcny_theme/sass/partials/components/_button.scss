@@ -4,6 +4,57 @@
 .button {
   @include button();
 
+  &.blue-button {
+    background-color: $cbcny-blue;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background-color: #09c;
+    }
+  }
+
+  &.dropdown-button {
+    display: block;
+    padding-right: 60px;
+    background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db2125e8c28c59629bb5_icon-meatball.svg");
+    background-position: 90% 50%;
+    background-repeat: no-repeat;
+    font-size: 1.05em;
+    text-transform: none;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db8c6ade7ec05d5b50ff_icon-meatball-hover.svg"), url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db2125e8c28c59629bb5_icon-meatball.svg");
+      background-position: 90% 50%, 90% 50%;
+      background-repeat: no-repeat, no-repeat;
+      color: #007faa;
+    }
+  }
+
+  &.toc-button {
+    padding-left: 30px;
+    text-align: left;
+    width: 100%;
+  }
+
+  &.form-button {
+    margin-top: 36px;
+  }
+
+  &.secondary-button {
+    background-color: #b9b9b9;
+    color: #4b4b4b;
+    margin-left: 34px;
+
+    &:hover,
+    &:focus {
+      color: #272727;
+    }
+  }
+
+
   & + & {
     margin-left: 1em; // LTR
 

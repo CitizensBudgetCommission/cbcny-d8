@@ -1,0 +1,22 @@
+uuid: 1231827a-8f38-4791-8587-b9a9be1267a0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cbcny_theme
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: cbcny_theme_local_tasks
+theme: cbcny_theme
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -5,14 +5,15 @@ global:
       css/styles.css: { browsers: { IE: 'gte IE 9' } }
       css/no-mq.css: { browsers: { IE: 'lte IE 8', '!IE': false } }
   js:
-    js/mobile-menu.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/modernizr
-  js:
     js/scripts.js: {}
   dependencies:
     - core/jquery
     - core/drupal
     - core/modernizr
+
+mobile-menu:
+  js:
+    js/mobile-menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

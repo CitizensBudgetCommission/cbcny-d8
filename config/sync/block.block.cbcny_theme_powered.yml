@@ -1,0 +1,22 @@
+uuid: 9e7b04ec-7d08-43bf-b23a-a3a2e0528590
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - cbcny_theme
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: cbcny_theme_powered
+theme: cbcny_theme
+region: '-1'
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

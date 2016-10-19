@@ -6,6 +6,7 @@ base theme: stable
 
 libraries:
   - cbcny_theme/global
+  - cbcny_theme/mobile-menu
 
 libraries-override:
   system/base:
