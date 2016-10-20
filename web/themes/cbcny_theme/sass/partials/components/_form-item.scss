@@ -94,9 +94,17 @@ $form-text-size: map-get($font-size, m) !default;
 
 .form-select {
   @include svg-background(icon-meatball-hover);
-    background-position: 95% 50%;
-    background-size: 7px;
-    background-repeat: no-repeat;
+  background-position: 95% 50%;
+  background-size: 7px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+
+  &::-ms-expand {
+    display: none;
+  }
 }
 
 // Custom form item styles.
