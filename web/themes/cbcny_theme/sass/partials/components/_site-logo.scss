@@ -3,7 +3,7 @@
 
 .site-logo {
 	@extend .l-constrain;
-	@include svg-background(logo2);
+	@include svg-background(logo);
 	background-color: transparent;
 	background-size: 100% auto;
 	display: block;
@@ -21,7 +21,7 @@
 	}
 
 	.header-is-fixed & {
-		@include svg-background(logo-sm2);
+		@include svg-background(logo-sm);
 		height: 35px;
 		margin: 7px 0;
 		width: 107px;
