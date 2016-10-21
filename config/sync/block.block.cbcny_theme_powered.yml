@@ -11,7 +11,7 @@ _core:
 id: cbcny_theme_powered
 theme: cbcny_theme
 region: '-1'
-weight: -6
+weight: -5
 provider: null
 plugin: system_powered_by_block
 settings:
