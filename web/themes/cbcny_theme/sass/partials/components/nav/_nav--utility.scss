@@ -41,6 +41,11 @@
 	  		@include svg-background(icon-search);
 	  		background-size: 20px 16px;
 	  	}
+
+	  	&:hover,
+	  	&:focus {
+	  		text-decoration: underline;
+	  	}
 	  }
 	}
 
