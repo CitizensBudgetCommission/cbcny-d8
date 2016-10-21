@@ -1,0 +1,25 @@
+uuid: 428e9e51-db8b-4dc7-86f4-fd8d1454f1a7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:68b4beab-494a-4ecc-8676-bc0a9462b703'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: footerlinksandtext_2
+theme: cbcny_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:68b4beab-494a-4ecc-8676-bc0a9462b703'
+settings:
+  id: 'block_content:68b4beab-494a-4ecc-8676-bc0a9462b703'
+  label: 'Footer links and text'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
