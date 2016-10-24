@@ -22,7 +22,7 @@
         flex-grow: 0;
         flex-shrink: 0;
       }
-      .block--utility-navigation-block {
+      nav:nth-child(2) {
         align-self: center;
         flex-basis: 70%;
         flex-grow: 0;
@@ -48,7 +48,7 @@
       nav:first-child {
         display: none;
       }
-      .block--utility-navigation-block {
+      nav:nth-child(2) {
         align-self: center;
         flex-basis: auto;
         flex-grow: 0;
