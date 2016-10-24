@@ -4,19 +4,24 @@
 .figure {
   background-color: $cbcny-white;
   margin-bottom: em($base-line-height);
+
+  &.figure--image {
+    display: table;
+
+    .figure__caption {
+      display: table-caption;
+    }
+  }
 }
 
 .figure__caption {
+  caption-side: bottom;
   color: $cbcny-dark-gray;
   font-size: em(map-get($font-size, s));
   line-height: 1.5;
-  padding-top: rem(15px);
+  padding: em(15px) em(40px) 0;
 }
 
 .figure--image {
-  padding: em(40px);
-
-  .figure__caption {
-    margin-bottom: rem(-12px);
-  }
+  padding: em(40px) em(40px) 0;
 }
