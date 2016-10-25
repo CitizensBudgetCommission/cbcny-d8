@@ -1,0 +1,29 @@
+// @file
+// Styles for .pullquote
+
+.pullquote {
+	background-color: $cbcny-light-blue;
+  border-bottom: 1px solid #a6d0e2;
+  margin-bottom: 41px;
+  padding: 50px 40px 40px;
+}
+
+.pullquote__item {
+	color: #fff;
+  font-family: $secondary-font-family;
+  font-size: 1.3em;
+  letter-spacing: -1px;
+  line-height: 1.4em;
+  margin-bottom: 10px;
+ }
+
+.pullquote__attribution {
+	border-top: 2px solid #6cf100;
+  color: #fff;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: 0.95em;
+  margin-bottom: 10px;
+  margin-top: 16px;
+  padding-top: 11px;
+}
