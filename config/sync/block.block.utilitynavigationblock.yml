@@ -1,0 +1,25 @@
+uuid: 7e6dd360-766e-4344-af71-d2f68cf3b930
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d6e17538-eda0-4a8e-828b-09f2f4609c43'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: utilitynavigationblock
+theme: cbcny_theme
+region: header
+weight: -6
+provider: null
+plugin: 'block_content:d6e17538-eda0-4a8e-828b-09f2f4609c43'
+settings:
+  id: 'block_content:d6e17538-eda0-4a8e-828b-09f2f4609c43'
+  label: 'Utility navigation block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
