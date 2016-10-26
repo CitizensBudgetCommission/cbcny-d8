@@ -1,0 +1,62 @@
+// @file
+// Styles for the post headings
+
+.post-heading {
+  background-color: hsla(0, 0%, 98%, .9);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1060px;
+  padding: 31px 62px 29px;
+}
+
+.post-heading__type-topic {
+  margin-bottom: 14px;
+}
+
+.post-heading__type,
+.post-heading__topic {
+  display: inline-block;
+  font-family: $base-font-family;
+  font-weight: 500;
+  color: $cbcny-dark-green;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+.post-heading__pipe {
+  border-left: 2px solid #bbb;
+  display: inline-block;
+  height: 20px;
+  margin-bottom: -4px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.post-heading__title {
+  color: $cbcny-blue;
+  font-family: $secondary-font-family;
+  font-size: 2.2em;
+  font-weight: 400;
+  letter-spacing: -1px;
+  line-height: 1.15em;
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+  @include breakpoint($bp-larger-post-title) {
+    font-size: 2.5em;
+  }
+}
+
+.post-heading__subtitle {
+  color: $cbcny-dark-gray;
+  font-family: $base-font-family;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 36px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+  @include breakpoint($bp-larger-post-title) {
+    font-size: 1.6em;
+  }
+}
