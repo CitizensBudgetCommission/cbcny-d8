@@ -20,4 +20,4 @@ mobile-menu:
 
 add-this:
   js:
-    //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fe0a2f86664049b { type: external, minified: true }
+    //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fe0a2f86664049b: { type: external, minified: true }
