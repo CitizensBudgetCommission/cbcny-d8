@@ -6,7 +6,16 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 1060px;
-  padding: 31px 62px 29px;
+  padding: 22px 30px 29px;
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    padding-left: 62px;
+    padding-right: 62px;
+  }
+  
+  @include breakpoint($bp-larger-post-title) {
+    padding-top: 31px;
+  }
 }
 
 .post-heading__type-topic {
