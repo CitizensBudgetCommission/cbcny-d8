@@ -1,0 +1,33 @@
+// @file
+// Styles for the site name.
+
+$logo-width: em(140px);
+$logo-height: em(48px);
+$logo-large-width: em(178px);
+$logo-large-height: em(61px);
+
+.site-name {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.site-name__link {
+  display: block;
+  padding: em(18px);
+}
+
+.site-name__text {
+  @include svg-background(cbcny-logo);
+  @include image-replace($logo-width, $logo-height);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  font-size: 100%;
+  margin: 0;
+
+  @include breakpoint($bp-larger-site-logo) {
+    height: $logo-large-height;
+    width: $logo-large-width;
+  }
+}

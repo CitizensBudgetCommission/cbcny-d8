@@ -3,7 +3,8 @@
   "htmlClass": "",
   "pageTitle": "Page Title",
   "section": "Section",
-  "siteName": "Site Name",
+  "siteName": "CBCNY",
+  "siteSlogan": "Citizens Budget Commission",
 
   "font": {
     "monospace": "Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;",
