@@ -7,6 +7,7 @@ base theme: stable
 libraries:
   - cbcny_theme/global
   - cbcny_theme/mobile-menu
+  - cbcny_theme/add-this
 
 libraries-override:
   system/base:
