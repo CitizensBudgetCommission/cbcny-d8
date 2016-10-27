@@ -1,4 +1,8 @@
 <article class="node node--type-page node--display-mode-full" role="article">
-  <h1 class="node__title">{{ pageTitle }}</h1>
-  {{ body | raw }}
+  {% include "components-post-heading" %}
+  <div class="post-body l-constrain-narrow">
+  	{% include "components-published-date" %}
+  	{% include "components-full-text" %}
+  	{% include "components-chart-embed" %}
+  </div>
 </article>
