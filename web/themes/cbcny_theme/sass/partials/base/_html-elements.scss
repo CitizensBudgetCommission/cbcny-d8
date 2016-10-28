@@ -312,16 +312,14 @@ ol {
     margin: rem(15px) 0 0;
   }
 
-  li li {
+  ol,
+  ol ol ol {
     list-style-type: lower-alpha;
   }
 
-  li li li {
+  ol ol,
+  ol ol ol ol {
     list-style-type: decimal;
-  }
-
-  li li li li {
-    list-style-type: lower-alpha;
   }
 }
 
