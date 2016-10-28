@@ -9,102 +9,104 @@
   padding-top: 12px;
   text-align: right;
 
-  > .nav__item {
-	  padding-right: 33px;
-	  vertical-align: top;
-	  
-	  &:last-child {
-	  	padding-right: 0;
-	  }
+  .nav__item {
+    padding-right: 33px;
+    vertical-align: top;
 
-	  > .nav__link {
-	  	background-position: 100% 50%;
-	  	background-repeat: no-repeat;
-	  	color: #fff;
-	  	font-family: $base-font-family;
-	  	font-size: .82em;
-	  	padding-right: 29px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 
-	  	&.nav__link--contactus {
-	  		@include svg-background(icon-contactus);
-	  		background-size: 20px 16px;
-	  	}
-	  	&.nav__link--subscribe {
-	  		@include svg-background(icon-subscribe);
-	  		background-size: 16px 16px;
-	  	}
-	  	&.nav__link--donate {
-	  		@include svg-background(icon-donate);
-	  		background-size: 16px 16px;
-	  	}
-	  	&.nav__link--search {
-	  		@include svg-background(icon-search);
-	  		background-size: 20px 16px;
-	  	}
+  .nav__link {
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: .82em;
+    padding-right: 29px;
 
-	  	&:hover,
-	  	&:focus {
-	  		text-decoration: underline;
-	  	}
-	  }
-	}
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-	.header-is-fixed & {
-		background-color: transparent;
-		height: auto;
-		padding: 0;
-		
-		> .nav__item {
-			padding-right: 22px;
-		
-			> .nav__link {
-				font-size: 0;
-				height: 16px;
-				overflow: hidden;
-				padding-right: 0;
-				text-indent: 100%;
-				white-space: nowrap;
-				width: 20px;
+  .nav__link--contact-us {
+    @include svg-background(icon-contact-us);
+    background-size: 20px 16px;
+  }
 
-				&.nav__link--contactus {
-		  		@include svg-background(icon-contactus--gray);
-		  		background-size: 20px 16px;
-		  	}
-		  	&.nav__link--subscribe {
-		  		@include svg-background(icon-subscribe--gray);
-		  		background-size: 16px 16px;
-		  	}
-		  	&.nav__link--donate {
-		  		@include svg-background(icon-donate--gray);
-		  		background-size: 16px 16px;
-		  	}
-		  	&.nav__link--search {
-		  		@include svg-background(icon-search--gray);
-		  		background-size: 20px 16px;
-		  	}
+  .nav__link--subscribe {
+    @include svg-background(icon-subscribe);
+    background-size: 16px 16px;
+  }
 
-		  	&:hover,
-			  	&:focus {
-			  		&.nav__link--contactus {
-			  		@include svg-background(icon-contactus--blue);
-			  		background-size: 20px 16px;
-			  	}
-			  	&.nav__link--subscribe {
-			  		@include svg-background(icon-subscribe--blue);
-			  		background-size: 16px 16px;
-			  	}
-			  	&.nav__link--donate {
-			  		@include svg-background(icon-donate--blue);
-			  		background-size: 16px 16px;
-			  	}
-			  	&.nav__link--search {
-			  		@include svg-background(icon-search--blue);
-			  		background-size: 20px 16px;
-			  	}
-		  	}
-			}
-		}
-	}
+  .nav__link--donate {
+    @include svg-background(icon-donate);
+    background-size: 16px 16px;
+  }
+
+  .nav__link--search {
+    @include svg-background(icon-search);
+    background-size: 20px 16px;
+  }
+
+//  .header-is-fixed & {
+//    background-color: transparent;
+//    height: auto;
+//    padding: 0;
+//
+//    > .nav__item {
+//      padding-right: 22px;
+//
+//      > .nav__link {
+//        font-size: 0;
+//        height: 16px;
+//        overflow: hidden;
+//        padding-right: 0;
+//        text-indent: 100%;
+//        white-space: nowrap;
+//        width: 20px;
+//
+//        &.nav__link--contact-us {
+//          @include svg-background(icon-contact-us--gray);
+//          background-size: 20px 16px;
+//        }
+//        &.nav__link--subscribe {
+//          @include svg-background(icon-subscribe--gray);
+//          background-size: 16px 16px;
+//        }
+//        &.nav__link--donate {
+//          @include svg-background(icon-donate--gray);
+//          background-size: 16px 16px;
+//        }
+//        &.nav__link--search {
+//          @include svg-background(icon-search--gray);
+//          background-size: 20px 16px;
+//        }
+//
+//        &:hover,
+//        &:focus {
+//            &.nav__link--contact-us {
+//            @include svg-background(icon-contact-us--blue);
+//            background-size: 20px 16px;
+//          }
+//          &.nav__link--subscribe {
+//            @include svg-background(icon-subscribe--blue);
+//            background-size: 16px 16px;
+//          }
+//          &.nav__link--donate {
+//            @include svg-background(icon-donate--blue);
+//            background-size: 16px 16px;
+//          }
+//          &.nav__link--search {
+//            @include svg-background(icon-search--blue);
+//            background-size: 20px 16px;
+//          }
+//        }
+//      }
+//    }
+//  }
 
   @media print {
     display: none;

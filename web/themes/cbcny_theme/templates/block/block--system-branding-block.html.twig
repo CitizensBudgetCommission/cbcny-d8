@@ -6,7 +6,14 @@
  */
 #}
 {% block content %}
-  {% if site_logo %}
-    <a class="site-logo" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{% if site_name %}{{ site_name }}{% else %}Home{% endif %}</a>
+  {% if site_name %}
+    <div class="site-name">
+      <a class="site-name__link" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        <h1 class="site-name__text">{{ site_name }}</h1>
+      </a>
+    </div>
+  {% endif %}
+  {% if site_slogan %}
+    <div class="site-slogan">{{ site_slogan }}</div>
   {% endif %}
 {% endblock %}
