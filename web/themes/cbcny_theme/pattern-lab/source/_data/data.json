@@ -3,7 +3,8 @@
   "htmlClass": "",
   "pageTitle": "Page Title",
   "section": "Section",
-  "siteName": "Site Name",
+  "siteName": "CBCNY",
+  "siteSlogan": "Citizens Budget Commission",
 
   "font": {
     "monospace": "Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;",
@@ -47,10 +48,10 @@
       "width": "300"
     },
     "landscape": {
-      "src": "http://fpoimg.com/860x484?text=Landscape 16:9",
+      "src": "../../images/800x450.png",
       "alt": "Landscape 16:9",
-      "height": "484",
-      "width": "860"
+      "height": "450",
+      "width": "800"
     }
   },
 

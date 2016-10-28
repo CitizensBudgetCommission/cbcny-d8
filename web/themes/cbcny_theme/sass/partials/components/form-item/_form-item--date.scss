@@ -6,4 +6,15 @@
 .form-item--date-year {
   display: inline-block;
   margin: 0;
+  
+  .form-select {
+  	-webkit-appearance: menulist;
+  	-moz-appearance: menulist;
+  	appearance: menulist;
+	  background: none;
+
+	  &::-ms-expand {
+    	display: inline-block;
+	  }
+  }
 }
