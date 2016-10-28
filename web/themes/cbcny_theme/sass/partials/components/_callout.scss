@@ -1,0 +1,26 @@
+// @file
+// Styles for a callout.
+
+.callout {
+  background-color: $cbcny-extremely-light-blue;
+  border-bottom: 1px solid $cbcny-pale-blue;
+  color: $cbcny-dark-gray;
+  margin-bottom: em($base-line-height);
+  padding: em(30px) em(50px);
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $cbcny-dark-blue;
+  }
+}
+
+.callout__content {
+  font-size: rem(map-get($font-size, l));
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
