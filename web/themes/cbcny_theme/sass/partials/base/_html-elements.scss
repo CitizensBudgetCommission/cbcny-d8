@@ -140,7 +140,7 @@ h1,
   @extend %hN;
   @extend %secondary-font-family;
   color: $cbcny-blue;
-  font-size: rem(map-get($font-size, xxl));
+  font-size: rem(map-get($font-size, xxxl));
   font-weight: 400;
   letter-spacing: -1px;
   line-height: 1.15;
@@ -151,7 +151,7 @@ h2,
 %h2 {
   @extend %hN;
   color: $cbcny-dark-blue;
-  font-size: rem(map-get($font-size, xl));
+  font-size: rem(map-get($font-size, xxl));
   font-weight: 700;
   line-height: 1.3;
 }
