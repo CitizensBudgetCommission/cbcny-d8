@@ -1,0 +1,12 @@
+// @file
+// Styles for headings.
+
+.heading {}
+
+.heading--h3 {
+  @extend %h3;
+}
+
+.heading--green {
+  color: $cbcny-dark-green;
+}
