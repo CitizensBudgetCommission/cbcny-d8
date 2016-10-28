@@ -1,0 +1,26 @@
+// @file
+// Styles for pullquotes.
+
+.pullquote {
+  background: $cbcny-light-blue;
+  border-bottom: 1px solid $cbcny-pale-blue;
+  color: $cbcny-white;
+  margin-bottom: em($base-line-height);
+  padding: em(40px);
+}
+
+.pullquote__item {
+  @extend %secondary-font-family;
+  font-size: em(map-get($font-size, xl));
+  letter-spacing: -1px;
+  line-height: 1.4;
+ }
+
+.pullquote__attribution {
+  border-top: 2px solid $cbcny-lime-green;
+  color: $cbcny-white;
+  display: inline-block;
+  font-size: em(map-get($font-size, s));
+  margin-top: em(16px, map-get($font-size, s));
+  padding-top: em(11px, map-get($font-size, s));
+}

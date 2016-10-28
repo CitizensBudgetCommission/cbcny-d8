@@ -6,11 +6,11 @@
 
   &.blue-button {
     background-color: $cbcny-blue;
-    color: #fff;
+    color: $cbcny-white
 
     &:hover,
     &:focus {
-      background-color: #09c;
+      background-color: $cbcny-light-blue;
     }
   }
 
@@ -25,7 +25,7 @@
 
     &:hover,
     &:focus {
-      background-color: #fff;
+      background-color: $cbcny-white;
       background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db8c6ade7ec05d5b50ff_icon-meatball-hover.svg"), url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db2125e8c28c59629bb5_icon-meatball.svg");
       background-position: 90% 50%, 90% 50%;
       background-repeat: no-repeat, no-repeat;
