@@ -5,7 +5,7 @@ $fieldset-bg-color: $form-bg-color !default;
 $fieldset-border-color: $form-border-color !default;
 
 .fieldset {
-  background: #fff;
+  background: $cbcny-white;
   border: 1px solid $fieldset-border-color;
   margin: 1.5em 0 1.5em + em(12px);
   padding: 0 1em;
@@ -26,7 +26,7 @@ $fieldset-border-color: $form-border-color !default;
     padding: 0;
     position: absolute;
     text-indent: 0;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 $cbcny-white;
     top: em(-12px);
     width: 100%;
   }

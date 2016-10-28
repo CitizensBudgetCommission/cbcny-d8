@@ -6,7 +6,7 @@
 }
 
 .progress__track {
-  background-color: #fff;
+  background-color: $cbcny-white;
   background-image: linear-gradient(to bottom, $gradient-dark 0%, $gradient-light 100%);
   border: 1px solid $form-border-color;
   border-radius: 1em;
