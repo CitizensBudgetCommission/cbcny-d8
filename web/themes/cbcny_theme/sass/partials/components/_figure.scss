@@ -4,24 +4,24 @@
 .figure {
   background-color: $cbcny-white;
   margin-bottom: em($base-line-height);
-
-  &.figure--image {
-    display: table;
-
-    .figure__caption {
-      display: table-caption;
-    }
-  }
 }
 
 .figure__caption {
-  caption-side: bottom;
+  background-color: $cbcny-white;
   color: $cbcny-dark-gray;
   font-size: em(map-get($font-size, s));
   line-height: 1.5;
-  padding: em(15px) em(40px) 0;
+  padding: em(15px) em(20px);
 }
 
 .figure--image {
-  padding: em(40px) em(40px) 0;
+  display: table;
+  padding: em(40px);
+
+  .figure__caption {
+    caption-side: bottom;
+    display: table-caption;
+    margin-top: em(-40px);
+    padding: em(15px) em(40px) em(40px);
+  }
 }
