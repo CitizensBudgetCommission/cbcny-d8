@@ -10,50 +10,45 @@
   padding-bottom: 12px;
   padding-top: 12px;
 
-  > .nav__item {
-	  padding-right: 0;
-	  vertical-align: top;
-	  
-	  &:last-child {
-	  	padding-right: 0;
-	  }
+  .nav__item {
+    padding-right: 0;
+    vertical-align: top;
+  }
 
-	  > .nav__link {
-	  	background-position: 100% 50%;
-	  	background-repeat: no-repeat;
-	  	color: #fff;
-	  	font-family: $base-font-family;
-	  	font-size: .82em;
-	  	padding-right: 29px;
+  .nav__link {
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    color: $cbcny-white;
+    font-size: .82em;
+    padding-right: 29px;
 
-	  	&:hover,
-	  	&:focus {
-	  		text-decoration: underline;
-	  	}
-	  }
-	}
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-	.header-is-fixed & {
-		background-color: transparent;
-		height: auto;
-		padding: 0;
-		text-align: left;
-		
-		> .nav__item {
-			padding-right: 22px;
-		
-			> .nav__link {
-				color: $cbcny-dark-gray;
-		  	transition: color 200ms ease-in-out;
-
-		  	&:hover,
-		  	&:focus,
-		  	&.active {
-		  		color: $cbcny-blue;
-		  	}
-		  }
-		}
-	}
+//  .header-is-fixed & {
+//    background-color: transparent;
+//    height: auto;
+//    padding: 0;
+//    text-align: left;
+//
+//    > .nav__item {
+//      padding-right: 22px;
+//
+//      > .nav__link {
+//        color: $cbcny-dark-gray;
+//        transition: color 200ms ease-in-out;
+//
+//        &:hover,
+//        &:focus,
+//        &.active {
+//          color: $cbcny-blue;
+//        }
+//      }
+//    }
+//  }
 
   @media print {
     display: none;

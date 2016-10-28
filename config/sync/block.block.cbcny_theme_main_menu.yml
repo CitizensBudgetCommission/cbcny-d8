@@ -13,7 +13,7 @@ _core:
 id: cbcny_theme_main_menu
 theme: cbcny_theme
 region: header
-weight: -3
+weight: -4
 provider: null
 plugin: 'system_menu_block:main'
 settings:
