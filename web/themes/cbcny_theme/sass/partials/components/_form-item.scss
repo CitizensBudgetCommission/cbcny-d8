@@ -37,7 +37,7 @@ $form-text-size: map-get($font-size, m) !default;
     margin-left: .5em;
 
     &:hover {
-      cursor: pointer; 
+      cursor: pointer;
     }
   }
 }
@@ -62,7 +62,7 @@ $form-text-size: map-get($font-size, m) !default;
 }
 
 %form-item__textbox {
-  background-color: #fff;
+  background-color: $cbcny-white;
   border-color: #000 #f3f3f3 #e6e6e6;
   border-radius: 0px;
   border-style: none solid solid;
@@ -93,12 +93,13 @@ $form-text-size: map-get($font-size, m) !default;
 }
 
 .form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   @include svg-background(icon-meatball-hover);
   background-position: 95% 50%;
   background-size: 7px;
   background-repeat: no-repeat;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
 
