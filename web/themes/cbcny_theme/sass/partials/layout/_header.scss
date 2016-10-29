@@ -5,7 +5,7 @@
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
-    background: #fff url(../images/blue-52px.png) repeat-x top center;
+    background: $cbcny-white url(../images/blue-52px.png) repeat-x top center;
     box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
     display: block;
     position: relative;
@@ -34,7 +34,7 @@
   }
 
   .header-is-fixed & {
-    background: #fff;
+    background: $cbcny-white;
     height: 55px;
     left: 50%;
     position: fixed;
