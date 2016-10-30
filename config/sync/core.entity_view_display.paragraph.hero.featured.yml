@@ -1,0 +1,26 @@
+uuid: 8940d3ab-7cc0-4138-a87f-6b3545effb86
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.featured
+    - field.field.paragraph.hero.field_image
+    - paragraphs.paragraphs_type.hero
+  module:
+    - image
+id: paragraph.hero.featured
+targetEntityType: paragraph
+bundle: hero
+mode: featured
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  created: true
+  uid: true

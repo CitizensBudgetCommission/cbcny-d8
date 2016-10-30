@@ -1,0 +1,25 @@
+uuid: 3b47c7c3-4922-47e8-bb86-e321da8e30be
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_button:55a594c4-46d6-4de9-b541-fcda43b3c430'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: stay_updated_callout
+theme: cbcny_theme
+region: footer
+weight: -4
+provider: null
+plugin: 'block_content:55a594c4-46d6-4de9-b541-fcda43b3c430'
+settings:
+  id: 'block_content:55a594c4-46d6-4de9-b541-fcda43b3c430'
+  label: 'Stay Updated Callout'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

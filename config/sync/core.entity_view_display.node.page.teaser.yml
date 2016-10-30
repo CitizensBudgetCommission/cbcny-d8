@@ -1,0 +1,37 @@
+uuid: bb17f57d-c423-4b30-addf-47d798fcf4fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.field_hero
+    - field.field.node.page.field_page_content
+    - field.field.node.page.field_teaser_plain
+    - node.type.page
+  module:
+    - title
+    - user
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  field_teaser_plain:
+    type: basic_string
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_hero: true
+  field_page_content: true
+  links: true

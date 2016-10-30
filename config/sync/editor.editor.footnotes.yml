@@ -15,12 +15,13 @@ settings:
         -
           name: Formatting
           items:
-            - BulletedList
+            - NumberedList
             - DrupalLink
             - DrupalUnlink
         -
           name: Tools
           items:
+            - Maximize
             - Source
   plugins:
     drupallink:

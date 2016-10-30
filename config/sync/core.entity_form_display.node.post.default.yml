@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
-    - field.field.node.post.field_topic
+    - field.field.node.post.field_term_topic
     - node.type.post
   module:
     - chosen_field
@@ -23,7 +23,7 @@ mode: default
 content:
   field_hero:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 0
     settings:
       title: Hero
       title_plural: Hero
@@ -47,7 +47,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_subtitle:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -65,7 +65,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: chosen_select
-  field_topic:
+  field_term_topic:
     weight: 5
     settings: {  }
     third_party_settings: {  }
@@ -77,7 +77,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''

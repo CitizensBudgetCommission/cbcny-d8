@@ -1,0 +1,8 @@
+uuid: a0efa2ca-5c09-4153-997c-9e7ca0c0ced6
+langcode: en
+status: true
+dependencies: {  }
+id: header_button
+label: 'Header + Button'
+revision: 0
+description: 'Custom block with Heading and Button, use for creating a callout in Footer'

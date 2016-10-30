@@ -1,0 +1,27 @@
+uuid: 6bb6217d-0692-4345-ab76-2fb370e6fe54
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.landing.field_hero
+    - field.field.node.landing.field_page_content
+    - node.type.landing
+  module:
+    - user
+id: node.landing.teaser
+targetEntityType: node
+bundle: landing
+mode: teaser
+content:
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  field_hero: true
+  field_page_content: true
+  links: true

@@ -4,13 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_hero
-    - field.field.node.news.field_introduction
     - field.field.node.news.field_page_content
+    - field.field.node.news.field_published_date
     - field.field.node.news.field_subtitle
     - field.field.node.news.field_teaser_plain
     - field.field.node.news.field_term_post_type
+    - field.field.node.news.field_term_topic
     - node.type.news
   module:
+    - chosen_field
+    - datetime
     - paragraphs
 id: node.news.default
 targetEntityType: node
@@ -18,37 +21,32 @@ bundle: news
 mode: default
 content:
   field_hero:
-    weight: 2
+    weight: 0
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Hero
+      title_plural: Hero
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
-  field_introduction:
-    type: entity_reference_paragraphs
-    weight: 4
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: closed
-      add_mode: dropdown
-      form_display_mode: default
-    third_party_settings: {  }
   field_page_content:
-    weight: 5
+    weight: 7
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
+      title: Content
+      title_plural: Content
       edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_published_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
   field_subtitle:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -62,13 +60,18 @@ content:
     third_party_settings: {  }
     type: string_textarea
   field_term_post_type:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: chosen_select
+  field_term_topic:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: chosen_select
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''

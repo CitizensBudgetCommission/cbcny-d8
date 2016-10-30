@@ -1,0 +1,62 @@
+uuid: 0a1af162-403b-472d-a403-fef775af4466
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.report.field_hero
+    - field.field.node.report.field_page_content
+    - field.field.node.report.field_published_date
+    - field.field.node.report.field_subtitle
+    - field.field.node.report.field_teaser_plain
+    - field.field.node.report.field_term_post_type
+    - field.field.node.report.field_term_topic
+    - node.type.report
+  module:
+    - datetime
+    - user
+id: node.report.teaser
+targetEntityType: node
+bundle: report
+mode: teaser
+content:
+  field_published_date:
+    type: datetime_custom
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F d, Y'
+    third_party_settings: {  }
+  field_teaser_plain:
+    type: basic_string
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_term_post_type:
+    type: entity_reference_label
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_term_topic:
+    type: entity_reference_label
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 2
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  field_hero: true
+  field_page_content: true
+  field_subtitle: true
+  links: true

@@ -1,10 +1,5 @@
-{#
-/**
- * @file
- * Theme override for a menu block.
- */
-#}
 {% set heading_id = attributes.id ~ '-label'|clean_id %}
+
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby', 'id') }}>
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('u-visually-hidden') %}

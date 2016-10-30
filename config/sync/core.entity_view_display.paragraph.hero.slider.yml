@@ -1,0 +1,26 @@
+uuid: 95274579-2441-4a84-ae96-8a9f6eaa63b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.slider
+    - field.field.paragraph.hero.field_image
+    - paragraphs.paragraphs_type.hero
+  module:
+    - image
+id: paragraph.hero.slider
+targetEntityType: paragraph
+bundle: hero
+mode: slider
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  created: true
+  uid: true

@@ -4,10 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.introduction.field_introduction
-    - field.field.paragraph.introduction.field_published_date
     - paragraphs.paragraphs_type.introduction
   module:
-    - datetime
     - text
 id: paragraph.introduction.default
 targetEntityType: paragraph
@@ -21,11 +19,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-  field_published_date:
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
 hidden:
   created: true
   status: true

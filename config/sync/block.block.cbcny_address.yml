@@ -1,0 +1,25 @@
+uuid: 66f76a10-e16c-4f63-89e5-706205c259a0
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c0034c6a-2802-4571-b34e-1978d0a0f303'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: cbcny_address
+theme: cbcny_theme
+region: footer
+weight: -2
+provider: null
+plugin: 'block_content:c0034c6a-2802-4571-b34e-1978d0a0f303'
+settings:
+  id: 'block_content:c0034c6a-2802-4571-b34e-1978d0a0f303'
+  label: 'CBCNY Address'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

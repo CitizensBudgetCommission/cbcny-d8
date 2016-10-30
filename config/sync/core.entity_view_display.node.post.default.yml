@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
-    - field.field.node.post.field_topic
+    - field.field.node.post.field_term_topic
     - node.type.post
   module:
     - datetime
@@ -22,14 +22,14 @@ mode: default
 content:
   field_hero:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   field_page_content:
-    weight: 3
+    weight: 6
     label: hidden
     settings:
       view_mode: default
@@ -37,7 +37,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_published_date:
-    weight: 2
+    weight: 5
     label: hidden
     settings:
       timezone_override: ''
@@ -45,21 +45,21 @@ content:
     third_party_settings: {  }
     type: datetime_custom
   field_subtitle:
-    weight: 1
+    weight: 4
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_term_post_type:
-    weight: 5
+    weight: 1
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
-  field_topic:
-    weight: 6
+  field_term_topic:
+    weight: 2
     label: hidden
     settings:
       link: false
@@ -69,7 +69,7 @@ content:
     type: string
     settings:
       link_to_entity: false
-    weight: 0
+    weight: 3
     label: hidden
     third_party_settings: {  }
 hidden:

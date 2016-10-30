@@ -16,8 +16,13 @@ matchers:
     weight: 0
     settings:
       result_description: 'by [node:author] | [node:created:medium]'
-      bundles: {  }
-      group_by_bundle: false
+      bundles:
+        news: news
+        page: page
+        post: post
+        report: report
+        section: section
+      group_by_bundle: true
       include_unpublished: false
       metadata: ''
       substitution_type: canonical

@@ -1,0 +1,24 @@
+uuid: 792e9582-591f-43a1-942d-4a65b1030c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - cbcny_theme
+id: cbcny_footer_menu
+theme: cbcny_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

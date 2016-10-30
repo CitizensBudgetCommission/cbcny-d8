@@ -1,0 +1,10 @@
+uuid: 9de41a09-d339-4e63-8c65-60b514d3a7ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.slider
+label: Slider
+targetEntityType: paragraph
+cache: true

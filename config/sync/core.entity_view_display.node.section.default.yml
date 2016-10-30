@@ -1,0 +1,39 @@
+uuid: 112fc925-cba4-4013-a610-fa6ffff0370b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.section.field_ref_featured_content
+    - field.field.node.section.field_term_topic
+    - node.type.section
+  module:
+    - user
+id: node.section.default
+targetEntityType: node
+bundle: section
+mode: default
+content:
+  field_ref_featured_content:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_term_topic:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  links: true
