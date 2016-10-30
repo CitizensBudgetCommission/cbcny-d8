@@ -7,15 +7,14 @@ dependencies:
     - title
 third_party_settings:
   menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
+    available_menus: {  }
+    parent: ''
   title:
     display_configurable_title: true
 name: News
 type: news
-description: 'To create a post item so I can publish a page of the type "in the news."'
+description: 'News content type used to create - In the News'
 help: ''
 new_revision: true
-preview_mode: 1
-display_submitted: true
+preview_mode: 0
+display_submitted: false

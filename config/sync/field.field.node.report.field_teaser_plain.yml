@@ -1,0 +1,19 @@
+uuid: cad27680-eae1-44e9-b149-2cceef1a76e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_plain
+    - node.type.report
+id: node.report.field_teaser_plain
+field_name: field_teaser_plain
+entity_type: node
+bundle: report
+label: Teaser
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,33 @@
+uuid: e8f97b83-d996-4e87-aa17-82b6fe6443a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ref_slider_content
+    - node.type.homepage
+    - node.type.news
+    - node.type.post
+    - node.type.report
+id: node.homepage.field_ref_slider_content
+field_name: field_ref_slider_content
+entity_type: node
+bundle: homepage
+label: 'Slider Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news: news
+      post: post
+      report: report
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: news
+field_type: entity_reference

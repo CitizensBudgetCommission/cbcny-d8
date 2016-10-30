@@ -2,12 +2,10 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   allowed_formats: 0
-  anchor_link: 0
   automated_cron: 0
   block: 0
   block_content: 0
   breakpoint: 0
-  captcha: 0
   chosen: 0
   chosen_field: 0
   chosen_lib: 0
@@ -28,7 +26,6 @@ module:
   filter: 0
   focal_point: 0
   image: 0
-  image_captcha: 0
   image_url_formatter: 0
   link: 0
   linkit: 0
@@ -38,7 +35,6 @@ module:
   page_cache: 0
   paragraphs: 0
   path: 0
-  quickedit: 0
   system: 0
   taxonomy: 0
   telephone: 0

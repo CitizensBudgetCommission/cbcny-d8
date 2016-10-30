@@ -17,7 +17,6 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
-            - Anchor
         -
           name: Lists
           items:
@@ -26,6 +25,7 @@ settings:
         -
           name: Tools
           items:
+            - Maximize
             - Source
   plugins:
     drupallink:

@@ -1,0 +1,51 @@
+uuid: d303ea4a-e258-4abd-8300-4d7166be6ec5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.field_hero
+    - field.field.node.homepage.field_ref_slider_content
+    - node.type.homepage
+  module:
+    - paragraphs
+    - path
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  field_hero:
+    weight: 1
+    settings:
+      title: Hero
+      title_plural: Hero
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+  field_ref_slider_content:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  path:
+    type: path
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  promote: true
+  sticky: true
+  uid: true

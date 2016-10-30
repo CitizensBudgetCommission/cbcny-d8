@@ -1,0 +1,8 @@
+uuid: 8bcb8d01-c56b-4d14-8fa9-3dcf95101da1
+langcode: en
+status: true
+dependencies: {  }
+id: header_links
+label: 'Header + Links'
+revision: 0
+description: 'Custom block with Heading and Links, use for creating social media links in Footer'

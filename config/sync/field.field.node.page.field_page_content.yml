@@ -1,0 +1,78 @@
+uuid: 5da6b156-e27b-406d-baeb-8a522d0ba0d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.page
+    - paragraphs.paragraphs_type.chart_embed
+    - paragraphs.paragraphs_type.download_callout
+    - paragraphs.paragraphs_type.full_text
+    - paragraphs.paragraphs_type.image_caption
+    - paragraphs.paragraphs_type.introduction
+    - paragraphs.paragraphs_type.pullquote
+    - paragraphs.paragraphs_type.video_embed
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: page
+label: 'Page Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      chart_embed: chart_embed
+      download_callout: download_callout
+      full_text: full_text
+      image_caption: image_caption
+      introduction: introduction
+      pullquote: pullquote
+      video_embed: video_embed
+    target_bundles_drag_drop:
+      aside:
+        weight: 14
+        enabled: false
+      author:
+        weight: 15
+        enabled: false
+      chart_embed:
+        enabled: true
+        weight: 16
+      download_callout:
+        enabled: true
+        weight: 17
+      footnotes:
+        weight: 18
+        enabled: false
+      full_text:
+        enabled: true
+        weight: 19
+      hero:
+        weight: 20
+        enabled: false
+      image_caption:
+        enabled: true
+        weight: 21
+      introduction:
+        enabled: true
+        weight: 22
+      pullquote:
+        enabled: true
+        weight: 23
+      section_heading:
+        weight: 24
+        enabled: false
+      video_embed:
+        enabled: true
+        weight: 25
+      view_embed:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

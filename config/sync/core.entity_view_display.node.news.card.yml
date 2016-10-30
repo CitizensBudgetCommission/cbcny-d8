@@ -1,0 +1,57 @@
+uuid: cd2188ad-1aae-4141-9c4c-8efe7b75acf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.news.field_hero
+    - field.field.node.news.field_page_content
+    - field.field.node.news.field_published_date
+    - field.field.node.news.field_subtitle
+    - field.field.node.news.field_teaser_plain
+    - field.field.node.news.field_term_post_type
+    - field.field.node.news.field_term_topic
+    - node.type.news
+  module:
+    - datetime
+    - user
+id: node.news.card
+targetEntityType: node
+bundle: news
+mode: card
+content:
+  field_published_date:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F d, Y'
+    third_party_settings: {  }
+    type: datetime_custom
+  field_subtitle:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_term_post_type:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 1
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  field_hero: true
+  field_page_content: true
+  field_teaser_plain: true
+  field_term_topic: true
+  links: true

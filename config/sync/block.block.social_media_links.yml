@@ -1,0 +1,25 @@
+uuid: a49eb762-6c1a-4636-a82a-7bf1f83338cd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:header_links:6d00d5fa-13fe-4a47-9696-66763f3f5c12'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: social_media_links
+theme: cbcny_theme
+region: footer
+weight: -5
+provider: null
+plugin: 'block_content:6d00d5fa-13fe-4a47-9696-66763f3f5c12'
+settings:
+  id: 'block_content:6d00d5fa-13fe-4a47-9696-66763f3f5c12'
+  label: 'Spread the Word Links'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

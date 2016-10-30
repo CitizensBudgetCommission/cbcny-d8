@@ -1,12 +1,21 @@
-{% extends "block--no-wrapper.html.twig" %}
-{#
-/**
- * @file
- * Theme override for local tasks.
- */
-#}
-{% block content %}
-  {% if content %}
-    {{ content }}
-  {% endif %}
-{% endblock %}
+{%
+  set classes = [
+    'block',
+    'block--' ~ configuration.label|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="l-constrain">
+    {{ title_prefix }}
+    {% if label %}
+    <h2{{ title_attributes }} class="block__title">{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    <div class="block__content">
+      {{ content }}
+    </div>
+
+  </div>
+</div>

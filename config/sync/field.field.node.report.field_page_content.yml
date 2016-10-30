@@ -1,0 +1,88 @@
+uuid: c6807c57-8f6a-4515-85cb-b8bd415dc02c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.report
+    - paragraphs.paragraphs_type.aside
+    - paragraphs.paragraphs_type.author
+    - paragraphs.paragraphs_type.chart_embed
+    - paragraphs.paragraphs_type.download_callout
+    - paragraphs.paragraphs_type.footnotes
+    - paragraphs.paragraphs_type.full_text
+    - paragraphs.paragraphs_type.image_caption
+    - paragraphs.paragraphs_type.introduction
+    - paragraphs.paragraphs_type.pullquote
+    - paragraphs.paragraphs_type.section_heading
+    - paragraphs.paragraphs_type.video_embed
+    - paragraphs.paragraphs_type.view_embed
+  module:
+    - entity_reference_revisions
+id: node.report.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: report
+label: 'Page Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      aside: aside
+      author: author
+      chart_embed: chart_embed
+      download_callout: download_callout
+      footnotes: footnotes
+      full_text: full_text
+      image_caption: image_caption
+      introduction: introduction
+      pullquote: pullquote
+      section_heading: section_heading
+      video_embed: video_embed
+      view_embed: view_embed
+    target_bundles_drag_drop:
+      aside:
+        enabled: true
+        weight: 14
+      author:
+        enabled: true
+        weight: 15
+      chart_embed:
+        enabled: true
+        weight: 16
+      download_callout:
+        enabled: true
+        weight: 17
+      footnotes:
+        enabled: true
+        weight: 18
+      full_text:
+        enabled: true
+        weight: 19
+      hero:
+        weight: 20
+        enabled: false
+      image_caption:
+        enabled: true
+        weight: 21
+      introduction:
+        enabled: true
+        weight: 22
+      pullquote:
+        enabled: true
+        weight: 23
+      section_heading:
+        enabled: true
+        weight: 24
+      video_embed:
+        enabled: true
+        weight: 25
+      view_embed:
+        enabled: true
+        weight: 26
+field_type: entity_reference_revisions

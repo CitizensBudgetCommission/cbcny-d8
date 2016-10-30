@@ -1,0 +1,19 @@
+uuid: aee0a759-51ab-43bf-8ca1-0aba57fbfe01
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.header_button
+    - field.storage.block_content.field_heading
+id: block_content.header_button.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: header_button
+label: Heading
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

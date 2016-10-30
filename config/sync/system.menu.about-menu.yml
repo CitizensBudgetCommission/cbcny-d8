@@ -1,0 +1,8 @@
+uuid: a0b8f7e7-bef5-44eb-9bc0-9e740e5a0466
+langcode: en
+status: true
+dependencies: {  }
+id: about-menu
+label: 'About Menu'
+description: 'About Menu for use on About section'
+locked: false

@@ -29,8 +29,8 @@ settings:
         -
           name: Tools
           items:
-            - Source
             - Maximize
+            - Source
   plugins:
     drupallink:
       linkit_enabled: true

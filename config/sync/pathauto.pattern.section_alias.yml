@@ -1,0 +1,22 @@
+uuid: 81765327-ca7a-4d8b-853e-3c4c8c9d51f4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: section_alias
+label: 'Section alias'
+type: 'canonical_entities:node'
+pattern: '/topics/[node:title]'
+selection_criteria:
+  d77f1150-8793-404b-9f74-359bd21a33ad:
+    id: node_type
+    bundles:
+      section: section
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d77f1150-8793-404b-9f74-359bd21a33ad
+selection_logic: and
+weight: -5
+relationships: {  }

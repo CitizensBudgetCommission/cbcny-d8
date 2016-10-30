@@ -1,0 +1,23 @@
+uuid: 5f72b4a1-b358-4fa3-a9d7-06ed94bad4bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.header_links
+    - field.storage.block_content.field_link
+  module:
+    - link
+id: block_content.header_links.field_link
+field_name: field_link
+entity_type: block_content
+bundle: header_links
+label: Link
+description: 'Enter the Link and Text that you want to callout'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
