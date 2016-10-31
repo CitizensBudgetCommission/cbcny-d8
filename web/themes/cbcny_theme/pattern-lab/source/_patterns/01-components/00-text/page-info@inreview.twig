@@ -1,6 +1,6 @@
-{% if contentType or topic %}
+{% if type or topic %}
   <div class="page-info">
-    {% if contentType %}<span class="page-info__item">{{ contentType }}</span>{% endif %}
+    {% if type %}<span class="page-info__item">{{ type }}</span>{% endif %}
     {% if topic %}<span class="page-info__item">{{ topic }}</span>{% endif %}
   </div>
 {% endif %}

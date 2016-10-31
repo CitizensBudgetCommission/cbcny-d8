@@ -1,6 +1,9 @@
 // @file
 // Styles for the page info.
 
+$bp-larger-page-info: 480px;
+$bp-largest-page-info: 960px;
+
 .page-info {
   margin-bottom: em(14px);
 }
@@ -8,19 +11,38 @@
 .page-info__item {
   color: $cbcny-dark-green;
   display: inline-block;
-  font-size: em(map-get($font-size, xs));
+  font-size: em(map-get($font-size, xxxs));
   line-height: 1;
   text-transform: uppercase;
 
   &:after {
     content: '';
     display: inline-block;
-    border-right: 2px solid $cbcny-light-gray;
-    height: em(20px, map-get($font-size, xs));
-    margin: 0 em(3px, map-get($font-size, xs)) em(-4px, map-get($font-size, xs)) em(8px, map-get($font-size, xs));
+    border-right: 1px solid $cbcny-light-gray;
+    height: em(18px, map-get($font-size, xxxs));
+    margin: 0 em(3px, map-get($font-size, xxxs)) em(-4px, map-get($font-size, xxxs)) em(8px, map-get($font-size, xxxs));
   }
 
   &:last-child:after {
     display: none;
+  }
+
+  @include breakpoint($bp-larger-page-info) {
+    font-size: em(map-get($font-size, xxs));
+
+    &:after {
+      height: em(18px, map-get($font-size, xxs));
+      margin: 0 em(3px, map-get($font-size, xxs)) em(-4px, map-get($font-size, xxs)) em(8px, map-get($font-size, xxs));
+    }
+  }
+
+  @include breakpoint($bp-largest-page-info) {
+    font-size: em(map-get($font-size, xs));
+
+    &:after {
+      border-right: 2px solid $cbcny-light-gray;
+      height: em(20px, map-get($font-size, xs));
+      margin: 0 em(3px, map-get($font-size, xs)) em(-4px, map-get($font-size, xs)) em(8px, map-get($font-size, xs));
+    }
   }
 }
