@@ -1,9 +1,6 @@
 // @file
 // Styles for the page info.
 
-$bp-larger-page-info: 480px;
-$bp-largest-page-info: 960px;
-
 .page-info {
   margin-bottom: em(14px);
 }
@@ -27,7 +24,7 @@ $bp-largest-page-info: 960px;
     display: none;
   }
 
-  @include breakpoint($bp-larger-page-info) {
+  @include breakpoint($bp-larger-font-size) {
     font-size: em(map-get($font-size, xxs));
 
     &:after {
@@ -36,7 +33,7 @@ $bp-largest-page-info: 960px;
     }
   }
 
-  @include breakpoint($bp-largest-page-info) {
+  @include breakpoint($bp-largest-font-size) {
     font-size: em(map-get($font-size, xs));
 
     &:after {

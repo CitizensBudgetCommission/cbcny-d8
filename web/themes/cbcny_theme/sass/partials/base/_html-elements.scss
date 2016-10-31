@@ -154,20 +154,36 @@ h1,
   @extend %hN;
   @extend %secondary-font-family;
   color: $cbcny-blue;
-  font-size: rem(map-get($font-size, xxxl));
+  font-size: rem(map-get($font-size, xxxxxl));
   font-weight: 400;
   letter-spacing: -1px;
   line-height: 1.15;
   margin-bottom: 0;
+
+  @include breakpoint($bp-larger-font-size) {
+    font-size: rem(map-get($font-size, xxxxxxl));
+  }
+
+  @include breakpoint($bp-largest-font-size) {
+    font-size: rem(map-get($font-size, xxxxxxxl));
+  }
 }
 
 h2,
 %h2 {
   @extend %hN;
   color: $cbcny-dark-blue;
-  font-size: rem(map-get($font-size, xxl));
+  font-size: rem(map-get($font-size, xl));
   font-weight: 700;
   line-height: 1.3;
+
+  @include breakpoint($bp-larger-font-size) {
+    font-size: rem(map-get($font-size, xxl));
+  }
+
+  @include breakpoint($bp-largest-font-size) {
+    font-size: rem(map-get($font-size, xxxl));
+  }
 }
 
 h3,
