@@ -13,12 +13,12 @@
     padding-right: 62px;
   }
   
-  @include breakpoint($bp-larger-post-title) {
+  @include breakpoint($bp-larger-topics-title) {
     padding-top: 31px;
   }
 }
 
-.post-heading__title {
+.topics-heading__title {
   color: $cbcny-blue;
   font-family: $secondary-font-family;
   font-size: 2.2em;
@@ -28,7 +28,7 @@
   margin-bottom: 0px;
   margin-top: 0px;
 
-  @include breakpoint($bp-larger-post-title) {
+  @include breakpoint($bp-larger-topics-title) {
     font-size: 2.5em;
   }
 }
