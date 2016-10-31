@@ -1,0 +1,11 @@
+{% if hasImage %}
+  <div class="hero hero--large has-image" style="background-image: url({{ img.hero.src }});">
+{% else %}
+  <div class="hero hero--small">
+{% endif %}
+  <div class="hero__content">
+    {% include "components-page-info" %}
+    {% include "components-page-title" %}
+    {% include "components-subtitle" %}
+  </div>
+</div>
