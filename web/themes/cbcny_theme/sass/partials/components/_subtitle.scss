@@ -3,9 +3,8 @@
 
 .subtitle {
   @extend %hN;
-  color: rgb(76, 76, 76);
-  font-size: em(28.8px);
+  color: $cbcny-dark-gray;
+  font-size: rem(map-get($font-size, xxxl));
   font-weight: 400;
   line-height: 1.25;
-  margin: 0;
 }
