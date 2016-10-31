@@ -1,10 +1,6 @@
 // @file
-// Styles for the published date
+// Styles for the published date.
 
 .published-date {
-  time {
-    color: #999;
-    font-family: 'Lato semibold', sans-serif;
-    font-size: 1em;
-  }
+  color: $cbcny-light-gray;
 }

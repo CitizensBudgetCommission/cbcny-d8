@@ -15,7 +15,7 @@
   &:after {
     content: '';
     display: inline-block;
-    border-right: 1px solid $cbcny-light-gray;
+    border-right: 1px solid $cbcny-lighter-gray;
     height: em(18px, map-get($font-size, xxxs));
     margin: 0 em(3px, map-get($font-size, xxxs)) em(-4px, map-get($font-size, xxxs)) em(8px, map-get($font-size, xxxs));
   }
@@ -37,7 +37,7 @@
     font-size: em(map-get($font-size, xs));
 
     &:after {
-      border-right: 2px solid $cbcny-light-gray;
+      border-right-width: 2px;
       height: em(20px, map-get($font-size, xs));
       margin: 0 em(3px, map-get($font-size, xs)) em(-4px, map-get($font-size, xs)) em(8px, map-get($font-size, xs));
     }
