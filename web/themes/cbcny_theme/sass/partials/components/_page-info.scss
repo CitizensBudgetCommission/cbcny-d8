@@ -1,0 +1,26 @@
+// @file
+// Styles for the page info.
+
+.page-info {
+  margin-bottom: em(14px);
+}
+
+.page-info__item {
+  color: $cbcny-dark-green;
+  display: inline-block;
+  font-size: em(map-get($font-size, xs));
+  line-height: 1;
+  text-transform: uppercase;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    border-right: 2px solid $cbcny-light-gray;
+    height: em(20px, map-get($font-size, xs));
+    margin: 0 em(3px, map-get($font-size, xs)) em(-4px, map-get($font-size, xs)) em(8px, map-get($font-size, xs));
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+}
