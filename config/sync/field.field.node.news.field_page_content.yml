@@ -19,7 +19,7 @@ entity_type: node
 bundle: news
 label: 'Page Content'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -70,4 +70,7 @@ settings:
       video_embed:
         enabled: true
         weight: 24
+      view_embed:
+        weight: 26
+        enabled: false
 field_type: entity_reference_revisions
