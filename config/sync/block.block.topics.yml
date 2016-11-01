@@ -1,0 +1,24 @@
+uuid: 59e39b6c-ed5b-462c-9872-08bd221d389c
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.topics
+  module:
+    - system
+  theme:
+    - cbcny_theme
+id: topics
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'system_menu_block:topics'
+settings:
+  id: 'system_menu_block:topics'
+  label: Topics
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }
