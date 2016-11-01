@@ -1,0 +1,138 @@
+// @file
+// Styles for .share-links
+
+.share-links {
+	display: inline-block;
+
+  .meta__content > & {
+    @include breakpoint(500px, $no-query: true) {
+      float: right;
+      [dir="rtl"] & {
+        float: left;
+      }
+    }
+  }
+
+  .share-links__label {
+    font-size: em(14px);
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+
+  .addthis_sharing_toolbox {
+    a.at-share-btn {
+      background-color: transparent !important;
+      border: 0 !important;
+      display: inline-block;
+      height: 32px;
+      margin: 0 8px 0 0;
+      position: relative;
+      transition: 0.15s opacity linear;
+      width: 32px;
+
+      &:before {
+        @include image-replace(32px,32px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        content: "";
+        display: block;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        transition: 0.15s opacity linear;
+      }
+
+      &:after {
+        @include image-replace(32px,32px);
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        content: "";
+        display: block;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: 0.15s opacity linear;
+      }
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      &:focus,
+      &:hover {
+        transform: translateY(0px);
+        &:before {
+          opacity: 0;
+        }
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      span {
+        display: none;
+      }
+
+      &.at-svc-facebook {
+        &:before {
+          @include svg-background(icon-facebook-share);
+        }
+
+        &:after {
+          @include svg-background(icon-facebook-share-hover);
+        }
+      }
+
+      &.at-svc-twitter {
+        &:before {
+          @include svg-background(icon-twitter-share);
+        }
+
+        &:after {
+          @include svg-background(icon-twitter-share-hover);
+        }
+      }
+
+      &.at-svc-email {
+        &:before {
+          @include svg-background(icon-email-share);
+        }
+
+        &:after {
+          @include svg-background(icon-email-share-hover);
+        }
+      }
+
+      &.at-svc-link {
+        &:before {
+          @include svg-background(icon-link-share);
+        }
+
+        &:after {
+          @include svg-background(icon-link-share-hover);
+        }
+      }
+
+      &.at-svc-compact {
+        height: 22px;
+        top: -5px;
+        width: 22px;
+        &:before {
+          @include image-replace(22px,22px);
+          @include svg-background(icon-add-circle);
+          background-size: 22px 22px;
+        }
+
+        &:after {
+          @include image-replace(22px,22px);
+          @include svg-background(icon-add-circle-hover);
+          background-size: 22px 22px;
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@
   "section": "Section",
   "siteName": "CBCNY",
   "siteSlogan": "Citizens Budget Commission",
+  "subtitle": "Subtitle",
 
   "font": {
     "monospace": "Consolas, 'Lucida Console', 'Liberation Mono', 'Courier New', monospace, sans-serif;",
@@ -13,21 +14,18 @@
     "system": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Open Sans', 'Helvetica Neue', sans-serif;"
   },
 
+  "hasImage": false,
   "showAdminView": false,
 
   "body": "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>",
   "customClasses": "",
   "summary": "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>",
   "title": "Title",
+  "topic": "Topic",
+  "type": "Type",
   "url": "#",
   "vimeoEmbed": "168964714",
 
-  "file": {
-    "icon": "../../drupal/images/application-pdf.png",
-    "mime": "application/pdf",
-    "name": "file name",
-    "size": "115.83 KB"
-  },
   "img": {
     "icon": {
       "src": "http://fpoimg.com/48x48?text=Icon",
@@ -35,23 +33,17 @@
       "height": "48",
       "width": "48"
     },
-    "thumbnail": {
-      "src": "http://fpoimg.com/140x105?text=Thumbnail 4:3",
-      "alt": "Thumbnail 4:3",
-      "height": "105",
-      "width": "140"
-    },
-    "portrait": {
-      "src": "http://fpoimg.com/300x400?text=Portrait 3:4",
-      "alt": "Portrait 3:4",
-      "height": "400",
-      "width": "300"
-    },
     "landscape": {
-      "src": "../../images/800x450.png",
+      "src": "../../images/860x645.png",
       "alt": "Landscape 16:9",
-      "height": "450",
-      "width": "800"
+      "height": "645",
+      "width": "860"
+    },
+    "hero": {
+      "src": "../../images/1200x600.png",
+      "alt": "Hero",
+      "height": "600",
+      "width": "1200"
     }
   },
 

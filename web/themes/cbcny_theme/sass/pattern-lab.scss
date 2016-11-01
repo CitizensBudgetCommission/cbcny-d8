@@ -6,7 +6,7 @@
 @include breakpoint-set('no query fallbacks', false);
 
 @import 'partials/global';
-@import 'partials/base';
+//@import 'partials/base';
 
 // The container for the 'view all' screen, which contains the list of patterns.
 #sg-patterns {

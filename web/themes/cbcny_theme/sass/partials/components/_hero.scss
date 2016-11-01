@@ -1,0 +1,51 @@
+// @file
+// Styles for the hero.
+
+$bp-larger-hero: 800px;
+$bp-largest-hero: 960px;
+
+.hero {
+  align-items: flex-end;
+  background: url(../images/bg/hero--post.jpg) fixed no-repeat;
+  background-size: cover;
+  display: flex;
+  margin-bottom: em($base-line-height);
+  position: relative;
+}
+
+.hero__content {
+  background-color: $cbcny-almost-white-translucent;
+  flex: 1;
+  margin: 0 auto;
+  max-width: em($main-content-width);
+  padding: em(20px) ($gutter-width / 2);
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint($bp-larger-hero) {
+    padding: em(30px);
+    max-width: em($main-content-width + 24px);
+  }
+
+  @include breakpoint($bp-largest-hero) {
+    padding-left: em(62px);
+    padding-right: em(62px);
+    max-width: em($main-content-width + 88px);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.hero--small {
+  height: 55vh;
+}
+
+.hero--large {
+  height: 80vh;
+
+  @include breakpoint($bp-larger-hero, $no-query: true) {
+    height: 65vh;
+  }
+}

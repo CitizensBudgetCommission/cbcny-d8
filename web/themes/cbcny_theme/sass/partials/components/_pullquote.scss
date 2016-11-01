@@ -11,16 +11,20 @@
 
 .pullquote__item {
   @extend %secondary-font-family;
-  font-size: em(map-get($font-size, xl));
+  font-size: em(map-get($font-size, xxl));
   letter-spacing: -1px;
   line-height: 1.4;
+
+  @include breakpoint($bp-larger-font-size) {
+    font-size: rem(map-get($font-size, xxxl));
+  }
  }
 
 .pullquote__attribution {
   border-top: 2px solid $cbcny-lime-green;
   color: $cbcny-white;
   display: inline-block;
-  font-size: em(map-get($font-size, s));
+  font-size: rem(map-get($font-size, s));
   margin-top: em(16px, map-get($font-size, s));
   padding-top: em(11px, map-get($font-size, s));
 }

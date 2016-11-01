@@ -4,6 +4,7 @@
 
 @include breakpoint-set('to ems', true);
 $max-page-width: 1296px;
+$main-content-width: 976px;
 $gutter-width: 2em;
 $gutter-width-px: 32px;
 
@@ -11,6 +12,8 @@ $gutter-width-px: 32px;
 $bp-footer-switch: 991px;
 $bp-hide-mobile-menu: 730px;
 $bp-larger-site-logo: 991px;
+$bp-larger-font-size: 480px;
+$bp-largest-font-size: 960px;
 
 // Polyfill for box-sizing in IE7 and below. The url must be root relative to
 // the location of the htc script.
