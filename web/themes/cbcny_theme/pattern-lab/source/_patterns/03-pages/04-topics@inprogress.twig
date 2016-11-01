@@ -1,0 +1,19 @@
+{% include "layouts-header-region" %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  <article role="article">
+    {% include "components-hero"
+      with {
+        "pageTitle": "Topics",
+      }
+    %}
+    <div class="l-constrain l-constrain--main-content">
+      {% include "components-share-links" %}
+      {% include "components-introduction" %}
+      {% include "components-topics-menu" %}
+    </div>
+  </article>
+</main>
+
+{% include "layouts-postscript-region" %}
+{% include "layouts-footer-region" %}
