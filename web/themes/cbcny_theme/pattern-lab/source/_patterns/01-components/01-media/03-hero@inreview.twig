@@ -4,8 +4,11 @@
   <div class="hero hero--small">
 {% endif %}
   <div class="hero__content">
-    {% include "components-page-info" %}
-    {% include "components-page-title" %}
-    {% include "components-subtitle" %}
+    <div class="page-info">
+      <span class="page-info__item">{{ type }}</span>
+      <span class="page-info__item">{{ topic }}</span>
+    </div>
+    <h1 class="page-title">{{ pageTitle }}</h1>
+    <h2 class="subtitle">{{ subtitle }}</h2>
   </div>
 </div>

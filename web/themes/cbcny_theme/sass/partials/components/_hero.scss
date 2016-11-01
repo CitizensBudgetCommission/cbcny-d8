@@ -9,6 +9,7 @@ $bp-largest-hero: 960px;
   background: url(../images/bg/hero--post.jpg) fixed no-repeat;
   background-size: cover;
   display: flex;
+  margin-bottom: em($base-line-height);
   position: relative;
 }
 
