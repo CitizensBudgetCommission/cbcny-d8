@@ -10,7 +10,6 @@ global:
   dependencies:
     - core/jquery
     - core/drupal
-    - core/modernizr
 
 mobile-menu:
   js:

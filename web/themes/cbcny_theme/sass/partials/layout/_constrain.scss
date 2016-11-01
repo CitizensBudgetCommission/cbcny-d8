@@ -13,6 +13,14 @@
   }
 }
 
+.l-constrain--main-content {
+  max-width: em($main-content-width);
+
+  @if breakpoint-get('no queries') == true {
+    width: em($main-content-width);
+  }
+}
+
 .l-constrain--no-padding {
   padding-left: 0;
   padding-right: 0;
