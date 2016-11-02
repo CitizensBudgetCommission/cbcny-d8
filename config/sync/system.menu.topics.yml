@@ -1,8 +1,0 @@
-uuid: 82d355ef-4752-4185-8dea-68c023189638
-langcode: en
-status: true
-dependencies: {  }
-id: topics
-label: Topics
-description: ''
-locked: false
