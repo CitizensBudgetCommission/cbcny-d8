@@ -1,0 +1,19 @@
+uuid: ae36fc53-d541-4dbf-bd76-b8a457ef756d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_icon_class
+    - taxonomy.vocabulary.topics
+id: taxonomy_term.topics.field_icon_class
+field_name: field_icon_class
+entity_type: taxonomy_term
+bundle: topics
+label: 'Icon Class'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
