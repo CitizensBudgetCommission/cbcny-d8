@@ -11,7 +11,7 @@ id: topic_section_button
 label: 'Topic Section Button'
 module: views
 description: 'Button for taking user to Search page based on Topic'
-tag: ''
+tag: Section
 base_table: node_field_data
 base_field: nid
 core: 8.x
