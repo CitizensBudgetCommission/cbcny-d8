@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
+    - field.field.node.post.field_term_section
     - field.field.node.post.field_term_topic
     - node.type.post
   module:
@@ -32,7 +33,7 @@ content:
       form_display_mode: default
     third_party_settings: {  }
   field_page_content:
-    weight: 7
+    weight: 8
     settings:
       title: Content
       title_plural: Content
@@ -54,7 +55,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_teaser_plain:
-    weight: 6
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -65,6 +66,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: chosen_select
+  field_term_section:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_term_topic:
     weight: 5
     settings: {  }
@@ -72,7 +78,7 @@ content:
     type: chosen_select
   path:
     type: path
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
   title:
