@@ -4,11 +4,13 @@
   <div class="hero hero--small">
 {% endif %}
   <div class="hero__content">
-    <div class="page-info">
-      <span class="page-info__item">{{ type }}</span>
-      <span class="page-info__item">{{ topic }}</span>
-    </div>
-    <h1 class="page-title">{{ pageTitle }}</h1>
-    <h2 class="subtitle">{{ subtitle }}</h2>
+    {% if type or topic %}
+      <div class="page-info">
+        {% if type %}<span class="page-info__item">{{ type }}</span>{% endif %}
+        {% if topic %}<span class="page-info__item">{{ topic }}</span>{% endif %}
+      </div>
+    {% endif %}
+    {% if title %}<h1 class="page-title">{{ pageTitle }}</h1>{% endif %}
+    {% if subtitle %}<h2 class="subtitle">{{ subtitle }}</h2>{% endif %}
   </div>
 </div>
