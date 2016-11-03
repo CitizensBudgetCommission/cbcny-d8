@@ -1,13 +1,9 @@
 {% include "layouts-header-region" %}
 
 <main id="main" class="main" role="main" tabindex="-1">
-  <article role="article">
-    <div class="l-constrain">
-      {% include "components-page-title--section-page" %}
-
-      {% include "components-feature" %}
-      {% include "components-feature" %}
-      
+  <article class="section-page" role="article">
+    {% include "components-hero-section-page" %}
+    <div class="l-constrain l-constrain--main-content">
       <section class="cards">
         {% include "components-card" %}
         {% include "components-card" %}
@@ -17,7 +13,7 @@
         {% include "components-card--highlighted" %}
       </section>
 
-      <a class="button blue-button" href="#">More on New York City Budget</a>
+      <div class="is-centered"><a class="button blue-button" href="#">More on New York City Budget</a></div>
 
     </div>
   </article>

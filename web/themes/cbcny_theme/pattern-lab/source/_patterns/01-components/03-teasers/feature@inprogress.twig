@@ -1,7 +1,9 @@
 <article class="feature" role="article">
   <div class="l-slat l-slat--feature">
     <div class="l-slat__media">
-      <a href="{{ url }}">{% include "base-feature-image" %}</a>
+      <a href="{{ url }}">
+        <div class="feature__image" style="background-image: url({{ img.feature.src }});"></div>
+      </a>
     </div>
     <div class="l-slat__content">
       <div class="teaser-info teaser-info--feature">

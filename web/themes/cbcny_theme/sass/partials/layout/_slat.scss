@@ -34,32 +34,31 @@ $gutter: 0;
 }
 
 .l-slat--feature {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+
   .l-slat__media {
-    min-height: em(300px);
-    overflow: hidden;
+    flex-basis: 100%;
     padding: 0;
-
-    img {
-      width: 100%;
-    }
-
-    @include breakpoint($bp-first) {
-      min-height: em(280px);
-    }
+    
     @include breakpoint($bp-second) {
-      width: 45%;
-
-      img {
-        width: auto;
-      }
+      flex-basis: 45%;
     }
   }
 
   .l-slat__content {
+    display: block;
+    flex-basis: 100%;
     padding: em(30px);
+    width: auto;
 
     @include breakpoint($bp-first) {
       padding: em(30px) em(54px) em(50px);
+    }
+
+    @include breakpoint($bp-second) {
+      flex-basis: 55%;
     }
   }
 }
