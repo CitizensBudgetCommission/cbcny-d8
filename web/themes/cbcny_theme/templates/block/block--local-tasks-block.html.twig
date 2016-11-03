@@ -6,7 +6,6 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div class="l-constrain">
     {{ title_prefix }}
     {% if label %}
     <h2{{ title_attributes }} class="block__title">{{ label }}</h2>
@@ -16,6 +15,4 @@
     <div class="block__content">
       {{ content }}
     </div>
-
-  </div>
 </div>

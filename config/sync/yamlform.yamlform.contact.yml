@@ -1,15 +1,15 @@
-uuid: 5e914315-abfa-422f-93e9-8dd045956d35
+uuid: e463c11d-304f-4ab1-8099-89e74b7855c9
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: YvVUuI9IVK54v7EQim04PalxmVuHbW2rK0ZwQ6kNqIc
+  default_config_hash: LasCJP-N2njGJZCeGeVp8mWjI36mX21SlCUXoc-NPN4
 uid: null
 template: false
 id: contact
 title: Contact
 description: 'Basic email contact form.'
-elements: "name:\n  '#type': textfield\n  '#title': Name\n  '#default_value': '[yamlform-authenticated-user:display-name]'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[yamlform-authenticated-user:mail]'\n  '#required': true\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\ncaptcha:\n  '#type': captcha\n"
+elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:mail]'\nsubject:\n  '#title': 'Subject'\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact form from [site:name]'\nmessage:\n  '#title': 'Message'\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\n"
 settings:
   page: true
   page_submit_path: ''
@@ -23,6 +23,7 @@ settings:
   form_prepopulate_source_entity: false
   form_novalidate: false
   form_autofocus: false
+  form_details_toggle: false
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
@@ -50,6 +51,8 @@ settings:
   entity_limit_total: null
   entity_limit_user: null
   results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
 access:
   create:
     roles:

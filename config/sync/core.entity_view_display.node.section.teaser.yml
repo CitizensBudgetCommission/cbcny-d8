@@ -8,24 +8,20 @@ dependencies:
     - field.field.node.section.field_term_topic
     - node.type.section
   module:
-    - title
     - user
 id: node.section.teaser
 targetEntityType: node
 bundle: section
 mode: teaser
 content:
-  links:
-    weight: 100
   title:
-    type: linked_and_wrapped
+    type: string
     settings:
-      tag: h2
-      linked: true
-      classes: ''
-    weight: -5
-    label: above
+      link_to_entity: false
+    weight: 0
+    label: hidden
     third_party_settings: {  }
 hidden:
   field_ref_featured_content: true
   field_term_topic: true
+  links: true
