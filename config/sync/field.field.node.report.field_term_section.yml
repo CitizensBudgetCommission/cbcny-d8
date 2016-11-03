@@ -1,0 +1,28 @@
+uuid: 5669aacc-4005-4af3-b093-2269524bd9ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_term_section
+    - node.type.report
+    - taxonomy.vocabulary.section
+id: node.report.field_term_section
+field_name: field_term_section
+entity_type: node
+bundle: report
+label: 'Term Section'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
