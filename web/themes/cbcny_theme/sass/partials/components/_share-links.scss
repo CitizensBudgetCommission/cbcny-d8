@@ -5,6 +5,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: em($base-line-height);
 
   @include breakpoint($bp-larger-font-size) {
     flex-wrap: nowrap;

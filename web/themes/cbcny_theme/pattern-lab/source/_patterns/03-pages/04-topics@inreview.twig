@@ -5,11 +5,24 @@
     {% include "components-hero"
       with {
         "pageTitle": "Topics",
+        "subtitle": false,
+        "topic": false,
+        "type": false,
+        "hasImage": true,
+        "img": {
+          "hero": {
+            "src": "../../images/hero--topics.jpg"
+          }
+        }
       }
     %}
     <div class="l-constrain l-constrain--main-content">
       {% include "components-share-links" %}
-      {% include "components-introduction" %}
+      {% include "components-introduction"
+        with {
+          "intro": "<p>Learn more about what we’re doing in in New York City and New York State government to achieve constructive financial and services change.</p>"
+        }
+      %}
       {% include "components-topics-menu" %}
     </div>
   </article>
