@@ -1,7 +1,7 @@
 // @file
 // Styles for a callout.
 
-.callout {
+%callout {
   background-color: $cbcny-extremely-light-blue;
   color: $cbcny-dark-gray;
   margin-bottom: em($base-line-height);
@@ -23,60 +23,5 @@
 .callout__content {
   > :last-child {
     margin-bottom: 0;
-  }
-}
-
-.callout--aside {
-  color: $cbcny-dark-blue;
-
-  blockquote,
-  dd,
-  dl,
-  figure,
-  ol,
-  p,
-  pre,
-  ul {
-    margin-bottom: em(20px, map-get($font-size, xs));
-  }
-
-  h2 {
-    font-size: 1em;
-    margin-bottom: em(5px, map-get($font-size, xs));
-  }
-
-  hr {
-    margin: em(20px, map-get($font-size, xs)) 0;
-  }
-
-  li {
-    margin-bottom: rem(10px);
-  }
-
-  ol,
-  ul {
-    ol,
-    ul {
-      margin: rem(10px) 0 0;
-    }
-  }
-
-  .callout__content {
-    font-size: rem(map-get($font-size, xs));
-    line-height: 1.5;
-
-    > p:first-child:first-letter {
-      font-size: 2.5em;
-      line-height: 1;
-    }
-  }
-}
-
-.callout--download {
-  border-bottom: 1px solid $cbcny-pale-blue;
-  padding: em(30px) em(50px);
-
-  .callout__content {
-    font-size: rem(map-get($font-size, l));
   }
 }

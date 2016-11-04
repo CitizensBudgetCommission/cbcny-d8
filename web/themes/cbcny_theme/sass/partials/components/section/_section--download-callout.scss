@@ -1,0 +1,9 @@
+.section--download-callout {
+  @extend %callout;
+  border-bottom: 1px solid $cbcny-pale-blue;
+  padding: em(30px) em(50px);
+
+  .callout__content {
+    font-size: rem(map-get($font-size, l));
+  }
+}

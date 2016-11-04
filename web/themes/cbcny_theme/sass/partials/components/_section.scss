@@ -1,0 +1,13 @@
+// @file
+// Styles for section components.
+
+.section {
+  margin: 0 0 4em 0;
+}
+
+// Custom section styles.
+@import 'section/section--aside';
+@import 'section/section--author';
+@import 'section/section--download-callout';
+@import 'section/section--footnotes';
+@import 'section/section--introduction';

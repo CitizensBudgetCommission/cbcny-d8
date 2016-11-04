@@ -1,10 +1,10 @@
-// @file
-// Styles for footnotes.
+.section--footnotes {
 
-.footnotes {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
+  ol {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 %footnotes__item {
@@ -21,6 +21,6 @@
   }
 }
 
-.footnotes li {
+.section--footnotes li {
   @extend %footnotes__item;
 }

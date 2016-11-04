@@ -1,7 +1,7 @@
 {%
   set classes = [
     'section',
-    'section--aside',
+    'section--download-callout',
     'section--type-' ~ paragraph.bundle|clean_class,
     view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
   ]
@@ -9,6 +9,10 @@
 
 <section{{ attributes.addClass(classes) }}>
   <div class="callout__content">
-    {{ content }}
+    {% if content.field_heading_plain|render %}
+      <h2>{{ content.field_heading_plain }}</h2>
+    {% endif %}
+    <div>{{ content.field_description_plain }}</div>
+    {{ content.field_file_upload }}
   </div>
 </section>
