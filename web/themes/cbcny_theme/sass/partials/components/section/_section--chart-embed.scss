@@ -1,0 +1,12 @@
+// @file
+// Styles for chart embed.
+
+
+.section--chart-embed {
+  background-color: $cbcny-white;
+
+  iframe {
+    height: 100%;
+    width: 100%;
+  }
+}
