@@ -19,6 +19,7 @@
 
   "body": "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>",
   "customClasses": "",
+  "intro": "<p>This is the introduction, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup.</p>",
   "summary": "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>",
   "title": "Title",
   "topic": "Topic",

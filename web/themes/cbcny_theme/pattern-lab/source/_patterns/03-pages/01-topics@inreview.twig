@@ -1,0 +1,75 @@
+{% include "layouts-header-region" %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  <article role="article">
+    {% include "components-hero"
+      with {
+        "pageTitle": "Topics",
+        "subtitle": false,
+        "topic": false,
+        "type": false,
+        "hasImage": true,
+        "img": {
+          "hero": {
+            "src": "../../images/hero--topics.jpg"
+          }
+        }
+      }
+    %}
+    <div class="l-constrain l-constrain--main-content">
+      {% include "components-share-links" %}
+      {% include "components-introduction"
+        with {
+          "intro": "<p>Learn more about what we’re doing in in New York City and New York State government to achieve constructive financial and services change.</p>"
+        }
+      %}
+      <div class="l-grid">
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--skyscrapers",
+            "title": "New York City Budget"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--chart",
+            "title": "Economic Development"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--courthouse",
+            "title": "Education"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--heartbeat",
+            "title": "Healthcare"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--piggy-bank",
+            "title": "Pensions & Fringe Benefits"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--dollar-bills",
+            "title": "State Budget"
+          }
+        %}
+        {% include "components-icon-link"
+          with {
+            "customClasses": "icon-link--traffic-light",
+            "title": "Transportation & Infrastructure"
+          }
+        %}
+      </div>
+    </div>
+  </article>
+</main>
+
+{% include "layouts-postscript-region" %}
+{% include "layouts-footer-region" %}
