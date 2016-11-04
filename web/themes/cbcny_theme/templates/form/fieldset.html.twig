@@ -28,6 +28,7 @@
 {%
   set addClasses = [
     'fieldset',
+    'fieldset--default',
     required ? 'is-required',
     'js-form-wrapper',
   ]
@@ -36,6 +37,7 @@
   {%
     set removeClasses = removeClasses|merge([
       'fieldgroup',
+      'fieldset--default',
       'form-composite',
       'js-form-wrapper',
     ])
