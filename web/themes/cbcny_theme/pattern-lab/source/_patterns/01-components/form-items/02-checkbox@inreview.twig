@@ -1,24 +1,36 @@
 <div class="form-item form-item--checkbox">
-  <input type="checkbox" id="edit-checkbox" name="checkbox" value="1" checked="checked" class="form-checkbox">
-  <label class="form-item__label" for="edit-checkbox">Checkbox</label>
-  <div class="form-item__description">The description for this form field.</div>
+  <input class="form-item__checkbox" id="edit-checkbox" type="checkbox" checked="checked">
+  <label class="form-item__label is-after" for="edit-checkbox">Checkbox</label>
+  <div class="form-item__description">
+    <p>The description for this form field.</p>
+  </div>
 </div>
 
-<div class="form-item form-item--checkboxes">
-  <fieldset id="edit-checkboxes" class="form-item__fieldset">
-    <legend class="form-item__legend">Checkboxes </legend>
-    <div class="form-item form-item--checkbox">
-      <input type="checkbox" id="edit-checkboxes-a" name="checkboxes-a" class="form-checkbox">  <label class="form-item__label" for="edit-checkboxes-a">Choice A </label>
+<fieldset class="fieldset fieldset--checkboxes" aria-describedby="edit-checkboxes-description">
+  <legend class="fieldset__legend">
+    <span class="fieldset__legend-text">Checkboxes</span>
+  </legend>
+  <div class="fieldset__content">
+    <div class="form-item form-item--checkboxes">
+      <div class="form-item form-item--checkbox">
+        <input class="form-item__checkbox" id="edit-checkboxes-a" type="checkbox">
+        <label class="form-item__label is-after" for="edit-checkboxes-a">Choice A</label>
+      </div>
+      <div class="form-item form-item--checkbox">
+        <input class="form-item__checkbox" id="edit-checkboxes-b" type="checkbox">
+        <label class="form-item__label is-after" for="edit-checkboxes-b">Choice B</label>
+      </div>
+      <div class="form-item form-item--checkbox">
+        <input class="form-item__checkbox" id="edit-checkboxes-c" type="checkbox">
+        <label class="form-item__label is-after" for="edit-checkboxes-c">Choice C</label>
+      </div>
+      <div class="form-item form-item--checkbox">
+        <input class="form-item__checkbox" id="edit-checkboxes-d" type="checkbox">
+        <label class="form-item__label is-after" for="edit-checkboxes-d">Choice D</label>
+      </div>
+      <div class="fieldset__description" id="edit-checkboxes-description">
+        <p>The description for this form field.</p>
+      </div>
     </div>
-    <div class="form-item form-item--checkbox">
-      <input type="checkbox" id="edit-checkboxes-b" name="checkboxes-b" class="form-checkbox">  <label class="form-item__label" for="edit-checkboxes-b">Choice B </label>
-    </div>
-    <div class="form-item form-item--checkbox">
-      <input type="checkbox" id="edit-checkboxes-c" name="checkboxes-c" class="form-checkbox">  <label class="form-item__label" for="edit-checkboxes-c">Choice C </label>
-    </div>
-    <div class="form-item form-item--checkbox">
-      <input type="checkbox" id="edit-checkboxes-d" name="checkboxes-d" class="form-checkbox">  <label class="form-item__label" for="edit-checkboxes-d">Choice D </label>
-    </div>
-  </fieldset>
-  <div class="form-item__description">The description for this form field.</div>
-</div>
+  </div>
+</fieldset>

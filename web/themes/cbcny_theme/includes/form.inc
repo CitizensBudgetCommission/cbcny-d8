@@ -5,9 +5,16 @@
  */
 
 /**
+ * Implements template_preprocess_fieldset().
+ */
+function cbcny_theme_preprocess_fieldset(&$vars) {
+  $vars['type'] = isset($vars['element']['#type']) ? $vars['element']['#type'] : NULL;
+}
+
+/**
  * Implements template_preprocess_input().
  */
 function cbcny_theme_preprocess_input(&$vars) {
   $vars['required'] = $vars['element']['#required'];
-  $vars['type'] = $vars['element']['#attributes']['type'];
+  $vars['type'] = isset($vars['element']['#attributes']['type']) ? $vars['element']['#attributes']['type'] : NULL;
 }

@@ -21,13 +21,32 @@
  */
 #}
 {%
-  set classes = [
+  set removeClasses = [
+    'required',
+  ]
+%}
+{%
+  set addClasses = [
     'fieldset',
-    'js-form-item',
+    required ? 'is-required',
     'js-form-wrapper',
   ]
 %}
-<fieldset{{ attributes.addClass(classes) }}>
+{% if type != 'fieldset' %}
+  {%
+    set removeClasses = removeClasses|merge([
+      'fieldgroup',
+      'form-composite',
+      'js-form-wrapper',
+    ])
+  %}
+  {%
+    set addClasses = addClasses|merge([
+      'fieldset--' ~ type|clean_class,
+    ])
+  %}
+{% endif %}
+<fieldset{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>
   {%
     set legend_span_classes = [
       'fieldset__legend-text',
