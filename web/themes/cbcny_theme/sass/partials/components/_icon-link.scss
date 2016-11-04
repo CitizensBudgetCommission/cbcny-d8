@@ -1,0 +1,36 @@
+// @file
+// Styles for icon links.
+
+.icon-link {
+  background-color: $cbcny-white;
+  background-position: 50% em(40px);
+  background-repeat: no-repeat;
+  background-size: auto em(97px);
+  box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
+  display: inline-block;
+  margin-bottom: em($base-line-height);
+  padding: em(150px) em(31px) em(40px);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
+  }
+}
+
+.icon-link__text {
+  font-size: rem(map-get($font-size, l));
+  line-height: 1.1;
+
+  @include breakpoint($bp-larger-font-size) {
+    font-size: rem(map-get($font-size, xl));
+  }
+}
+
+@each $icon in chart, courthouse, dollar-bills, heartbeat, piggy-bank, skyscrapers, traffic-light {
+  .icon-link--#{$icon} {
+    @include svg-background(icon-#{$icon});
+  }
+}

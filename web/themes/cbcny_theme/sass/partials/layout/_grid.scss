@@ -1,0 +1,24 @@
+// @file
+// Styles for the grid layout.
+
+$bp-first: 480px, 'no-query' true;
+$bp-second: 760px, 'no-query' true;
+$gutter: 1em;
+
+.l-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > * {
+    flex-basis: 100%;
+
+    @include breakpoint($bp-first) {
+      flex-basis: 47%;
+    }
+
+    @include breakpoint($bp-second) {
+      flex-basis: 30%;
+    }
+  }
+}
