@@ -1,1 +1,12 @@
-{{ content }}
+{%
+  set classes = [
+    'section',
+    'section--full-text',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  {{ content }}
+</section>
