@@ -7,10 +7,12 @@
 
 .page-title--section-page {
   color: $cbcny-blue;
-  display: inline-block;
   font-family: $base-font-family;
   font-size: 3.52em;
   font-weight: 300;
   line-height: 0.9em;
-  margin-right: em(14px);
+  
+  @include breakpoint($bp-hide-mobile-menu) {
+  	margin-right: rem(370px);
+  }
 }
