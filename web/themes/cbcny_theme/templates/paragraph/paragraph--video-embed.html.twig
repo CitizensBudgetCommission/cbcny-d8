@@ -1,14 +1,13 @@
 {%
   set classes = [
     'section',
-    'section--aside',
+    'section--video-caption',
     'section--type-' ~ paragraph.bundle|clean_class,
     view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
   ]
 %}
 
 <section{{ attributes.addClass(classes) }}>
-  <div class="aside__content">
-    {{ content }}
-  </div>
+  {{ content.field_video_url }}
+  {{ content.field_video_caption }}
 </section>
