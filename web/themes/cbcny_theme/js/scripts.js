@@ -30,4 +30,13 @@
   //    $(".page").removeClass("header-is-fixed");
   //});
 
+  // Dropdown functionality 
+  Drupal.behaviors.toggleDropdowns = {
+    attach: function (context, settings) {
+      $('.dropdown-button').on(click, function() {
+        $(this).parent('.dropdown').toggleClass('.is-active').children('.dropdown__options').toggleClass('.is-hidden');
+      });
+    }
+  };
+
 })(jQuery);

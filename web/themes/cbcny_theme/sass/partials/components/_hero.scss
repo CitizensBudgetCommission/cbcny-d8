@@ -56,8 +56,26 @@ $bp-largest-hero: 960px;
   background-position: 0px 0px, 100% 100%;
   background-repeat: repeat, no-repeat;
   padding-top: 60px;
+  position: relative;
+
+  .dropdown {
+    margin-top: em(18px);
+    position: relative;
+
+    @include breakpoint($bp-larger-hero) {
+      margin: 0;
+      left: auto;
+      position: absolute;
+      right: 1em;
+      top: em(30px);
+    }
+    @include breakpoint($bp-largest-hero) {
+      right: 1em;
+    }
+  }
 
   .hero__content {
     background: none;
+    @extend .l-constrain;
   }
 }
