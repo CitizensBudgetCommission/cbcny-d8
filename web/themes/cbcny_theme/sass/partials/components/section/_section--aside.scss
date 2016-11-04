@@ -1,0 +1,47 @@
+.section--aside {
+  @extend %callout;
+
+  color: $cbcny-dark-blue;
+
+  blockquote,
+  dd,
+  dl,
+  figure,
+  ol,
+  p,
+  pre,
+  ul {
+    margin-bottom: em(20px, map-get($font-size, xs));
+  }
+
+  h2 {
+    font-size: 1em;
+    margin-bottom: em(5px, map-get($font-size, xs));
+  }
+
+  hr {
+    margin: em(20px, map-get($font-size, xs)) 0;
+  }
+
+  li {
+    margin-bottom: rem(10px);
+  }
+
+  ol,
+  ul {
+    ol,
+    ul {
+      margin: rem(10px) 0 0;
+    }
+  }
+
+  .aside__content {
+    font-size: rem(map-get($font-size, xs));
+    line-height: 1.5;
+
+    > p:first-child:first-letter {
+      font-size: 2.5em;
+      line-height: 1;
+    }
+  }
+}
