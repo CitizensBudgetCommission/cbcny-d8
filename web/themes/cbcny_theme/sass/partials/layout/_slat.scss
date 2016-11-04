@@ -34,14 +34,17 @@ $gutter: 0;
 }
 
 .l-slat--feature {
-  display: flex;
   align-items: stretch;
+  display: flex;
   flex-wrap: wrap;
 
   .l-slat__media {
+    align-items: stretch;
+    justify-content: flex-start; 
+    display: flex;
     flex-basis: 100%;
     padding: 0;
-    
+
     @include breakpoint($bp-second) {
       flex-basis: 45%;
     }
