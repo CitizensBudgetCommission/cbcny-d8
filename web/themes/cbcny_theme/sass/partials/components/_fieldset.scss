@@ -1,78 +1,33 @@
 // @file
 // Styles for form fieldsets.
 
-$fieldset-bg-color: $form-bg-color !default;
-$fieldset-border-color: $form-border-color !default;
-
 .fieldset {
-  background: $cbcny-white;
-  border: 1px solid $fieldset-border-color;
-  margin: 1.5em 0 1.5em + em(12px);
-  padding: 0 1em;
-  position: relative;
-  top: em(12px); // Offsets the negative margin of legends.
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .fieldset__legend {
-    background: $fieldset-bg-color;
-    border: 1px solid $fieldset-border-color;
-    border-bottom: none;
-    box-sizing: content-box;
-    color: #333;
-    display: block;
-    height: 2em;
-    left: -1px; // LTR
-    line-height: 2;
-    padding: 0;
-    position: absolute;
-    text-indent: 0;
-    text-shadow: 0 1px 0 $cbcny-white;
-    top: em(-12px);
-    width: 100%;
-  }
-
-.fieldset__legend-text {
+  box-sizing: content-box;
   display: block;
-  padding-left: 1em;
+  padding: 0;
+  text-indent: 0;
+  width: 100%;
 }
 
-.fieldset__legend-link {
+.fieldset__legend-text { // Same text styles as form labels.
+  color: $cbcny-dark-gray;
   display: block;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: rem(12px);
 }
 
-.fieldset__content {
-  margin-top: 2.5em;
+.fieldset__description { // Same text styles as form descriptions.
+  color: $secondary-text-color;
+  font-size: em(map-get($font-size, xs));
 }
 
-.fieldset__description {
-  font-style: italic;
-  margin: 1.5em 0;
-}
-
-.fieldset--collapsible {
-  .fieldset__legend-link:before {
-    content: '-';
-    display: inline-block;
-    font-weight: bold;
-    margin-right: 1em;
-  }
-
-  &.is-collapsed {
-    border-bottom-width: 0;
-    border-left-width: 0;
-    border-right-width: 0;
-    margin-bottom: 3em + em(12px);
-
-    .fieldset__legend {
-      border-bottom: 1px solid $fieldset-border-color;
-    }
-
-    .fieldset__legend-link:before {
-      content: '+';
-    }
-
-    .fieldset__content {
-      display: none;
-    }
-  }
-}
+// Custom fieldset styles.
+@import 'fieldset/fieldset--default';
+@import 'fieldset/fieldset--collapsible';
