@@ -1,1 +1,40 @@
-{{ content }}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {% if content.field_hero|render %}
+    <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
+      <div class="hero__content">
+        <h1 class="page-title">{{ content.title }}</h1>
+      </div>
+    </div>
+  {% else %}
+    <div class="hero hero--small">
+      <div class="hero__content">
+        <h1 class="page-title">{{ content.title }}</h1>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="l-constrain l-constrain--main-content">
+    {{ drupal_block('cbcny_theme_local_tasks') }}
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="share-links">
+      <div class="share-links__label">Share This Page</div>
+      <div class="share-links__links addthis_inline_share_toolbox"></div>
+    </div>
+
+    {{ content.field_page_content }}
+
+  </div>
+
+</article>
