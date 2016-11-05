@@ -26,6 +26,7 @@
   content: '*';
 }
 
+%form-item__box,
 .form-item__date,
 .form-item__email,
 .form-item__number,
@@ -52,20 +53,6 @@
 
   .is-full-width > & {
     width: 100%;
-  }
-}
-
-.form--item__select {
-  appearance: none;
-  @include svg-background(icon-meatball-hover);
-  background-position: 95% 50%;
-  background-size: 7px;
-  background-repeat: no-repeat;
-  text-indent: 1px;
-  text-overflow: '';
-
-  &::-ms-expand {
-    display: none;
   }
 }
 

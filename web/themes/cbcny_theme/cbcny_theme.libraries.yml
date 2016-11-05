@@ -18,7 +18,22 @@ mobile-menu:
     - core/jquery
     - core/drupal
 
+select:
+  js:
+    js/select.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - cbcny_theme/selectability
+
 addthis:
   version: VERSION
   js:
     //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fe0a2f86664049b: { type: external, minified: true }
+
+selectability:
+  version: 1.0.2
+  js:
+    bower_components/jquery-selectability/jquery.selectability.js: {}
+  dependencies:
+    - core/jquery
