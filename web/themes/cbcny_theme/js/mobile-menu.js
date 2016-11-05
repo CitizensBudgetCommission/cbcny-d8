@@ -13,7 +13,7 @@
           $mobileBar = $('<div class="mobile-menu__bar"><button class="mobile-menu__button js-mobile-menu-button mobile-menu__button--menu"><span class="mobile-menu__icon mobile-menu__icon--menu">Menu</span></button></div>'),
           $mobileLinks = $('<div class="mobile-menu__links hidden"></div>'),
           $utilityMenu = $('.header', context).find('.nav--account').not('.contextual-links').first().clone(),
-          $mainMenu = $('.header', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
+          $mainMenu = $('.region-navigation', context).find('.nav--main, .block--system-main-menu .nav, .block--superfish .sf-menu').not('.contextual-links').first().clone(),
           $isSuperfish = ($mainMenu.hasClass('sf-menu')) ? true : false;
 
       // Only create mobile menu if there is a main menu.

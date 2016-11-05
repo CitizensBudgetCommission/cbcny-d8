@@ -8,6 +8,9 @@
   // Generic function that runs on window resize.
   function resizeStuff() {
     // mosaicGrid();
+
+    // create sticky header
+    $(".region-navigation").stick_in_parent('.page');
   }
 
   // Runs function once on window resize.
@@ -21,7 +24,7 @@
     TO = setTimeout(resizeStuff, 200);
   }).resize();
 
-  // add .header-is-fixed class to .page 
+  // add .header-is-fixed class to .page
   //$(window).scroll(function() {
   //  var value = $(this).scrollTop();
   //  if (value > 148)

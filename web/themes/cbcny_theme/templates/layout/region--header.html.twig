@@ -4,8 +4,12 @@
  * Theme override to display the header region.
  */
 #}
-{% block content %}
-  {% if content %}
-    {{ content }}
-  {% endif %}
-{% endblock %}
+<header class="header" role="banner">
+  <div class="header__inner l-constrain-narrow">
+    {% block content %}
+      {% if content %}
+        {{ content }}
+      {% endif %}
+    {% endblock %}
+</div>
+</header>

@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Theme override to display the footer region.
+ */
+#}
+{# {{ drupal_block('social_media_links') }} #}
+
+{% block content %}
+  {% if content %}
+    {{ content }}
+  {% endif %}
+{% endblock %}
