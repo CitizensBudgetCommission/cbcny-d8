@@ -22,6 +22,7 @@
     required ? 'is-required',
   ]
 %}
+{{ attach_library('cbcny_theme/select') }}
 {% spaceless %}
   <select{{ attributes.removeClass(removeClasses).addClass(addClasses) }}>
     {% for option in options %}
