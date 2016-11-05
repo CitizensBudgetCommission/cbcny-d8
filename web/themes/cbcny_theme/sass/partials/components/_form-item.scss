@@ -26,6 +26,7 @@
   content: '*';
 }
 
+.form-item__date,
 .form-item__email,
 .form-item__number,
 .form-item__password,
@@ -33,19 +34,24 @@
 .form-item__select,
 .form-item__tel,
 .form-item__text,
-.form-item__textarea {
+.form-item__textarea,
+.form-item__time {
   background-color: $cbcny-white;
   border-color: $cbcny-off-white $cbcny-almost-white;
   border-style: solid;
   border-width: 0 1px 2px;
   color: $cbcny-extra-dark-gray;
   line-height: (22px / 18px);
+  max-width: 100%;
   padding: em(18px) em(20px);
-  width: 100%;
 
   &:focus {
     border-bottom-color: $cbcny-light-blue;
     outline: 0;
+  }
+
+  .is-full-width > & {
+    width: 100%;
   }
 }
 
