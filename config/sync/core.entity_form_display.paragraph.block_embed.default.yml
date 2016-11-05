@@ -1,0 +1,23 @@
+uuid: dd818408-3a86-4a19-964d-2e07b712d892
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block_embed.field_block_name
+    - paragraphs.paragraphs_type.block_embed
+  module:
+    - chosen_field
+id: paragraph.block_embed.default
+targetEntityType: paragraph
+bundle: block_embed
+mode: default
+content:
+  field_block_name:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: chosen_select
+hidden:
+  created: true
+  status: true
+  uid: true

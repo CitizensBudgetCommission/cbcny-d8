@@ -23,49 +23,65 @@
           "intro": "<p>Learn more about what we’re doing in in New York City and New York State government to achieve constructive financial and services change.</p>"
         }
       %}
-      <div class="l-grid">
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--skyscrapers",
-            "title": "New York City Budget"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--chart",
-            "title": "Economic Development"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--courthouse",
-            "title": "Education"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--heartbeat",
-            "title": "Healthcare"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--piggy-bank",
-            "title": "Pensions & Fringe Benefits"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--dollar-bills",
-            "title": "State Budget"
-          }
-        %}
-        {% include "components-icon-link"
-          with {
-            "customClasses": "icon-link--traffic-light",
-            "title": "Transportation & Infrastructure"
-          }
-        %}
+      <div class="view view--topic-cards view--three-col">
+        <div class="view__content">
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--skyscrapers",
+                "title": "New York City Budget"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--chart",
+                "title": "Economic Development"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--courthouse",
+                "title": "Education"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--heartbeat",
+                "title": "Healthcare"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--piggy-bank",
+                "title": "Pensions & Fringe Benefits"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--dollar-bills",
+                "title": "State Budget"
+              }
+            %}
+          </div>
+          <div class="view__row">
+            {% include "components-icon-link"
+              with {
+                "customClasses": "icon-link--traffic-light",
+                "title": "Transportation & Infrastructure"
+              }
+            %}
+          </div>
+        </div>
       </div>
     </div>
   </article>

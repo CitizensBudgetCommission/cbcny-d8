@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_page_content
     - node.type.landing
+    - paragraphs.paragraphs_type.block_embed
     - paragraphs.paragraphs_type.full_text
     - paragraphs.paragraphs_type.introduction
     - paragraphs.paragraphs_type.view_embed
@@ -24,6 +25,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
+      block_embed: block_embed
       full_text: full_text
       introduction: introduction
       view_embed: view_embed
@@ -37,6 +39,9 @@ settings:
       chart_embed:
         weight: 16
         enabled: false
+      block_embed:
+        enabled: true
+        weight: 17
       download_callout:
         weight: 17
         enabled: false
