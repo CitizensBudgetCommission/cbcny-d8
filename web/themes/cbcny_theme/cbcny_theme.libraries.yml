@@ -6,6 +6,7 @@ global:
       css/styles.css: { browsers: { IE: 'gte IE 9' } }
       css/no-mq.css: { browsers: { IE: 'lte IE 8', '!IE': false } }
   js:
+    js/sticky-kit.js: {}
     js/scripts.js: {}
   dependencies:
     - core/jquery

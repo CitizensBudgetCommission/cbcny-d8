@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Theme override to display the navigation region.
+ */
+#}
+<div class="region-navigation">
+  <div class="region-navigation__inner l-constrain-narrow">
+    {% block content %}
+      {% if content %}
+        {{ content }}
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>
