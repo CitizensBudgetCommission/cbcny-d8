@@ -26,8 +26,13 @@
 .fieldset__description { // Same text styles as form descriptions.
   color: $secondary-text-color;
   font-size: em(map-get($font-size, xs));
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 // Custom fieldset styles.
+@import 'fieldset/fieldset--checkboxes';
 @import 'fieldset/fieldset--default';
-@import 'fieldset/fieldset--collapsible';
+@import 'fieldset/fieldset--radios';

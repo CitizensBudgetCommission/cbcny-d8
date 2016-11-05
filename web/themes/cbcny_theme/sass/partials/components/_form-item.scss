@@ -16,6 +16,10 @@
 .form-item__description {
   color: $secondary-text-color;
   font-size: em(map-get($font-size, xs));
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .form-item__required-marker:before {
@@ -56,6 +60,58 @@
 
   &::-ms-expand {
     display: none;
+  }
+}
+
+.form-item__checkbox,
+.form-item__radio {
+  @extend %visually-hidden;
+
+  & + .form-item__label {
+    color: $cbcny-blue;
+    display: block;
+    font-size: em(map-get($font-size, xxxs));
+    font-weight: 400;
+    padding-left: em(25px, map-get($font-size, xxxs));
+    position: relative;
+
+    &:before {
+      background: $cbcny-white;
+      border: 1.75px solid $cbcny-white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2.5px $cbcny-light-gray;
+      content: '';
+      display: inline-block;
+      font-size: rem(12px);
+      height: 1em;
+      left: 0;
+      line-height: 1;
+      position: absolute;
+      top: em(2px, 12px);
+      transition-duration: 0.2s;
+      transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+      transition-timing-function: ease-in-out;
+      width: 1em;
+    }
+  }
+
+  &:checked + .form-item__label {
+    color: $cbcny-dark-blue;
+
+    &:before {
+      background: $cbcny-dark-blue;
+    }
+  }
+}
+
+.form-item__checkbox {
+  + .form-item__label:before {
+    border-radius: 3px;
+  }
+
+  &:checked + .form-item__label:before {
+    border-color: $cbcny-dark-blue;
+    box-shadow: 0 0 0 2.5px $cbcny-dark-blue;
   }
 }
 

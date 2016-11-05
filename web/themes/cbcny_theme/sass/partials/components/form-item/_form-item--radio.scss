@@ -1,11 +1,7 @@
 // @file
 // Styles for radio form items.
 
-.form-item--radio {
-  margin: 0;
-
-  .form-item__label {
-    display: inline;
-    font-weight: normal;
-  }
+.form-item--radio,
+.form-item--radios {
+  margin-bottom: 0;
 }
