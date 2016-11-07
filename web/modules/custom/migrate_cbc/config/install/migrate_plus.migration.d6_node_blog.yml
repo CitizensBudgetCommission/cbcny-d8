@@ -28,13 +28,21 @@ process:
   changed: changed
   field_published_date: field_cbc_publish_date
   field_teaser_plain: field_blog_teaser
-  field_body:
+  field_page_content:
     plugin: migration
-    source: field_body
+    source: nid
     migration:
       - d6_node_paragraph_text
+  # Post type is always Blog.
+  field_post_type:
+    plugin: default_value
+    default_value: 1
+  # Section is always Research.
+  field_term_section:
+    plugin: default_value
+    default_value: 25
 
-  # @todo: topics
+  # @todo: topics (Maria will send me the static mapping)
 
 migration_dependencies:
   required:
