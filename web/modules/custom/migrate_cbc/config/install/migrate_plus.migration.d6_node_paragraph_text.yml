@@ -27,7 +27,7 @@ process:
 
   created: created
   changed: changed
-  field_wysiwyg: body
+  field_wysiwyg/value: body
   field_wysiwyg/format:
     plugin: default_value
     default_value: full_html
