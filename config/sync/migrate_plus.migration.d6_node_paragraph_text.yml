@@ -1,0 +1,39 @@
+uuid: 403edc60-fb9b-4bea-8d1f-b26e2ce34ffc
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - migrate_cbc
+third_party_settings:
+  migrate_plus:
+    migration_group: documents
+_core:
+  default_config_hash: zPOZl23_FMvnp10oI2IZYh8YxHLz4a3yA4ES3RSLHqY
+id: d6_node_paragraph_text
+migration_tags: null
+migration_group: null
+label: 'D6 node content to paragraphs'
+source:
+  plugin: cbc_paragraph_text
+  key: drupal6
+  high_water_property:
+    name: changed
+  node_type_list:
+    - blog
+process:
+  uid:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: full_text
+  created: created
+  changed: changed
+  field_wysiwyg/value: body
+  field_wysiwyg/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:paragraph'
+migration_dependencies: null
