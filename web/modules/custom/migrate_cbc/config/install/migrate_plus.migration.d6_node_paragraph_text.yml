@@ -1,0 +1,34 @@
+id: d6_node_paragraph_text
+label: D6 node content to paragraphs
+
+third_party_settings:
+  migrate_plus:
+    migration_group: documents
+source:
+  plugin: cbc_paragraph_text
+  # Custom DB connection key. @todo Belongs in the group but not working there.
+  key: drupal6
+  high_water_property:
+    name: tstamp
+destination:
+  plugin: entity:paragraph
+
+process:
+  uid:
+    plugin: default_value
+    default_value: 1
+
+  type:
+    plugin: default_value
+    default_value: full_text
+
+  created: crdate
+  changed: tstamp
+  field_text: body
+
+migration_dependencies:
+
+dependencies:
+  enforced:
+    module:
+      - migrate_cbc
