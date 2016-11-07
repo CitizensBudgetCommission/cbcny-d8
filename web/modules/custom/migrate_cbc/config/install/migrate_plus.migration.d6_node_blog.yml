@@ -1,0 +1,47 @@
+id: d6_node_blog
+label: D6 blog nodes to D8 blog nodes
+third_party_settings:
+  migrate_plus:
+    migration_group: documents
+
+source:
+  plugin: d6_node
+  # Custom DB connection key. @todo Belongs in the group but not working there.
+  key: drupal6
+  high_water_property:
+    name: changed
+  node_type: blog
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: post
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  sticky: sticky
+  created: created
+  changed: changed
+  field_published_date: field_cbc_publish_date
+  field_teaser_plain: field_blog_teaser
+  field_body:
+    plugin: migration
+    source: field_body
+    migration:
+      - d6_node_paragraph_text
+
+  # @todo: topics
+
+migration_dependencies:
+  required:
+  - d6_node_paragraph_text
+
+dependencies:
+  enforced:
+    module:
+      - migrate_cbc
+

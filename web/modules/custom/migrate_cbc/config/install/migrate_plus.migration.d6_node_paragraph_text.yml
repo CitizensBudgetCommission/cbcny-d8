@@ -9,7 +9,10 @@ source:
   # Custom DB connection key. @todo Belongs in the group but not working there.
   key: drupal6
   high_water_property:
-    name: tstamp
+    name: changed
+  node_type_list:
+    - blog
+
 destination:
   plugin: entity:paragraph
 
@@ -22,9 +25,11 @@ process:
     plugin: default_value
     default_value: full_text
 
-  created: crdate
-  changed: tstamp
-  field_text: body
+  created: created
+  changed: changed
+  field_wysiwyg: body
+
+  # @todo: attached files used in body?
 
 migration_dependencies:
 
