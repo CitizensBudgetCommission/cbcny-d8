@@ -97,6 +97,10 @@
       "drush/contrib/{$name}": ["type:drupal-drush"],
       "web/libraries/{$name}": ["type:drupal-library"]
     },
-    "patches": {}
+    "patches": {
+      "drupal/entity_reference_revisions": {
+        "accept scalar values per https://www.drupal.org/node/2667748": "https://www.drupal.org/files/issues/allow-single-scalar-2667748-28.patch"
+      }
+    }
   }
 }
