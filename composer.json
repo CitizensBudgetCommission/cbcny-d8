@@ -37,6 +37,8 @@
     "drupal/console": "~1.0",
     "drupal/admin_toolbar": "~1.0",
     "drupal/pathauto": "~8.1.0",
+    "drupal/migrate_plus": "~8",
+    "drupal/migrate_tools": "~8",
     "drupal/yamlform": "~1.0",
     "drupal/twig_tweak": "~1.0",
     "drupal/paragraphs": "~8.1.0",
