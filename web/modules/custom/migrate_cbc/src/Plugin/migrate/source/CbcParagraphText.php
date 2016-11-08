@@ -33,7 +33,7 @@ class CbcParagraphText extends Node {
   }
 
   public function prepareRow(Row $row) {
-    $row = parent::prepareRow($row);
+    parent::prepareRow($row);
     $row = $this->addFiles($row);
     return $row;
   }
