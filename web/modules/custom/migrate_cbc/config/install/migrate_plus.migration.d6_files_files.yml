@@ -3,12 +3,16 @@ id: d6_files_files
 label: Files
 source:
   plugin: d6_file
+  key: drupal6
+  high_water_property:
+    name: timestamp
   constants:
     # source_base_path must be set by the tool configuring this migration. It
     # represents the fully qualified path relative to which URIs in the files
     # table are specified, and must end with a /. See source_full_path
     # configuration in this migration's process pipeline as an example.
     source_base_path: 'http://cbcny.org/'
+
 process:
   fid: fid
   filename: filename

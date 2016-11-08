@@ -6,7 +6,11 @@ third_party_settings:
     migration_group: documents
 
 source:
-  plugin: d6_upload
+  plugin: cbc_d6_upload
+  key: drupal6
+  high_water_property:
+    name: changed
+
 process:
   type:
     plugin: default_value
