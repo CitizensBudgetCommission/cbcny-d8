@@ -1,0 +1,53 @@
+// @file
+// Styles for block--spread-the-word-links
+
+.block--spread-the-word-links {
+	flex: 0 0 auto;
+	margin-bottom: 44px;
+	text-align: center;
+
+	@include breakpoint($bp-footer-switch, $no-query: true) {
+		flex: 0 50%;
+		margin: 0;
+	}
+
+	.link {
+		background-color: $cbcny-dark-blue;
+		background-position: 50%;
+		background-repeat: no-repeat;
+		border-radius: 90px;
+		display: inline-block;
+		height: 60px;
+		margin-bottom: .75em;
+		margin-right: 12px;
+		margin-left: 12px;
+		max-width: 100%;
+		text-indent: -999em;
+		transition: all 200ms ease-in-out;
+		width: 60px;
+
+		&:hover {
+			background-color: #09c;
+		}
+
+		&.link--facebook {
+			@include svg-background(icon-facebook);
+			background-size: auto 37px;
+		}
+
+		&.link--twitter {
+			@include svg-background(icon-twitter);
+			background-size: auto 29px;
+		}
+
+		&.link--linkedin {
+			@include svg-background(icon-linkedin);
+			background-size: auto 30px;
+		}
+
+		&.link--vimeo {
+			@include svg-background(icon-vimeo);
+			background-size: auto 27px;
+		}
+	}
+}

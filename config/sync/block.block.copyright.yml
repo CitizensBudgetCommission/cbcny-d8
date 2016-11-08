@@ -1,0 +1,25 @@
+uuid: bf309912-7de4-45a4-89d5-364bdce40bbe
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9e8485a8-3756-4f4c-b924-c97c44fabd03'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: copyright
+theme: cbcny_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:9e8485a8-3756-4f4c-b924-c97c44fabd03'
+settings:
+  id: 'block_content:9e8485a8-3756-4f4c-b924-c97c44fabd03'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
