@@ -5,7 +5,7 @@ third_party_settings:
     migration_group: documents
 
 source:
-  plugin: d6_node
+  plugin: cbc_d6_node
   # Custom DB connection key. @todo Belongs in the group but not working there.
   key: drupal6
   high_water_property:
@@ -29,28 +29,9 @@ process:
   # @todo published date isn't working
   field_published_date: field_cbc_publish_date
   field_teaser_plain: field_blog_teaser
-  # look up the d8 paragraph ids for imported body text and files.
-  body_text_paragraph:
-    plugin: migration
-    source: nid
-    migration:
-      - d6_node_paragraph_text
-  file_attachment_paragraph:
-    plugin: migration
-    source: fid
-    migration:
-      - d6_node_paragraph_files
-  # concatenate those paragraph ids, then explode into an array for the page content
-  field_page_content:
-    -
-      plugin: concat
-      source:
-        - @body_text_paragraph
-        - @file_attachment_paragraph
-      delimiter: ,
-    -
-      plugin: explode
-      delimiter: ,
+
+  # computed array of paragraph Ids. @see CbcNode::prepareRow()
+  field_page_content: paragraphs
 
   # Post type is always Blog.
   field_post_type:
