@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements hook_preprocess_html().
+ * Implements template_preprocess_html().
  */
 function cbcny_theme_preprocess_html(&$vars, $hook) {
   // Add x-ua-compatible meta tag.
@@ -22,7 +22,7 @@ function cbcny_theme_preprocess_html(&$vars, $hook) {
 }
 
 /**
- * Implements hook_preprocess_maintenance_page().
+ * Implements template_preprocess_maintenance_page().
  */
 function cbcny_theme_preprocess_maintenance_page(&$vars, $hook) {
   // While markup for normal pages is split into html.html.twig and
@@ -35,6 +35,6 @@ function cbcny_theme_preprocess_maintenance_page(&$vars, $hook) {
 }
 
 /**
- * Implements hook_preprocess_page().
+ * Implements template_preprocess_page().
  */
 function cbcny_theme_preprocess_page(&$vars, $hook) {}
