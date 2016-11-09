@@ -79,15 +79,16 @@ class CbcNode extends Node {
    * @param \Drupal\migrate\Row $row
    */
   private function getParagraphs(Row $row) {
-    // Get paragraphs, removing NULL values.
-    $paragraphs = array_filter(
+    // Get paragraphs.
+    $paragraphs = array_merge(
       // full_text paragraph for body text.
-      $this->lookupDestinationId('d6_node_paragraph_text', $row->getSourceProperty('nid')) +
+      $this->lookupDestinationId('d6_node_paragraph_text', $row->getSourceProperty('nid')),
       // download_callout paragraph for files.
-      $this->lookupDestinationId('d6_node_paragraph_files', $row->getSourceProperty('fid'))
+      $this->lookupDestinationId('d6_node_paragraph_files', $row->getSourceProperty('vid'))
     );
-    // Set the value on the row.
-    $row->setSourceProperty('paragraphs', $paragraphs);
+
+    // Set the value on the row, removing null members while we're at it.
+    $row->setSourceProperty('paragraphs', array_filter($paragraphs));
   }
 
   /**
@@ -106,7 +107,8 @@ class CbcNode extends Node {
     // Get the d6_node_paragraph_text migration.
     $migration = $this->migrationPluginManager->createInstance($migration_id);
     // Look up the destination paragraph ID based on our nid.
-    return reset($migration->getIdMap()->lookupDestinationIds([$source_id]));
+    $return = reset($migration->getIdMap()->lookupDestinationIds([$source_id]));
 
+    return $return;
   }
 }
