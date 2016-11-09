@@ -107,8 +107,6 @@ class CbcNode extends Node {
     // Get the d6_node_paragraph_text migration.
     $migration = $this->migrationPluginManager->createInstance($migration_id);
     // Look up the destination paragraph ID based on our nid.
-    $return = reset($migration->getIdMap()->lookupDestinationIds([$source_id]));
-
-    return $return;
+    return reset($migration->getIdMap()->lookupDestinationIds([$source_id]));
   }
 }
