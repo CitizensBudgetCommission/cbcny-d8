@@ -1,0 +1,56 @@
+// @file
+// Styles for the TOC menu
+
+.nav--toc {
+  background-color: $cbcny-white;
+  box-shadow: 0 6px 10px -5px rgba(0, 0, 0, .3);
+  display: none;
+  margin: 0 auto 33px;
+  padding: em(24px) em(30px) em(30px) em(50px);
+
+  &__heading {
+    font-size: 1em;
+    margin-bottom: em(21px);
+  }
+
+  .close-toc {
+    @include svg-background(icon-close);
+    background-position: 0px 50%;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    color: $cbcny-extra-dark-gray;
+    display: block;
+    margin-left: -19px;
+    padding-left: 21px;
+    position: static;
+    right: 0px;
+    text-decoration: none;
+    top: 0px;
+
+    &:hover,
+    &:focus {
+      @include svg-background(icon-close-blue);
+      color: $cbcny-extra-light-blue;
+    }
+  }
+
+  .nav__item {
+    color: $cbcny-blue;
+    display: block;
+    font-size: em(map-get($font-size, xs));
+    font-weight: 600;
+    line-height: 1.1em;
+    margin-bottom: em(24px);
+    text-decoration: none;
+    transition: all 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $cbcny-extra-light-blue;
+    }
+  }
+    
+  @media print {
+    display: none;
+  }
+}
