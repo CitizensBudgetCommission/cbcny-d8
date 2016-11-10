@@ -10,3 +10,13 @@
 .heading--green {
   color: $cbcny-dark-green;
 }
+
+.heading--big-blue {
+  color: $cbcny-dark-blue;
+  font-size: rem(map-get($font-size, xxxxxl));
+  font-weight: normal;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  text-align: center;
+  text-transform: uppercase;
+}

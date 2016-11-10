@@ -1,0 +1,25 @@
+uuid: 8e3f7300-c858-4152-b986-5b5a0238ef60
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4afbfb96-8d11-43e1-b881-76f993d11456'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: cbcny_footer_logo
+theme: cbcny_theme
+region: footer
+weight: -2
+provider: null
+plugin: 'block_content:4afbfb96-8d11-43e1-b881-76f993d11456'
+settings:
+  id: 'block_content:4afbfb96-8d11-43e1-b881-76f993d11456'
+  label: 'CBCNY footer logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

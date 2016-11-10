@@ -1,0 +1,27 @@
+// @file
+// Styles for block--cbcny-footer-logo
+
+.block--cbcny-footer-logo {
+	align-self: center;
+	flex: 0 0 auto;
+	margin: 1.5em 0;
+	overflow: hidden;
+	text-align: center;
+	white-space: nowrap;
+
+	@include breakpoint($bp-footer-switch, $no-query: true) {
+		align-self: flex-start;
+		flex-basis: auto;
+		margin: 1em 0;
+	}
+
+	.logo-link {
+		@include svg-background(cbcny-logo);
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		display: block;
+		height: 90px;
+		text-indent: -999em;
+		width: 261px;
+	}
+}
