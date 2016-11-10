@@ -18,6 +18,12 @@ class CbcUpload extends Upload {
     $query = parent::query();
     // Add the node's changed field to use as a highwater mark.
     $query->addField('n', 'changed');
+    // Only migrate published content.
+    $query->condition('n.status', 1);
+    // Offer a list of source content types.
+    if (isset($this->configuration['node_type_list'])) {
+      $query->condition('n.type', $this->configuration['node_type_list'], 'IN');
+    }
     return $query;
   }
 

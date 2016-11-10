@@ -9,6 +9,9 @@ source:
   key: drupal6
   high_water_property:
     name: changed
+  node_type_list:
+    - blog
+    - report
 
 process:
   type:
