@@ -36,6 +36,8 @@
     }
 
     &.is_stuck {
+      z-index: 2;
+
       .region-navigation__inner {
         nav:last-of-type {
           align-self: center;
