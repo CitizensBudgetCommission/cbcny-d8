@@ -31,11 +31,11 @@ process:
   # computed array of paragraph Ids. @see CbcNode::prepareRow()
   field_page_content: paragraphs
 
-  # Post type is always Blog.
-  field_post_type:
+  # Post type is always Blog, TID 1.
+  field_term_post_type:
     plugin: default_value
     default_value: 1
-  # Section is always Research.
+  # Section is always Research, TID 25.
   field_term_section:
     plugin: default_value
     default_value: 25
