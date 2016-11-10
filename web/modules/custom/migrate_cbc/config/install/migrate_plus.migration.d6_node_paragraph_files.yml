@@ -1,6 +1,5 @@
 id: d6_node_paragraph_files
-label: D6 node files to D8 file paragraph
-
+label: 'D6 node files to D8 file paragraph'
 third_party_settings:
   migrate_plus:
     migration_group: documents
@@ -27,7 +26,7 @@ process:
       description: description
   # @todo: field_description_plain? field_heading_plain?
 destination:
-  plugin: entity:paragraph
+  plugin: 'entity:paragraph'
 migration_dependencies:
   required:
     - d6_files_files
