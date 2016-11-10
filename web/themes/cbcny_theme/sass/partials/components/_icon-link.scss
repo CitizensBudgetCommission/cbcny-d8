@@ -8,11 +8,11 @@
   background-size: auto em(97px);
   box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
   display: inline-block;
-  margin-bottom: em($base-line-height);
-  padding: em(150px) em(31px) em(40px);
+  padding: em(150px) em(50px) em(40px);
   text-align: center;
   text-decoration: none;
   vertical-align: top;
+  width: 100%;
 
   &:focus,
   &:hover {

@@ -1,21 +1,23 @@
-uuid: 251fee67-ba9a-449e-9b57-db606386a239
+uuid: 0012a750-297d-4284-b44a-0975a38b635f
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - taxonomy.vocabulary.section
+    - node.type.news
+    - taxonomy.vocabulary.post_type
   content:
-    - 'taxonomy_term:section:5f58e7a1-c46d-434c-90d0-fdb27fe89b19'
+    - 'taxonomy_term:post_type:629b3daf-2bc7-4adf-b036-c6bd4d536280'
   module:
+    - datetime
     - node
     - taxonomy
     - user
-id: research_list
-label: 'Research List'
+id: latest_news
+label: 'Latest News'
 module: views
-description: 'Listing of content that corresponds to the section page Research'
-tag: Section
+description: 'Listing of news which post type is not Press Mention'
+tag: ''
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -52,10 +54,23 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: mini
         options:
-          items_per_page: 6
+          items_per_page: 10
           offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: default
         options:
@@ -117,16 +132,36 @@ display:
           separator: ', '
           field_api_classes: false
       filters:
-        field_term_section_target_id:
-          id: field_term_section_target_id
-          table: node__field_term_section
-          field: field_term_section_target_id
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            news: news
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_term_post_type_target_id:
+          id: field_term_post_type_target_id
+          table: node__field_term_post_type
+          field: field_term_post_type_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: not
           value:
-            25: 25
+            17: 17
           group: 1
           exposed: false
           expose:
@@ -157,40 +192,37 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: section
+          vid: post_type
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-      sorts: {  }
+      sorts:
+        field_published_date_value:
+          id: field_published_date_value
+          table: node__field_published_date
+          field: field_published_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: datetime
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: ' Research List'
+      title: 'Latest News'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  research_list:
-    display_plugin: block
-    id: research_list
-    display_title: 'Research List'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
+        - url.query_args
         - user
         - 'user.node_grants:view'
         - user.permissions
