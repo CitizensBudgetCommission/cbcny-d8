@@ -1,0 +1,17 @@
+{%
+  set classes = [
+    'section',
+    'section--pullquote',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="pullquote">
+    <div class="pullquote__item">{{ content.field_quote }}</div>
+    {% if content.field_attribution|render %}
+      <div class="pullquote__attribution">{{ content.field_attribution }}</div>
+    {% endif %}
+  </div>
+</section>
