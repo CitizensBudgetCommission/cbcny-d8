@@ -1,0 +1,30 @@
+/**
+ * Alignment classes for block level elements (images, videos, blockquotes, etc.)
+ */
+.align-left {
+  float: left;
+  margin: 1em 1em 1em 0;
+  @include breakpoint(500px, $no-query: true) {
+    margin: 2em 2em 2em 0;
+    max-width: 50%;
+  }
+}
+.align-right {
+  float: right;
+  margin: 1em 0 1em 1em;
+  @include breakpoint(500px, $no-query: true) {
+    margin: 2em 0 2em 2em;
+    max-width: 50%;
+  }
+}
+.align-center {
+  display: block;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  @include breakpoint(500px, $no-query: true) {
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+}
