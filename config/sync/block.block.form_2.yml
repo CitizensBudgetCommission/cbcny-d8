@@ -1,0 +1,22 @@
+uuid: 53ae7f65-56c9-45cc-a3df-1193aba65030
+langcode: en
+status: false
+dependencies:
+  module:
+    - yamlform
+  theme:
+    - cbcny_theme
+id: form_2
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: yamlform_block
+settings:
+  id: yamlform_block
+  label: 'Subscribe Form'
+  provider: yamlform
+  label_display: '0'
+  yamlform_id: subscribe
+  default_data: ''
+visibility: {  }
