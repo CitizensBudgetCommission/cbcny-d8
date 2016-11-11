@@ -49,6 +49,8 @@
   Drupal.behaviors.gessoTOC = {
     attach: function (context) {
 
+      $(".section--toc").hide();
+
       if ( $(".section--type-section-heading h2").length ) {
 
         var toc = "";
@@ -64,8 +66,6 @@
 
         });
 
-
-        console.log(toc);
         $(".nav--toc__menu").prepend(toc);
         $(".section--toc").show();
 
