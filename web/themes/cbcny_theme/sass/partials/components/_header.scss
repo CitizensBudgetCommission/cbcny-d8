@@ -1,0 +1,48 @@
+// @file
+// Styles for the header region
+
+.header {
+  display: none;
+
+  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+    background: $cbcny-blue;
+    display: block;
+    position: relative;
+    z-index: 5;
+
+    .header__inner {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  }
+
+  .header-is-fixed & {
+    background: $cbcny-white;
+    height: 55px;
+    left: 50%;
+    position: fixed;
+    top: 0%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    .header__inner {
+      height: 55px;
+      justify-content: space-between;
+      width: 100%;
+
+      nav:first-child {
+        display: none;
+      }
+      nav:nth-child(2) {
+        align-self: center;
+        flex-basis: auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        order: 2;
+      }
+    }
+  }
+}

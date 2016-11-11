@@ -20,6 +20,7 @@
   "body": "<p>This is the body content, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. There is no limit to how long this content can be.</p>",
   "customClasses": "",
   "slideText": "New York City Budget",
+  "intro": "<p>This is the introduction, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup.</p>",
   "summary": "<p>This is the summary, which can contain <abbr title='Hyper Text Markup Language'>HTML</abbr> markup. It should be 600 characters or less.</p>",
   "featureText": "The State’s 2016-2017 Enacted Budget Financial Plan projects growth in employment and income well into 2019, but the rate of expansion is projected to be slightly slower than DOB originally assumed in the Executive Budget in January.",
   "title": "Title",

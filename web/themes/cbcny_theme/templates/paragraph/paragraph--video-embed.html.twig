@@ -1,0 +1,17 @@
+{%
+  set classes = [
+    'section',
+    'section--video-embed',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  {{ content.field_video_url }}
+  {% if content.field_video_caption|render %}
+    <div class="video__caption">
+      {{ content.field_video_caption }}
+    </div>
+  {% endif %}
+</section>

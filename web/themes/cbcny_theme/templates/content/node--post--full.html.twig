@@ -39,11 +39,12 @@
 
     {{ drupal_block('cbcny_theme_local_tasks') }}
 
-    <div class="published-date">{{ content.field_published_date }}</div>
-
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <div class="addthis_inline_share_toolbox"></div>
-
+    <div class="share-links">
+      <div class="share-links__label">Share This Page</div>
+      <div class="share-links__links addthis_inline_share_toolbox"></div>
+    </div>
+    <div class="published-date">{{ content.field_published_date }}</div>
     {{ content.field_page_content }}
   </div>
 </article>

@@ -1,11 +1,6 @@
 <div class="page">
-  <header class="header" role="banner">
-    <div class="header__inner l-constrain">
-      {{ page.header }}
-      {{ page.navigation }}
-    </div>
-  </header>
-
+  {{ page.header }}
+  {{ page.navigation }}
   {{ page.highlighted }}
   {{ page.help }}
   {{ page.preface}}
@@ -31,11 +26,7 @@
   {{ page.postscript }}
 
   {% if page.footer %}
-    <footer class="footer" role="contentinfo">
-      <div class="footer__inner l-constrain">
-        {{ page.footer }}
-      </div>
-    </footer>
+    {{ page.footer }}
   {% endif %}
 
 </div>

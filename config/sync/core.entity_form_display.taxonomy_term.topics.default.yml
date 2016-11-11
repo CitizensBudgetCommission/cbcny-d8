@@ -3,12 +3,30 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.topics.field_icon_class
+    - field.field.taxonomy_term.topics.field_section_url
     - taxonomy.vocabulary.topics
+  module:
+    - link
 id: taxonomy_term.topics.default
 targetEntityType: taxonomy_term
 bundle: topics
 mode: default
 content:
+  field_icon_class:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_section_url:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
   name:
     type: string_textfield
     weight: 0

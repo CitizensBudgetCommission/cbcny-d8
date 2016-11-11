@@ -1,0 +1,17 @@
+// @file
+// Styles for the introduction.
+
+.section--introduction {
+  @extend %secondary-font-family;
+  border-bottom: 1px solid $cbcny-off-white;
+  color: $cbcny-dark-blue;
+  font-size: rem(map-get($font-size, l));
+  letter-spacing: -1px;
+  line-height: 2.1;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
+  padding-bottom: em($base-line-height, map-get($font-size, l));
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

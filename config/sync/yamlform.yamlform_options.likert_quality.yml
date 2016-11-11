@@ -1,0 +1,9 @@
+uuid: 80ad05cf-fd49-4a26-9840-f734f558625e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0pW8kJ0Prs_gJ6QCyyUBs1pbsnA9F0xL-JIrL14KLZQ
+id: likert_quality
+label: 'Likert: Quality'
+options: "1: Poor\n2: Fair\n3: Good\n4: Very good\n5: Excellent\n"

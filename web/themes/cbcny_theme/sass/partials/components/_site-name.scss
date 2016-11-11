@@ -5,6 +5,8 @@ $logo-width: em(140px);
 $logo-height: em(48px);
 $logo-large-width: em(178px);
 $logo-large-height: em(61px);
+$logo-sticky-width: em(106px);
+$logo-sticky-height: em(35px);
 
 .site-name {
   display: inline-block;
@@ -13,7 +15,11 @@ $logo-large-height: em(61px);
 
 .site-name__link {
   display: block;
-  padding: em(18px);
+  padding: em(18px) 0;
+
+  .is_stuck & {
+    padding: em(10px) 0;
+  }
 }
 
 .site-name__text {
@@ -29,5 +35,11 @@ $logo-large-height: em(61px);
   @include breakpoint($bp-larger-site-logo) {
     height: $logo-large-height;
     width: $logo-large-width;
+  }
+
+  .is_stuck & {
+    @include svg-background(cbcny-logo-sticky);
+    height: $logo-sticky-height;
+    width: $logo-sticky-width;
   }
 }

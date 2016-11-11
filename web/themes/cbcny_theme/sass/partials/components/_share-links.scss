@@ -1,138 +1,36 @@
 // @file
-// Styles for .share-links
+// Styles for share links.
 
 .share-links {
-	display: inline-block;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: em($base-line-height);
 
-  .meta__content > & {
-    @include breakpoint(500px, $no-query: true) {
-      float: right;
-      [dir="rtl"] & {
-        float: left;
-      }
-    }
+  @include breakpoint($bp-larger-font-size) {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
   }
 
   .share-links__label {
-    font-size: em(14px);
+    color: $cbcny-dark-green;
+    flex-basis: 100%;
+    font-size: rem(map-get($font-size, xxxs));
     font-weight: 600;
-    margin-bottom: 0.5em;
+    line-height: 1.2;
+    margin-right: 1em;
+    text-transform: uppercase;
+
+    @include breakpoint($bp-larger-font-size) {
+      flex-basis: auto;
+    }
   }
 
-  .addthis_sharing_toolbox {
-    a.at-share-btn {
-      background-color: transparent !important;
-      border: 0 !important;
-      display: inline-block;
-      height: 32px;
-      margin: 0 8px 0 0;
-      position: relative;
-      transition: 0.15s opacity linear;
-      width: 32px;
+  .share-links__links {
+    flex-basis: 100%;
 
-      &:before {
-        @include image-replace(32px,32px);
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: 32px 32px;
-        content: "";
-        display: block;
-        left: 0;
-        opacity: 1;
-        position: absolute;
-        top: 0;
-        transition: 0.15s opacity linear;
-      }
-
-      &:after {
-        @include image-replace(32px,32px);
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: 32px 32px;
-        content: "";
-        display: block;
-        left: 0;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        transition: 0.15s opacity linear;
-      }
-
-      &:last-of-type {
-        margin: 0;
-      }
-
-      &:focus,
-      &:hover {
-        transform: translateY(0px);
-        &:before {
-          opacity: 0;
-        }
-        &:after {
-          opacity: 1;
-        }
-      }
-
-      span {
-        display: none;
-      }
-
-      &.at-svc-facebook {
-        &:before {
-          @include svg-background(icon-facebook-share);
-        }
-
-        &:after {
-          @include svg-background(icon-facebook-share-hover);
-        }
-      }
-
-      &.at-svc-twitter {
-        &:before {
-          @include svg-background(icon-twitter-share);
-        }
-
-        &:after {
-          @include svg-background(icon-twitter-share-hover);
-        }
-      }
-
-      &.at-svc-email {
-        &:before {
-          @include svg-background(icon-email-share);
-        }
-
-        &:after {
-          @include svg-background(icon-email-share-hover);
-        }
-      }
-
-      &.at-svc-link {
-        &:before {
-          @include svg-background(icon-link-share);
-        }
-
-        &:after {
-          @include svg-background(icon-link-share-hover);
-        }
-      }
-
-      &.at-svc-compact {
-        height: 22px;
-        top: -5px;
-        width: 22px;
-        &:before {
-          @include image-replace(22px,22px);
-          @include svg-background(icon-add-circle);
-          background-size: 22px 22px;
-        }
-
-        &:after {
-          @include image-replace(22px,22px);
-          @include svg-background(icon-add-circle-hover);
-          background-size: 22px 22px;
-        }
-      }
+    @include breakpoint($bp-larger-font-size) {
+      flex-basis: auto;
     }
   }
 }

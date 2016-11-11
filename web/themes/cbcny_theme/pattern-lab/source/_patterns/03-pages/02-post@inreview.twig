@@ -1,4 +1,5 @@
 {% include "layouts-header-region" %}
+{% include "layouts-navigation-region" %}
 
 <main id="main" class="main" role="main" tabindex="-1">
   <article role="article">
@@ -11,6 +12,7 @@
       }
     %}
     <div class="l-constrain l-constrain--main-content">
+      {% include "components-share-links" %}
       <div class="published-date">
         {% include "base-medium-date"
           with {

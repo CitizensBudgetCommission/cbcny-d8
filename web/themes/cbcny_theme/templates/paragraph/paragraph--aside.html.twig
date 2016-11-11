@@ -1,5 +1,14 @@
-<aside class="callout callout--aside">
-  <div class="callout__content">
+{%
+  set classes = [
+    'section',
+    'section--aside',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="aside__content">
     {{ content }}
   </div>
-</aside>
+</section>

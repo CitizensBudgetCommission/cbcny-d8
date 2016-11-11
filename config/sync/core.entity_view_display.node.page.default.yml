@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.field_hero
     - field.field.node.page.field_page_content
     - field.field.node.page.field_teaser_plain
+    - field.field.node.page.field_term_section
     - node.type.page
   module:
     - entity_reference_revisions
@@ -31,6 +32,13 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_term_section:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   title:
     type: string
     settings:

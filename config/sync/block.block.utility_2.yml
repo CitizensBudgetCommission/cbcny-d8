@@ -1,0 +1,24 @@
+uuid: 17ddeeb1-3d3f-4b49-8cce-c6eb9d45cc83
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility
+  module:
+    - system
+  theme:
+    - cbcny_theme
+id: utility_2
+theme: cbcny_theme
+region: navigation
+weight: 0
+provider: null
+plugin: 'system_menu_block:utility'
+settings:
+  id: 'system_menu_block:utility'
+  label: Utility
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

@@ -1,0 +1,12 @@
+{%
+  set classes = [
+    'section',
+    'section--chart-embed',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  {{ content }}
+</section>

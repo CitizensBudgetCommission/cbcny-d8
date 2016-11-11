@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
+    - field.field.node.post.field_term_section
     - field.field.node.post.field_term_topic
     - node.type.post
   module:
@@ -56,6 +57,13 @@ content:
     label: hidden
     settings:
       link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_term_section:
+    weight: 7
+    label: hidden
+    settings:
+      link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_term_topic:

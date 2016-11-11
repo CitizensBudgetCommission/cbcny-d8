@@ -1,0 +1,20 @@
+// @file
+// Styles for image with caption.
+
+.section--image-caption {
+  background-color: $cbcny-white;
+  display: table;
+  padding: em(40px);
+
+  .caption {
+    background-color: $cbcny-white;
+    caption-side: bottom;
+    color: $cbcny-dark-gray;
+    display: table-caption;
+    font-size: em(map-get($font-size, s));
+    line-height: 1.5;
+    margin-top: em(-40px);
+    padding: em(15px) em(40px) em(40px);
+  }
+
+}

@@ -1,0 +1,9 @@
+uuid: bae5718b-98b2-4fb0-add2-bfb9657db3c4
+langcode: en
+status: true
+dependencies: {  }
+name: Section
+vid: section
+description: 'Specifies in which section a piece of content will be displayed on'
+hierarchy: 0
+weight: 0

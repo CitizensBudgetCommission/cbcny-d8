@@ -6,6 +6,49 @@
   display: none;
 
   @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+    background: $cbcny-white;
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
     display: block;
+
+    .region-navigation__inner {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .site-name {
+        align-self: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      nav:first-of-type {
+        align-self: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+      nav:last-of-type {
+        display: none;
+      }
+    }
+
+    &.is_stuck {
+      z-index: 2;
+
+      .region-navigation__inner {
+        nav:last-of-type {
+          align-self: center;
+          border-left: 1px solid $cbcny-lightish-gray;
+          display: block;
+          flex-grow: 0;
+          flex-shrink: 0;
+          margin-left: 26px;
+          padding-left: 26px;
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display the footer region.
+ */
+#}
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner l-constrain">
+    <div class="footer__top">
+  		{{ drupal_block('social_media_links') }}
+      {{ drupal_block('stay_updated_callout') }}
+    </div>
+    <div class="footer-hr"></div>
+    <div class="footer__middle">
+      {{ drupal_block('cbcny_about') }}
+      {{ drupal_block('cbcny_footer_logo') }}
+      {{ drupal_block('cbcny_address') }}
+    </div>
+    <div class="footer__bottom">
+      {{ drupal_block('copyright') }}
+  		{{ drupal_block('cbcny_footer_menu') }}
+    </div>
+  </div>
+</footer>

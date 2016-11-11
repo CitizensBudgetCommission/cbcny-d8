@@ -1,0 +1,24 @@
+uuid: e5e2f62e-69a5-43dc-8493-4daadbed3e97
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.topics_terms
+  module:
+    - views
+  theme:
+    - cbcny_theme
+id: topic_cards
+theme: cbcny_theme
+region: '-1'
+weight: -7
+provider: null
+plugin: 'views_block:topics_terms-topic_cards'
+settings:
+  id: 'views_block:topics_terms-topic_cards'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }
