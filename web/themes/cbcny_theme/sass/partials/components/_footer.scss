@@ -12,91 +12,26 @@
   .footer__inner {
     padding-bottom: 40px;
     padding-top: 60px;
-  }
 
-  .social-media-and-promo-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-    width: 80%;
+    .footer__top {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-bottom: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+      width: 80%;
 
-    .social-media-container {
-      margin-bottom: 44px;
-      flex: 0 0 auto;
-      text-align: center;
-    }
-
-    .promo-container {
-      flex: 0 0 auto;
-      text-align: center;
-    }
-
-    .footer-heading {
-      color: $cbcny-dark-blue;
-      font-family: $base-font-family;
-      font-size: 1.61em;
-      margin-bottom: 30px;
-      margin-top: 0px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .social-media-button {
-      background-color: $cbcny-dark-blue;
-      background-position: 50%;
-      background-repeat: no-repeat;
-      border-radius: 90px;
-      height: 60px;
-      margin-bottom: .75em;
-      margin-right: 12px;
-      margin-left: 12px;
-      transition: all 200ms ease-in-out;
-      width: 60px;
-
-      &:hover {
-        background-color: #09c;
-      }
-
-      &.facebook-button {
-        @include svg-background(icon-facebook);
-        background-size: auto 37px;
-      }
-
-      &.twitter-button {
-        @include svg-background(icon-twitter);
-        background-size: auto 29px;
-      }
-
-      &.linkedin-button {
-        @include svg-background(icon-linkedin);
-        background-size: auto 30px;
-      }
-
-      &.vimeo-button {
-        @include svg-background(icon-vimeo);
-        background-size: auto 27px;
-      }
-    }
-
-    @include breakpoint($bp-footer-switch, $no-query: true) {
-      flex-direction: row;
-
-      .social-media-container {
-        flex: 0 50%;
-        margin: 0;
-      }
-
-      .promo-container {
-        flex: 0 50%;
+      @include breakpoint($bp-footer-switch, $no-query: true) {
+        flex-direction: row;
       }
     }
   }
 
-  .contact-information-container {
+
+
+  .footer__middle {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,100 +41,19 @@
     max-width: 1200px;
     width: 80%;
 
-    .about-cbcny-container {
-      flex: 0 0 auto;
-      margin-bottom: 21px;
-
-      .about-cbcny-text {
-        color: #494949;
-        font-size: 1em;
-        line-height: 1.76em;
-        text-align: center;
-      }
-    }
-
-    .cbcny-footer-logo {
-      align-self: center;
-      @include svg-background(cbcny-logo);
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      display: block;
-      flex: 0 0 auto;
-      height: 90px;
-      margin: 1.5em 0;
-      overflow: hidden;
-      text-align: center;
-      text-indent: -999em;
-      white-space: nowrap;
-      width: 261px;
-    }
-
-    .cbcny-address-container {
-      flex: 0 0 auto;
-
-      .cbcny-address {
-        color: #494949;
-        font-size: 1em;
-        line-height: 1.76em;
-        text-align: center;
-      }
-    }
-
     @include breakpoint($bp-footer-switch, $no-query: true) {
       flex-direction: row;
-
-      .cbcny-address-container {
-        flex-basis: 30%;
-
-        .cbcny-address {
-          text-align: left;
-        }
-      }
-
-      .about-cbcny-container {
-        flex-basis: 30%;
-        margin: 0;
-
-        .about-cbcny-text {
-          text-align: left;
-        }
-      }
-
-      .cbcny-footer-logo {
-        align-self: flex-start;
-        flex-basis: auto;
-        margin: 1em 0;
-      }
     }
   }
 
-  .legal-information-container {
+  .footer__bottom {
     width: 85%;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
 
-    .copyright-text {
+    nav {
       display: inline-block;
-      color: #666;
-      font-size: 0.88em;
-    }
-
-    .legal-link {
-      display: inline-block;
-      margin-left: 20px;
-      transition: color 200ms ease-in-out;
-      color: #007196;
-      font-size: 0.88em;
-      text-decoration: none;
-
-      @include breakpoint($bp-footer-switch, $no-query: true) {
-        margin-left: 40px;
-      }
-    }
-
-    .legal-link:hover {
-      color: #09c;
     }
   }
 

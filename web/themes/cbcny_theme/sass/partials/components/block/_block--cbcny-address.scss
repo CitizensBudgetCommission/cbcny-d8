@@ -1,0 +1,21 @@
+// @file
+// Styles for block--cbcny-address
+
+.block--cbcny-address {
+	flex: 0 0 auto;
+
+	@include breakpoint($bp-footer-switch, $no-query: true) {
+		flex-basis: 30%;
+	}
+
+	.block__content {
+		color: $cbcny-dark-gray;
+		font-size: 1em;
+		line-height: 1.76em;
+		text-align: center;
+
+		@include breakpoint($bp-footer-switch, $no-query: true) {
+			text-align: left;
+		}
+	}
+}

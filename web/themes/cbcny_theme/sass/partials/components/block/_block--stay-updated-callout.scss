@@ -1,0 +1,15 @@
+// @file
+// Styles for block--stay-updated-callout
+
+.block--stay-updated-callout {
+	flex: 0 0 auto;
+	text-align: center;
+
+	@include breakpoint($bp-footer-switch, $no-query: true) {
+    flex: 0 50%;
+	}
+
+	a {
+		@extend .button;
+	}
+}

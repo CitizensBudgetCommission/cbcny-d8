@@ -1,0 +1,21 @@
+$bp-larger-hero: 800px;
+$bp-largest-hero: 960px;
+
+.section--subnavigation {
+  background-color: $cbcny-dark-blue;
+  margin-bottom: 1.9em;
+  margin-top: -1.9em;
+  padding: em(20px) em(10px);
+
+  nav {
+  	margin: 0 auto;
+	  max-width: em($main-content-width);
+
+	  @include breakpoint($bp-larger-hero) {
+      max-width: em($main-content-width + 24px);
+  	}
+  	@include breakpoint($bp-largest-hero) {
+      max-width: em($main-content-width + 88px);
+  	}
+  }
+}
