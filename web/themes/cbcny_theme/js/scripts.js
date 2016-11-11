@@ -28,6 +28,36 @@
     }
   }
 
+  Drupal.behaviors.slick = {
+    attach: function (context, settings) {
+      $('.slick-carousel').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 650,
+            settings: {
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 500,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 360,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    }
+  }
+
   // Generic function that runs on window resize.
   function resizeStuff() {
     // mosaicGrid();
