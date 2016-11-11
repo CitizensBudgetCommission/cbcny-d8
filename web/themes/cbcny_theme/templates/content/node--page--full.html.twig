@@ -14,10 +14,12 @@
   {% if content.field_hero|render %}
     <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
-        <div class="page-info">
-          <span class="page-info__item">{{ content.field_term_post_type }}</span>
-          <span class="page-info__item">{{ content.field_term_topic }}</span>
-        </div>
+        {% if content.field_term_post_type|render %}
+          <div class="page-info">
+            <span class="page-info__item">{{ content.field_term_post_type }}</span>
+            <span class="page-info__item">{{ content.field_term_topic }}</span>
+          </div>
+        {% endif %}
         <h1 class="page-title">{{ content.title }}</h1>
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
       </div>
@@ -29,6 +31,11 @@
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
       </div>
     </div>
+  {% endif %}
+
+  {# Display About menu #}
+  {% if content.field_term_section.0['#plain_text'] == "About" %}
+    {{ drupal_block('about_menu') }}
   {% endif %}
 
   <div class="l-constrain l-constrain--main-content">
