@@ -41,8 +41,8 @@ settings:
   draft_button_label: ''
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: url_message
-  confirmation_message: 'Your message has been sent.'
+  confirmation_type: message
+  confirmation_message: '<p>Your message has been sent.</p>'
   confirmation_url: '<front>'
   limit_total: null
   limit_total_message: ''
