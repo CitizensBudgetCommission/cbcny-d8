@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_page_content
     - node.type.page
+    - paragraphs.paragraphs_type.block_embed
     - paragraphs.paragraphs_type.chart_embed
     - paragraphs.paragraphs_type.download_callout
     - paragraphs.paragraphs_type.full_text
@@ -29,6 +30,7 @@ settings:
   handler_settings:
     target_bundles:
       chart_embed: chart_embed
+      block_embed: block_embed
       download_callout: download_callout
       full_text: full_text
       image_caption: image_caption
@@ -45,6 +47,9 @@ settings:
       chart_embed:
         enabled: true
         weight: 16
+      block_embed:
+        enabled: true
+        weight: 17
       download_callout:
         enabled: true
         weight: 17

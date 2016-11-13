@@ -1,0 +1,14 @@
+{% set heading_anchor = paragraph.field_heading.0.value|lower|replace(' ', '-') %}
+
+{%
+  set classes = [
+    'section',
+    'section--heading',
+    'section--type-' ~ paragraph.bundle|clean_class,
+    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <h2 id="{{ heading_anchor }}">{{ content.field_heading }}</h2>
+</section>
