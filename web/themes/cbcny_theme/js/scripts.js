@@ -65,8 +65,9 @@
   // Dropdown functionality
   Drupal.behaviors.toggleDropdowns = {
     attach: function (context, settings) {
-      $('.dropdown-button').on(click, function() {
-        $(this).parent('.dropdown').toggleClass('.is-active').children('.dropdown__options').toggleClass('.is-hidden');
+      $('.dropdown').children('.dropdown__options').addClass('is-hidden');
+      $('.dropdown-button').on('click', function() {
+        $(this).parent('.dropdown').toggleClass('is-active').children('.dropdown__options').toggleClass('is-hidden');
       });
     }
   };
@@ -80,7 +81,7 @@
         var $target = $(target);
 
         $('html, body').stop().animate({
-          'scrollTop': $target.offset().top
+          'scrollTop': $target.offset.top
         }, 900, 'swing');
     });
   });

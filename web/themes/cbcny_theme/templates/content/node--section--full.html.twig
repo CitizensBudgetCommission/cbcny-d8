@@ -1,0 +1,39 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <div class="hero hero--section-page">
+    <div class="hero__content">
+      <h1 class="page-title page-title--section-page">{{ content.title }}</h1>
+
+      {{ drupal_view('topics_terms', 'topic_menu') }}
+
+      <!--<div class="dropdown">
+        <div class="button dropdown-button">Choose a Different Topic</div>
+
+        <div class="dropdown__options is-hidden">
+        	<div class="dropdown__option"><a class="dropdown__link" href="#">Topic</a></div>
+        	<div class="dropdown__option"><a class="dropdown__link" href="#">Topic</a></div>
+        	<div class="dropdown__option"><a class="dropdown__link" href="#">Topic</a></div>
+        	<div class="dropdown__option"><a class="dropdown__link" href="#">Topic</a></div>
+        	<div class="dropdown__option"><a class="dropdown__link" href="#">A very long topic with lots of characters that make it really long</a></div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+
+
+  <div class="l-constrain l-constrain--main-content">
+    {{ drupal_block('cbcny_theme_local_tasks') }}
+    {{ content.field_ref_featured_content }}
+  </div>
+</article>

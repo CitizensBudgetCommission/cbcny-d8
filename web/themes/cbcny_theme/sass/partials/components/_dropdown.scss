@@ -27,22 +27,22 @@
   	top: -11px;
   	width: 0;
 	}
-}
 
-.dropdown__link {
-	background-color: transparent;
-	color: $cbcny-white;
-	display: block;
-	font-size: 1em;
-	line-height: 1.3;
-	min-width: em(330px);
-	padding: em(10px) em(37px);
-  text-decoration: none;
-  transition: all 200ms ease-in-out;
+	a {
+		background-color: transparent;
+		color: $cbcny-white;
+		display: block;
+		font-size: 1em;
+		line-height: 1.3;
+		min-width: em(330px);
+		padding: em(10px) em(37px);
+	  text-decoration: none;
+	  transition: all 200ms ease-in-out;
 
-  &:hover,
-  &:focus {
-  	background-color: $cbcny-light-blue;
-  	color: $cbcny-white;
-  }
+	  &:hover,
+	  &:focus {
+	  	background-color: $cbcny-light-blue;
+	  	color: $cbcny-white;
+	  }
+	}
 }
