@@ -32,18 +32,15 @@
 #}
 {%
   set classes = [
-    'dropdown'
+    'cards'
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  <div class="button dropdown-button">Choose a Different Topic</div>
+<section{{ attributes.addClass(classes) }}>
   {% if rows %}
-    <div class="dropdown__options">
       {{ rows }}
-    </div>
   {% elseif empty %}
     <div class="view__empty">
       {{ empty }}
     </div>
   {% endif %}
-</div>
+</section>
