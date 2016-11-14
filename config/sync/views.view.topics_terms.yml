@@ -576,7 +576,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -671,7 +671,7 @@ display:
             preserve_tags: ''
             html: false
           element_type: '0'
-          element_class: dropdown__link
+          element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
@@ -686,8 +686,8 @@ display:
           type: link
           settings:
             trim_length: 80
-            url_only: false
-            url_plain: false
+            url_only: true
+            url_plain: true
             rel: '0'
             target: '0'
           group_column: ''
@@ -711,7 +711,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: dropdown__option
+          row_class: ''
           default_row_class: false
       row:
         type: fields
@@ -722,18 +722,7 @@ display:
           hide_empty: false
       allow:
         items_per_page: false
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: '<div class="button dropdown-button">Choose a Different Topic</div>'
-          plugin_id: text_custom
+      header: {  }
     cache_metadata:
       max-age: -1
       contexts:
