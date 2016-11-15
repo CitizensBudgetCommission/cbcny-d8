@@ -1,0 +1,16 @@
+// @file
+// General slick carousel Styles
+
+.slick-carousel {
+	@extend .l-constrain--main-content;
+  border: 0;
+  margin: 0;
+  padding: 0;
+	display: flex;
+
+	.section--explore & {
+		color: $cbcny-white;
+		margin: 0 auto;
+		position: relative;
+	}
+}

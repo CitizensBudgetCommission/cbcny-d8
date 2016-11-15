@@ -27,6 +27,16 @@ select:
     - core/drupal
     - cbcny_theme/selectability
 
+slick:
+  css:
+    js/slick/slick.css: {}
+    js/slick/slick-theme.css: {}
+  js:
+    js/slick/slick.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
 addthis:
   version: VERSION
   js:

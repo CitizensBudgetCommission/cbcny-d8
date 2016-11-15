@@ -70,15 +70,14 @@ display:
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: true
-          uses_fields: false
+          default_row_class: false
       row:
         type: fields
         options:
+          default_field_elements: false
           inline: {  }
           separator: ''
           hide_empty: false
-          default_field_elements: true
       fields:
         field_term_topic:
           id: field_term_topic
@@ -154,7 +153,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/">More on {{ field_term_topic }}</a>'
+            text: '<a href="/" class="button blue-button">More on {{ field_term_topic }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -179,8 +178,8 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: is-centered
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
