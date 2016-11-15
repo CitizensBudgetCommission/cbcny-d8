@@ -1,0 +1,29 @@
+{%
+  set tid = content.field_term_topic.0['#plain_text']
+%}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="hero hero--section-page">
+    <div class="hero__content">
+      <h1 class="page-title page-title--section-page">{{ content.title }}</h1>
+      {{ drupal_view('topics_terms', 'topic_menu') }}
+      {{ drupal_block('cbcny_theme_local_tasks') }}
+      {{ content.field_ref_featured_content }}
+    </div>
+  </div>
+
+  <div class="l-constrain l-constrain--main-content">
+    {{ drupal_view('topic_section_list', 'default', tid) }}
+    {{ drupal_view('topic_section_button') }}
+  </div>
+</article>

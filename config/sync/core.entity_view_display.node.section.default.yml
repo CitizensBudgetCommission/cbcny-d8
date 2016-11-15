@@ -18,8 +18,8 @@ content:
     weight: 2
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: featured
+      link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
   field_term_section:
@@ -32,10 +32,9 @@ content:
   field_term_topic:
     weight: 1
     label: hidden
-    settings:
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_id
   title:
     type: string
     settings:

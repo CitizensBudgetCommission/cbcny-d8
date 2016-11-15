@@ -6,7 +6,7 @@
 
   &.blue-button {
     background-color: $cbcny-blue;
-    color: $cbcny-white
+    color: $cbcny-white;
 
     &:hover,
     &:focus {
@@ -15,21 +15,24 @@
   }
 
   &.dropdown-button {
-    display: block;
-    padding-right: 60px;
-    background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db2125e8c28c59629bb5_icon-meatball.svg");
+    background-color: $cbcny-blue;
+    @include svg-background(icon-meatball);
     background-position: 90% 50%;
     background-repeat: no-repeat;
+    color: $cbcny-white;
+    display: inline-block;
     font-size: 1.05em;
+    padding-right: 60px;
     text-transform: none;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       background-color: $cbcny-white;
-      background-image: url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db8c6ade7ec05d5b50ff_icon-meatball-hover.svg"), url("http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57d2db2125e8c28c59629bb5_icon-meatball.svg");
+      @include svg-background(icon-meatball-hover);
       background-position: 90% 50%, 90% 50%;
       background-repeat: no-repeat, no-repeat;
-      color: #007faa;
+      color: $cbcny-blue;
     }
   }
 

@@ -1,0 +1,17 @@
+{%
+  set classes = [
+    'card'
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<article{{ attributes.addClass(classes) }} role="article">
+  <a href="{{ url }}">
+	  <div class="teaser-info">
+	    <span class="teaser-info__item">{{ content.field_term_post_type }}</span>
+	  </div>
+	  <h2 class="page-title">{{ content.title }}</h2>
+	  <h3 class="subtitle">{{ content.field_subtitle }}</h3>
+	  <div class="published-date">{{ content.field_published_date }}</div>
+  </a>
+</article>
