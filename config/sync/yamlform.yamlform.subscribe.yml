@@ -11,7 +11,7 @@ title: Subscribe
 description: 'Basic subscription contact form.'
 elements: "first_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[yamlform-authenticated-user:mail]'\n  '#required': true\n"
 settings:
-  page: true
+  page: false
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: Subscribe
@@ -42,7 +42,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: message
-  confirmation_message: '<p>Your message has been sent.</p>'
+  confirmation_message: '<p>Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.</p>'
   confirmation_url: '<front>'
   limit_total: null
   limit_total_message: ''
@@ -93,8 +93,8 @@ handlers:
       bcc_mail: ''
       from_mail: default
       from_name: default
-      subject: '[yamlform-submission:values:subject:value]'
-      body: '[yamlform-submission:values:message:value]'
+      subject: 'Thank you for subscribing'
+      body: 'Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.'
       excluded_elements: {  }
       html: true
       attachments: false
@@ -111,7 +111,7 @@ handlers:
       bcc_mail: ''
       from_mail: '[yamlform-submission:values:email:raw]'
       from_name: '[yamlform-submission:values:first_name:value]'
-      subject: '[yamlform-submission:values:subject:value]'
+      subject: 'Subscription Form Submission'
       body: '[yamlform-submission:values:message:value]'
       excluded_elements: {  }
       html: true
