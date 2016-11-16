@@ -11,7 +11,7 @@ title: Contact
 description: 'Basic email contact form.'
 elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:mail]'\nsubject:\n  '#title': 'Subject'\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact form from [site:name]'\nmessage:\n  '#title': 'Message'\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\n"
 settings:
-  page: true
+  page: false
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: 'Send message'
@@ -42,7 +42,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: message
-  confirmation_message: '<p>Your message has been sent.</p>'
+  confirmation_message: '<p>Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.</p>'
   confirmation_url: '<front>'
   limit_total: null
   limit_total_message: ''
@@ -93,7 +93,7 @@ handlers:
       bcc_mail: ''
       from_mail: default
       from_name: default
-      subject: '[yamlform-submission:values:subject:value]'
+      subject: 'Thank you for subscribing'
       body: '[yamlform-submission:values:message:value]'
       excluded_elements: {  }
       html: true
@@ -111,7 +111,7 @@ handlers:
       bcc_mail: ''
       from_mail: '[yamlform-submission:values:email:raw]'
       from_name: '[yamlform-submission:values:name:value]'
-      subject: '[yamlform-submission:values:subject:value]'
+      subject: 'Contact Form Submission'
       body: '[yamlform-submission:values:message:value]'
       excluded_elements: {  }
       html: true
