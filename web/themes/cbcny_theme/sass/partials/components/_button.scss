@@ -14,6 +14,29 @@
     }
   }
 
+  &.transparent-button {
+    background-color: transparent;
+    border: 2px solid $cbcny-lightish-gray;
+    border-radius: 5px;
+    box-shadow: none;
+    color: $cbcny-dark-gray;
+    font-size: .8em;
+    margin: 0 rem(15px) .25rem 0;
+    padding: rem(10px) rem(13px);
+    text-transform: capitalize;
+
+    &:hover,
+    &:focus {
+      border-color: $cbcny-blue;
+      box-shadow: none;
+      color: $cbcny-light-blue;
+    }
+
+    &+ .button.transparent-button {
+      margin-left: 0;
+    }
+  }
+
   &.dropdown-button {
     background-color: $cbcny-blue;
     @include svg-background(icon-meatball);

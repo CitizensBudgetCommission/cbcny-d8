@@ -1,0 +1,15 @@
+// @file
+// Styles for the trending searches div
+
+.trending-searches {
+	padding-top: em(11px)
+}
+
+.trending-searches__label {
+	color: $cbcny-dark-gray;
+	display: inline;
+	font-size: 0.9em;
+  line-height: 1.15;
+	font-weight: 600;
+	margin-right: rem(26px);
+}

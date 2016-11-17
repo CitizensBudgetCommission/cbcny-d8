@@ -1,0 +1,39 @@
+// @file
+// Styles for search view
+
+.view-search {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	width: 70%;
+
+	.form-item-keywords {
+		.form-item__text {
+			padding-right: em(65px);
+			width: 100%;
+		}
+	}
+
+	.form-submit {
+		background-color: transparent;
+		background-image: url(http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57e1633d8968213476fa10ac_icon-search-button.svg);
+    background-position: 50%;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: none;
+		height: 60px;
+		position: absolute;
+		right: 0;
+		text-indent: -999em;
+		top: 0;
+		width: 60px;
+
+		&:hover,
+		&:focus {
+			opacity: .8;
+		}
+	}
+}
+
+
