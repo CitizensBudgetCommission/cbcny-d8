@@ -46,10 +46,10 @@ settings:
   confirmation_url: '<front>'
   limit_total: null
   limit_total_message: ''
-  limit_user: null
+  limit_user: 100
   limit_user_message: ''
   entity_limit_total: null
-  entity_limit_user: null
+  entity_limit_user: 100
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
