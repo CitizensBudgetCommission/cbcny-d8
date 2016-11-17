@@ -1,0 +1,16 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {{ content }}
+  {{ drupal_view('latest_news') }}
+  {{ drupal_view('in_the_media') }}
+</article>
