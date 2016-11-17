@@ -29,7 +29,7 @@
   }
 }
 
-@each $icon in chart, courthouse, dollar-bills, heartbeat, piggy-bank, skyscrapers, traffic-light {
+@each $icon in buildings, calculator, chart, courthouse, crane, dollar-bills, growing-money, heartbeat, housing, moneybag, people-sitting, people-standing, piggy-bank, skyscrapers, traffic-light {
   .icon-link--#{$icon} {
     @include svg-background(icon-#{$icon});
   }
