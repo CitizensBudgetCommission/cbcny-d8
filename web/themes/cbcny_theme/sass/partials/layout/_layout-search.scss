@@ -1,8 +1,6 @@
 // @file
 // Styles for the search page layout.
 
-$bp-first: 760px, 'no-query' true;
-
 .layout-search {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +8,9 @@ $bp-first: 760px, 'no-query' true;
 
   .layout-search__top {
     border-bottom: 1px solid $cbcny-dividing-line-white;
+    display: flex;
     flex-basis: 100%;
+    flex-wrap: wrap;
     margin-bottom: em(32px);
     padding-bottom: em(43px);
     padding-top: em(69px);
@@ -18,16 +18,16 @@ $bp-first: 760px, 'no-query' true;
 
   .layout-search__sidebar {
     flex-basis: 100%;
+    order: 2;
 
-    @include breakpoint($bp-first) {
+    @include breakpoint($bp-hide-mobile-menu) {
       flex-basis: 25%;
-      order: 2;
     }
   }
   .layout-search__main {
     flex-basis: 100%;
 
-    @include breakpoint($bp-first) {
+    @include breakpoint($bp-hide-mobile-menu) {
       flex-basis: 65%;
     }
   }
