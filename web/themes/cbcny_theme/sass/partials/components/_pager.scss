@@ -2,6 +2,7 @@
 // Styles for pagers.
 
 .pager {
+  font-size: 0;
   list-style: none;
   padding: 0;
 }
@@ -23,6 +24,7 @@
   box-shadow: 0 1px 5px -3px rgba(0, 0, 0, .56);
 	color: $cbcny-blue;
 	display: inline-block;
+  font-size: $base-font-size;
   margin-right: em(3px);
   padding: em(3px) em(13px);
   text-decoration: none;

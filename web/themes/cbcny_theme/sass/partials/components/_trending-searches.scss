@@ -2,14 +2,29 @@
 // Styles for the trending searches div
 
 .trending-searches {
-	padding-top: em(11px)
+	flex-basis: 100%;
+  padding-top: em(11px);
+
+  .transparent-button {
+    padding: rem(7px) rem(10px);
+
+    @include breakpoint($bp-hide-mobile-menu) {
+      padding: rem(10px) rem(13px);
+    }
+  }
 }
 
 .trending-searches__label {
 	color: $cbcny-dark-gray;
-	display: inline;
+	display: block;
 	font-size: 0.9em;
   line-height: 1.15;
 	font-weight: 600;
 	margin-right: rem(26px);
+  padding-bottom: rem(11px);
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    display: inline;
+    padding-bottom: 0;
+  }
 }
