@@ -17,3 +17,8 @@
 @import 'section/section--subnavigation';
 @import 'section/section--toc';
 @import 'section/section--video-embed';
+
+.section__wrapper--gradient {
+  background-image: linear-gradient(to bottom, $cbcny-lightest-gray 0%, $cbcny-white 100%);
+  padding: em(50px) 0;
+}
