@@ -2,7 +2,6 @@
 // General slick carousel Styles
 
 .slick-carousel {
-	@extend .l-constrain--main-content;
   border: 0;
   margin: 0;
   padding: 0;
@@ -12,5 +11,16 @@
 		color: $cbcny-white;
 		margin: 0 auto;
 		position: relative;
+
+		.slick-slide {
+			padding: 0 27px;
+		}
 	}
+
+	&.slick-carousel-homepage {
+		min-height: em(425px);
+		position: relative;
+		top: em(100px);
+	}
+
 }

@@ -18,30 +18,33 @@
 
   Drupal.behaviors.slick = {
     attach: function (context, settings) {
-      $('.slick-carousel').slick({
+      $('.slick-carousel-topics').slick({
         infinite: false,
         slidesToShow: 4,
-        slidesToScroll: 4,
         responsive: [
           {
-            breakpoint: 650,
+            breakpoint: 800,
             settings: {
               slidesToShow: 3
             }
           },
           {
-            breakpoint: 500,
+            breakpoint: 640,
             settings: {
               slidesToShow: 2
             }
           },
           {
-            breakpoint: 360,
+            breakpoint: 480,
             settings: {
               slidesToShow: 1
             }
           }
         ]
+      });
+      $('.slick-carousel-homepage').slick({
+        dots: true,
+        infinite: true,
       });
     }
   }
