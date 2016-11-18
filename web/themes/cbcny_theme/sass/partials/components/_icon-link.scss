@@ -1,23 +1,18 @@
 // @file
 // Styles for icon links.
 
+$icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-money, heartbeat, housing, moneybag, people-sitting, people-standing, piggy-bank, skyscrapers, traffic-light;
+
 .icon-link {
-  background-color: $cbcny-white;
   background-position: 50% em(40px);
   background-repeat: no-repeat;
   background-size: auto em(97px);
-  box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
   display: inline-block;
-  padding: em(150px) em(50px) em(40px);
+  padding: em(150px) em(40px) em(40px);
   text-align: center;
   text-decoration: none;
   vertical-align: top;
   width: 100%;
-
-  &:focus,
-  &:hover {
-    box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
-  }
 }
 
 .icon-link__text {
@@ -29,8 +24,72 @@
   }
 }
 
-@each $icon in buildings, calculator, chart, courthouse, crane, dollar-bills, growing-money, heartbeat, housing, moneybag, people-sitting, people-standing, piggy-bank, skyscrapers, traffic-light {
+@each $icon in $icons {
   .icon-link--#{$icon} {
     @include svg-background(icon-#{$icon});
+  }
+}
+
+.icon-link--box {
+  background-color: $cbcny-white;
+  box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
+  }
+}
+
+.icon-link--small {
+  background-position: 50% em(40px);
+  background-size: auto em(70px);
+  padding: em(123px) em(40px) em(40px);
+
+  .icon-link__text {
+    font-size: rem(map-get($font-size, m));
+
+    @include breakpoint($bp-larger-font-size) {
+      font-size: rem(map-get($font-size, l));
+    }
+  }
+}
+
+.icon-link--blue {
+  color: $cbcny-blue;
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--blue);
+    }
+  }
+}
+
+.icon-link--dark-green {
+  color: $cbcny-dark-green;
+
+  &:focus,
+  &:hover {
+    color: $cbcny-dark-green;
+  }
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--dark-green);
+    }
+  }
+}
+
+.icon-link--white {
+  color: $cbcny-white;
+
+  &:focus,
+  &:hover {
+    color: $cbcny-white;
+  }
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--white);
+    }
   }
 }
