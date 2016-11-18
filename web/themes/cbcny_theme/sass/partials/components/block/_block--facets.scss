@@ -1,5 +1,5 @@
 // @file
-// Styles for block--facets 
+// Styles for block--facets
 
 .block--facets {
 	margin: 0 0 1em;
@@ -9,36 +9,21 @@
 		font-size: 0.8em;
 		font-weight: 400;
 		line-height: 1.2;
-		margin: 0;
+		margin: 0 0 1em;
 		text-transform: uppercase;
 	}
 
 	.block__content {
 		ul {
-			border-spacing: 0 1em;
-			display: table;
     	list-style: none;
     	margin: 0;
     	padding: 0;
-		
+
     	li {
-    		border-spacing: 1em 0;
     		color: $cbcny-blue;
-		    display: table-row;
-		    font-size: 0.8em;
-		    line-height: 1.2;
 		    list-style: none;
 		    margin: 0;
 		    padding: 0;
-
-		    .facets-checkbox {
-		    	display: table-cell;
-    			margin-right: 0.5em;
-		    }
-
-		    .facets-checkbox + label {
-				  display: table-cell;
-				}
     	}
 		}
 	}

@@ -99,7 +99,7 @@
 
 .form-item__checkbox {
   + .form-item__label:before {
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
   &:checked + .form-item__label:before {
