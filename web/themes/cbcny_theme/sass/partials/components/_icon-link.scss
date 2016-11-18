@@ -8,7 +8,7 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
   background-repeat: no-repeat;
   background-size: auto em(97px);
   display: inline-block;
-  padding: em(150px) em(50px) em(40px);
+  padding: em(150px) em(40px) em(40px);
   text-align: center;
   text-decoration: none;
   vertical-align: top;
@@ -30,7 +30,7 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
   }
 }
 
-.icon-link--blue {
+.icon-link--box {
   background-color: $cbcny-white;
   box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
 
@@ -38,6 +38,24 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
   &:hover {
     box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
   }
+}
+
+.icon-link--small {
+  background-position: 50% em(40px);
+  background-size: auto em(70px);
+  padding: em(123px) em(40px) em(40px);
+
+  .icon-link__text {
+    font-size: rem(map-get($font-size, m));
+
+    @include breakpoint($bp-larger-font-size) {
+      font-size: rem(map-get($font-size, l));
+    }
+  }
+}
+
+.icon-link--blue {
+  color: $cbcny-blue;
 
   @each $icon in $icons {
     &.icon-link--#{$icon} {
