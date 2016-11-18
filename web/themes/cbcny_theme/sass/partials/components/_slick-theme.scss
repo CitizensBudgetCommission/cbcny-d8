@@ -40,7 +40,6 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 /* Slider */
-
 .slick-slider .slick-list {
   margin: 0 100px;
 
@@ -81,13 +80,13 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 /* Arrows */
-
 .slick-arrow {
   background-color: transparent;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 17px 16px;
-  border: 1px solid $cbcny-lighter-gray;
+  border: 1px solid #cdcdcd;
+  border: 1px solid rbga(76,76,76,0.28); //$cbcny-dark-gray w/ opacity
   border-radius: 50%;
   color: rgba(0,0,0,0.8);
   cursor: pointer;
@@ -113,6 +112,7 @@ $slick-opacity-not-active: 0.25 !default;
 
   &:hover,
   &:focus {
+    background-color: $cbcny-white;
     border-color: $cbcny-blue;
     outline: none;
   }
@@ -122,8 +122,7 @@ $slick-opacity-not-active: 0.25 !default;
   }
 
   &.slick-prev {
-    @include svg-background(none);
-    background-image: url(../images/bg/slider-arrow-blue-left.png);
+    @include svg-background(slider-arrow-blue-left);
     left: 10px;
     [dir="rtl"] & {
       left: auto;
@@ -132,8 +131,7 @@ $slick-opacity-not-active: 0.25 !default;
   }
 
   &.slick-next {
-    @include svg-background(none);
-    background-image: url(../images/bg/slider-arrow-blue-right.png);
+    @include svg-background(slider-arrow-blue-right);
     right: 10px;
     [dir="rtl"] & {
       left: 10px;
@@ -142,12 +140,14 @@ $slick-opacity-not-active: 0.25 !default;
   }
 
   .slick-blue-buttons & {
-    background-color: rgba($cbcny-dark-blue,0.3);
-    border: 1px solid $cbcny-pastel-blue;
+    background-color: rgba(0,73,99,0.3); //$cbcny-dark-blue
+    border: 1px solid #dfe8eb;
+    border: 1px solid rgba(255,255,255,0.58); //$cbcny-white w opacity
     &:hover,
     &:focus {
-      background-color: rgba($cbcny-dark-blue,0.5);
-      border-color: $cbcny-white;
+      background-color: rgba(0,127,170,0.3); //$cbcny-blue
+      border: 1px solid #dfeff4;
+      border: 1px solid rgba(255,255,255,0.58); //$cbcny-white w opacity
     }
 
     &.slick-prev {
@@ -194,9 +194,11 @@ $slick-opacity-not-active: 0.25 !default;
       outline: none;
       padding: 5px;
       width: 15px;
+
       &:hover, &:focus {
         outline: none;
       }
+
       &:before {
         border-radius: 15px;
         background-color: $cbcny-dark-blue;
