@@ -1,23 +1,18 @@
 // @file
 // Styles for icon links.
 
+$icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-money, heartbeat, housing, moneybag, people-sitting, people-standing, piggy-bank, skyscrapers, traffic-light;
+
 .icon-link {
-  background-color: $cbcny-white;
   background-position: 50% em(40px);
   background-repeat: no-repeat;
   background-size: auto em(97px);
-  box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
   display: inline-block;
   padding: em(150px) em(50px) em(40px);
   text-align: center;
   text-decoration: none;
   vertical-align: top;
   width: 100%;
-
-  &:focus,
-  &:hover {
-    box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
-  }
 }
 
 .icon-link__text {
@@ -29,8 +24,34 @@
   }
 }
 
-@each $icon in buildings, calculator, chart, courthouse, crane, dollar-bills, growing-money, heartbeat, housing, moneybag, people-sitting, people-standing, piggy-bank, skyscrapers, traffic-light {
+@each $icon in $icons {
   .icon-link--#{$icon} {
     @include svg-background(icon-#{$icon});
+  }
+}
+
+.icon-link--white {
+  background-color: $cbcny-white;
+  box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0 1px em(21px) em(-4px) $cbcny-black-translucent;
+  }
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--blue);
+    }
+  }
+}
+
+.icon-link--flat-blue {
+  background-color: $cbcny-flat-blue;
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--white);
+    }
   }
 }
