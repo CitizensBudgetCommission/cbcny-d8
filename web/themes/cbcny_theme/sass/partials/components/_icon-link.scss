@@ -30,7 +30,7 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
   }
 }
 
-.icon-link--white {
+.icon-link--blue {
   background-color: $cbcny-white;
   box-shadow: 0 1px em(19px) em(-13px) $cbcny-black;
 
@@ -46,8 +46,28 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
   }
 }
 
-.icon-link--flat-blue {
-  background-color: $cbcny-flat-blue;
+.icon-link--dark-green {
+  color: $cbcny-dark-green;
+
+  &:focus,
+  &:hover {
+    color: $cbcny-dark-green;
+  }
+
+  @each $icon in $icons {
+    &.icon-link--#{$icon} {
+      @include svg-background(icon-#{$icon}--dark-green);
+    }
+  }
+}
+
+.icon-link--white {
+  color: $cbcny-white;
+
+  &:focus,
+  &:hover {
+    color: $cbcny-white;
+  }
 
   @each $icon in $icons {
     &.icon-link--#{$icon} {
