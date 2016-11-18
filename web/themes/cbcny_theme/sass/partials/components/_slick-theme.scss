@@ -82,13 +82,12 @@ $slick-opacity-not-active: 0.25 !default;
 
 /* Arrows */
 
-.slick-prev,
-.slick-next {
-  background-color: rgba($cbcny-dark-blue,0.3);
+.slick-arrow {
+  background-color: transparent;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 17px 16px;
-  border: 1px solid $cbcny-pastel-blue;
+  border: 1px solid $cbcny-lighter-gray;
   border-radius: 50%;
   color: rgba(0,0,0,0.8);
   cursor: pointer;
@@ -114,36 +113,54 @@ $slick-opacity-not-active: 0.25 !default;
 
   &:hover,
   &:focus {
-    background-color: rgba($cbcny-dark-blue,0.5);
-    border-color: $cbcny-white;
+    border-color: $cbcny-blue;
     outline: none;
   }
 
   &.slick-disabled {
     opacity: $slick-opacity-not-active;
   }
-}
 
-.slick-prev {
-  @include svg-background(arrow-white-left);
-  left: 10px;
-  [dir="rtl"] & {
-    left: auto;
-    right: 10px;
-  }
-}
-
-.slick-next {
-  @include svg-background(arrow-white-right);
-  right: 10px;
-  [dir="rtl"] & {
+  &.slick-prev {
+    @include svg-background(none);
+    background-image: url(../images/bg/slider-arrow-blue-left.png);
     left: 10px;
-    right: auto;
+    [dir="rtl"] & {
+      left: auto;
+      right: 10px;
+    }
+  }
+
+  &.slick-next {
+    @include svg-background(none);
+    background-image: url(../images/bg/slider-arrow-blue-right.png);
+    right: 10px;
+    [dir="rtl"] & {
+      left: 10px;
+      right: auto;
+    }
+  }
+
+  .slick-blue-buttons & {
+    background-color: rgba($cbcny-dark-blue,0.3);
+    border: 1px solid $cbcny-pastel-blue;
+    &:hover,
+    &:focus {
+      background-color: rgba($cbcny-dark-blue,0.5);
+      border-color: $cbcny-white;
+    }
+
+    &.slick-prev {
+      @include svg-background(arrow-white-left);
+    }
+
+    &.slick-next {
+      @include svg-background(arrow-white-right);
+    }
   }
 }
 
 /* Dots */
-
 .slick-dotted.slick-slider {
   //margin-bottom: 30px;
 }
