@@ -10,3 +10,4 @@ disable_search: false
 placeholder_text_multiple: 'Choose some option'
 placeholder_text_single: 'Choose an option'
 no_results_text: 'No results match'
+chosen_include: 2
