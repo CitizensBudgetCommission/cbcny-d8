@@ -73,6 +73,7 @@ $bp-largest-hero: 960px;
       background: none;
       margin-bottom: em(-100px);
       padding-bottom: 0;
+      position: relative;
 
       .dropdown {
         margin-top: em(18px);
@@ -83,7 +84,7 @@ $bp-largest-hero: 960px;
           left: auto;
           position: absolute;
           right: 1em;
-          top: em(60px);
+          top: 0;
         }
 
         @include breakpoint($bp-largest-hero) {
