@@ -20,7 +20,7 @@
 
 	.form-submit {
 		background-color: transparent;
-		background-image: url(http://uploads.webflow.com/57cef2f6b6529fe831fddb47/57e1633d8968213476fa10ac_icon-search-button.svg);
+    @include svg-background-inline(icon-search--blue);
     background-position: 50%;
     background-size: 24px;
     background-repeat: no-repeat;
@@ -39,5 +39,3 @@
 		}
 	}
 }
-
-
