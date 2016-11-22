@@ -1,0 +1,58 @@
+// @file
+// Styles for the default styled fieldset.
+
+$fieldset-bg-color: $form-bg-color !default;
+$fieldset-border-color: $form-border-color !default;
+
+.fieldset--default {
+  background: $cbcny-white;
+  border: 1px solid $fieldset-border-color;
+  margin: 1.5em 0 1.5em + em(12px);
+  padding: 0 1em;
+  position: relative;
+  top: em(12px); // Offsets the negative margin of legends.
+
+  .fieldset__legend {
+    background: $fieldset-bg-color;
+    border: 1px solid $fieldset-border-color;
+    border-bottom: none;
+    height: 2em;
+    left: -1px; // LTR
+    position: absolute;
+    text-shadow: 0 1px 0 $cbcny-white;
+    top: em(-12px);
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        left: 0;
+        right: -1px;
+      }
+    }
+  }
+
+  .fieldset__legend-text {
+    color: #333;
+    line-height: 2;
+    padding-left: 1em; // LTR
+
+    @if $support-for-rtl {
+      [dir='rtl'] & {
+        padding-left: 0;
+        padding-right: 1em;
+      }
+    }
+  }
+
+  .fieldset__legend-link {
+    display: block;
+  }
+
+  .fieldset__content {
+    margin-top: 2.5em;
+  }
+
+  .fieldset__description {
+    font-style: italic;
+    margin: 1.5em 0;
+  }
+}

@@ -2,7 +2,7 @@
 // Styles for the primary local tasks menu.
 
 .nav--primary-local-tasks {
-  @extend %nav--inline;
+  @extend %nav--pillbox;
 
   @media print {
     display: none;

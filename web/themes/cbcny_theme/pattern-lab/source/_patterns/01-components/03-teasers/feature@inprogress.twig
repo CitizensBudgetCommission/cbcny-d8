@@ -1,0 +1,20 @@
+<article class="feature" role="article">
+  <div class="l-slat l-slat--feature">
+    <div class="l-slat__media">
+      <a href="{{ url }}" class="feature__image" style="background-image: url({{ img.feature.src }});"></a>
+    </div>
+    <div class="l-slat__content">
+      <div class="teaser-info teaser-info--feature">
+        <span class="teaser-info__item">{{ type }}</span>
+      </div>
+      <h1 class="page-title">{{ pageTitle }}</h1>
+      <h2 class="subtitle">{{ subtitle }}</h2>
+      <div class="feature__divider"></div>
+      <div class="feature__body">
+        <span class="published-date">{% include "base-medium-date" %}</span> 
+        - {{ featureText | raw }}
+        <div class="read-more"><a href="{{ url }}">Read more</a></div>
+      </div>
+    </div>
+  </div>
+</article>

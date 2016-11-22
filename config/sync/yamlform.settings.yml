@@ -19,6 +19,7 @@ settings:
   default_confirmation_message: 'New submission added to [yamlform:title].'
   default_limit_total_message: 'No more submissions are permitted.'
   default_limit_user_message: 'No more submissions are permitted.'
+  classes: "container-inline clearfix\nform--inline clearfix    \nmessages messages--error\nmessages messages--warning\nmessages messages--status"
 export:
   exporter: delimited
   delimiter: ','
@@ -130,3 +131,5 @@ langcode: en
 third_party_settings: {  }
 _core:
   default_config_hash: bEg-3v8zEAXEYY2JTz6_DqGCf8fVQNmgwktN5VpqLl4
+library:
+  cdn: false

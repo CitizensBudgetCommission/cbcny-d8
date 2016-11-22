@@ -1,0 +1,32 @@
+uuid: ee57c604-b090-4a03-8cd1-ccb7918c1518
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.about-menu
+  module:
+    - ctools
+    - system
+  theme:
+    - cbcny_theme
+id: about_menu
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'system_menu_block:about-menu'
+settings:
+  id: 'system_menu_block:about-menu'
+  label: 'About Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

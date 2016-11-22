@@ -1,4 +1,59 @@
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox"></div>
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
 
-{{ content }}
+<article{{ attributes.addClass(classes) }}>
+
+  {% if content.field_hero|render %}
+    <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
+      <div class="hero__content">
+        <div class="page-info">
+          <span class="page-info__item">{{ content.field_term_post_type }}</span>
+          <span class="page-info__item">{{ content.field_term_topic }}</span>
+        </div>
+        <h1 class="page-title">{{ content.title }}</h1>
+        <h2 class="subtitle">{{ content.field_subtitle }}</h2>
+      </div>
+    </div>
+  {% else %}
+    <div class="hero hero--small">
+      <div class="hero__content">
+        <div class="page-info">
+          <span class="page-info__item">{{ content.field_term_post_type }}</span>
+          <span class="page-info__item">{{ content.field_term_topic }}</span>
+        </div>
+        <h1 class="page-title">{{ content.title }}</h1>
+        <h2 class="subtitle">{{ content.field_subtitle }}</h2>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="l-constrain l-constrain--main-content">
+
+    {{ drupal_block('cbcny_theme_local_tasks') }}
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="share-links">
+      <div class="share-links__label">Share This Page</div>
+      <div class="share-links__links addthis_inline_share_toolbox"></div>
+    </div>
+
+    <section class="section section--toc">
+	    <div class="button toc-button" style="display: block;">Expand Table of Contents</div>
+	     <div class="nav--toc" style="display: none;">
+         <h2 class="nav--toc__heading"><a href="#" class="close-toc">Hide Table of Contents</a></h2>
+         <nav class="nav--toc__menu"></nav>
+      </div>
+    </section>
+
+    {{ content.field_page_content }}
+
+  </div>
+</article>

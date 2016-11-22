@@ -1,0 +1,47 @@
+// @file
+// Styles for teasers
+
+.node--display-mode-teaser {
+	border-bottom: 1px solid $cbcny-dividing-line-white;
+	margin-bottom: em(27px);
+  padding-bottom: em(16px);
+  
+	.node__title {
+		display: block;
+    font-size: 1em;
+    line-height: 1.2;
+    margin: 0 rem(3px) rem(10px) 0;
+
+		a {
+			color: $cbcny-blue;
+	    text-decoration: none;
+			transition: all 200ms ease-in-out;
+
+			&:hover,
+			&:focus {
+				color: $cbcny-light-blue;
+			}
+		}
+	}
+
+	.node__date {
+		color: $cbcny-light-gray;
+		display: inline;
+		font-size: 0.85em;
+		font-weight: 600;
+
+		&:after {
+			content: '-';
+			display: inline;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+	}
+
+	p {
+		display: inline-block;
+		font-size: 0.85em;
+    line-height: 1.4;
+    margin-bottom: em(10px);
+	}
+}

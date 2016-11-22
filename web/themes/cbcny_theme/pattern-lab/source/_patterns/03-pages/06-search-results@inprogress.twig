@@ -1,0 +1,40 @@
+{% include "layouts-header-region" %}
+{% include "layouts-navigation-region" %}
+
+<main id="main" class="main" role="main" tabindex="-1">
+  <article role="article">
+    <div class="l-constrain l-constrain--main-content">
+      <div class="layout-search">
+        <div class="layout-search__top">
+          <h1 class="page-title page-title--search">Search</h1>
+          {% include "components-view-search" %}
+          <div class="trending-searches">
+            <div class="trending-searches__label">Trending Searches:</div>
+            <a class="button transparent-button" href="#">NYC Budget</a>
+            <a class="button transparent-button" href="#">Financial Help</a>
+            <a class="button transparent-button" href="#">2016 Survey</a>
+            <a class="button transparent-button" href="#">2017 Tax Rates</a>
+          </div>
+        </div>
+        <div class="layout-search__sidebar">
+          <h2 class="sidebar-heading">Filter Search Results:</h2>
+          {% include "components-block--facets" %}
+          {% include "components-block--facets" %}
+        </div>
+        <div class="layout-search__main">
+          <div class="total-results">Showing 15 of 60 results</div>
+          {% include "components-teaser" %}
+          {% include "components-teaser" %}
+          {% include "components-teaser" %}
+          {% include "components-teaser" %}
+          {% include "components-teaser" %}
+          {% include "components-teaser" %}
+        </div>
+      </div>
+      {% include "components-pager" %}
+    </div>
+  </article>
+</main>
+
+{% include "layouts-postscript-region" %}
+{% include "layouts-footer-region" %}

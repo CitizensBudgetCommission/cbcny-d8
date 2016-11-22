@@ -1,0 +1,11 @@
+// @file
+// Styles for section titles
+
+.section-title {
+  @extend h1;
+  color: $cbcny-blue;
+  font-family: $base-font-family;
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 1em;
+}
