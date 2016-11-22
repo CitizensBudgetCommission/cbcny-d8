@@ -75,3 +75,7 @@
 @mixin invisible-important {
   visibility: hidden !important;
 }
+
+@mixin centered {
+  text-align: center;
+}

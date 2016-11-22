@@ -1,11 +1,12 @@
 {%
   set classes = [
-    'dropdown'
+    'dropdown',
+    'dropdown--section-page'
   ]
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div class="button dropdown-button">Choose a Different Topic</div>
+  <div class="button button--dropdown">Choose a Different Topic</div>
   {% if rows %}
     <div class="dropdown__options">
       {{ rows }}

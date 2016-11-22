@@ -1,0 +1,8 @@
+// @file
+// Styles for card grid
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

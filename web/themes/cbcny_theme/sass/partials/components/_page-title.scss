@@ -1,8 +1,12 @@
 // @file
 // Styles for the page title
 
-.page-title {
+%page-title {
   @extend h1;
+}
+
+.page-title {
+  @extend %page-title;
 }
 
 .page-title--section-page {

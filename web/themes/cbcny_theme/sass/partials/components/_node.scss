@@ -1,11 +1,15 @@
 // @file
-// Styles for teasers
+// Styles for nodes
+
+.node {
+
+}
 
 .node--display-mode-teaser {
 	border-bottom: 1px solid $cbcny-dividing-line-white;
 	margin-bottom: em(27px);
   padding-bottom: em(16px);
-  
+
 	.node__title {
 		display: block;
     font-size: 1em;

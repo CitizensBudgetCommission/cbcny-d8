@@ -1,5 +1,5 @@
-<div class="dropdown">
-  <div class="button dropdown-button">Choose a Different Topic</div>
+<div class="dropdown {% if customClasses %} {{ customClasses }}{% endif %}">
+  <div class="button button--dropdown">Choose a Different Topic</div>
 
   <div class="dropdown__options">
   	<div class="dropdown__option"><a class="dropdown__link" href="{{ url }}">{{ topic }}</a></div>
