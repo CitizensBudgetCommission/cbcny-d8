@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.field_hero
     - field.field.node.page.field_page_content
+    - field.field.node.page.field_search_exclude
     - field.field.node.page.field_teaser_plain
     - field.field.node.page.field_term_section
     - node.type.page
@@ -27,7 +28,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_page_content:
-    weight: 4
+    weight: 5
     settings:
       title: Content
       title_plural: Content
@@ -36,8 +37,14 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
-  field_teaser_plain:
+  field_search_exclude:
     weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_teaser_plain:
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -50,7 +57,7 @@ content:
     type: options_select
   path:
     type: path
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   title:
