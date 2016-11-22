@@ -1,0 +1,74 @@
+// @file
+// Styles for feature cards
+
+.feature {
+  background-color: $cbcny-feature-white;
+  box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
+  margin-bottom: em(65px);
+  margin-top: em(65px);
+  &:hover,
+  &:focus {
+    box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
+  }
+
+  &.slick-slide {
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .feature__type {
+    color: $cbcny-dark-green;
+    display: inline-block;
+    font-size: em(map-get($font-size, xxxs));
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: em(14px);
+    text-transform: uppercase;
+
+    @include breakpoint($bp-larger-font-size) {
+      font-size: em(map-get($font-size, xxs));
+    }
+
+    @include breakpoint($bp-largest-font-size) {
+      font-size: em(map-get($font-size, xs));
+    }
+  }
+
+  .feature__subtitle {
+    @extend .subtitle;
+  }
+
+  .feature__image {
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: em(300px);
+    width: 100%;
+
+    @include breakpoint($bp-first) {
+      min-height: em(280px);
+    }
+    @include breakpoint($bp-second) {
+      min-height: em(400px);
+    }
+  }
+
+  .feature__divider {
+    border-bottom: 1px solid $cbcny-lightest-gray;
+    margin-bottom: em(23px);
+    margin-top: em(23px);
+  }
+
+  .feature__body {
+    color: $cbcny-gray;
+    font-size: em(map-get($font-size, xs));
+  }
+
+  .feature__date {
+    color: $cbcny-light-gray;
+  }
+}

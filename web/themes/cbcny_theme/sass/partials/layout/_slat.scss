@@ -35,12 +35,18 @@ $gutter: 0;
 
 .l-slat--feature {
   align-items: stretch;
+  box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
   display: flex;
   flex-wrap: wrap;
 
+  &:hover,
+  &:focus {
+    box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
+  }
+  
   .l-slat__media {
     align-items: stretch;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     display: flex;
     flex-basis: 100%;
     padding: 0;

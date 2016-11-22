@@ -11,6 +11,10 @@
   color: $cbcny-dark-green;
 }
 
+.heading--yellow {
+  color: $cbcny-yellow;
+}
+
 .heading--big-blue {
   color: $cbcny-dark-blue;
   font-size: rem(map-get($font-size, xxxxxl));

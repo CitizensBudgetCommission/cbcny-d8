@@ -5,7 +5,7 @@
   <article class="section-page" role="article">
     {% include "components-hero-section-page" %}
     <div class="l-constrain">
-      <section class="cards">
+      <section class="card-grid">
         {% include "components-card" %}
         {% include "components-card" %}
         {% include "components-card" %}
@@ -13,11 +13,13 @@
         {% include "components-card" %}
         {% include "components-card--highlighted" %}
       </section>
-      <div class="is-centered"><a class="button blue-button" href="#">More on New York City Budget</a></div>
+      <div class="centered"><a class="button button--blue" href="#">More on New York City Budget</a></div>
     </div>
-    <section class="section section--explore">
-      <h2 class="c-yellow is-centered">EXPLORE OTHER TOPICS</h2>
-      {% include "components-slick-carousel-topics--section" %}
+    <section class="section section--topics">
+      <h2 class="heading--yellow centered">EXPLORE OTHER TOPICS</h2>
+      <div class="l-constrain">
+        {% include "components-slick-carousel-topics--section" %}
+      </div>
     </section>
   </article>
 </main>

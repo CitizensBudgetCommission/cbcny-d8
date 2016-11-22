@@ -27,3 +27,8 @@
 .u-invisible {
   @include invisible-important;
 }
+
+.centered,
+.u-centered {
+  @include centered;
+}

@@ -1,7 +1,7 @@
 // @file
 // Styles for the subtitle.
 
-.subtitle {
+%subtitle {
   @extend %hN;
   color: $cbcny-dark-gray;
   font-size: rem(map-get($font-size, xxxl));
@@ -16,4 +16,8 @@
   @include breakpoint($bp-largest-font-size) {
     font-size: rem(map-get($font-size, xxxxxl));
   }
+}
+
+.subtitle {
+  @extend %subtitle;
 }

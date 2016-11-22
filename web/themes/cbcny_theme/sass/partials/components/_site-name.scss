@@ -9,6 +9,9 @@ $logo-sticky-width: em(106px);
 $logo-sticky-height: em(35px);
 
 .site-name {
+  align-self: center;
+  flex-grow: 0;
+  flex-shrink: 0;
   display: inline-block;
   vertical-align: top;
 }
@@ -17,7 +20,7 @@ $logo-sticky-height: em(35px);
   display: block;
   padding: em(18px) 0;
 
-  .is_stuck & {
+  .is-stuck & {
     padding: em(10px) 0;
   }
 }
@@ -37,7 +40,7 @@ $logo-sticky-height: em(35px);
     width: $logo-large-width;
   }
 
-  .is_stuck & {
+  .is-stuck & {
     @include svg-background(cbcny-logo-sticky);
     height: $logo-sticky-height;
     width: $logo-sticky-width;
