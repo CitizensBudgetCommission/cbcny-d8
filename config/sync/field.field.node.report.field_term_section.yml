@@ -10,7 +10,7 @@ id: node.report.field_term_section
 field_name: field_term_section
 entity_type: node
 bundle: report
-label: 'Term Section'
+label: Section
 description: ''
 required: false
 translatable: true
