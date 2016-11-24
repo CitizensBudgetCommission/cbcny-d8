@@ -26,10 +26,16 @@ process:
   changed: changed
   # @todo published date isn't working
   field_published_date:
-    plugin: format_date
-    from_format: 'm/d/Y H:i:s'
-    to_format: 'Y-m-d\TH:i:s'
-    source: field_cbc_publish_date
+    -
+      plugin: extract
+      source: field_cbc_publish_date
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'm/d/Y H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
 
   field_teaser_plain: field_blog_teaser
 
