@@ -1,0 +1,34 @@
+// @file
+// Styles for the search page layout.
+
+.layout-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .layout-search__top {
+    border-bottom: 1px solid $cbcny-dividing-line-white;
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    margin-bottom: em(32px);
+    padding-bottom: em(43px);
+    padding-top: em(69px);
+  }
+
+  .layout-search__sidebar {
+    flex-basis: 100%;
+    order: 2;
+
+    @include breakpoint($bp-hide-mobile-menu) {
+      flex-basis: 25%;
+    }
+  }
+  .layout-search__main {
+    flex-basis: 100%;
+
+    @include breakpoint($bp-hide-mobile-menu) {
+      flex-basis: 65%;
+    }
+  }
+}

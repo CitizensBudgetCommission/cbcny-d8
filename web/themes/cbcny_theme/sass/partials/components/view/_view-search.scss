@@ -1,0 +1,41 @@
+// @file
+// Styles for search view
+
+.view-search {
+	flex-basis: 100%;
+  position: relative;
+	vertical-align: top;
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    flex-basis: auto;
+    flex-grow: 1;
+  }
+
+	.form-item-keywords {
+		.form-item__text {
+			padding-right: em(65px);
+			width: 100%;
+		}
+	}
+
+	.form-submit {
+		background-color: transparent;
+    @include svg-background-inline(icon-search--blue);
+    background-position: 50%;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: none;
+		height: 60px;
+		position: absolute;
+		right: 0;
+		text-indent: -999em;
+		top: 0;
+		width: 60px;
+
+		&:hover,
+		&:focus {
+			opacity: .8;
+		}
+	}
+}

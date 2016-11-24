@@ -1,0 +1,32 @@
+// @file
+// Styles for the page title
+
+.page-title {
+  @extend h1;
+}
+
+.page-title--section-page {
+  color: $cbcny-blue;
+  font-family: $base-font-family;
+  font-size: 3.52em;
+  font-weight: 300;
+  line-height: 0.9em;
+
+  @include breakpoint($bp-hide-mobile-menu) {
+  	margin-right: rem(370px);
+  }
+}
+
+.page-title--search {
+  color: $cbcny-blue;
+  font-family: $base-font-family;
+  font-size: 1.6em;
+  font-weight: 400;
+  margin-bottom: rem(10px);
+  margin-top: 0px;
+  padding-right: rem(30px);
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    font-size: 2.5em;
+  }
+}

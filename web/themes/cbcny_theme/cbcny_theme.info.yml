@@ -8,6 +8,7 @@ libraries:
   - cbcny_theme/global
   - cbcny_theme/mobile-menu
   - cbcny_theme/addthis
+  - cbcny_theme/slick
 
 libraries-override:
   system/base:

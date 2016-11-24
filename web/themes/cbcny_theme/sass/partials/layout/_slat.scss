@@ -1,8 +1,9 @@
 // @file
 // Styles for the slat layout.
 
-$bp-first: 600px, 'no-query' true;
-$gutter: 1em;
+$bp-first: 767px, 'no-query' true;
+$bp-second: 991px, 'no-query' true;
+$gutter: 0;
 
 .l-slat {
   @include clearfix;
@@ -12,7 +13,7 @@ $gutter: 1em;
   margin: 0;
   padding: 0 0 1em;
 
-  @include breakpoint($bp-first) {
+  @include breakpoint($bp-second) {
     float: left;
     padding-right: $gutter;
   }
@@ -32,9 +33,42 @@ $gutter: 1em;
   width: 10000px;
 }
 
+.l-slat--feature {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+
+  .l-slat__media {
+    align-items: stretch;
+    justify-content: flex-start; 
+    display: flex;
+    flex-basis: 100%;
+    padding: 0;
+
+    @include breakpoint($bp-second) {
+      flex-basis: 45%;
+    }
+  }
+
+  .l-slat__content {
+    display: block;
+    flex-basis: 100%;
+    padding: em(30px);
+    width: auto;
+
+    @include breakpoint($bp-first) {
+      padding: em(30px) em(54px) em(50px);
+    }
+
+    @include breakpoint($bp-second) {
+      flex-basis: 55%;
+    }
+  }
+}
+
 .l-slat--reversed {
   .l-slat__media {
-    @include breakpoint($bp-first) {
+    @include breakpoint($bp-second) {
       float: right;
       padding-left: $gutter;
       padding-right: 0;

@@ -21,10 +21,6 @@
     },
     {
       "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    },
-    {
-      "type": "composer",
       "url": "https://packagist.drupal-composer.org"
     }
   ],
@@ -101,8 +97,8 @@
       "drupal/entity_reference_revisions": {
         "accept scalar values per https://www.drupal.org/node/2667748": "https://www.drupal.org/files/issues/allow-single-scalar-2667748-28.patch"
       },
-      "drupal/core": {
-        "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-23.patch"
+      "drupal/migrate_plus": {
+        "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
       }
     }
   }

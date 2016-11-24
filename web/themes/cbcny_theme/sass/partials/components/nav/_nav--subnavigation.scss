@@ -1,0 +1,54 @@
+// @file
+// Styles for the subnav menus.
+
+.nav--subnavigation {
+  @extend %nav--inline;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: $subnav-width;
+  width: 90%;
+
+  @include breakpoint($bp-largest-font-size) {
+  	width: 100%;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  .nav__item {
+  	padding: em(6px) 0;
+  	flex-basis: 50%;
+
+  	@include breakpoint($bp-larger-font-size) {
+      flex-basis: 33%;
+    }
+    @include breakpoint($bp-hide-mobile-menu) {
+      flex-basis: 25%;
+    }
+    @include breakpoint($bp-largest-font-size) {
+      flex-basis: auto;
+    }
+  }
+
+  .nav__link {
+    @extend %base-font-family;
+    color: $cbcny-white;
+    font-size: em(map-get($font-size, xxxs));
+    margin: 0;
+    padding: 0 em(12px);
+
+
+    &:hover,
+    &:focus {
+    	color: $cbcny-extra-light-blue;
+    }
+
+    &.is-active {
+    	color: $cbcny-pastel-green;
+    }
+  }
+}

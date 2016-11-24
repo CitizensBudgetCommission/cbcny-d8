@@ -4,4 +4,33 @@
  * Functions to support theming.
  */
 
- require_once dirname(__FILE__) . '/includes/html.inc';
+require_once dirname(__FILE__) . '/includes/form.inc';
+require_once dirname(__FILE__) . '/includes/html.inc';
+
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  // Test for existence of Term Section
+  if ($variables['elements']['field_term_section']) {
+
+    // Grab Node and Field
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $field = $node->get('field_term_section');
+
+    // If field not empty then grab value and use as theme suggestions
+    if (!$field->isEmpty()) {
+      $term = $field
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue()
+        ->getName();
+      $suggestions[] = 'node__' . 'section__' . strtolower($term);
+    }
+
+  }
+
+}

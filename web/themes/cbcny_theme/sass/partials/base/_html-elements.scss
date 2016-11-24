@@ -310,7 +310,9 @@ li {
   }
 }
 
-main {}
+main {
+  margin-bottom: em(2 * $base-line-height);
+}
 
 mark {
   background: #ff0;

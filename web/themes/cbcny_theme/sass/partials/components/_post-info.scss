@@ -1,0 +1,26 @@
+// @file
+// Styles for the post info.
+
+.post-info {
+  margin-bottom: em(7px);
+}
+
+.post-info__item {
+  color: $cbcny-dark-green;
+  display: inline-block;
+  font-size: em(map-get($font-size, xxxxs));
+  line-height: 1.1;
+  text-transform: uppercase;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    border-right: 1px solid $cbcny-lighter-gray;
+    height: em(12px, map-get($font-size, xxxxs));
+    margin: em(-4px, map-get($font-size, xxxxs)) em(5px, map-get($font-size, xxxxs)) 0 em(5px, map-get($font-size, xxxxs));
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+}

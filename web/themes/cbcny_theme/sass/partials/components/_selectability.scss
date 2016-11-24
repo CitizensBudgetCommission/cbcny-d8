@@ -1,0 +1,128 @@
+// @file
+// Styles for selectability.js widgets.
+
+.selectability {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 14em;
+
+  &:focus,
+  &[aria-expanded="true"] {
+    outline: none;
+
+    [role=textbox] {
+      border-bottom-color: $cbcny-light-blue;
+      outline: 0;
+    }
+  }
+
+  [role=textbox] {
+    @extend %form-item__box;
+    display: block;
+    outline: 0;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:after {
+      @include svg-background(meatball);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: em(20px);
+    }
+  }
+
+  [role=listbox] {
+    background-color: $cbcny-white;
+    border: 1px solid $cbcny-off-white;
+    border-top: 0;
+    display: none;
+    left: 0;
+    line-height: 1.2;
+    max-height: 15em; // Fallback for vh.
+    max-height: 50vh;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+  }
+
+  &[aria-expanded=true] [role=listbox] {
+    display: block;
+  }
+
+  [role=heading] {
+    font-size: rem(map-get($font-size, xxxs));
+    font-weight: bold;
+    padding: em(4px, map-get($font-size, xxxs)) em(10px, map-get($font-size, xxxs));
+  }
+
+  [role=option] {
+    font-size: rem(map-get($font-size, xxxs));
+    outline: 0;
+    padding: em(8px, map-get($font-size, xxxs)) em(20px, map-get($font-size, xxxs));
+
+    &:first-of-type {
+      padding-top: em(16px, map-get($font-size, xxxs));
+    }
+
+    &:last-of-type {
+      padding-bottom: em(16px, map-get($font-size, xxxs));
+    }
+
+    &:focus,
+    &:hover {
+      background: $cbcny-dark-blue;
+      color: $cbcny-white;
+    }
+  }
+
+  .is-full-width > & {
+    width: 100%;
+  }
+
+  .is-small > & {
+    [role=textbox] {
+      line-height: 1.2;
+      padding: em(8px);
+
+      &:after {
+        background-size: 20px;
+        width: 35px;
+      }
+    }
+
+    [role=listbox] {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    [role=heading] {
+      padding: em(4px) em(8px);
+    }
+
+    [role=option] {
+      padding: em(4px) em(8px);
+
+      &:first-of-type {
+        padding-top: em(8px);
+      }
+
+      &:last-of-type {
+        padding-bottom: em(8px);
+      }
+    }
+  }
+}
+
+.selectability-offscreen {
+  @extend %visually-hidden;
+}
