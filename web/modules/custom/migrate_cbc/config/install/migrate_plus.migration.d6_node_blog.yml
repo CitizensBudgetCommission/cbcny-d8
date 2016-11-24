@@ -24,7 +24,7 @@ process:
   sticky: sticky
   created: created
   changed: changed
-  # @todo published date isn't working
+  # D6 date fields require some massaging.
   field_published_date:
     -
       plugin: extract
