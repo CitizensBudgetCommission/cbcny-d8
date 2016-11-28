@@ -21,7 +21,7 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
     $field = $node->get('field_term_section');
 
     // If field not empty then grab value and use as theme suggestions
-    if (!$field->isEmpty()) {
+    if (!$field->isEmpty() && $node->getType() == "section") {
       $term = $field
         ->first()
         ->get('entity')
