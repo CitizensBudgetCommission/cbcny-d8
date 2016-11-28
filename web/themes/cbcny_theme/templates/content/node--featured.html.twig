@@ -1,11 +1,10 @@
 {%
   set classes = [
-    'feature'
+    'feature',
   ]
 %}
-{{ attach_library('classy/node') }}
 
-<article{{ attributes.addClass(classes) }} role="article">
+<article{{ attributes.addClass(classes) }}>
   <div class="l-slat l-slat--feature">
     <div class="l-slat__media">
       <a href="{{ url }}" class="feature__image" style="background-image: url({{ content.field_hero|render|trim }});"></a>
