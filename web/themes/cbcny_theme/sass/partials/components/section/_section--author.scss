@@ -2,5 +2,7 @@
 // Styles for authors.
 
 .section--author {
-  color: $cbcny-dark-gray;
+  color: $cbcny-extra-dark-gray;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
+  text-align: right;
 }

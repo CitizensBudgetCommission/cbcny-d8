@@ -2,14 +2,10 @@
   set classes = [
     'section',
     'section--footnotes',
-    'section--type-' ~ paragraph.bundle|clean_class,
-    view_mode ? 'section--view-mode-' ~ view_mode|clean_class,
   ]
 %}
 
 <section{{ attributes.addClass(classes) }}>
   <h2 id="footnotes" class="heading heading--h3 heading--green">{{ 'Footnotes'|t }}</h2>
-  <div class="footnotes">
-    {{ content }}
-  </div>
+  {{ content }}
 </section>
