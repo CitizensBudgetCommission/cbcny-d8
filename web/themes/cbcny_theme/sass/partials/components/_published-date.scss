@@ -3,4 +3,6 @@
 
 .published-date {
   color: $cbcny-light-gray;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
+
 }

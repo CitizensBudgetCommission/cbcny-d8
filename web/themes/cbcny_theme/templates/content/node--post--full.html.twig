@@ -11,6 +11,7 @@
 
 <article{{ attributes.addClass(classes) }}>
 
+  {# Display Hero #}
   {% if content.field_hero|render %}
     <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
@@ -35,8 +36,8 @@
     </div>
   {% endif %}
 
+  {# Display Page content #}
   <div class="l-constrain l-constrain--main-content">
-
     {{ drupal_block('cbcny_theme_local_tasks') }}
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -44,7 +45,10 @@
       <div class="share-links__label">Share This Page</div>
       <div class="share-links__links addthis_inline_share_toolbox"></div>
     </div>
+
     <div class="published-date">{{ content.field_published_date }}</div>
+
     {{ content.field_page_content }}
   </div>
+  
 </article>
