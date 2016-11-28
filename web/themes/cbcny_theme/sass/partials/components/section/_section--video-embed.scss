@@ -6,6 +6,7 @@
 
 .section--video-embed {
   background-color: $cbcny-white;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
 
   .video__caption {
     background-color: $cbcny-white;
