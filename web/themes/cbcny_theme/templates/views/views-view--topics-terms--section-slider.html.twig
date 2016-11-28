@@ -1,6 +1,6 @@
 {%
   set classes = [
-    'view',
+    'slick-carousel slick-carousel-topics slick-blue-buttons',
     'view--' ~ id|clean_class,
     'view--display-' ~ display_id,
     dom_id ? 'js-view-dom-id-' ~ dom_id,
@@ -8,31 +8,21 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
+
   {{ title_prefix }}
   {% if title %}
     {{ title }}
   {% endif %}
   {{ title_suffix }}
+
   {% if header %}
     <div class="view__header">
       {{ header }}
     </div>
   {% endif %}
-  {% if exposed %}
-    <div class="view__filters">
-      {{ exposed }}
-    </div>
-  {% endif %}
-  {% if attachment_before %}
-    <div class="attachment attachment--before">
-      {{ attachment_before }}
-    </div>
-  {% endif %}
 
   {% if rows %}
-    <div class="view__content">
-      {{ rows }}
-    </div>
+    {{ rows }}
   {% elseif empty %}
     <div class="view__empty">
       {{ empty }}
@@ -47,17 +37,15 @@
       {{ attachment_after }}
     </div>
   {% endif %}
+
   {% if more %}
     {{ more }}
   {% endif %}
+
   {% if footer %}
     <div class="view__footer">
       {{ footer }}
     </div>
   {% endif %}
-  {% if feed_icons %}
-    <div class="feed-icons">
-      {{ feed_icons }}
-    </div>
-  {% endif %}
+
 </div>
