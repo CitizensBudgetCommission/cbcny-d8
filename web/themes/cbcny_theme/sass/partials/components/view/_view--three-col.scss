@@ -1,0 +1,30 @@
+// @file
+// Styles for three cols view
+
+$bp-first: 480px, 'no-query' true;
+$bp-second: 760px, 'no-query' true;
+
+.view--three-col {
+  clear: both;
+  width: 100%;
+  .view__content {
+    margin: 0 -1em;
+    @include breakpoint($bp-first) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .view__row {
+    border: 0;
+    padding: 1em;
+    width: 100%;
+
+    @include breakpoint($bp-first) {
+      display: flex;
+      width: percentage(1/2);
+    }
+    @include breakpoint($bp-second) {
+      width: percentage(1/3);
+    }
+  }
+}

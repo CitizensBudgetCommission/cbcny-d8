@@ -17,6 +17,7 @@ $bp-largest-hero: 960px;
   padding-top: em(25px);
   position: absolute;
   top: 5em;
+	z-index: 1;
 
   &:before {
   	border-color: transparent transparent $cbcny-blue transparent;

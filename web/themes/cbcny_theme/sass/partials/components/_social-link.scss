@@ -1,0 +1,42 @@
+// @file
+// Styles for social links
+
+.social-link {
+	background-color: $cbcny-dark-blue;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	border-radius: 90px;
+	display: inline-block;
+	height: 60px;
+	margin-bottom: .75em;
+	margin-right: 12px;
+	margin-left: 12px;
+	max-width: 100%;
+	text-indent: -999em;
+	transition: all 200ms ease-in-out;
+	width: 60px;
+
+	&:hover {
+		background-color: $cbcny-light-blue;
+	}
+
+	&.social-link--facebook {
+		@include svg-background(icon-facebook);
+		background-size: auto 37px;
+	}
+
+	&.social-link--twitter {
+		@include svg-background(icon-twitter);
+		background-size: auto 29px;
+	}
+
+	&.social-link--linkedin {
+		@include svg-background(icon-linkedin);
+		background-size: auto 30px;
+	}
+
+	&.social-link--vimeo {
+		@include svg-background(icon-vimeo);
+		background-size: auto 27px;
+	}
+}

@@ -39,5 +39,5 @@
 #}
 
 {% for item in items %}
-  <a href="{{ item.content['#url'] }}" class="social-link social-link--{{ item.content['#title']|lower }}">{{ item.content['#title'] }}</a>
+  <a href="{{ item.content['#url'] }}" class="button">{{ item.content['#title'] }}</a>
 {% endfor %}

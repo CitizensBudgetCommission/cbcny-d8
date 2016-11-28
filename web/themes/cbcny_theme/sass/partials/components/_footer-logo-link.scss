@@ -1,0 +1,12 @@
+// @file
+// Styles for footer logo link
+
+.footer-logo-link {
+  @include svg-background(cbcny-logo);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: block;
+  height: 90px;
+  text-indent: -999em;
+  width: 261px;
+}
