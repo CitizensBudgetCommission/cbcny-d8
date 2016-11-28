@@ -508,7 +508,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a class=\"icon-link icon-link--{{ field_icon_class|default('none') }}\" href=\"{{ field_section_url }}\">\n<span class=\"icon-link__text\">{{ name }}</span>\n</a>"
+            text: "<a class=\"icon-link icon-link--blue icon-link--box icon-link--{{ field_icon_class|default('none') }}\" href=\"{{ field_section_url }}\">\n<span class=\"icon-link__text\">{{ name }}</span>\n</a>"
             make_link: false
             path: ''
             absolute: false
