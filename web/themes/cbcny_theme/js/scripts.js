@@ -119,15 +119,15 @@
 
       }
 
-      $('.toc-button').click(function(event) {
-        $('.toc-button').hide();
+      $('.button--toc').click(function(event) {
+        $('.button--toc').hide();
         $('.nav--toc').slideToggle("fast");
         event.preventDefault(event);
       });
 
       $('.close-toc').click(function(event) {
         $('.nav--toc').hide();
-        $('.toc-button').show();
+        $('.button--toc').show();
         event.preventDefault(event);
       });
     }

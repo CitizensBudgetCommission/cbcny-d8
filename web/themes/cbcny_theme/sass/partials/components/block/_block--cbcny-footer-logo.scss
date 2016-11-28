@@ -14,14 +14,4 @@
 		flex-basis: auto;
 		margin: 1em 0;
 	}
-
-	.logo-link {
-		@include svg-background(cbcny-logo);
-		background-repeat: no-repeat;
-		background-size: 100% auto;
-		display: block;
-		height: 90px;
-		text-indent: -999em;
-		width: 261px;
-	}
 }
