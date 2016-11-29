@@ -26,19 +26,10 @@ process:
   changed: changed
   # D6 date fields require some massaging.
   field_published_date:
-    -
-      plugin: extract
-      source: field_cbc_publish_date
-      index:
-        - 0
-        - value
-    -
-      plugin: explode
-      delimiter: ,
-    -
-      plugin: format_date
-      from_format: 'm/d/Y H:i:s'
-      to_format: 'Y-m-d\TH:i:s'
+    plugin: format_date
+    source: field_cbc_publish_date/0/value
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'Y-m-d\TH:i:s'
 
   field_teaser_plain: field_blog_teaser
 
