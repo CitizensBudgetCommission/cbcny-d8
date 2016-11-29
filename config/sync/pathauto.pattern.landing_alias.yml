@@ -1,0 +1,22 @@
+uuid: ce13a136-a872-49a5-a5b7-b7e0256a3a36
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: landing_alias
+label: 'Landing alias'
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  a31a8b54-b376-415d-8349-54c10f68d272:
+    id: node_type
+    bundles:
+      landing: landing
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a31a8b54-b376-415d-8349-54c10f68d272
+selection_logic: and
+weight: -5
+relationships: {  }
