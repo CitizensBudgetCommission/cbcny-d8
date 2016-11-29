@@ -1,5 +1,5 @@
-id: d6_node_blog
-label: 'D6 blog nodes to D8 blog nodes'
+id: d6_node_report
+label: 'D6 report nodes to D8 report nodes'
 
 third_party_settings:
   migrate_plus:
@@ -11,12 +11,12 @@ source:
   key: drupal6
   high_water_property:
     name: changed
-  node_type: blog
+  node_type: report
 
 process:
   type:
     plugin: default_value
-    default_value: post
+    default_value: report
   title: title
   uid:
     plugin: default_value
@@ -26,21 +26,27 @@ process:
   changed: changed
   # D6 date fields require some massaging.
   field_published_date:
-    plugin: format_date
-    source: field_cbc_publish_date/0/value
-    from_format: 'Y-m-d H:i:s'
-    to_format: 'Y-m-d\TH:i:s'
-
-  field_teaser_plain: field_blog_teaser
+    -
+      plugin: extract
+      source: field_cbc_publish_date
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'm/d/Y H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+  field_teaser_plain: body
 
   # computed array of paragraph Ids. @see CbcNode::prepareRow()
   field_page_content: paragraphs
 
-  # Post type is always Blog, TID 1.
+  # Post type is always Report, TID 19
   field_term_post_type:
     plugin: default_value
-    default_value: 1
-  # Section is always Research, TID 25.
+    default_value: 19
+
+  # Section is always Research, TID 25
   field_term_section:
     plugin: default_value
     default_value: 25
