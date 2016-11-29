@@ -5,11 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.post.field_hero
+    - field.field.node.post.field_is_featured
     - field.field.node.post.field_page_content
     - field.field.node.post.field_published_date
+    - field.field.node.post.field_search_exclude
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
+    - field.field.node.post.field_term_section
     - field.field.node.post.field_term_topic
     - node.type.post
   module:
@@ -20,8 +23,17 @@ targetEntityType: node
 bundle: post
 mode: card
 content:
+  field_is_featured:
+    type: boolean
+    weight: 0
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_published_date:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       timezone_override: ''
@@ -29,14 +41,14 @@ content:
     third_party_settings: {  }
     type: datetime_custom
   field_subtitle:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_term_post_type:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link: false
@@ -46,12 +58,14 @@ content:
     type: string
     settings:
       link_to_entity: false
-    weight: 1
+    weight: 2
     label: hidden
     third_party_settings: {  }
 hidden:
   field_hero: true
   field_page_content: true
+  field_search_exclude: true
   field_teaser_plain: true
+  field_term_section: true
   field_term_topic: true
   links: true

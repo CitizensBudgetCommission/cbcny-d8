@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_hero
+    - field.field.node.news.field_is_featured
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
     - field.field.node.news.field_search_exclude
@@ -82,6 +83,7 @@ content:
     label: hidden
     third_party_settings: {  }
 hidden:
+  field_is_featured: true
   field_search_exclude: true
   field_teaser_plain: true
   links: true
