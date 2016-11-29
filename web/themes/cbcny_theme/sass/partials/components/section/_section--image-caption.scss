@@ -7,7 +7,7 @@
   margin-bottom: em($base-line-height, map-get($font-size, l));
   padding: em(40px);
 
-  .caption {
+  .section__caption {
     background-color: $cbcny-white;
     caption-side: bottom;
     color: $cbcny-dark-gray;
