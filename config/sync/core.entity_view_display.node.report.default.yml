@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.report.field_hero
+    - field.field.node.report.field_is_featured
     - field.field.node.report.field_page_content
     - field.field.node.report.field_published_date
     - field.field.node.report.field_search_exclude
@@ -30,6 +31,15 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_is_featured:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   field_page_content:
     weight: 6
     label: hidden

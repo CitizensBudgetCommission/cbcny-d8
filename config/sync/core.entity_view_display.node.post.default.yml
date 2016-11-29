@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.post.field_hero
+    - field.field.node.post.field_is_featured
     - field.field.node.post.field_page_content
     - field.field.node.post.field_published_date
     - field.field.node.post.field_search_exclude
@@ -30,6 +31,15 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_is_featured:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   field_page_content:
     weight: 6
     label: hidden

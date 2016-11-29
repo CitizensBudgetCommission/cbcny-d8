@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_hero
+    - field.field.node.news.field_is_featured
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
     - field.field.node.news.field_search_exclude
@@ -32,8 +33,14 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_is_featured:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_page_content:
-    weight: 9
+    weight: 10
     settings:
       title: Content
       title_plural: Content
@@ -48,7 +55,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_search_exclude:
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -61,7 +68,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_teaser_plain:
-    weight: 8
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
