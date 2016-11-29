@@ -7,8 +7,8 @@ source:
     name: timestamp
   constants:
     # source_base_path if using download plugin
-    # source_base_path: http://cbcny.org/
-    source_base_path: /var/www/drupal6-files/
+    source_base_path: http://cbcny.org/
+    # source_base_path: /var/www/drupal6-files/
 process:
   fid: fid
   filename: filename
@@ -30,8 +30,8 @@ process:
       - is_public
   uri:
     # We could use the download plugin here, but for local development you really want a local copy.
-    # plugin: download
-    plugin: file_copy
+    plugin: download
+    # plugin: file_copy
     source:
       - '@source_full_path'
       - '@destination_full_path'
