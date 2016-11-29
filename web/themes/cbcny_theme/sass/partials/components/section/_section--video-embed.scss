@@ -1,14 +1,11 @@
 // @file
 // Styles for the video embed.
 
-// @file
-// Styles for figures.
-
 .section--video-embed {
   background-color: $cbcny-white;
   margin-bottom: em($base-line-height, map-get($font-size, l));
 
-  .video__caption {
+  .section__caption {
     background-color: $cbcny-white;
     color: $cbcny-dark-gray;
     font-size: em(map-get($font-size, s));
