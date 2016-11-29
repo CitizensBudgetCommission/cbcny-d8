@@ -1,7 +1,7 @@
 {%
   set classes = [
     'card',
-    content.field_is_featured.0['#markup'] ? 'card--highlighted',
+    content.field_is_featured.0['#markup'] == "Yes" ? 'card--highlighted',
   ]
 %}
 
