@@ -1,0 +1,22 @@
+uuid: 09244bc9-abf5-4b8b-aa67-33d6bb228646
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: post_alias
+label: 'Post alias'
+type: 'canonical_entities:node'
+pattern: '/[node:field_term_section]/[node:title]'
+selection_criteria:
+  6280f6d7-1cd4-4583-9547-71e64e671ed6:
+    id: node_type
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6280f6d7-1cd4-4583-9547-71e64e671ed6
+selection_logic: and
+weight: -5
+relationships: {  }

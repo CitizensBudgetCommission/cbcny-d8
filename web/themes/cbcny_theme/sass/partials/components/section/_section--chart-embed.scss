@@ -4,6 +4,7 @@
 
 .section--chart-embed {
   background-color: $cbcny-white;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
 
   iframe {
     height: 100%;

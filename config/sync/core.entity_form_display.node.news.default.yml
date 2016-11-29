@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.news.field_hero
+    - field.field.node.news.field_is_featured
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
+    - field.field.node.news.field_search_exclude
     - field.field.node.news.field_subtitle
     - field.field.node.news.field_teaser_plain
     - field.field.node.news.field_term_post_type
@@ -16,6 +18,7 @@ dependencies:
     - chosen_field
     - datetime
     - paragraphs
+    - path
 id: node.news.default
 targetEntityType: node
 bundle: news
@@ -31,8 +34,14 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_is_featured:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_page_content:
-    weight: 8
+    weight: 10
     settings:
       title: Content
       title_plural: Content
@@ -46,6 +55,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+  field_search_exclude:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_subtitle:
     weight: 2
     settings:
@@ -54,7 +69,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_teaser_plain:
-    weight: 7
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -75,6 +90,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: chosen_select
+  path:
+    type: path
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 1
@@ -84,7 +104,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  path: true
   promote: true
   sticky: true
   uid: true

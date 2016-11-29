@@ -1,41 +1,13 @@
 // @file
 // Styles for a view.
 
-$bp-first: 480px, 'no-query' true;
-$bp-second: 760px, 'no-query' true;
-$gutter: 1em;
-
 .view {}
 
 .view__filters {
   margin-bottom: 1.5em;
 }
 
-.view--three-col {
-  clear: both;
-  width: 100%;
-  .view__content {
-    margin: 0 -1em;
-    @include breakpoint($bp-first) {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-  .view__row {
-    border: 0;
-    padding: 1em;
-    width: 100%;
-
-    @include breakpoint($bp-first) {
-      display: flex;
-      width: percentage(1/2);
-    }
-    @include breakpoint($bp-second) {
-      width: percentage(1/3);
-    }
-  }
-}
-
 // Custom view styles.
-@import 'view/view-search';
+@import 'view/view--search';
+@import 'view/view--three-col';
 @import 'view/view--topic-cards';

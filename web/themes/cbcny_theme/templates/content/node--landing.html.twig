@@ -10,6 +10,8 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+
+  {# Display Hero #}
   {% if content.field_hero|render %}
     <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
@@ -24,6 +26,7 @@
     </div>
   {% endif %}
 
+  {# Display Page content #}
   <div class="l-constrain l-constrain--main-content">
     {{ drupal_block('cbcny_theme_local_tasks') }}
 

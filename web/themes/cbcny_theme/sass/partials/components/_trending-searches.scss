@@ -4,14 +4,6 @@
 .trending-searches {
 	flex-basis: 100%;
   padding-top: em(11px);
-
-  .transparent-button {
-    padding: rem(7px) rem(10px);
-
-    @include breakpoint($bp-hide-mobile-menu) {
-      padding: rem(10px) rem(13px);
-    }
-  }
 }
 
 .trending-searches__label {

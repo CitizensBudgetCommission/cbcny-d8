@@ -1,7 +1,11 @@
 <div class="hero hero--section-page">
   <div class="hero__content--section-page l-constrain">
     <h1 class="page-title page-title--section-page">{{ pageTitle }}</h1>
-    {% include "components-dropdown" %}
+    {% include "components-dropdown"
+      with {
+        "customClasses": "dropdown--section-page"
+      }
+    %}
 
     {% include "components-feature" %}
     {% include "components-feature" %}

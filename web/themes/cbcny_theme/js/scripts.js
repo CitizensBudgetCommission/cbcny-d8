@@ -10,7 +10,8 @@
       // Initiate sticky header after initial page load.
       $(window).bind("load", function() {
         if ($("body:not(.user-logged-in)")) {
-          $(".region-navigation").stick_in_parent();
+          $(".region-navigation").stick_in_parent({sticky_class: 'is-stuck'});
+
         }
       });
     }
@@ -72,9 +73,9 @@
   // Dropdown functionality
   Drupal.behaviors.toggleDropdowns = {
     attach: function (context, settings) {
-      $('.dropdown').children('.dropdown__options').addClass('is-hidden');
-      $('.dropdown-button').on('click', function() {
-        $(this).parent('.dropdown').toggleClass('is-active').children('.dropdown__options').toggleClass('is-hidden');
+      $('.dropdown').children('.dropdown__options').addClass('hidden');
+      $('.button--dropdown').on('click', function() {
+        $(this).parent('.dropdown').toggleClass('is-active').children('.dropdown__options').toggleClass('hidden');
       });
     }
   };
@@ -118,15 +119,15 @@
 
       }
 
-      $('.toc-button').click(function(event) {
-        $('.toc-button').hide();
+      $('.button--toc').click(function(event) {
+        $('.button--toc').hide();
         $('.nav--toc').slideToggle("fast");
         event.preventDefault(event);
       });
 
       $('.close-toc').click(function(event) {
         $('.nav--toc').hide();
-        $('.toc-button').show();
+        $('.button--toc').show();
         event.preventDefault(event);
       });
     }

@@ -1,0 +1,22 @@
+uuid: 80c7ee0f-95a7-499a-9490-f5b37e5c523a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: news_alias
+label: 'News alias'
+type: 'canonical_entities:node'
+pattern: '/[node:field_term_section]/[node:title]'
+selection_criteria:
+  6dc28704-28c2-4bfd-b99f-55ffbe380bd6:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6dc28704-28c2-4bfd-b99f-55ffbe380bd6
+selection_logic: and
+weight: -5
+relationships: {  }

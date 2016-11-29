@@ -8,8 +8,4 @@
 	@include breakpoint($bp-footer-switch, $no-query: true) {
     flex: 0 50%;
 	}
-
-	a {
-		@extend .button;
-	}
 }

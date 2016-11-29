@@ -1,6 +1,9 @@
 // @file
 // Styles for .dropdown
 
+$bp-larger-hero: 800px;
+$bp-largest-hero: 960px;
+
 .dropdown {}
 
 .dropdown__options {
@@ -14,6 +17,7 @@
   padding-top: em(25px);
   position: absolute;
   top: 5em;
+	z-index: 1;
 
   &:before {
   	border-color: transparent transparent $cbcny-blue transparent;
@@ -44,5 +48,22 @@
 	  	background-color: $cbcny-light-blue;
 	  	color: $cbcny-white;
 	  }
+	}
+}
+
+.dropdown--section-page {
+	margin-top: em(18px);
+	position: relative;
+
+	@include breakpoint($bp-larger-hero) {
+		margin: 0;
+		left: auto;
+		position: absolute;
+		right: 1em;
+		top: 0;
+	}
+
+	@include breakpoint($bp-largest-hero) {
+		right: 1em;
 	}
 }

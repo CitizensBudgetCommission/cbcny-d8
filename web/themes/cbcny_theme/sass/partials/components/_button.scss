@@ -4,84 +4,6 @@
 .button {
   @include button();
 
-  &.blue-button {
-    background-color: $cbcny-blue;
-    color: $cbcny-white;
-
-    &:hover,
-    &:focus {
-      background-color: $cbcny-light-blue;
-    }
-  }
-
-  &.transparent-button {
-    background-color: transparent;
-    border: 2px solid $cbcny-lightish-gray;
-    border-radius: 5px;
-    box-shadow: none;
-    color: $cbcny-dark-gray;
-    font-size: .8em;
-    margin: 0 rem(15px) .25rem 0;
-    padding: rem(10px) rem(13px);
-    text-transform: capitalize;
-
-    &:hover,
-    &:focus {
-      border-color: $cbcny-blue;
-      box-shadow: none;
-      color: $cbcny-light-blue;
-    }
-
-    &+ .button.transparent-button {
-      margin-left: 0;
-    }
-  }
-
-  &.dropdown-button {
-    background-color: $cbcny-blue;
-    @include svg-background(icon-meatball);
-    background-position: 90% 50%;
-    background-repeat: no-repeat;
-    color: $cbcny-white;
-    display: inline-block;
-    font-size: 1.05em;
-    padding-right: 60px;
-    text-transform: none;
-
-    &:hover,
-    &:focus,
-    &.active {
-      background-color: $cbcny-white;
-      @include svg-background(icon-meatball-hover);
-      background-position: 90% 50%, 90% 50%;
-      background-repeat: no-repeat, no-repeat;
-      color: $cbcny-blue;
-    }
-  }
-
-  &.toc-button {
-    display: block;
-    padding-left: 30px;
-    text-align: left;
-    width: 100%;
-  }
-
-  &.form-button {
-    margin-top: 36px;
-  }
-
-  &.secondary-button {
-    background-color: #b9b9b9;
-    color: #4b4b4b;
-    margin-left: 34px;
-
-    &:hover,
-    &:focus {
-      color: #272727;
-    }
-  }
-
-
   & + & {
     margin-left: 1em; // LTR
 
@@ -93,3 +15,91 @@
     }
   }
 }
+
+.button--blue {
+  background-color: $cbcny-blue;
+  color: $cbcny-white;
+
+  &:hover,
+  &:focus {
+    background-color: $cbcny-light-blue;
+    color: $cbcny-white !important;
+  }
+}
+
+.button--transparent {
+  background-color: transparent;
+  border: 2px solid $cbcny-lightish-gray;
+  border-radius: 5px;
+  box-shadow: none;
+  color: $cbcny-dark-gray;
+  font-size: .8em;
+  margin: 0 rem(15px) .25rem 0;
+  padding: rem(10px) rem(13px);
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    border-color: $cbcny-blue;
+    box-shadow: none;
+    color: $cbcny-light-blue;
+  }
+
+  & + .transparent-button {
+    margin-left: 0;
+  }
+}
+
+.button--dropdown {
+  background-color: $cbcny-blue;
+  @include svg-background(icon-meatball);
+  background-position: 90% 50%;
+  background-repeat: no-repeat;
+  color: $cbcny-white;
+  display: inline-block;
+  font-size: 1.05em;
+  padding-right: 60px;
+  text-transform: none;
+
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: $cbcny-white;
+    @include svg-background(icon-meatball-hover);
+    background-position: 90% 50%, 90% 50%;
+    background-repeat: no-repeat, no-repeat;
+    color: $cbcny-blue;
+  }
+}
+
+.button--toc {
+  display: block;
+  padding-left: 30px;
+  text-align: left;
+  width: 100%;
+}
+
+.button--search {
+  padding: rem(7px) rem(10px);
+
+  @include breakpoint($bp-hide-mobile-menu) {
+    padding: rem(10px) rem(13px);
+  }
+}
+
+/* Can't find these in PL.
+.form-button {
+  margin-top: 36px;
+}
+
+.secondary-button {
+  background-color: #b9b9b9;
+  color: #4b4b4b;
+  margin-left: 34px;
+
+  &:hover,
+  &:focus {
+    color: #272727;
+  }
+}
+*/
