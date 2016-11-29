@@ -1,0 +1,40 @@
+uuid: 49b86463-e172-4c2e-84ee-c6065be7231f
+langcode: en
+status: true
+dependencies: {  }
+third_party_settings:
+  migrate_plus:
+    migration_group: documents
+_core:
+  default_config_hash: mPjn18Q0IQenLTbKApMUmidIHm5oTNFv8AkQ3-smQjM
+id: d6_node_paragraph_files
+migration_tags: null
+migration_group: null
+label: 'D6 node files to D8 file paragraph'
+source:
+  plugin: cbc_d6_upload
+  key: drupal6
+  high_water_property:
+    name: changed
+  node_type_list:
+    - blog
+    - report
+process:
+  type:
+    plugin: default_value
+    default_value: download_callout
+  field_file_upload:
+    plugin: iterator
+    source: upload
+    process:
+      target_id:
+        plugin: migration
+        migration: d6_files_files
+        source: fid
+      display: list
+      description: description
+destination:
+  plugin: 'entity:paragraph'
+migration_dependencies:
+  required:
+    - d6_files_files
