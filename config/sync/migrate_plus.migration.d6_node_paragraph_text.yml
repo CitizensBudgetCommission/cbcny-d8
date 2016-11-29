@@ -1,4 +1,4 @@
-uuid: 403edc60-fb9b-4bea-8d1f-b26e2ce34ffc
+uuid: 9396d816-9950-4681-8163-aed85c585e74
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ third_party_settings:
   migrate_plus:
     migration_group: documents
 _core:
-  default_config_hash: zPOZl23_FMvnp10oI2IZYh8YxHLz4a3yA4ES3RSLHqY
+  default_config_hash: BFdrgqKeDTMWkFIW6aGqnAIrBm1HStZ7KsgnwBdvAqU
 id: d6_node_paragraph_text
 migration_tags: null
 migration_group: null
@@ -21,6 +21,7 @@ source:
     name: changed
   node_type_list:
     - blog
+    - report
 process:
   uid:
     plugin: default_value
