@@ -33,6 +33,9 @@ process:
         - 0
         - value
     -
+      plugin: explode
+      delimiter: ,
+    -
       plugin: format_date
       from_format: 'm/d/Y H:i:s'
       to_format: 'Y-m-d\TH:i:s'
