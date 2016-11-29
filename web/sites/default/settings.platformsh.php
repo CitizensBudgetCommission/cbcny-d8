@@ -31,6 +31,30 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
       }
     }
   }
+
+  // Drupal 6 source database.
+  if (empty($databases['drupal6']['default']) && !empty($relationships['drupal6'])) {
+    foreach ($relationships['drupal6'] as $endpoint) {
+      $database = [
+        'driver' => $endpoint['scheme'],
+        'database' => $endpoint['path'],
+        'username' => $endpoint['username'],
+        'password' => $endpoint['password'],
+        'host' => $endpoint['host'],
+        'port' => $endpoint['port'],
+      ];
+
+      if (!empty($endpoint['query']['compression'])) {
+        $database['pdo'][PDO::MYSQL_ATTR_COMPRESS] = TRUE;
+      }
+      if (!empty($endpoint['query']['is_master'])) {
+        $databases['drupal6']['default'] = $database;
+      }
+      else {
+        $databases['drupal6']['slave'][] = $database;
+      }
+    }
+  }
 }
 
 if (isset($_ENV['PLATFORM_APP_DIR'])) {
