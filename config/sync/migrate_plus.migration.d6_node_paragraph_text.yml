@@ -14,6 +14,7 @@ source:
     - blog
     - report
     - presscitation
+    - oped
 
 destination:
   plugin: entity:paragraph
