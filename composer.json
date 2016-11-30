@@ -102,7 +102,7 @@
         "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
       },
       "drupal/core": {
-        "Configurable error behavior for file download plugin": "https://www.drupal.org/files/issues/2831686-download-skip-error.patch"
+        "Configurable error behavior for file download plugin": "https://www.drupal.org/files/issues/2831686-download-skip-error-2.patch"
       }
     }
   }
