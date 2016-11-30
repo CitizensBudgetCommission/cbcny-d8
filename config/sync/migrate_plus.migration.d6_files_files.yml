@@ -14,7 +14,7 @@ source:
   high_water_property:
     name: timestamp
   constants:
-    source_base_path: http://cbcny.org/
+    source_base_path: http://cbcny.org
 process:
   fid: fid
   filename: filename
@@ -36,6 +36,7 @@ process:
       - is_public
   uri:
     plugin: download
+    skip_row_on_error: true
     source:
       - '@source_full_path'
       - '@destination_full_path'
