@@ -13,6 +13,7 @@ source:
   node_type_list:
     - blog
     - report
+    - presscitation
 
 destination:
   plugin: entity:paragraph
