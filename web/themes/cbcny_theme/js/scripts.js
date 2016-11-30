@@ -48,8 +48,7 @@
         ]
       });
       $('.slick-carousel-homepage').slick({
-        dots: true,
-        infinite: true,
+        dots: true
       });
     }
   }

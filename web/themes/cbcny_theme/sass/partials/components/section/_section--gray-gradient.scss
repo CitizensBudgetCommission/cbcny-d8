@@ -1,0 +1,7 @@
+// @file
+// Styles for sections with gradient.
+
+.section--gray-gradient {
+  background-image: linear-gradient(to bottom, $cbcny-lightest-gray 0%, $cbcny-white 100%);
+  padding: em(50px) 0;
+}
