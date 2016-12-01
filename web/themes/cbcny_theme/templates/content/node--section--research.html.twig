@@ -10,7 +10,17 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  {{ content }}
-  {{ drupal_view('research','blog') }}
-  {{ drupal_view('research','report') }}
+  <div class="hero hero--feature hero--section-page">
+    <div class="hero__content--feature l-constrain">
+      <h1 class="page-title page-title--section-page">{{ content.title }}</h1>
+      {{ drupal_block('cbcny_theme_local_tasks') }}
+      {{ content.field_ref_featured_content }}
+    </div>
+  </div>
+
+  <div class="l-constrain">
+    {{ drupal_view('research','blog') }}
+    {{ drupal_view('research','report') }}
+  </div>
+
 </article>
