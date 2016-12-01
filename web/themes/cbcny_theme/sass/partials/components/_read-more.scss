@@ -1,14 +1,15 @@
 // @file
 // Styles for .read-more
 
+$bp-first: max-width 990px, 'no-query' true;
+
 .read-more {
 	font-weight: 700;
   margin-top: em(23px);
 
 	.slick-carousel-homepage & {
-		bottom: 30px;
-		position: absolute;
-		right: 3em;
-		z-index: 2;
+		@include breakpoint($bp-first) {
+			display: none;
+		}
 	}
 }
