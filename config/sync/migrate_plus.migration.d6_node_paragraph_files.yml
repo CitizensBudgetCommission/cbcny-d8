@@ -12,6 +12,8 @@ source:
   node_type_list:
     - blog
     - report
+    - presscitation
+    - oped
 
 process:
   type:

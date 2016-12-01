@@ -13,6 +13,8 @@ source:
   node_type_list:
     - blog
     - report
+    - presscitation
+    - oped
 
 destination:
   plugin: entity:paragraph
