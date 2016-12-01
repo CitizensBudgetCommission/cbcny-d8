@@ -13,7 +13,7 @@
 
   {# Display Hero #}
   {% if content.field_hero|render %}
-    <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
+    <div class="hero hero--large" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
         <h1 class="page-title">{{ content.title }}</h1>
       </div>

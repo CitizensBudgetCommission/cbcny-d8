@@ -1,0 +1,13 @@
+{%
+  set classes = [
+    'slick-carousel',
+    'slick-carousel-homepage',
+    'slick-blue-buttons'
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+{% block content %}
+{{ content }}
+{% endblock %}
+</div>

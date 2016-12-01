@@ -18,9 +18,10 @@
 	}
 
 	&.slick-carousel-homepage {
-		min-height: em(425px);
-		position: relative;
-		top: em(100px);
+		.slick-slide {
+      height: 500px;
+      margin: 0;
+    }
 	}
 
 }
