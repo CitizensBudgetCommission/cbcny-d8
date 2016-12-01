@@ -1,9 +1,9 @@
-uuid: b917e94b-0fe2-4d14-9728-bd3c86b286f0
+uuid: c0257b9a-decd-4a65-b214-5b688c6cf645
 langcode: en
 status: false
 dependencies:
   content:
-    - 'block_content:featured_content:7d10922b-b607-46db-a3fc-96c69490fd0e'
+    - 'block_content:featured_content:693e9110-da3d-47db-8772-66d455cee89d'
   module:
     - block_content
   theme:
@@ -13,13 +13,13 @@ theme: cbcny_theme
 region: '-1'
 weight: 0
 provider: null
-plugin: 'block_content:7d10922b-b607-46db-a3fc-96c69490fd0e'
+plugin: 'block_content:693e9110-da3d-47db-8772-66d455cee89d'
 settings:
-  id: 'block_content:7d10922b-b607-46db-a3fc-96c69490fd0e'
+  id: 'block_content:693e9110-da3d-47db-8772-66d455cee89d'
   label: 'Homepage featured items slider'
   provider: block_content
   label_display: '0'
   status: true
   info: ''
-  view_mode: full
+  view_mode: default
 visibility: {  }
