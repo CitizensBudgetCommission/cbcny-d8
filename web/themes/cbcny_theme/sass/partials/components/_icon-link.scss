@@ -42,14 +42,16 @@ $icons: buildings, calculator, chart, courthouse, crane, dollar-bills, growing-m
 
 .icon-link--small {
   background-position: 50% em(40px);
-  background-size: auto em(70px);
+  background-size: auto em(80px);
   padding: em(123px) em(40px) em(40px);
 
   .icon-link__text {
-    font-size: rem(map-get($font-size, m));
+    display: inline-block;
+    font-size: rem(map-get($font-size, xl));
+    margin-top: em(16px);
 
     @include breakpoint($bp-larger-font-size) {
-      font-size: rem(map-get($font-size, l));
+      font-size: rem(map-get($font-size, xxl));
     }
   }
 }
