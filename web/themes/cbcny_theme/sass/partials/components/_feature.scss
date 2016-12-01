@@ -1,11 +1,15 @@
 // @file
 // Styles for feature cards
 
+$bp-first: max-width 990px;
+
 .feature {
   background-color: $cbcny-feature-white;
   box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
   margin-bottom: em(65px);
   margin-top: em(65px);
+  overflow: hidden;
+  position: relative;
   &:hover,
   &:focus {
     box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
@@ -70,5 +74,13 @@
 
   .feature__date {
     color: $cbcny-light-gray;
+  }
+
+  @include breakpoint($bp-first) {
+    .feature__divider,
+    .feature__body,
+    .feature__date {
+      display: none;
+    }
   }
 }

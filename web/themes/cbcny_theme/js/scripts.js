@@ -48,6 +48,7 @@
         ]
       });
       $('.slick-carousel-homepage').slick({
+        infinite: false,
         dots: true
       });
     }

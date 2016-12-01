@@ -58,30 +58,12 @@ $gutter: 0;
     width: auto;
 
     @include breakpoint($bp-first) {
-      padding: em(30px) em(54px) em(50px);
+      padding: em(30px) em(54px);
     }
 
     @include breakpoint($bp-second) {
       flex-basis: 55%;
-    }
-
-//move to read more, but leave position relative here...????
-    .slick-carousel-homepage & {
-      max-height: 500px;
-      overflow: hidden;
-      position: relative;
-
-      &::after {
-        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), $cbcny-feature-white 100%);
-        border-bottom: 60px solid $cbcny-feature-white;
-        bottom: 0;
-        content: "";
-        display: block;
-        height: 100px;
-        position: absolute;
-        width: calc(100% - 6em);
-        z-index: 1;
-      }
+      padding: em(30px) em(54px) em(50px);
     }
   }
 }
