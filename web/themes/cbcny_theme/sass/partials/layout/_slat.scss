@@ -35,15 +35,9 @@ $gutter: 0;
 
 .l-slat--feature {
   align-items: stretch;
-  box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
-  }
 
   .l-slat__media {
     align-items: stretch;
@@ -69,6 +63,25 @@ $gutter: 0;
 
     @include breakpoint($bp-second) {
       flex-basis: 55%;
+    }
+
+//move to read more, but leave position relative here...????
+    .slick-carousel-homepage & {
+      max-height: 500px;
+      overflow: hidden;
+      position: relative;
+
+      &::after {
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), $cbcny-feature-white 100%);
+        border-bottom: 60px solid $cbcny-feature-white;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 100px;
+        position: absolute;
+        width: calc(100% - 6em);
+        z-index: 1;
+      }
     }
   }
 }

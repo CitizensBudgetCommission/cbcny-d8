@@ -12,7 +12,7 @@
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_hero|render %}
-    <div class="hero hero--large has-image" style="background-image: url({{ content.field_hero|render|trim }});">
+    <div class="hero hero--large" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
         <div class="page-info">
           <span class="page-info__item">{{ content.field_term_post_type }}</span>

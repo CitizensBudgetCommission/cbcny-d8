@@ -54,23 +54,11 @@ $bp-largest-hero: 960px;
   }
 }
 
-.hero--homepage {
-  display: block;
-  margin-bottom: em(50px);
-  min-height: 675px;
-
-  .hero__content--homepage {
-    background: none;
-    margin-bottom: em(-100px);
-  }
-}
-
-.hero--section-page {
-  background-image: linear-gradient(180deg, hsla(0, 0%, 92%, .85), hsla(0, 0%, 92%, .85)), url(../images/bkgd-section-page.jpg);
+.hero--feature {
   margin-bottom: em(180px);
   padding-top: em(60px);
 
-  .hero__content--section-page {
+  .hero__content--feature {
     background: none;
     margin-bottom: em(-100px);
     padding-bottom: 0;
@@ -81,4 +69,20 @@ $bp-largest-hero: 960px;
       margin-bottom: 0;
     }
   }
+
+  &.hero--homepage {
+    .hero__content--feature {
+      margin: 0;
+    }
+  }
+}
+
+.hero--homepage {
+  padding: 110px 0 90px;
+  margin-bottom: em(50px);
+
+}
+
+.hero--section-page {
+  background-image: linear-gradient(180deg, hsla(0, 0%, 92%, .85), hsla(0, 0%, 92%, .85)), url(../images/bkgd-section-page.jpg);
 }
