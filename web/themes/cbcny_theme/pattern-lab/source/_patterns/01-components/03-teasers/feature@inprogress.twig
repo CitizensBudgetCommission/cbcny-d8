@@ -10,7 +10,7 @@
       <div class="feature__divider"></div>
       <div class="feature__body">
         <span class="feature__date">{% include "base-medium-date" %}</span>
-        - {{ featureText | raw }}
+        - {{ featureText|length > 200 ? featureText|slice(0, 200) ~ '...' : featureText }}
         <div class="read-more"><a href="{{ url }}">Read more</a></div>
       </div>
     </div>

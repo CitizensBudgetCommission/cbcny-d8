@@ -37,6 +37,7 @@ $gutter: 0;
   align-items: stretch;
   display: flex;
   flex-wrap: wrap;
+  max-height: 645px; // Same as height of featured image.
   width: 100%;
 
   .l-slat__media {
