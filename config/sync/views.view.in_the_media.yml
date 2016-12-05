@@ -197,8 +197,30 @@ display:
             label: ''
           granularity: second
           plugin_id: datetime
-      header: {  }
-      footer: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2 class="heading--card-grid">CBCNY in the Media</h2>'
+          plugin_id: text_custom
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"#\">See More CBCNY In the Media</a>\n</div>"
+          plugin_id: text_custom
       empty: {  }
       relationships: {  }
       arguments: {  }

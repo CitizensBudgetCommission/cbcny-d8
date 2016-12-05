@@ -1,0 +1,20 @@
+<div class="hero hero--feature hero--homepage" style="background-image: url({{ base_path ~ directory }}/images/bg/hero--post.jpg);">
+  <div class="hero__content--feature">
+    <div class="l-constrain">
+      {{ drupal_block('homepage_featured_items_slider') }}
+    </div>
+  </div>
+</div>
+<div class="l-constrain">
+  <section class="section">
+    <h2 class="section-title centered">Browse Topics</h2>
+    {{ drupal_block('homepage_topics_slider') }}
+  </section>
+</div>
+<section class="section section--gray-gradient">
+  <div class="l-constrain">
+    <h2 class="section-title centered">Browse Our Work</h2>
+    {{ drupal_view('topic_section_list', 'homepage_topics_list') }}
+    <div class="centered"><a class="button button--blue" href="#">Search all Content</a></div>
+  </div>
+</section>

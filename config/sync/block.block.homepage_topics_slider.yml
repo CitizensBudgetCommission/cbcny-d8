@@ -1,0 +1,24 @@
+uuid: 62e05f44-a4d2-4fc7-9da6-2bdf68ad45ff
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.topics_terms
+  module:
+    - views
+  theme:
+    - cbcny_theme
+id: homepage_topics_slider
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'views_block:topics_terms-homepage_slider'
+settings:
+  id: 'views_block:topics_terms-homepage_slider'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

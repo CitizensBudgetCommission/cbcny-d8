@@ -1,0 +1,25 @@
+uuid: c0257b9a-decd-4a65-b214-5b688c6cf645
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:featured_content:693e9110-da3d-47db-8772-66d455cee89d'
+  module:
+    - block_content
+  theme:
+    - cbcny_theme
+id: homepage_featured_items_slider
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'block_content:693e9110-da3d-47db-8772-66d455cee89d'
+settings:
+  id: 'block_content:693e9110-da3d-47db-8772-66d455cee89d'
+  label: 'Homepage featured items slider'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: default
+visibility: {  }

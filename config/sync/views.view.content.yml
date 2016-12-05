@@ -252,7 +252,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Searchable
+          label: 'Not Searchable'
           exclude: false
           alter:
             alter_text: false
@@ -636,7 +636,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Searchable
+            label: 'Not Searchable'
             description: ''
             use_operator: true
             operator: field_search_exclude_value_op

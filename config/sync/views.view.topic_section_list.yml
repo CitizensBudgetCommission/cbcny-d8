@@ -241,3 +241,21 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  homepage_topics_list:
+    display_plugin: block
+    id: homepage_topics_list
+    display_title: 'Homepage topics list'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      arguments: {  }
+      defaults:
+        arguments: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

@@ -25,21 +25,21 @@
         slidesToScroll: 4,
         responsive: [
           {
-            breakpoint: 800,
+            breakpoint: 991,
             settings: {
               slidesToShow: 3,
               slidesToScroll: 3
             }
           },
           {
-            breakpoint: 640,
+            breakpoint: 800,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2
             }
           },
           {
-            breakpoint: 480,
+            breakpoint: 600,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1
@@ -48,8 +48,8 @@
         ]
       });
       $('.slick-carousel-homepage').slick({
-        dots: true,
-        infinite: true,
+        infinite: false,
+        dots: true
       });
     }
   }

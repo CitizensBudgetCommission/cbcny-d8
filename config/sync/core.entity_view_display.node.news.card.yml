@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
     - field.field.node.news.field_search_exclude
+    - field.field.node.news.field_source_url
     - field.field.node.news.field_subtitle
     - field.field.node.news.field_teaser_plain
     - field.field.node.news.field_term_post_type
@@ -17,6 +18,7 @@ dependencies:
     - node.type.news
   module:
     - datetime
+    - link
     - user
 id: node.news.card
 targetEntityType: node
@@ -25,7 +27,7 @@ mode: card
 content:
   field_is_featured:
     type: boolean
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       format: default
@@ -33,22 +35,33 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
   field_published_date:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       timezone_override: ''
       date_format: 'F d, Y'
     third_party_settings: {  }
     type: datetime_custom
+  field_source_url:
+    type: link
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 255
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
   field_subtitle:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_term_post_type:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link: false
@@ -58,7 +71,7 @@ content:
     type: string
     settings:
       link_to_entity: false
-    weight: 2
+    weight: 3
     label: hidden
     third_party_settings: {  }
 hidden:

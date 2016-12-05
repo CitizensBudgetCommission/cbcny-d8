@@ -2,18 +2,18 @@
 // Styles for explore other topics.
 
 .section--topics {
-  background-color: $cbcny-flat-blue;
+  background-color: #346a7b;;
   background-image: url(../images/bkgd-topics-slider.png);
   background-position: 0px 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   margin: 5em 0 0;
-  padding-bottom: em(100px);
-  padding-top: em(53px);
+  padding-bottom: em(50px);
+  padding-top: em(50px);
   text-align: center;
 
   h2 {
     font-size: 1.61em;
-    margin-bottom: rem(83px);
+    margin-bottom: rem(60px);
   }
 }

@@ -1,3 +1,4 @@
+{% set teaser = content.field_teaser_plain.0['#context'].value %}
 {%
   set classes = [
     'feature',
@@ -16,7 +17,7 @@
       <div class="feature__divider"></div>
       <div class="feature__body">
         <span class="feature__date">{{ content.field_published_date }}</span>
-        - {{ content.field_teaser_plain }}
+          - {{ teaser|length > 200 ? teaser|slice(0, 200) ~ '...' : teaser }}
         <div class="read-more"><a href="{{ url }}">Read more</a></div>
       </div>
     </div>

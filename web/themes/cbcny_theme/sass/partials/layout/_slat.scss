@@ -35,15 +35,11 @@ $gutter: 0;
 
 .l-slat--feature {
   align-items: stretch;
-  box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
   display: flex;
   flex-wrap: wrap;
+  max-height: 645px; // Same as height of featured image.
+  width: 100%;
 
-  &:hover,
-  &:focus {
-    box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
-  }
-  
   .l-slat__media {
     align-items: stretch;
     justify-content: flex-start;
@@ -63,11 +59,12 @@ $gutter: 0;
     width: auto;
 
     @include breakpoint($bp-first) {
-      padding: em(30px) em(54px) em(50px);
+      padding: em(30px) em(54px);
     }
 
     @include breakpoint($bp-second) {
       flex-basis: 55%;
+      padding: em(30px) em(54px) em(50px);
     }
   }
 }

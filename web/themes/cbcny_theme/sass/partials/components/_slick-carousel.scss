@@ -13,14 +13,15 @@
 		position: relative;
 
 		.slick-slide {
-			padding: 0 27px;
+			padding: 0 em(27px);
 		}
 	}
 
 	&.slick-carousel-homepage {
-		min-height: em(425px);
-		position: relative;
-		top: em(100px);
+		.slick-slide {
+      height: 500px;
+      margin: 0;
+    }
 	}
 
 }
