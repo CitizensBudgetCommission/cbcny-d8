@@ -1,0 +1,23 @@
+{%
+  set classes = [
+    'card-grid'
+  ]
+%}
+
+{% if header %}
+  {{ header }}
+{% endif %}
+
+<section{{ attributes.addClass(classes) }}>
+  {% if rows %}
+      {{ rows }}
+  {% elseif empty %}
+    <div class="view__empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+</section>
+
+{% if footer %}
+  {{ footer }}
+{% endif %}
