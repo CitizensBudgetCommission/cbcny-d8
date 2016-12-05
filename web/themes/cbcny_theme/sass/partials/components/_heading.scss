@@ -24,3 +24,8 @@
   text-align: center;
   text-transform: uppercase;
 }
+
+.heading--card-grid {
+  font-size: rem(map-get($font-size, xxxxxl));
+  margin-bottom: 34px;
+}

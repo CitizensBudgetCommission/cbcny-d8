@@ -260,7 +260,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<h2>Latest Blog Posts</h2>'
+          content: '<h2 class="heading--card-grid">Latest Blog Posts</h2>'
           plugin_id: text_custom
     cache_metadata:
       max-age: -1
@@ -369,7 +369,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<h2>Latest Reports</h2>'
+          content: '<h2 class="heading--card-grid">Latest Reports</h2>'
           plugin_id: text_custom
     cache_metadata:
       max-age: -1
