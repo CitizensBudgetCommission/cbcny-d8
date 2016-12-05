@@ -36,6 +36,10 @@ process:
   # computed array of paragraph Ids. @see CbcNode::prepareRow()
   field_page_content: paragraphs
 
+  field_source_url:
+    plugin: d6_cck_link
+    source: field_title_link
+
   # Post type is always Press Mention, TID 17.
   field_term_post_type:
     plugin: default_value
