@@ -1,3 +1,10 @@
+{# Grab source url for Press Metions #}
+{% if content.field_term_post_type.0['#plain_text'] == "Press Mention" %}
+  {% set card_link = content.field_source_url.0['#title'] %}
+{% else %}
+  {% set card_link = url %}
+{% endif %}
+
 {%
   set classes = [
     'card',
@@ -6,7 +13,7 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <a class="card__link" href="{{ url }}">
+  <a class="card__link" href="{{ card_link }}">
 	  <div class="card__type">{{ content.field_term_post_type }}</div>
 	  <h2 class="card__title">{{ content.title }}</h2>
 	  <h3 class="card__subtitle">{{ content.field_subtitle }}</h3>
