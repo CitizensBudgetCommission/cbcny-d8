@@ -5,16 +5,21 @@ dependencies:
   config:
     - core.entity_view_mode.node.slider
     - field.field.node.news.field_hero
+    - field.field.node.news.field_is_featured
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
+    - field.field.node.news.field_search_exclude
+    - field.field.node.news.field_source_url
     - field.field.node.news.field_subtitle
     - field.field.node.news.field_teaser_plain
     - field.field.node.news.field_term_post_type
+    - field.field.node.news.field_term_section
     - field.field.node.news.field_term_topic
     - node.type.news
   module:
     - datetime
     - entity_reference_revisions
+    - link
     - user
 id: node.news.slider
 targetEntityType: node
@@ -22,7 +27,7 @@ bundle: news
 mode: slider
 content:
   field_hero:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       view_mode: slider
@@ -30,15 +35,26 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_published_date:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       timezone_override: ''
       date_format: 'F d, Y'
     third_party_settings: {  }
     type: datetime_custom
+  field_source_url:
+    type: link
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 255
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
   field_subtitle:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       link_to_entity: false
@@ -46,12 +62,12 @@ content:
     type: string
   field_teaser_plain:
     type: basic_string
-    weight: 5
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_term_post_type:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link: false
@@ -61,10 +77,13 @@ content:
     type: string
     settings:
       link_to_entity: false
-    weight: 2
+    weight: 3
     label: hidden
     third_party_settings: {  }
 hidden:
+  field_is_featured: true
   field_page_content: true
+  field_search_exclude: true
+  field_term_section: true
   field_term_topic: true
   links: true
