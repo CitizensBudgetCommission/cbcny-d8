@@ -7,6 +7,12 @@
   margin-bottom: 1.5em;
 }
 
+.view__seperator {
+  border-bottom: 1px solid $cbcny-lightest-gray;
+  margin-top: 76px;
+  margin-bottom: 76px;
+}
+
 // Custom view styles.
 @import 'view/view--search';
 @import 'view/view--three-col';
