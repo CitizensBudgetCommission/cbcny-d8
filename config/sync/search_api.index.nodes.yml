@@ -1,0 +1,113 @@
+uuid: e22818a0-f510-40b0-81f7-f5e23d630ea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.solr
+    - core.entity_view_mode.node.teaser
+  module:
+    - search_api
+    - node
+    - taxonomy
+id: nodes
+name: nodes
+description: ''
+read_only: false
+field_settings:
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 13
+  rendered_item:
+    label: 'Rendered HTML output'
+    datasource_id: null
+    property_path: rendered_item
+    type: text
+    indexed_locked: true
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: text
+    boost: !!float 3
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings:
+      weights:
+        preprocess_index: -30
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - title
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  node_status:
+    plugin_id: node_status
+    settings:
+      weights:
+        preprocess_index: -9
+  rendered_item:
+    plugin_id: rendered_item
+    settings:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          homepage: ''
+          landing: teaser
+          news: teaser
+          page: teaser
+          post: teaser
+          report: teaser
+          section: teaser
+        'entity:taxonomy_term':
+          topics: ''
+          post_type: ''
+          section: ''
+      weights:
+        preprocess_index: -6
+  transliteration:
+    plugin_id: transliteration
+    settings:
+      fields:
+        - title
+      weights:
+        preprocess_index: -7
+        preprocess_query: -10
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      bundles:
+        default: true
+        selected: {  }
+      languages:
+        default: true
+        selected: {  }
+  'entity:taxonomy_term':
+    plugin_id: 'entity:taxonomy_term'
+    settings:
+      bundles:
+        default: true
+        selected: {  }
+      languages:
+        default: true
+        selected: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: solr
