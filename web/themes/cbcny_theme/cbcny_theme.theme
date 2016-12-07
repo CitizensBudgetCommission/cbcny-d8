@@ -31,6 +31,17 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
       $suggestions[] = 'node__' . 'section__' . strtolower($term);
     }
 
+    // If field not empty then grab value and use as theme suggestions
+    if (!$field->isEmpty() && $node->getType() == "page") {
+      $term = $field
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue()
+        ->getName();
+      $suggestions[] = 'node__' . 'page__' . strtolower($term);
+    }
+
   }
 
 }

@@ -1,0 +1,28 @@
+uuid: 875bda3e-d5a1-42ce-954d-bc9f034fd598
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_term_section
+    - node.type.landing
+    - taxonomy.vocabulary.section
+id: node.landing.field_term_section
+field_name: field_term_section
+entity_type: node
+bundle: landing
+label: Section
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      section: section
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
