@@ -2,6 +2,7 @@
 // Styles for card
 
 .card {
+  display: flex;
   flex-basis: 100%;
   @include breakpoint($bp-hide-mobile-menu) {
     flex-basis: 47%;
