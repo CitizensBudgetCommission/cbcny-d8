@@ -3,6 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_search_exclude
+    - field.storage.node.field_subtitle
+    - field.storage.node.field_teaser_plain
+    - field.storage.node.field_term_topic
+    - field.storage.node.field_term_post_type
     - search_api.server.solr
     - core.entity_view_mode.node.teaser
   module:
@@ -37,6 +42,48 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
+  field_search_exclude:
+    label: 'Exclude from Search'
+    datasource_id: 'entity:node'
+    property_path: field_search_exclude
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_search_exclude
+  field_subtitle:
+    label: Subtitle
+    datasource_id: 'entity:node'
+    property_path: field_subtitle
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_subtitle
+  field_teaser_plain:
+    label: Teaser
+    datasource_id: 'entity:node'
+    property_path: field_teaser_plain
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_teaser_plain
+  field_term_topic:
+    label: Topic
+    datasource_id: 'entity:node'
+    property_path: field_term_topic
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_term_topic
+  field_term_post_type:
+    label: 'Post Type'
+    datasource_id: 'entity:node'
+    property_path: field_term_post_type
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_term_post_type
 processor_settings:
   add_url:
     plugin_id: add_url
@@ -93,7 +140,10 @@ datasource_settings:
     settings:
       bundles:
         default: true
-        selected: {  }
+        selected:
+          - homepage
+          - landing
+          - section
       languages:
         default: true
         selected: {  }

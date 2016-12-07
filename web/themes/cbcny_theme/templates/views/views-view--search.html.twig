@@ -1,0 +1,30 @@
+<div class="layout-search">
+
+  <div class="layout-search__top">
+    <h1 class="page-title page-title--search">Search</h1>
+    <div class="view-search">
+      {{ exposed }}
+    </div>
+    <div class="trending-searches">
+      <div class="trending-searches__label">Trending Searches:</div>
+      <a class="button button--transparent button--search" href="#">NYC Budget</a>
+      <a class="button button--transparent button--search" href="#">Financial Help</a>
+      <a class="button button--transparent button--search" href="#">2016 Survey</a>
+      <a class="button button--transparent button--search" href="#">2017 Tax Rates</a>
+    </div>
+  </div>
+
+  <div class="layout-search__sidebar">
+  </div>
+
+  <div class="layout-search__main">
+    {% if header %}
+      {{ header }}
+    {% endif %}
+    {{ rows }}
+    {{ empty }}
+  </div>
+
+</div>
+
+{{ pager }}

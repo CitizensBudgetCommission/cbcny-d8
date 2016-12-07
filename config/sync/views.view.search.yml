@@ -25,8 +25,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
-        options: {  }
+        type: none
       query:
         type: views_query
         options:
@@ -34,15 +33,17 @@ display:
           skip_access: false
           parse_mode: terms
       exposed_form:
-        type: basic
+        type: input_required
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: '<br/>'
+          text_input_required_format: full_html
       pager:
         type: full
         options:
@@ -77,12 +78,16 @@ display:
           view_modes:
             'entity:node':
               homepage: default
-              landing: default
+              landing: teaser
               news: teaser
               page: teaser
               post: teaser
               report: teaser
-              section: default
+              section: teaser
+            'entity:taxonomy_term':
+              post_type: ''
+              section: ''
+              topics: default
       fields:
         search_api_id:
           table: search_api_index_nodes
@@ -135,94 +140,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-      filters: {  }
-      sorts:
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_nodes
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-        title:
-          id: title
-          table: search_api_index_nodes
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
-    cache_metadata:
-      max-age: 0
-      contexts:
-        - 'languages:language_interface'
-        - url.query_args
-      tags: {  }
-  search:
-    display_plugin: block
-    id: search
-    display_title: search
-    position: 1
-    display_options:
-      display_extenders: {  }
-      allow:
-        items_per_page: false
       filters:
-        search_api_fulltext:
-          id: search_api_fulltext
-          table: search_api_index_nodes
-          field: search_api_fulltext
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: search_api_fulltext_op
-            label: Search
-            description: ''
-            use_operator: false
-            operator: search_api_fulltext_op
-            identifier: keywords
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          min_length: 3
-          fields: {  }
-          plugin_id: search_api_fulltext
         type:
           id: type
           table: search_api_index_nodes
@@ -230,9 +148,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: not
+          operator: or
           value:
-            homepage: homepage
+            news: news
+            page: page
+            post: post
+            report: report
           group: 1
           exposed: false
           expose:
@@ -262,14 +183,89 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: search_api_options
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_nodes
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: keywords
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_nodes
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+        title:
+          id: title
+          table: search_api_index_nodes
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '<div class="total-results">Showing @start of @total results</div>'
+          plugin_id: result
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
       defaults:
-        filters: false
-        filter_groups: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      display_description: ''
+        cache: false
     cache_metadata:
       max-age: 0
       contexts:

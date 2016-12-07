@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.landing.field_hero
     - field.field.node.landing.field_page_content
+    - field.field.node.landing.field_term_section
     - node.type.landing
   module:
     - paragraphs
@@ -25,7 +26,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_page_content:
-    weight: 2
+    weight: 3
     settings:
       title: Content
       title_plural: Content
@@ -34,9 +35,14 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_term_section:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   path:
     type: path
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
   title:
