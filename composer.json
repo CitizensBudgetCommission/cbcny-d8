@@ -99,6 +99,10 @@
       "drush/contrib/{$name}": ["type:drupal-drush"],
       "web/libraries/{$name}": ["type:drupal-library"]
     },
-    "patches": {}
+    "patches": {
+      "drupal/facets": {
+        "Add default display for Facets to use": "./patches/drupal/facets/allow_default_view_source.patch"
+      }
+    }
   }
 }
