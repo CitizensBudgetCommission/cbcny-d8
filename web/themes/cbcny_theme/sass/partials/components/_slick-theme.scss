@@ -53,7 +53,7 @@ $slick-opacity-not-active: 0.25 !default;
     .slick-slide {
       display: flex;
       height: auto;
-      align-items: flex-start;
+      align-items: stretch;
       justify-content: center; //optional
     }
   }
