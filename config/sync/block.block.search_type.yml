@@ -1,0 +1,28 @@
+uuid: f251bf9f-6517-4596-9b86-4f422d23d0c9
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.search_type
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: search_type
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'facet_block:search_type'
+settings:
+  id: 'facet_block:search_type'
+  label: 'Content Type'
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
