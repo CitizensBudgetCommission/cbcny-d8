@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86c1e3ce87d90d5115b02a8bf78a532b",
-    "content-hash": "ec2e959cce221992e6945acb82aa9173",
+    "hash": "f9f209a2524c7b571636890fd8aa02e6",
+    "content-hash": "1cc151187d86bbbc6d6afbcf920a3262",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2206,31 +2206,6 @@
             "time": "2016-07-07 17:49:37"
         },
         {
-            "name": "drupal/template_mapper",
-            "version": "dev-8.x-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/template_mapper.git",
-                "reference": "07b7e6b953d7bc0a59a8ad03900be8d18b5fdce9"
-            },
-            "require": {
-                "drupal/core": "8.*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-8.x-1.x": "8.1.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.drupal-composer.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "Maps existing theme hook suggestions to your template files",
-            "homepage": "https://www.drupal.org/project/template_mapper",
-            "time": "2015-11-10 15:52:01"
-        },
-        {
             "name": "drupal/title",
             "version": "dev-8.x-2.x",
             "source": {
@@ -2377,37 +2352,40 @@
             "time": "2016-08-11 02:35:09"
         },
         {
-            "name": "drupal/yamlform",
-            "version": "1.0.0-beta27",
+            "name": "drupal/webform",
+            "version": "8.5.0-beta2",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/yamlform",
-                "reference": "8.x-1.0-beta27"
+                "url": "https://git.drupal.org/project/webform",
+                "reference": "6ca9131208502040ba270ce03f582b47605aea82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/yamlform-8.x-1.0-beta27.zip",
-                "reference": "8.x-1.0-beta27",
-                "shasum": "6d343daf5eaab47c7df1cd30b8f60b721d12cf61"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta2.zip",
+                "reference": "6ca9131208502040ba270ce03f582b47605aea82",
+                "shasum": null
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "8.*"
+            },
+            "replace": {
+                "drupal/webform_devel": "self.version",
+                "drupal/webform_examples": "self.version",
+                "drupal/webform_node": "self.version",
+                "drupal/webform_templates": "self.version",
+                "drupal/webform_ui": "self.version"
             },
             "suggest": {
-                "drupal/core": "Required by drupal/yamlform_node",
-                "drupal/devel": "Required by drupal/yamlform_devel"
+                "drupal/core": "Required by drupal/webform_devel, drupal/webform_examples, drupal/webform_node, drupal/webform_templates, drupal/webform_ui",
+                "drupal/devel": "Required by drupal/webform_devel"
             },
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta27",
-                    "datestamp": "1481192283"
+                    "dev-8.x-5.x": "8.5.x-dev"
                 }
             },
-            "notification-url": "https://packages.drupal.org/8/downloads",
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -2418,12 +2396,9 @@
                     "role": "Maintainer"
                 }
             ],
-            "description": "Enables the creation of forms and questionnaires.",
-            "homepage": "https://drupal.org/project/yamlform",
-            "support": {
-                "source": "http://cgit.drupalcode.org/yamlform",
-                "issues": "https://drupal.org/project/issues/yamlform"
-            }
+            "description": "Enables the creation of webforms and questionnaires.",
+            "homepage": "https://drupal.org/project/webform",
+            "time": "2016-12-08 10:13:02"
         },
         {
             "name": "drush/drush",
