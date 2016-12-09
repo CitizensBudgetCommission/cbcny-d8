@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/facets/facet_source/SearchApiViewsDeriver.php b/src/Plugin/facets/facet_source/SearchApiViewsDeriver.php
+index ac4508b..84dfe20 100644
+--- a/src/Plugin/facets/facet_source/SearchApiViewsDeriver.php
++++ b/src/Plugin/facets/facet_source/SearchApiViewsDeriver.php
+@@ -42,7 +42,7 @@ class SearchApiViewsDeriver extends FacetSourceDeriverBase {
+           foreach ($displays as $display_id => $display_info) {
+ 
+             // We only support page, block and REST export displays for views.
+-            $allowed_plugins = ['page', 'block', 'rest_export'];
++            $allowed_plugins = ['page', 'block', 'rest_export', 'default'];
+             if (in_array($display_info['display_plugin'], $allowed_plugins)) {
+               $machine_name = $view->id() . PluginBase::DERIVATIVE_SEPARATOR . $display_id;
+ 

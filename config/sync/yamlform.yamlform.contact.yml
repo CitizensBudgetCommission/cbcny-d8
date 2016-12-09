@@ -1,20 +1,20 @@
-uuid: e463c11d-304f-4ab1-8099-89e74b7855c9
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: LasCJP-N2njGJZCeGeVp8mWjI36mX21SlCUXoc-NPN4
 uid: null
 template: false
 id: contact
 title: Contact
 description: 'Basic email contact form.'
 elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[yamlform-authenticated-user:mail]'\nsubject:\n  '#title': 'Subject'\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact form from [site:name]'\nmessage:\n  '#title': 'Message'\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\n"
+css: ''
+javascript: ''
 settings:
   page: false
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: 'Send message'
+  form_submit_attributes: {  }
   form_exception_message: ''
   form_closed_message: ''
   form_confidential: false
@@ -22,28 +22,39 @@ settings:
   form_prepopulate: false
   form_prepopulate_source_entity: false
   form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_next_button_label: ''
+  wizard_next_button_attributes: {  }
   wizard_prev_button_label: ''
+  wizard_prev_button_attributes: {  }
   wizard_start_label: ''
   wizard_complete: true
   wizard_complete_label: ''
   preview: 0
   preview_next_button_label: ''
+  preview_next_button_attributes: {  }
   preview_prev_button_label: ''
+  preview_prev_button_attributes: {  }
   preview_message: ''
   draft: false
   draft_auto_save: false
   draft_button_label: ''
+  draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: message
   confirmation_message: '<p>Thank you for contacting us. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.</p>'
   confirmation_url: '<front>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
   limit_total: null
   limit_total_message: ''
   limit_user: 100
@@ -117,3 +128,6 @@ handlers:
       html: true
       attachments: false
       debug: false
+uuid: e463c11d-304f-4ab1-8099-89e74b7855c9
+_core:
+  default_config_hash: LasCJP-N2njGJZCeGeVp8mWjI36mX21SlCUXoc-NPN4

@@ -1,20 +1,20 @@
-uuid: 21f1a232-82fc-4b56-b3c0-68cfcac4e6bb
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: LasCJP-N2njGJZCeGeVp8mWjI36mX21SlCUXoc-NPN4
 uid: null
 template: false
 id: subscribe
 title: Subscribe
 description: 'Basic subscription contact form.'
 elements: "first_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[yamlform-authenticated-user:mail]'\n  '#required': true\n"
+css: ''
+javascript: ''
 settings:
   page: false
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: Subscribe
+  form_submit_attributes: {  }
   form_exception_message: ''
   form_closed_message: ''
   form_confidential: false
@@ -22,28 +22,39 @@ settings:
   form_prepopulate: false
   form_prepopulate_source_entity: false
   form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_next_button_label: ''
+  wizard_next_button_attributes: {  }
   wizard_prev_button_label: ''
+  wizard_prev_button_attributes: {  }
   wizard_start_label: ''
   wizard_complete: true
   wizard_complete_label: ''
   preview: 0
   preview_next_button_label: ''
+  preview_next_button_attributes: {  }
   preview_prev_button_label: ''
+  preview_prev_button_attributes: {  }
   preview_message: ''
   draft: false
   draft_auto_save: false
   draft_button_label: ''
+  draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: message
   confirmation_message: '<p>Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.</p>'
   confirmation_url: '<front>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
   limit_total: null
   limit_total_message: ''
   limit_user: 100
@@ -117,3 +128,6 @@ handlers:
       html: true
       attachments: false
       debug: false
+uuid: 21f1a232-82fc-4b56-b3c0-68cfcac4e6bb
+_core:
+  default_config_hash: LasCJP-N2njGJZCeGeVp8mWjI36mX21SlCUXoc-NPN4

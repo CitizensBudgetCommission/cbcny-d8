@@ -1,4 +1,4 @@
-uuid: d37ce4b2-386e-4092-b774-ba1f2a8d8e05
+uuid: 99cf71dc-1904-46bd-bdc5-f6b38b976829
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,10 @@ dependencies:
     - search_api.index.nodes
   module:
     - search_api
-id: search
+id: search_index
 label: 'Search Index'
 module: views
-description: 'Listing of all nodes for search page'
+description: 'A listing of all content to be used by Search'
 tag: ''
 base_table: search_api_index_nodes
 base_field: search_api_id
@@ -42,7 +42,7 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: '<br/>'
+          text_input_required: '<br />'
           text_input_required_format: full_html
       pager:
         type: full
@@ -77,25 +77,20 @@ display:
         options:
           view_modes:
             'entity:node':
-              homepage: default
-              landing: teaser
               news: teaser
               page: teaser
               post: teaser
               report: teaser
-              section: teaser
             'entity:taxonomy_term':
-              post_type: ''
-              section: ''
-              topics: default
+              taxonomy_term: ''
       fields:
-        search_api_id:
+        rendered_item:
           table: search_api_index_nodes
-          field: search_api_id
-          id: search_api_id
+          field: rendered_item
+          id: rendered_item
           entity_type: null
           entity_field: null
-          plugin_id: standard
+          plugin_id: search_api
           relationship: none
           group_type: group
           admin_label: ''
@@ -140,6 +135,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          link_to_item: false
+          multi_type: separator
+          multi_separator: ', '
       filters:
         type:
           id: type
@@ -148,12 +146,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: not
           value:
-            news: news
-            page: page
-            post: post
-            report: report
+            homepage: homepage
+            landing: landing
+            section: section
           group: 1
           exposed: false
           expose:
@@ -196,7 +193,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: ''
+            label: Search
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
@@ -220,7 +217,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          min_length: null
+          min_length: 3
           fields: {  }
           plugin_id: search_api_fulltext
       sorts:
@@ -236,10 +233,10 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-        title:
-          id: title
+        title_1:
+          id: title_1
           table: search_api_index_nodes
-          field: title
+          field: title_1
           relationship: none
           group_type: group
           admin_label: ''
@@ -257,10 +254,21 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<div class="total-results">Showing @start of @total results</div>'
+          content: '<h2>Results @start - @end of @total</h2>'
           plugin_id: result
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: "<h2>Sorry, no results were found.</h2>\n<p>Search suggestions:</p>\n<ul>\n<li>Check your spelling</li>\n<li>Try more general words</li>\n<li>Try different words that mean the same thing</li>\n</ul>\n<p>Or maybe we can help...</p>\n<a href=\"/contact-us\" class=\"button\" target=\"_blank\">CONTACT US</a>"
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }

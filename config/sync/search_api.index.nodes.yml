@@ -1,13 +1,13 @@
-uuid: e22818a0-f510-40b0-81f7-f5e23d630ea5
+uuid: 8d366349-e685-4e6d-a7a0-050fcc6860ec
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_search_exclude
-    - field.storage.node.field_subtitle
-    - field.storage.node.field_teaser_plain
     - field.storage.node.field_term_topic
     - field.storage.node.field_term_post_type
+    - field.storage.node.field_published_date
+    - field.storage.node.field_subtitle
+    - field.storage.node.field_teaser_plain
     - search_api.server.solr
     - core.entity_view_mode.node.teaser
   module:
@@ -15,59 +15,30 @@ dependencies:
     - node
     - taxonomy
 id: nodes
-name: nodes
+name: Nodes
 description: ''
 read_only: false
 field_settings:
+  rendered_item:
+    label: 'Rendered HTML output'
+    datasource_id: null
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          news: teaser
+          page: teaser
+          post: teaser
+          report: teaser
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
     type: text
     boost: !!float 13
-  rendered_item:
-    label: 'Rendered HTML output'
-    datasource_id: null
-    property_path: rendered_item
-    type: text
-    indexed_locked: true
-  type:
-    label: 'Content type'
-    datasource_id: 'entity:node'
-    property_path: type
-    type: text
-    boost: !!float 3
-  title_1:
-    label: Title
-    datasource_id: 'entity:node'
-    property_path: title
-    type: string
-  field_search_exclude:
-    label: 'Exclude from Search'
-    datasource_id: 'entity:node'
-    property_path: field_search_exclude
-    type: boolean
-    dependencies:
-      config:
-        - field.storage.node.field_search_exclude
-  field_subtitle:
-    label: Subtitle
-    datasource_id: 'entity:node'
-    property_path: field_subtitle
-    type: text
-    boost: !!float 8
-    dependencies:
-      config:
-        - field.storage.node.field_subtitle
-  field_teaser_plain:
-    label: Teaser
-    datasource_id: 'entity:node'
-    property_path: field_teaser_plain
-    type: text
-    boost: !!float 8
-    dependencies:
-      config:
-        - field.storage.node.field_teaser_plain
   field_term_topic:
     label: Topic
     datasource_id: 'entity:node'
@@ -84,52 +55,84 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_term_post_type
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: text
+    boost: !!float 3
+  field_published_date:
+    label: 'Published date'
+    datasource_id: 'entity:node'
+    property_path: field_published_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_published_date
+  field_subtitle:
+    label: Subtitle
+    datasource_id: 'entity:node'
+    property_path: field_subtitle
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_subtitle
+  field_teaser_plain:
+    label: Teaser
+    datasource_id: 'entity:node'
+    property_path: field_teaser_plain
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_teaser_plain
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
 processor_settings:
   add_url:
     plugin_id: add_url
-    settings:
-      weights:
-        preprocess_index: -30
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
   ignorecase:
     plugin_id: ignorecase
     settings:
       fields:
+        - rendered_item
         - title
+        - field_term_topic
+        - field_term_post_type
+        - type
+        - field_subtitle
+        - field_teaser_plain
+        - title_1
       weights:
         preprocess_index: -10
         preprocess_query: -10
   node_status:
     plugin_id: node_status
-    settings:
-      weights:
-        preprocess_index: -9
-  rendered_item:
-    plugin_id: rendered_item
-    settings:
-      roles:
-        anonymous: anonymous
-      view_mode:
-        'entity:node':
-          homepage: ''
-          landing: teaser
-          news: teaser
-          page: teaser
-          post: teaser
-          report: teaser
-          section: teaser
-        'entity:taxonomy_term':
-          topics: ''
-          post_type: ''
-          section: ''
-      weights:
-        preprocess_index: -6
+    settings: {  }
   transliteration:
     plugin_id: transliteration
     settings:
       fields:
+        - rendered_item
         - title
+        - field_term_topic
+        - field_term_post_type
+        - field_subtitle
+        - field_teaser_plain
+        - title_1
       weights:
-        preprocess_index: -7
+        preprocess_index: -10
         preprocess_query: -10
 options:
   index_directly: true
@@ -151,7 +154,7 @@ datasource_settings:
     plugin_id: 'entity:taxonomy_term'
     settings:
       bundles:
-        default: true
+        default: false
         selected: {  }
       languages:
         default: true

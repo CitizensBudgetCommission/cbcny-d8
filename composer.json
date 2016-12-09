@@ -51,9 +51,9 @@
     "harvesthq/chosen": "*",
     "drupal/allowed_formats": "~8.1.0",
     "drupal/honeypot": "^8.1",
-    "drupal/search_api": "8.1.0-alpha15",
-    "drupal/facets": "8.1.0-alpha3",
-    "drupal/search_api_solr": "8.1.0-alpha4"
+    "drupal/search_api": "8.1.0-alpha16",
+    "drupal/facets": "8.1.0-alpha4",
+    "drupal/search_api_solr": "8.1.0-alpha5"
   },
   "require-dev": {
     "behat/mink": "~1.7",
@@ -101,7 +101,7 @@
     },
     "patches": {
       "drupal/facets": {
-        "Add default display for Facets to use": "./patches/drupal/facets/allow_default_view_source.patch"
+        "Add default display for Facets to use": "./patches/drupal/facets/allowed_plugins_use_default.patch"
       }
     }
   }
