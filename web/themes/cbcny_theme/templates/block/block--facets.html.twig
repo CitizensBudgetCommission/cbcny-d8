@@ -1,0 +1,19 @@
+{%
+  set classes = [
+    'block',
+    'block--facets'
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }} class="block__title">{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div class="block__content">
+      {{ content }}
+    </div>
+  {% endblock %}
+</div>

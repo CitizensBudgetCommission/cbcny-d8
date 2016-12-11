@@ -254,7 +254,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<h2>Showing @start of @total results</h2>'
+          content: '<div class="total-results">Showing @start of @total results</div>'
           plugin_id: result
       footer: {  }
       empty:
