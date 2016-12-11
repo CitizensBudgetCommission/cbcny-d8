@@ -1,0 +1,17 @@
+{%
+  set classes = [
+    'block',
+    'trending-searches'
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <div{{ title_attributes }} class="trending-searches__label">{{ label }}</div>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

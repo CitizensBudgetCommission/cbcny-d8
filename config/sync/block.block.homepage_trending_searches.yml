@@ -1,0 +1,32 @@
+uuid: 2fd75d64-2d1a-4625-a836-f799ec7b7930
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:search_block:9e0e8f89-28a5-4364-b21e-7837235283c9'
+  module:
+    - block_content
+    - facets
+  theme:
+    - cbcny_theme
+id: homepage_trending_searches
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'block_content:9e0e8f89-28a5-4364-b21e-7837235283c9'
+settings:
+  id: 'block_content:9e0e8f89-28a5-4364-b21e-7837235283c9'
+  label: 'Trending Searches'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
