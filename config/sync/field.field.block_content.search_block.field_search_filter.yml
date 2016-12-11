@@ -1,0 +1,23 @@
+uuid: c5d19efb-bb73-4e33-a953-536d2a454052
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.search_block
+    - field.storage.block_content.field_search_filter
+  module:
+    - link
+id: block_content.search_block.field_search_filter
+field_name: field_search_filter
+entity_type: block_content
+bundle: search_block
+label: 'Search filter'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 2
+field_type: link

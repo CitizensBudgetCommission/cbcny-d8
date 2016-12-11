@@ -1,0 +1,8 @@
+uuid: a98d8560-7dd9-4940-bd82-2cf1cd92a9be
+langcode: en
+status: true
+dependencies: {  }
+id: search_block
+label: 'Search block'
+revision: 0
+description: 'Search block used for adding custom search filters with a label'

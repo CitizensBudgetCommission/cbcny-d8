@@ -1,0 +1,26 @@
+uuid: 9672b9a9-cc54-47ca-81f0-e63633faeff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.search_block
+    - field.field.block_content.search_block.field_search_filter
+  module:
+    - link
+id: block_content.search_block.default
+targetEntityType: block_content
+bundle: search_block
+mode: default
+content:
+  field_search_filter:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 255
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+hidden: {  }

@@ -1,0 +1,29 @@
+uuid: 7c28835a-ff4d-4c27-a9b6-7d493f32b8f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.search_block
+    - field.field.block_content.search_block.field_search_filter
+  module:
+    - link
+id: block_content.search_block.default
+targetEntityType: block_content
+bundle: search_block
+mode: default
+content:
+  field_search_filter:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

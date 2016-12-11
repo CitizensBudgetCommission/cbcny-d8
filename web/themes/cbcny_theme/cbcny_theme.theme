@@ -45,3 +45,12 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
   }
 
 }
+
+
+function cbcny_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-search-index-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
+}
