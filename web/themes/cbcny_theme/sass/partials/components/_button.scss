@@ -34,7 +34,7 @@
   box-shadow: none;
   color: $cbcny-dark-gray;
   font-size: .8em;
-  margin: 0 rem(15px) .25rem 0;
+  margin: 0 rem(7px);
   padding: rem(10px) rem(13px);
   text-transform: capitalize;
 
@@ -43,10 +43,6 @@
     border-color: $cbcny-blue;
     box-shadow: none;
     color: $cbcny-light-blue;
-  }
-
-  & + .transparent-button {
-    margin-left: 0;
   }
 }
 
@@ -80,26 +76,14 @@
 }
 
 .button--search {
+  display: block;
   padding: rem(7px) rem(10px);
 
   @include breakpoint($bp-hide-mobile-menu) {
     padding: rem(10px) rem(13px);
   }
-}
 
-/* Can't find these in PL.
-.form-button {
-  margin-top: 36px;
-}
-
-.secondary-button {
-  background-color: #b9b9b9;
-  color: #4b4b4b;
-  margin-left: 34px;
-
-  &:hover,
-  &:focus {
-    color: #272727;
+  &:last-of-type {
+    margin-right: 0;
   }
 }
-*/
