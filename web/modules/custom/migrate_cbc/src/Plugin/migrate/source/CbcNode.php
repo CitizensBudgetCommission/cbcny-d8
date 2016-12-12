@@ -3,7 +3,6 @@
 namespace Drupal\migrate_cbc\plugin\migrate\source;
 
 use Drupal\migrate\Plugin\MigrationInterface;
-use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
 use Drupal\migrate\Row;
 use Drupal\node\Plugin\migrate\source\d6\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -26,9 +25,8 @@ class CbcNode extends Node {
   /**
    * The migration plugin manager.
    *
-   * @var \Drupal\migrate\Plugin\MigrationPluginManagerInterface
+   * @var \Drupal\Core\Extension\ModuleHandler
    */
-//  protected $migrationPluginManager;
     protected $moduleHandler;
 
     /**
@@ -36,7 +34,6 @@ class CbcNode extends Node {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state, EntityManagerInterface $entity_manager, ModuleHandler $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state, $entity_manager, $module_handler);
-//    $this->migrationPluginManager = $migration_plugin_manager;
       $this->moduleHandler = $module_handler;
 
   }
