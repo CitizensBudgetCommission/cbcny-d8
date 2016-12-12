@@ -31,6 +31,11 @@ module:
   link: 0
   linkit: 0
   menu_ui: 0
+  migrate: 0
+  migrate_cbc: 0
+  migrate_drupal: 0
+  migrate_plus: 0
+  migrate_tools: 0
   node: 0
   options: 0
   page_cache: 0
