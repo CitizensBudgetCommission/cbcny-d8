@@ -1,8 +1,9 @@
 // @file
 // Styles for search view
 
-.view-search {
+.view--search {
 	flex-basis: 100%;
+	margin-bottom: 1em;
   position: relative;
 	vertical-align: top;
 
@@ -11,14 +12,16 @@
     flex-grow: 1;
   }
 
-	.form-item-keywords {
+	.form-item--textfield {
+		margin-bottom: 1em;
+
 		.form-item__text {
 			padding-right: em(65px);
 			width: 100%;
 		}
 	}
 
-	.form-submit {
+	.form-item__submit {
 		background-color: transparent;
     @include svg-background-inline(icon-search--blue);
     background-position: 50%;

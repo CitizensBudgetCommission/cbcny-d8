@@ -1,0 +1,46 @@
+// @file
+// Styles for the trending searches div
+
+.block--trending-searches {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 3.25em;
+
+	@include breakpoint($bp-hide-mobile-menu) {
+		flex-direction: row;
+	}
+
+	.layout-search & {
+		justify-content: flex-start;
+		margin-bottom: 2.25em;
+	}
+
+	.block__label {
+		color: $cbcny-dark-gray;
+		display: block;
+		font-size: 0.9em;
+	  line-height: 1.15;
+		font-weight: 600;
+		margin-bottom: 1em;
+		padding: rem(7px) rem(10px);
+
+		@include breakpoint($bp-hide-mobile-menu) {
+			margin-bottom: 0;
+			margin-right: rem(7px);
+			padding: rem(10px) rem(13px);
+		}
+
+		.layout-search & {
+			margin-right: auto;
+			padding-left: 0;
+		}
+	}
+
+	.block__content {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+}
