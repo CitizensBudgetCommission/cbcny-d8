@@ -7,6 +7,10 @@ use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
 use Drupal\migrate\Row;
 use Drupal\node\Plugin\migrate\source\d6\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Entity\EntityManagerInterface;
+use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\State\StateInterface;
+
 
 /**
  * Drupal 6 node source from database.
@@ -24,14 +28,17 @@ class CbcNode extends Node {
    *
    * @var \Drupal\migrate\Plugin\MigrationPluginManagerInterface
    */
-  protected $migrationPluginManager;
+//  protected $migrationPluginManager;
+    protected $moduleHandler;
 
-  /**
+    /**
    * @inheritdoc
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, \Drupal\migrate\Plugin\MigrationInterface $migration, \Drupal\Core\State\StateInterface $state, \Drupal\Core\Entity\EntityManagerInterface $entity_manager,  MigrationPluginManagerInterface $migration_plugin_manager) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state, $entity_manager);
-    $this->migrationPluginManager = $migration_plugin_manager;
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration, StateInterface $state, EntityManagerInterface $entity_manager, ModuleHandler $module_handler) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $migration, $state, $entity_manager, $module_handler);
+//    $this->migrationPluginManager = $migration_plugin_manager;
+      $this->moduleHandler = $module_handler;
+
   }
 
   /**
@@ -45,7 +52,7 @@ class CbcNode extends Node {
       $migration,
       $container->get('state'),
       $container->get('entity.manager'),
-      $container->get('plugin.manager.migration')
+      $container->get('module_handler')
     );
   }
 
@@ -105,7 +112,7 @@ class CbcNode extends Node {
       return [];
     }
     // Get the d6_node_paragraph_text migration.
-    $migration = $this->migrationPluginManager->createInstance($migration_id);
+    $migration = $this->moduleHandler->createInstance($migration_id);
     // Look up the destination paragraph ID based on our nid.
     $result = reset($migration->getIdMap()->lookupDestinationIds([$source_id]));
     if (!$result) {
