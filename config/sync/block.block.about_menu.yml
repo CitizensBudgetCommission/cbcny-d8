@@ -12,7 +12,7 @@ dependencies:
 id: about_menu
 theme: cbcny_theme
 region: '-1'
-weight: 0
+weight: -12
 provider: null
 plugin: 'system_menu_block:about-menu'
 settings:

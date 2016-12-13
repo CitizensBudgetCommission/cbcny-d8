@@ -17,7 +17,6 @@
     <div class="hero__content--feature l-constrain">
       <h1 class="page-title page-title--section-page">{{ content.title }}</h1>
       {{ drupal_view('topics_terms', 'topic_menu') }}
-      {{ drupal_block('cbcny_theme_local_tasks') }}
       {{ content.field_ref_featured_content }}
     </div>
   </div>
@@ -26,6 +25,8 @@
     {{ drupal_view('topic_section_list', 'default', tid) }}
     {{ drupal_view('topic_section_button') }}
   </div>
+
+  {{ drupal_block('cbcny_theme_local_tasks') }}
 
   {{ drupal_block('section_slider') }}
 </article>
