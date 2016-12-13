@@ -7,12 +7,15 @@
   justify-content: space-between;
 
   .layout-search__top {
-    border-bottom: 1px solid $cbcny-dividing-line-white;
     display: flex;
     flex-basis: 100%;
     flex-wrap: wrap;
     margin-bottom: em(32px);
     padding-top: em(69px);
+
+    &.has-border {
+      border-bottom: 1px solid $cbcny-dividing-line-white;
+    }
   }
 
   .layout-search__sidebar {
