@@ -41,7 +41,9 @@ $slick-opacity-not-active: 0.25 !default;
 
 /* Slider */
 .slick-slider .slick-list {
-  margin: 0 100px;
+  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+    margin: 0 100px;
+  }
 
   .slick-loading & {
     background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
@@ -83,7 +85,7 @@ $slick-opacity-not-active: 0.25 !default;
   cursor: pointer;
   display: block;
   font-size: 0px;
-  height: 70px;
+  height: 35px;
   line-height: 0px;
   margin: 0;
   outline: none;
@@ -98,8 +100,14 @@ $slick-opacity-not-active: 0.25 !default;
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
   transition: all 0.3s ease-in-out;
-  width: 70px;
+  width: 35px;
   z-index: 1;
+
+  @include breakpoint($bp-hide-mobile-menu, $no-query: true) {
+    height: 70px;
+    top: 45%;
+    width: 70px;
+  }
 
   &:hover,
   &:focus {
