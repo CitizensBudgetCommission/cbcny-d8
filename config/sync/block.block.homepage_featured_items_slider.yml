@@ -11,7 +11,7 @@ dependencies:
 id: homepage_featured_items_slider
 theme: cbcny_theme
 region: '-1'
-weight: 0
+weight: -10
 provider: null
 plugin: 'block_content:693e9110-da3d-47db-8772-66d455cee89d'
 settings:

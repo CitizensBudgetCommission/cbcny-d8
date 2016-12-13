@@ -12,7 +12,7 @@ dependencies:
 id: homepage_trending_searches
 theme: cbcny_theme
 region: '-1'
-weight: 0
+weight: -5
 provider: null
 plugin: 'block_content:9e0e8f89-28a5-4364-b21e-7837235283c9'
 settings:

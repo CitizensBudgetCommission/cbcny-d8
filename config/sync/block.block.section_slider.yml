@@ -11,7 +11,7 @@ dependencies:
 id: section_slider
 theme: cbcny_theme
 region: '-1'
-weight: 0
+weight: -8
 provider: null
 plugin: 'views_block:topics_terms-section_slider'
 settings:

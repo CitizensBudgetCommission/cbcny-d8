@@ -1,0 +1,9 @@
+// @file
+// Styles for user login form.
+
+.user-login-form,
+.user-pass {
+  @extend .l-constrain;
+  margin-bottom: em(60px);
+  margin-top: em(60px);
+}

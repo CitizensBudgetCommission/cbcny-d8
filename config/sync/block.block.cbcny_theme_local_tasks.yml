@@ -1,13 +1,15 @@
 uuid: faf250cb-7563-4f99-8ef9-9e276d060ccf
 langcode: en
-status: false
+status: true
 dependencies:
+  module:
+    - facets
   theme:
     - cbcny_theme
 id: cbcny_theme_local_tasks
 theme: cbcny_theme
-region: '-1'
-weight: -8
+region: content
+weight: -12
 provider: null
 plugin: local_tasks_block
 settings:
@@ -17,4 +19,10 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
