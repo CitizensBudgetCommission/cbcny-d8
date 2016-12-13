@@ -36,6 +36,7 @@ class CbcNode extends Node
      *
      * @var \Drupal\Core\Extension\ModuleHandler
      */
+
     protected $moduleHandler;
 
 
