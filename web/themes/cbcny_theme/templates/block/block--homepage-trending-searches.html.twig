@@ -1,17 +1,19 @@
 {%
   set classes = [
     'block',
-    'trending-searches'
+    'block--trending-searches'
   ]
 %}
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <div{{ title_attributes }} class="trending-searches__label">{{ label }}</div>
+    <div{{ title_attributes }} class="block__label">{{ label }}</div>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {{ content }}
+    <div class="block__content">
+      {{ content }}
+    </div>
   {% endblock %}
 </div>
