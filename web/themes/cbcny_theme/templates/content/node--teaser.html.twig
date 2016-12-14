@@ -13,7 +13,7 @@
   <div class="post-info">
     <span class="post-info__item">{{ content.field_term_post_type }}</span><span class="post-info__item">{{ content.field_term_topic }}</span>
   </div>
-  <h2 class="node__title"><a href="#">{{ label }}</a></h2>
+  <h2 class="node__title"><a href="{{ url }}">{{ content.title }}</a></h2>
   <div class="node__date">{{ content.field_published_date }}</div>
   {{ content.field_teaser_plain }}
 </article>
