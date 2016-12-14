@@ -19,13 +19,14 @@ $mobile-submenu-hover-color: #000 !default;
 
 .mobile-menu__bar {
   background-color: $mobile-menu-bg-color;
-  @include svg-background(logo-sm);
+  /*@include svg-background(logo-sm);
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: 107px 35px;
+  background-size: 107px 35px;*/
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.4);
   color: $mobile-menu-text-color;
   height: em(65px);
+  position: relative;
   text-align: center;
 }
 
@@ -113,4 +114,15 @@ $mobile-submenu-hover-color: #000 !default;
   .form-text {
     box-sizing: border-box;
   }
+}
+
+.mobile-menu__logo {
+  @include image-replace(107px,35px);
+  @include svg-background(logo-sm);
+  background-size: 107px 35px;
+  //border: 0 !important;
+  display: block;
+  right: calc(50% - 53.5px);
+  position: absolute;
+  top: 15px;
 }
