@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.news.field_hero
     - field.field.node.news.field_is_featured
+    - field.field.node.news.field_metatags
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
     - field.field.node.news.field_search_exclude
@@ -19,6 +20,7 @@ dependencies:
     - chosen_field
     - datetime
     - link
+    - metatag
     - paragraphs
     - path
 id: node.news.default
@@ -42,6 +44,11 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+  field_metatags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
   field_page_content:
     weight: 11
     settings:

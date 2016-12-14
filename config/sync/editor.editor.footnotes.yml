@@ -16,6 +16,7 @@ settings:
           name: Formatting
           items:
             - NumberedList
+            - Italic
             - DrupalLink
             - DrupalUnlink
         -
