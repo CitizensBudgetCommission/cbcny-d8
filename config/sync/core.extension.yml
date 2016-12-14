@@ -31,16 +31,13 @@ module:
   link: 0
   linkit: 0
   menu_ui: 0
-  migrate: 0
-  migrate_cbc: 0
-  migrate_drupal: 0
-  migrate_plus: 0
-  migrate_tools: 0
+  metatag: 0
   node: 0
   options: 0
   page_cache: 0
   paragraphs: 0
   path: 0
+  redirect: 0
   search_api: 0
   search_api_solr: 0
   system: 0
@@ -57,6 +54,8 @@ module:
   views_ui: 0
   webform: 0
   webform_ui: 0
+  xmlsitemap: 0
+  xmlsitemap_engines: 0
   menu_link_content: 1
   pathauto: 1
   views: 10

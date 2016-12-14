@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_hero
+    - field.field.node.page.field_metatags
     - field.field.node.page.field_page_content
     - field.field.node.page.field_search_exclude
     - field.field.node.page.field_teaser_plain
     - field.field.node.page.field_term_section
     - node.type.page
   module:
+    - metatag
     - paragraphs
     - path
 id: node.page.default
@@ -27,6 +29,11 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_metatags:
+    type: metatag_firehose
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
   field_page_content:
     weight: 5
     settings:

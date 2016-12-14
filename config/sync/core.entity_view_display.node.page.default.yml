@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_hero
+    - field.field.node.page.field_metatags
     - field.field.node.page.field_page_content
     - field.field.node.page.field_search_exclude
     - field.field.node.page.field_teaser_plain
@@ -11,6 +12,7 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
+    - metatag
     - user
 id: node.page.default
 targetEntityType: node
@@ -25,6 +27,12 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_metatags:
+    type: metatag_empty_formatter
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_page_content:
     weight: 3
     label: hidden

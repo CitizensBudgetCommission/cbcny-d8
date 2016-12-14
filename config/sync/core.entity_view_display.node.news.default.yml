@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.news.field_hero
     - field.field.node.news.field_is_featured
+    - field.field.node.news.field_metatags
     - field.field.node.news.field_page_content
     - field.field.node.news.field_published_date
     - field.field.node.news.field_search_exclude
@@ -19,6 +20,7 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - link
+    - metatag
     - user
 id: node.news.default
 targetEntityType: node
@@ -33,6 +35,12 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_metatags:
+    type: metatag_empty_formatter
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_page_content:
     weight: 6
     label: hidden

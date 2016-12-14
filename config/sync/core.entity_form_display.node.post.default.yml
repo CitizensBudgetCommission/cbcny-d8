@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.post.field_hero
     - field.field.node.post.field_is_featured
+    - field.field.node.post.field_metatags
     - field.field.node.post.field_page_content
     - field.field.node.post.field_published_date
     - field.field.node.post.field_search_exclude
@@ -17,6 +18,7 @@ dependencies:
   module:
     - chosen_field
     - datetime
+    - metatag
     - paragraphs
     - path
 id: node.post.default
@@ -40,6 +42,11 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+  field_metatags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
   field_page_content:
     weight: 10
     settings:
