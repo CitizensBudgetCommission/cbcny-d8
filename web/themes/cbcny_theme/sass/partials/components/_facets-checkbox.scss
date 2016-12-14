@@ -1,0 +1,56 @@
+// @file
+// Styles for facet checkboxes.
+// Not ideal CSS but we have no control over facet markup.
+// https://www.drupal.org/node/2796143
+// CSS below is a copy of .form-item__checkbox CSS from _form-item.scss and could be refactored.
+
+.facets-checkbox {
+  @extend %visually-hidden;
+
+  & + label {
+    color: $cbcny-blue;
+    cursor: pointer;
+    display: block;
+    font-size: em(map-get($font-size, xxxs));
+    line-height: 1.5;
+    margin-bottom: rem(12px);
+    padding-left: em(28px, map-get($font-size, xxxs));
+    position: relative;
+
+    &:before {
+      background: $cbcny-white;
+      border: 2px solid $cbcny-light-gray;
+      border-radius: 3px;
+      content: '';
+      display: inline-block;
+      font-size: rem(12px);
+      height: 1.45em;
+      left: 0;
+      line-height: 1;
+      position: absolute;
+      top: em(2px, 12px);
+      transition-duration: 0.2s;
+      transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
+      transition-timing-function: ease-in-out;
+      width: 1.45em;
+    }
+
+    &:hover,
+    &:focus {
+      color: $cbcny-extra-light-blue;
+
+      &:before {
+        border-color: $cbcny-extra-light-blue;
+      }
+    }
+  }
+
+  &:checked + label {
+    color: $cbcny-dark-blue;
+
+    &:before {
+      background: $cbcny-dark-blue;
+      border-color: $cbcny-dark-blue;
+    }
+  }
+}
