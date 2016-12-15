@@ -99,9 +99,6 @@ processor_settings:
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
   ignorecase:
     plugin_id: ignorecase
     settings:
@@ -119,6 +116,9 @@ processor_settings:
         preprocess_query: -10
   node_status:
     plugin_id: node_status
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
     settings: {  }
   transliteration:
     plugin_id: transliteration

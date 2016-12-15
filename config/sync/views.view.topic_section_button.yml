@@ -139,7 +139,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"centered\">\n  <a href=\"/\" class=\"button button--blue\">More on {{ field_term_topic }}</a>\n</div>"
+            text: "<div class=\"centered\">\n  <a href=\"/search\" class=\"button button--blue\">More on {{ field_term_topic }}</a>\n</div>"
             make_link: false
             path: ''
             absolute: false

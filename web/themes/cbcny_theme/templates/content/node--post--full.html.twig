@@ -17,7 +17,7 @@
       <div class="hero__content">
         <div class="page-info">
           <span class="page-info__item">{{ content.field_term_post_type }}</span>
-          <span class="page-info__item">{{ content.field_term_topic }}</span>
+          <span class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
         </div>
         <h1 class="page-title">{{ content.title }}</h1>
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
@@ -28,7 +28,7 @@
       <div class="hero__content">
         <div class="page-info">
           <span class="page-info__item">{{ content.field_term_post_type }}</span>
-          <span class="page-info__item">{{ content.field_term_topic }}</span>
+          <span class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
         </div>
         <h1 class="page-title">{{ content.title }}</h1>
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
@@ -50,5 +50,5 @@
 
     {{ content.field_page_content }}
   </div>
-  
+
 </article>
