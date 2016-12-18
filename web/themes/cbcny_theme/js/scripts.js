@@ -17,43 +17,6 @@
     }
   }
 
-  Drupal.behaviors.slick = {
-    attach: function (context, settings) {
-      $('.slick-carousel-topics').slick({
-        infinite: false,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        responsive: [
-          {
-            breakpoint: 991,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3
-            }
-          },
-          {
-            breakpoint: 800,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      });
-      $('.slick-carousel-homepage').slick({
-        infinite: false,
-        dots: true
-      });
-    }
-  }
-
   // Generic function that runs on window resize.
   function resizeStuff() {
     // mosaicGrid();
@@ -81,18 +44,20 @@
   };
 
   // Smooth scrolling to in-page anchor
-  $(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
+  Drupal.behaviors.anchorScroll = {
+    attach: function (context) {
+      $('a[href^="#"]').on('click',function (e) {
         e.preventDefault();
 
         var target = this.hash;
         var $target = $(target);
 
         $('html, body').stop().animate({
-          'scrollTop': $target.offset.top
+          'scrollTop': $target.offset().top - 60
         }, 900, 'swing');
-    });
-  });
+      });
+    }
+   }
 
   Drupal.behaviors.gessoTOC = {
     attach: function (context) {
