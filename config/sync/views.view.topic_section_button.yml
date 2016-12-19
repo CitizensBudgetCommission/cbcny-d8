@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_term_topic
+    - field.storage.taxonomy_term.field_search_url
   module:
+    - link
     - node
+    - taxonomy
     - user
 id: topic_section_button
 label: 'Topic Section Button'
@@ -65,18 +67,18 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        field_term_topic:
-          id: field_term_topic
-          table: node__field_term_topic
-          field: field_term_topic
-          relationship: none
+        field_search_url:
+          id: field_search_url
+          table: taxonomy_term__field_search_url
+          field: field_search_url
+          relationship: field_term_topic
           group_type: group
           admin_label: ''
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<a class="button button--blue" href="{{ field_search_url__uri|raw }}">{{ field_search_url__title|raw }}</a>'
             make_link: false
             path: ''
             absolute: false
@@ -84,9 +86,9 @@ display:
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
+            alt: '{{ field_search_url__title }}'
             rel: ''
-            link_class: ''
+            link_class: 'button button--blue'
             prefix: ''
             suffix: ''
             target: ''
@@ -113,11 +115,15 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: uri
+          type: link_separate
           settings:
-            link: false
-          group_column: target_id
+            trim_length: null
+            url_only: true
+            url_plain: false
+            rel: '0'
+            target: '0'
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -139,7 +145,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"centered\">\n  <a href=\"/search\" class=\"button button--blue\">More on {{ field_term_topic }}</a>\n</div>"
+            text: "<div class=\"centered\">\n  {{ field_search_url }}\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -193,7 +199,16 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        field_term_topic:
+          id: field_term_topic
+          table: node__field_term_topic
+          field: field_term_topic
+          relationship: none
+          group_type: group
+          admin_label: 'field_term_topic: Taxonomy term'
+          required: false
+          plugin_id: standard
       arguments:
         nid:
           id: nid
@@ -241,4 +256,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_term_topic'
+        - 'config:field.storage.taxonomy_term.field_search_url'

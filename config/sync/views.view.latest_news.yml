@@ -219,7 +219,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"#\">See More CBCNY News</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/search?q=search&keywords=&f[0]=search_type%3A18\">See More CBCNY News</a>\n</div>"
           plugin_id: text_custom
       empty: {  }
       relationships: {  }
