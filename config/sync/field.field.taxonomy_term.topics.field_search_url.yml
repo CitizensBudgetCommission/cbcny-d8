@@ -1,0 +1,23 @@
+uuid: c0d87be5-2450-4bbb-9ca9-fdd57c5f439d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_search_url
+    - taxonomy.vocabulary.topics
+  module:
+    - link
+id: taxonomy_term.topics.field_search_url
+field_name: field_search_url
+entity_type: taxonomy_term
+bundle: topics
+label: 'Search URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 2
+field_type: link
