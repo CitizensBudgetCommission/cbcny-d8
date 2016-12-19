@@ -33,6 +33,7 @@ slick:
     js/slick/slick-theme.css: {}
   js:
     js/slick/slick.min.js: {}
+    js/slick.js: {}
   dependencies:
     - core/jquery
     - core/drupal
