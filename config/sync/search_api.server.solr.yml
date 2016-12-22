@@ -10,12 +10,12 @@ description: ''
 backend: search_api_solr
 backend_config:
   scheme: http
-  host: localhost
-  port: '8983'
+  host: solr.internal
+  port: '8080'
   path: /solr
-  core: drupal
-  username: admin
-  password: drupal@dm1n
+  core: ''
+  username: ''
+  password: ''
   retrieve_data: false
   highlight_data: false
   excerpt: false

@@ -1,0 +1,29 @@
+uuid: 2dd2e69c-e5bd-41e5-b64d-e1885cf7aadb
+langcode: en
+status: true
+dependencies:
+  module:
+    - facets
+    - webform
+  theme:
+    - cbcny_theme
+id: webform
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Subscribe
+  provider: webform
+  label_display: '0'
+  webform_id: subscribe
+  default_data: ''
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
