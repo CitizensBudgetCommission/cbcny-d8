@@ -46,7 +46,7 @@
   // Smooth scrolling to in-page anchor
   Drupal.behaviors.anchorScroll = {
     attach: function (context) {
-      $('a[href^="#"]').on('click',function (e) {
+      $(document.body).on('click', 'a[href^="#"]', function (e) {
         e.preventDefault();
 
         var target = this.hash;
