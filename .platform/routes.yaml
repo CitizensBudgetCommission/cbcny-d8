@@ -5,7 +5,12 @@
 
 "http://{default}/":
     type: upstream
-    upstream: "app:http"
+    upstream: php:http
+    cache:
+        enabled: true
+        headers: [ "Accept", "Accept-Language", "X-Language-Locale" ]
+        cookies: ["*"]
+        default_ttl: 60
 
 "http://www.{default}/":
     type: redirect
