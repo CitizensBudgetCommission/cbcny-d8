@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cfd84932cab6b32975a264e1e073933a",
-    "content-hash": "991fb267d4c9a549a7768e1a304454d2",
+    "hash": "968de8bcde19383023e6a025404c7f59",
+    "content-hash": "eeaae931760fd95c641265a47b5d0e93",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1303,12 +1303,12 @@
             "version": "1.0.0-rc10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hechoendrupal/DrupalConsole.git",
+                "url": "https://github.com/hechoendrupal/drupal-console.git",
                 "reference": "9ec28866068f902220a2ee0aeb36526488a3b0e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/DrupalConsole/zipball/9ec28866068f902220a2ee0aeb36526488a3b0e1",
+                "url": "https://api.github.com/repos/hechoendrupal/drupal-console/zipball/9ec28866068f902220a2ee0aeb36526488a3b0e1",
                 "reference": "9ec28866068f902220a2ee0aeb36526488a3b0e1",
                 "shasum": ""
             },
@@ -2050,7 +2050,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.0-beta11.zip",
-                "reference": null,
+                "reference": "a0d1796064674306573b9dae1ae2c8b0394d7ef4",
                 "shasum": null
             },
             "require": {
@@ -2292,6 +2292,42 @@
             "time": "2016-03-25 13:39:45"
         },
         {
+            "name": "drupal/redis",
+            "version": "8.1.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/redis",
+                "reference": "5e5a43dfabe32fd84438edaef20df2974cef5b3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.0-alpha1.zip",
+                "reference": "5e5a43dfabe32fd84438edaef20df2974cef5b3b",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-1.x": "8.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\redis\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "Provide a module placeholder, for using as dependency for module that needs Redis.",
+            "homepage": "https://www.drupal.org/project/redis",
+            "time": "2016-05-23 14:56:31"
+        },
+        {
             "name": "drupal/search_api",
             "version": "8.1.0-alpha16",
             "source": {
@@ -2450,7 +2486,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/twig_tweak-8.x-1.4.zip",
-                "reference": "8.x-1.4",
+                "reference": null,
                 "shasum": "afd09cd0e3428f551ed0f3f729deaf9964c70465"
             },
             "require": {
@@ -6239,7 +6275,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-beta1.zip",
-                "reference": "e6fdb5fcf7c7de92e6b0d72425cd627642f227ac",
+                "reference": null,
                 "shasum": null
             },
             "require": {
