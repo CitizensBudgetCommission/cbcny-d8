@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "968de8bcde19383023e6a025404c7f59",
-    "content-hash": "eeaae931760fd95c641265a47b5d0e93",
+    "hash": "eff20cca38e1e00350359b6377603fab",
+    "content-hash": "e3b49200e59829182a98b91cbab78743",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1852,6 +1852,17 @@
             "description": "Faceted search interfaces that can be used on Search API searchers.",
             "homepage": "https://www.drupal.org/project/facets",
             "time": "2016-07-06 17:08:55"
+        },
+        {
+            "name": "drupal/fast_404",
+            "version": "8.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/naveenvalecha/fast_404/archive/8.x-1.x.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
         },
         {
             "name": "drupal/field_group",
@@ -6275,7 +6286,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "e6fdb5fcf7c7de92e6b0d72425cd627642f227ac",
                 "shasum": null
             },
             "require": {
