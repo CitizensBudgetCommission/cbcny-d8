@@ -98,7 +98,7 @@ $settings['fast404_string_whitelisting'] = array('cdn/farfuture', '/advagg_');
 # regular pages, so only use if you are spending too much CPU/Memory/DB on
 # 404s and the trade-off is worth it.
 # This setting will deliver 404s with less than 2MB of RAM.
-#$settings['fast404_path_check'] = TRUE;
+$settings['fast404_path_check'] = TRUE;
 
 # Default fast 404 error message.
 $settings['fast404_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL "@path" was not found on this server.</p></body></html>';
