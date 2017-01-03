@@ -20,18 +20,6 @@
       }
     },
     {
-      "type": "package",
-      "package": {
-        "name": "drupal/fast_404",
-        "version": "8.1",
-        "type": "drupal-module",
-        "dist": {
-          "url": "https://github.com/naveenvalecha/fast_404/archive/8.x-1.x.zip",
-          "type": "zip"
-        }
-      }
-    },
-    {
       "type": "composer",
       "url": "https://packagist.drupal-composer.org"
     }
@@ -66,8 +54,7 @@
     "drupal/redirect": "8.1.0-alpha1",
     "drupal/xmlsitemap": "8.1.0-alpha2",
     "drupal/metatag": "8.1.0-beta11",
-    "drupal/redis": "~8",
-    "drupal/fast_404": "8.1"
+    "drupal/redis": "~8"
   },
   "require-dev": {
     "behat/mink": "~1.7",
