@@ -4,4 +4,9 @@
 
 .section--full-text {
   clear: both;
+
+  p {
+    //fix for IE11 - text was bleeding outside constrain
+    max-width: 100%;
+  }
 }
