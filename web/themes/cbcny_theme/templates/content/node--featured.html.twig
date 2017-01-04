@@ -11,14 +11,16 @@
       <a href="{{ url }}" class="feature__image" style="background-image: url({{ content.field_hero|render|trim }});"></a>
     </div>
     <div class="l-slat__content">
-      <div class="feature__type">{{ content.field_term_post_type }}</div>
-      <h1 class="feature__title"><a href="{{ url }}">{{ content.title }}</a></h1>
-      <h2 class="feature__subtitle">{{ content.field_subtitle }}</h2>
-      <div class="feature__divider"></div>
-      <div class="feature__body">
-        <span class="feature__date">{{ content.field_published_date }}</span>
-          - {{ teaser|length > 200 ? teaser|slice(0, 200) ~ '...' : teaser }}
-        <div class="read-more"><a href="{{ url }}">Read more</a></div>
+      <div class="l-slat__content-container">
+        <div class="feature__type">{{ content.field_term_post_type }}</div>
+        <h1 class="feature__title"><a href="{{ url }}">{{ content.title }}</a></h1>
+        <h2 class="feature__subtitle">{{ content.field_subtitle }}</h2>
+        <div class="feature__divider"></div>
+        <div class="feature__body">
+          <span class="feature__date">{{ content.field_published_date }}</span>
+            - {{ teaser|length > 200 ? teaser|slice(0, 200) ~ '...' : teaser }}
+          <div class="read-more"><a href="{{ url }}">Read more</a></div>
+        </div>
       </div>
     </div>
   </div>
