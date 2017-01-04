@@ -3,7 +3,9 @@
 
 .section--image-caption {
   background-color: $cbcny-white;
-  display: table;
+  //display: table;
+  //fixed oversized charts in IE11
+  display: block;
   margin-bottom: em($base-line-height, map-get($font-size, l));
   padding: em(40px);
 
