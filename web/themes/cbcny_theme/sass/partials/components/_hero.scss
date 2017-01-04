@@ -18,7 +18,11 @@ $bp-largest-hero: 960px;
   .hero__content {
     background-color: $cbcny-almost-white-translucent;
     flex: 1;
-    margin: 0 auto;
+    //margin: 0 auto;
+    //margin-center fix for IE11
+    left: 50%;
+    transform: translateX(-50%);
+
     max-width: em($main-content-width);
     padding: em(20px) ($gutter-width / 2);
     position: relative;
