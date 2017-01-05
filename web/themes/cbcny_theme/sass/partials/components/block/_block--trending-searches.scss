@@ -8,6 +8,7 @@
 	justify-content: center;
 	margin-bottom: 3.25em;
 
+
 	@include breakpoint($bp-hide-mobile-menu) {
 		flex-direction: row;
 	}
@@ -42,5 +43,12 @@
 		align-items: center;
 		display: flex;
 		justify-content: center;
+
+		//mobile fix
+		flex-wrap: wrap;
+	}
+
+	.button--search {
+		margin: .5em !important;
 	}
 }
