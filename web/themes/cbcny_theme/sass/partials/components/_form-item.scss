@@ -77,10 +77,10 @@
       display: inline-block;
       font-size: rem(12px);
       height: 1.2em;
-      left: 0;
+      left: 0.25em;
       line-height: 1;
       position: absolute;
-      top: em(2px, 12px);
+      top: .2em;
       transition-duration: 0.2s;
       transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
       transition-timing-function: ease-in-out;
