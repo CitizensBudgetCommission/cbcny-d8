@@ -76,16 +76,13 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
   }
 
   // Override solr server settings for the platform environment
-  $config['search_api.server']['solr']['backend_config'] = [
-    'scheme' => 'http',
-    'host' => 'solr.internal',
-    'port' => '8080',
-    'path' => '/solr',
-    'core' => '',
-    'username' => '',
-    'password' => '',
-  ];
-
+  $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
+  $config['search_api.server.solr']['backend_config']['host'] = 'solr.internal';
+  $config['search_api.server.solr']['backend_config']['port'] = '8080';
+  $config['search_api.server.solr']['backend_config']['path'] = '/solr';
+  $config['search_api.server.solr']['backend_config']['core'] = '';
+  $config['search_api.server.solr']['backend_config']['username'] = '';
+  $config['search_api.server.solr']['backend_config']['password'] = '';
 }
 
 // Set trusted hosts based on Platform.sh routes.
