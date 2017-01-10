@@ -32,5 +32,18 @@
     @include breakpoint($bp-larger-font-size) {
       flex-basis: auto;
     }
+
+    //AddThis links fix - TA
+    .at-share-btn {
+      background-color: transparent !important;
+
+      svg {
+        fill: #007faa !important;
+      }
+
+      .at-label {
+        color: #007faa !important;
+      }
+    }
   }
 }

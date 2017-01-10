@@ -55,16 +55,29 @@ $gutter: 0;
   .l-slat__content {
     display: block;
     flex-basis: 100%;
-    padding: em(30px);
+    //padding: em(30px);
     width: auto;
 
-    @include breakpoint($bp-first) {
-      padding: em(30px) em(54px);
-    }
+    // @include breakpoint($bp-first) {
+    //   padding: em(30px) em(54px);
+    // }
 
     @include breakpoint($bp-second) {
       flex-basis: 55%;
-      padding: em(30px) em(54px) em(50px);
+      //padding: em(30px) em(54px) em(50px);
+    }
+
+    // IE11 padding fix
+    .l-slat__content-container {
+      padding: em(30px);
+
+      @include breakpoint($bp-first) {
+        padding: em(30px) em(54px);
+      }
+
+      @include breakpoint($bp-second) {
+        padding: em(30px) em(54px) em(50px);
+      }
     }
   }
 }

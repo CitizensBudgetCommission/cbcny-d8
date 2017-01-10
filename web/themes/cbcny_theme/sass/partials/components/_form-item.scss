@@ -70,21 +70,21 @@
 
     &:before {
       background: $cbcny-white;
-      border: 1.75px solid $cbcny-white;
+      border: 2px solid $cbcny-light-gray;
       border-radius: 50%;
-      box-shadow: 0 0 0 2.5px $cbcny-light-gray;
+      //box-shadow: 0 0 0 2.5px $cbcny-light-gray;
       content: '';
       display: inline-block;
       font-size: rem(12px);
-      height: 1.2em;
+      height: 17px;
       left: 0;
       line-height: 1;
       position: absolute;
-      top: em(2px, 12px);
+      top: -1px;
       transition-duration: 0.2s;
       transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
       transition-timing-function: ease-in-out;
-      width: 1.2em;
+      width: 17px;
     }
   }
 
@@ -104,9 +104,38 @@
 
   &:checked + .form-item__label:before {
     border-color: $cbcny-dark-blue;
-    box-shadow: 0 0 0 2.5px $cbcny-dark-blue;
+    //box-shadow: 0 0 0 2.5px $cbcny-dark-blue;
   }
 }
+
+//Fix for subscribe checkboxes - TA
+.webform-submission-subscribe-form {
+
+  .fieldset__legend {
+    margin-bottom: .5em;
+  }
+
+  .webform-options-display-three-columns {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-item {
+      flex-basis: 100%;
+
+      @include breakpoint(500px) {
+        flex-basis: calc(1/2 * 100%);
+      }
+
+      @include breakpoint(700px) {
+        flex-basis: calc(1/3 * 100%);
+      }
+
+    }
+  }
+}
+
+
+
 
 // Custom form item styles.
 @import 'form-item/form-item--checkbox';

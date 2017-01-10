@@ -1,6 +1,7 @@
 // @file
 // Styles for the hero.
 
+$bp-med-hero: 500px;
 $bp-larger-hero: 800px;
 $bp-largest-hero: 960px;
 
@@ -9,16 +10,25 @@ $bp-largest-hero: 960px;
   background-attachment: fixed;
   background-image: url(../images/bg/hero--post.jpg);
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-position: top center;
+  background-size: 260%;
   display: flex;
   margin-bottom: em($base-line-height);
   position: relative;
 
+  @include breakpoint($bp-med-hero) {
+    background-position: center center;
+    background-size: cover;
+  }
+
   .hero__content {
     background-color: $cbcny-almost-white-translucent;
     flex: 1;
-    margin: 0 auto;
+    //margin: 0 auto;
+    //margin-center fix for IE11
+    left: 50%;
+    transform: translateX(-50%);
+
     max-width: em($main-content-width);
     padding: em(20px) ($gutter-width / 2);
     position: relative;
@@ -39,15 +49,22 @@ $bp-largest-hero: 960px;
       margin-bottom: 0;
     }
   }
-
 }
 
 .hero--small {
-  height: 55vh;
+  height: 50vh;
+
+  @include breakpoint($bp-med-hero, $no-query: true) {
+    height: 55vh;
+  }
 }
 
 .hero--large {
-  height: 80vh;
+  height: 50vh;
+
+  @include breakpoint($bp-med-hero, $no-query: true) {
+    height: 80vh;
+  }
 
   @include breakpoint($bp-larger-hero, $no-query: true) {
     height: 65vh;
