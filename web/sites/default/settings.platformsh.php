@@ -75,6 +75,17 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
     $settings['php_storage']['twig']['directory'] = $settings['file_private_path'];
   }
 
+  // Override solr server settings for the platform environment
+  $config['search_api.server']['solr']['backend_config'] = [
+    'scheme' => 'http',
+    'host' => 'solr.internal',
+    'port' => '8080',
+    'path' => '/solr',
+    'core' => '',
+    'username' => '',
+    'password' => '',
+  ];
+
 }
 
 // Set trusted hosts based on Platform.sh routes.
