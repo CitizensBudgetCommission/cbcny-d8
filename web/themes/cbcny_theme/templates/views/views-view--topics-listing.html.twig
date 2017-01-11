@@ -1,0 +1,27 @@
+<div class="layout-search">
+
+  <div class="layout-search__top {{ rows ? 'has-border' }}">
+    <h1 class="page-title page-title--search">Search</h1>
+    <div class="view--search">
+      {{ exposed }}
+    </div>
+  </div>
+
+  {% if rows %}
+    <div class="layout-search__sidebar">
+      <h2 class="sidebar-heading">Filter Search Results:</h2>
+      {{ drupal_block('topics_type') }}
+    </div>
+  {% endif %}
+
+  <div class="layout-search__main">
+    {% if header %}
+      {{ header }}
+    {% endif %}
+    {{ rows }}
+    {{ empty }}
+  </div>
+
+</div>
+
+{{ pager }}
