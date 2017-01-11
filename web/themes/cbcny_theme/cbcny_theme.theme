@@ -32,6 +32,17 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
     }
 
     // If field not empty then grab value and use as theme suggestions
+    if (!$field->isEmpty() && $node->getType() == "listing") {
+      $term = $field
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue()
+        ->getName();
+      $suggestions[] = 'node__' . 'listing__' . strtolower($term);
+    }
+
+    // If field not empty then grab value and use as theme suggestions
     if (!$field->isEmpty() && $node->getType() == "page") {
       $term = $field
         ->first()
@@ -49,6 +60,11 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
 
 function cbcny_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form['#id'] == 'views-exposed-form-search-index-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-topics-listing-default') {
     if (isset($form['keywords'])) {
       $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
     }
