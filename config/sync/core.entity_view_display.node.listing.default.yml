@@ -1,0 +1,37 @@
+uuid: bce780c0-389f-4f5b-9767-513a0a89df1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.listing.field_term_section
+    - field.field.node.listing.field_term_topic
+    - node.type.listing
+  module:
+    - user
+id: node.listing.default
+targetEntityType: node
+bundle: listing
+mode: default
+content:
+  field_term_section:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_term_topic:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+hidden:
+  links: true
