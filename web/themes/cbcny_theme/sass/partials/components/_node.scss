@@ -52,6 +52,7 @@
 
 
 .node--type-landing,
+.node--type-listing,
 .node--type-advocacy,
 .node--type-research,
 .node--type-newsroom {
@@ -60,4 +61,8 @@
 
 .node--type-page {
 	padding-bottom: 5em;
+}
+
+.node--type-listing {
+	padding-top: 4em;
 }
