@@ -11,10 +11,14 @@
     flex-basis: 100%;
     flex-wrap: wrap;
     margin-bottom: em(32px);
-    padding-top: em(69px);
+    padding-top: em(30px);
 
     &.has-border {
       border-bottom: 1px solid $cbcny-dividing-line-white;
+    }
+
+    &.has-extra-padding {
+      padding-top: em(69px);
     }
   }
 
