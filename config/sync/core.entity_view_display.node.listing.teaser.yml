@@ -4,7 +4,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.listing.field_term_section
+    - field.field.node.listing.field_template
     - field.field.node.listing.field_term_topic
     - node.type.listing
   module:
@@ -27,5 +27,5 @@ content:
     label: above
     third_party_settings: {  }
 hidden:
-  field_term_section: true
+  field_template: true
   field_term_topic: true
