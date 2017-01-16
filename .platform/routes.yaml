@@ -11,6 +11,6 @@ http://{default}/:
     expires: -1s
     paths: {}
   ssi:
-    enabled: false
+    enabled: true
   type: upstream
   upstream: app:http
