@@ -1,0 +1,8 @@
+uuid: null
+langcode: en
+status: true
+dependencies: {  }
+id: search_api_views__advocacy_listing__default
+name: 'search_api_views:advocacy_listing:default'
+filter_key: null
+url_processor: query_string

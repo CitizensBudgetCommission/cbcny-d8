@@ -230,7 +230,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/search?q=search&keywords=&f[0]=search_type%3A15&f[1]=search_type%3A14&f[2]=search_type%3A22&f[3]=search_type%3A21\">See More Advocacy</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/advocacy/listing\">See More Advocacy</a>\n</div>"
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

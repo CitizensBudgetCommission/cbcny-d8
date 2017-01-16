@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.listing.field_term_section
+    - field.field.node.listing.field_template
     - field.field.node.listing.field_term_topic
     - node.type.listing
   module:
@@ -14,7 +14,7 @@ targetEntityType: node
 bundle: listing
 mode: default
 content:
-  field_term_section:
+  field_template:
     weight: 2
     settings: {  }
     third_party_settings: {  }
@@ -26,7 +26,7 @@ content:
     type: chosen_select
   path:
     type: path
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
   title:
