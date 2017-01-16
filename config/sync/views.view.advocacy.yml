@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - taxonomy.vocabulary.post_type
+    - taxonomy.vocabulary.section
   content:
     - 'taxonomy_term:post_type:3ce6abc7-2a30-4b07-8173-9b1481a16d26'
     - 'taxonomy_term:post_type:500c6d9c-0847-43c6-a18c-a6ae108fd4e5'
     - 'taxonomy_term:post_type:9cce6cb1-743b-4661-bb7e-b340a3f89717'
     - 'taxonomy_term:post_type:9e2398b8-3a46-4c80-8b4f-ec6c6b7e2749'
+    - 'taxonomy_term:section:e515e358-6c87-4658-a0e9-d93a63fbd150'
   module:
     - datetime
     - node
@@ -219,6 +221,8 @@ display:
       defaults:
         title: false
         footer: false
+        filters: false
+        filter_groups: false
       display_description: ''
       footer:
         area_text_custom:
@@ -232,6 +236,113 @@ display:
           tokenize: false
           content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/advocacy/listing\">See More Advocacy</a>\n</div>"
           plugin_id: text_custom
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        field_term_post_type_target_id:
+          id: field_term_post_type_target_id
+          table: node__field_term_post_type
+          field: field_term_post_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            14: 14
+            15: 15
+            21: 21
+            22: 22
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: post_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_term_section_target_id:
+          id: field_term_section_target_id
+          table: node__field_term_section
+          field: field_term_section_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            26: 26
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: section
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

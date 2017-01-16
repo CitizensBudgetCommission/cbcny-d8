@@ -5,17 +5,19 @@ dependencies:
   config:
     - search_api.index.nodes
     - taxonomy.vocabulary.post_type
+    - taxonomy.vocabulary.section
   content:
     - 'taxonomy_term:post_type:3ce6abc7-2a30-4b07-8173-9b1481a16d26'
     - 'taxonomy_term:post_type:500c6d9c-0847-43c6-a18c-a6ae108fd4e5'
     - 'taxonomy_term:post_type:9cce6cb1-743b-4661-bb7e-b340a3f89717'
     - 'taxonomy_term:post_type:9e2398b8-3a46-4c80-8b4f-ec6c6b7e2749'
+    - 'taxonomy_term:section:e515e358-6c87-4658-a0e9-d93a63fbd150'
   module:
     - search_api
 id: advocacy_listing
 label: 'Advocacy Listing'
 module: views
-description: 'A Listing of all content tagged with a specific Topic'
+description: 'A Listing of all content tagged with Advocacy'
 tag: ''
 base_table: search_api_index_nodes
 base_field: search_api_id
@@ -144,31 +146,31 @@ display:
           multi_type: separator
           multi_separator: ', '
       filters:
-        search_api_fulltext:
-          id: search_api_fulltext
+        field_term_section:
+          id: field_term_section
           table: search_api_index_nodes
-          field: search_api_fulltext
+          field: field_term_section
           relationship: none
           group_type: group
           admin_label: ''
           operator: or
-          value: ''
+          value:
+            26: 26
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: search_api_fulltext_op
+            operator_id: ''
             label: ''
             description: ''
             use_operator: false
-            operator: search_api_fulltext_op
-            identifier: keywords
+            operator: ''
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -181,9 +183,13 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          min_length: 3
-          fields: {  }
-          plugin_id: search_api_fulltext
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: section
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
         field_term_post_type:
           id: field_term_post_type
           table: search_api_index_nodes
@@ -231,6 +237,46 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_nodes
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: keywords
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          min_length: 3
+          fields: {  }
+          plugin_id: search_api_fulltext
       sorts:
         field_published_date:
           id: field_published_date
@@ -269,38 +315,7 @@ display:
           content: "<h2>Sorry, no results were found.</h2>\n<p>Search suggestions:</p>\n<ul>\n<li>Check your spelling</li>\n<li>Try more general words</li>\n<li>Try different words that mean the same thing</li>\n</ul>\n<p>Or maybe we can help...</p>\n<a href=\"/contact-us\" class=\"button\" target=\"_blank\">CONTACT US</a>"
           plugin_id: text_custom
       relationships: {  }
-      arguments:
-        field_term_topic:
-          id: field_term_topic
-          table: search_api_index_nodes
-          field: field_term_topic
-          relationship: none
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: fixed
-          default_argument_options:
-            argument: '3'
-          default_argument_skip_url: false
-          summary_options: null
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
-          plugin_id: search_api_taxonomy_term
+      arguments: {  }
       display_extenders: {  }
       filter_groups:
         operator: AND

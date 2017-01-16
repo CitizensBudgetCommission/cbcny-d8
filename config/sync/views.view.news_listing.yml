@@ -1,4 +1,4 @@
-uuid: 5e901bf8-a0aa-417b-89a0-4feecf757685
+uuid: 6f6cef13-6d18-4497-851d-412ec3c44e16
 langcode: en
 status: true
 dependencies:
@@ -6,14 +6,13 @@ dependencies:
     - search_api.index.nodes
     - taxonomy.vocabulary.post_type
   content:
-    - 'taxonomy_term:post_type:51cf18cf-7cfa-4ebd-b18a-cac47f4f4c68'
-    - 'taxonomy_term:post_type:d548f9b0-8854-4dc1-b7b3-dc6ab7a786ce'
+    - 'taxonomy_term:post_type:629b3daf-2bc7-4adf-b036-c6bd4d536280'
   module:
     - search_api
-id: report_listing
-label: 'Report Listing'
+id: news_listing
+label: 'News Listing'
 module: views
-description: 'A Listing of all Reports'
+description: 'A Listing of all News content not Press Mentions'
 tag: ''
 base_table: search_api_index_nodes
 base_field: search_api_id
@@ -142,6 +141,45 @@ display:
           multi_type: separator
           multi_separator: ', '
       filters:
+        type:
+          id: type
+          table: search_api_index_nodes
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            news: news
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: search_api_options
         field_term_post_type:
           id: field_term_post_type
           table: search_api_index_nodes
@@ -149,10 +187,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: not
           value:
-            16: 16
-            19: 19
+            17: 17
           group: 1
           exposed: false
           expose:

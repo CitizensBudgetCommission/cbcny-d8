@@ -78,4 +78,24 @@ function cbcny_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
       $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
     }
   }
+  if ($form['#id'] == 'views-exposed-form-news-listing-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-blog-listing-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-advocacy-listing-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-report-listing-default') {
+    if (isset($form['keywords'])) {
+      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
+    }
+  }
 }
