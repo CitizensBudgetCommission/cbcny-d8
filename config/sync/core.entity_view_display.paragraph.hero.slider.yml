@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.slider
     - field.field.paragraph.hero.field_image
-    - image.style.hero_slider
     - paragraphs.paragraphs_type.hero
   module:
     - image
@@ -18,8 +17,8 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: hero_slider
-      image_link: content
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
     type: image
 hidden:

@@ -150,6 +150,7 @@ display:
           value:
             homepage: homepage
             landing: landing
+            listing: listing
             section: section
           group: 1
           exposed: false
@@ -221,18 +222,6 @@ display:
           fields: {  }
           plugin_id: search_api_fulltext
       sorts:
-        field_published_date:
-          id: field_published_date
-          table: search_api_index_nodes
-          field: field_published_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: search_api
         search_api_relevance:
           id: search_api_relevance
           table: search_api_index_nodes
@@ -286,6 +275,10 @@ display:
       display_extenders: {  }
       defaults:
         cache: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: 0
       contexts:
