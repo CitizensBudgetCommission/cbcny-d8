@@ -1,0 +1,21 @@
+uuid: 0364e973-0312-4006-ab6a-e0bc8302a300
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.template_suggestions
+id: taxonomy_term.template_suggestions.default
+targetEntityType: taxonomy_term
+bundle: template_suggestions
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
