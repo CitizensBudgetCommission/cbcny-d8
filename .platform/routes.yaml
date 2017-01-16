@@ -1,1 +1,16 @@
-{}
+http://{default}/:
+  cache:
+    cookies:
+    - '*'
+    default_ttl: 0
+    enabled: false
+    headers:
+    - Accept
+    - Accept-Language
+  redirects:
+    expires: -1s
+    paths: {}
+  ssi:
+    enabled: false
+  type: upstream
+  upstream: app:http
