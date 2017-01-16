@@ -1,0 +1,28 @@
+uuid: e5a992d0-5fd9-4c79-9df3-a72692097b78
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.advocacy_topic
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: advocacy_topic
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'facet_block:advocacy_topic'
+settings:
+  id: 'facet_block:advocacy_topic'
+  label: Topic
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

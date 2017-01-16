@@ -207,7 +207,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<h2 class="heading--card-grid">CBCNY in the Media</h2>'
+          content: '<h2 class="heading--card-grid">CBC in the Media</h2>'
           plugin_id: text_custom
       footer: {  }
       empty: {  }

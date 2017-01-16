@@ -207,7 +207,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<h2 class="heading--card-grid">Latest CBCNY News</h2>'
+          content: '<h2 class="heading--card-grid">Latest CBC News</h2>'
           plugin_id: text_custom
       footer:
         area_text_custom:
@@ -219,7 +219,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/search?q=search&keywords=&f[0]=search_type%3A18\">See More CBCNY News</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/newsroom/listing\">See More CBC News</a>\n</div>"
           plugin_id: text_custom
       empty: {  }
       relationships: {  }
