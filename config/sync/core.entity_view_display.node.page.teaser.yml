@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.page.field_hero
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_content
-    - field.field.node.page.field_search_exclude
+    - field.field.node.page.field_searchable
     - field.field.node.page.field_teaser_plain
     - field.field.node.page.field_term_section
     - node.type.page
@@ -35,6 +35,6 @@ hidden:
   field_hero: true
   field_metatags: true
   field_page_content: true
-  field_search_exclude: true
+  field_searchable: true
   field_term_section: true
   links: true

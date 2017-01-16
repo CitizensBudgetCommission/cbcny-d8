@@ -8,8 +8,8 @@ dependencies:
     - field.storage.node.field_published_date
     - field.storage.node.field_subtitle
     - field.storage.node.field_teaser_plain
-    - field.storage.node.field_search_exclude
     - field.storage.node.field_term_section
+    - field.storage.node.field_searchable
     - search_api.server.solr
     - core.entity_view_mode.node.teaser
   module:
@@ -94,14 +94,6 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
-  field_search_exclude:
-    label: 'Exclude from Search'
-    datasource_id: 'entity:node'
-    property_path: field_search_exclude
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_search_exclude
   field_term_section:
     label: Section
     datasource_id: 'entity:node'
@@ -110,6 +102,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_term_section
+  field_searchable:
+    label: Searchable
+    datasource_id: 'entity:node'
+    property_path: field_searchable
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_searchable
 processor_settings:
   add_url:
     plugin_id: add_url
