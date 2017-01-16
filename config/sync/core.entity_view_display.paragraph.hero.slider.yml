@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.hero.field_image
     - paragraphs.paragraphs_type.hero
   module:
-    - image
+    - image_url_formatter
 id: paragraph.hero.slider
 targetEntityType: paragraph
 bundle: hero
@@ -17,10 +17,11 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      url_type: '1'
+      image_style: hero_slider
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: image_url
 hidden:
   created: true
   uid: true
