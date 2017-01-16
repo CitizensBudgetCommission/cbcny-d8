@@ -24,6 +24,7 @@ module:
   facets: 0
   field: 0
   field_group: 0
+  field_ui: 0
   file: 0
   filter: 0
   focal_point: 0
@@ -32,6 +33,7 @@ module:
   image_url_formatter: 0
   link: 0
   linkit: 0
+  menu_ui: 0
   metatag: 0
   node: 0
   options: 0
@@ -41,6 +43,7 @@ module:
   purge: 0
   purge_drush: 0
   purge_queuer_url: 0
+  purge_ui: 0
   redirect: 0
   redis: 0
   search_api: 0
@@ -56,7 +59,9 @@ module:
   update: 0
   user: 0
   video_embed_field: 0
+  views_ui: 0
   webform: 0
+  webform_ui: 0
   xmlsitemap: 0
   xmlsitemap_engines: 0
   menu_link_content: 1
