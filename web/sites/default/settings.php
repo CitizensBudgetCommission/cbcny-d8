@@ -38,7 +38,16 @@ $settings['install_profile'] = 'standard';
 $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
 // Disable page cache, JS/CSS aggregation on all environments except Platform Master (live) and stage.
-if (!getenv('PLATFORM_BRANCH') || in_array(['master', 'stage'], getenv('PLATFORM_BRANCH'))) {
+if (getenv('PLATFORM_BRANCH') && in_array(['master', 'stage'], getenv('PLATFORM_BRANCH'))) {
+  $config['system.performance']['cache']['page']['max_age'] = 31536000;
+  $config['system.performance']['cache']['css'] = [
+    'preprocess' => TRUE,
+    'gzip' => TRUE
+  ];
+  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
+  // Cloudflare settings should already be in the DB.
+}
+else {
   $config['system.performance']['cache']['page']['max_age'] = 0;
   $config['system.performance']['cache']['css'] = [
     'preprocess' => FALSE,
@@ -48,15 +57,6 @@ if (!getenv('PLATFORM_BRANCH') || in_array(['master', 'stage'], getenv('PLATFORM
   // Ensure empty cloudflare settings.
   $config['cloudflare.settings']['apikey'] = '';
   $config['cloudflare.settings']['email'] = '';
-}
-else {
-  $config['system.performance']['cache']['page']['max_age'] = 31536000;
-  $config['system.performance']['cache']['css'] = [
-    'preprocess' => TRUE,
-    'gzip' => TRUE
-  ];
-  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
-  // Cloudflare settings should already be in the DB.
 }
 
 // Automatic Platform.sh settings.
