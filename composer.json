@@ -54,7 +54,10 @@
     "drupal/redirect": "8.1.0-alpha1",
     "drupal/xmlsitemap": "8.1.0-alpha2",
     "drupal/metatag": "8.1.0-beta11",
-    "drupal/redis": "~8"
+    "drupal/redis": "~8",
+    "drupal/cloudflare": "~8",
+    "drupal/purge": "~8",
+    "drupal/purge_queuer_url": "~8"
   },
   "require-dev": {
     "behat/mink": "~1.7",
