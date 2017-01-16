@@ -1,0 +1,28 @@
+uuid: 2033ce5d-8096-4109-8995-14c83e593c37
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.blog_topic
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: blog_topic
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'facet_block:blog_topic'
+settings:
+  id: 'facet_block:blog_topic'
+  label: Topic
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

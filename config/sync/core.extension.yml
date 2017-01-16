@@ -3,7 +3,6 @@ module:
   admin_toolbar_tools: 0
   allowed_formats: 0
   automated_cron: 0
-  big_pipe: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -11,8 +10,6 @@ module:
   chosen_field: 0
   chosen_lib: 0
   ckeditor: 0
-  cloudflare: 0
-  cloudflarepurger: 0
   config: 0
   crop: 0
   ctools: 0
@@ -40,12 +37,7 @@ module:
   page_cache: 0
   paragraphs: 0
   path: 0
-  purge: 0
-  purge_drush: 0
-  purge_queuer_url: 0
-  purge_ui: 0
   redirect: 0
-  redis: 0
   search_api: 0
   search_api_solr: 0
   system: 0

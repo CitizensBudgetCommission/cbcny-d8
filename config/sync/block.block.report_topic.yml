@@ -1,0 +1,28 @@
+uuid: 76558f8c-dca5-4fbe-84c1-c83960b3aea0
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.report_topic
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: report_topic
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'facet_block:report_topic'
+settings:
+  id: 'facet_block:report_topic'
+  label: Topic
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
