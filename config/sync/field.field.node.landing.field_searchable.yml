@@ -1,0 +1,23 @@
+uuid: 98fade92-dee9-45c6-a91d-a99372a8b6ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_searchable
+    - node.type.landing
+  module:
+    - options
+id: node.landing.field_searchable
+field_name: field_searchable
+entity_type: node
+bundle: landing
+label: Searchable
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'No'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

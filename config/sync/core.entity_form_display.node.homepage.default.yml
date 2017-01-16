@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.homepage.field_hero
+    - field.field.node.homepage.field_searchable
     - node.type.homepage
   module:
     - paragraphs
@@ -23,6 +24,11 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
+  field_searchable:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   path:
     type: path
     weight: 3

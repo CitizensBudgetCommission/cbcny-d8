@@ -1,0 +1,23 @@
+uuid: 18399448-116a-4070-921b-568f73d3a20b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_searchable
+    - node.type.page
+  module:
+    - options
+id: node.page.field_searchable
+field_name: field_searchable
+entity_type: node
+bundle: page
+label: Searchable
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Yes'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.post.field_metatags
     - field.field.node.post.field_page_content
     - field.field.node.post.field_published_date
-    - field.field.node.post.field_search_exclude
+    - field.field.node.post.field_searchable
     - field.field.node.post.field_subtitle
     - field.field.node.post.field_teaser_plain
     - field.field.node.post.field_term_post_type
@@ -37,13 +37,13 @@ content:
       form_display_mode: default
     third_party_settings: {  }
   field_is_featured:
-    weight: 7
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
   field_metatags:
-    weight: 26
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
@@ -62,12 +62,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-  field_search_exclude:
-    weight: 8
-    settings:
-      display_label: true
+  field_searchable:
+    weight: 7
+    settings: {  }
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: options_select
   field_subtitle:
     weight: 2
     settings:

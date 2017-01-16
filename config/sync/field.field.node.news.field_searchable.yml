@@ -1,0 +1,23 @@
+uuid: 0c709002-eb67-4ea9-ba9f-a799f79316fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_searchable
+    - node.type.news
+  module:
+    - options
+id: node.news.field_searchable
+field_name: field_searchable
+entity_type: node
+bundle: news
+label: Searchable
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Yes'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

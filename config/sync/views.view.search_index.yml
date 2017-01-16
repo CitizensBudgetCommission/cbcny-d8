@@ -139,19 +139,18 @@ display:
           multi_type: separator
           multi_separator: ', '
       filters:
-        type:
-          id: type
+        field_searchable:
+          id: field_searchable
           table: search_api_index_nodes
-          field: type
+          field: field_searchable
           relationship: none
           group_type: group
           admin_label: ''
-          operator: not
+          operator: '!='
           value:
-            homepage: homepage
-            landing: landing
-            listing: listing
-            section: section
+            min: ''
+            max: ''
+            value: 'No'
           group: 1
           exposed: false
           expose:
@@ -166,7 +165,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -179,8 +177,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          plugin_id: search_api_options
+          plugin_id: search_api_string
         search_api_fulltext:
           id: search_api_fulltext
           table: search_api_index_nodes
@@ -234,10 +231,10 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-        title_1:
-          id: title_1
+        title:
+          id: title
           table: search_api_index_nodes
-          field: title_1
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
