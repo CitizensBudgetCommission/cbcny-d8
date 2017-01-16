@@ -1,0 +1,16 @@
+uuid: 88989550-06be-46f9-8a4d-bedacec48425
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_slider
+label: 'Hero slider'
+effects:
+  d7697349-5700-4ace-a494-5166713f4dca:
+    uuid: d7697349-5700-4ace-a494-5166713f4dca
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 477
+      height: 564
