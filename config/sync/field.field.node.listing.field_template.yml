@@ -1,26 +1,26 @@
-uuid: 5b7e469b-2fd9-430d-bdb4-b992a0ab53d7
+uuid: 84d42062-1afd-408b-9a94-e420ab4c610d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_term_section
+    - field.storage.node.field_template
     - node.type.listing
-    - taxonomy.vocabulary.section
-id: node.listing.field_term_section
-field_name: field_term_section
+    - taxonomy.vocabulary.template_suggestions
+id: node.listing.field_template
+field_name: field_template
 entity_type: node
 bundle: listing
-label: Section
+label: Template
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      section: section
+      template_suggestions: template_suggestions
     sort:
       field: _none
     auto_create: false
