@@ -1,0 +1,5 @@
+purgers:
+  -
+    order_index: 2
+    instance_id: b3f5d5968a
+    plugin_id: cloudflare
