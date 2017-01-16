@@ -14,3 +14,19 @@ http://{default}/:
     enabled: true
   type: upstream
   upstream: app:http
+https://{default}/:
+  cache:
+    cookies:
+    - '*'
+    default_ttl: 0
+    enabled: false
+    headers:
+    - Accept
+    - Accept-Language
+  redirects:
+    expires: -1s
+    paths: {}
+  ssi:
+    enabled: true
+  type: upstream
+  upstream: app:http
