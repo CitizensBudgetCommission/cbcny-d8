@@ -247,7 +247,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/research/blogs/listing\">See More Blog Posts</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/search?q=search&keywords=&f[0]=search_type%3A1\">See More Blog Posts</a>\n</div>"
           plugin_id: text_custom
       css_class: ''
       header:
@@ -357,7 +357,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/research/reports/listing\">See More Reports</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/search?q=search&keywords=&f[0]=search_type%3A19\">See More Reports</a>\n</div>"
           plugin_id: text_custom
       header:
         area_text_custom:

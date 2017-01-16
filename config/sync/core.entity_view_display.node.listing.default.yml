@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.listing.field_template
+    - field.field.node.listing.field_term_section
     - field.field.node.listing.field_term_topic
     - node.type.listing
   module:
@@ -13,15 +13,15 @@ targetEntityType: node
 bundle: listing
 mode: default
 content:
-  field_template:
-    weight: 2
+  field_term_section:
+    weight: 3
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_term_topic:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }

@@ -16,9 +16,9 @@ content:
     weight: 0
     label: hidden
     settings:
-      url_type: '1'
       image_style: ''
       image_link: ''
+      url_type: ''
     third_party_settings: {  }
     type: image_url
 hidden:
