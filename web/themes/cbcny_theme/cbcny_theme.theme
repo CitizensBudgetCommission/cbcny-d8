@@ -14,7 +14,7 @@ require_once dirname(__FILE__) . '/includes/html.inc';
 function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
 
   // Test for existence of Term Section
-  if ($variables['elements']['field_term_section']) {
+  if (isset($variables['elements']['field_term_section'])) {
 
     // Grab Node and Field
     $node = \Drupal::routeMatch()->getParameter('node');
