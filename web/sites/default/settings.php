@@ -37,6 +37,28 @@ $settings['install_profile'] = 'standard';
 // to fix the requirements check and the installer.
 $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
+// Disable page cache, JS/CSS aggregation on all environments except Platform Master (live) and stage.
+if (!isset($_ENV['PLATFORM_BRANCH']) || !in_array(['master', 'stage'], $_ENV['PLATFORM_BRANCH'])) {
+  $config['system.performance']['cache']['page']['max_age'] = 0;
+  $config['system.performance']['cache']['css'] = [
+    'preprocess' => FALSE,
+    'gzip' => FALSE
+  ];
+  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
+  // Ensure empty cloudflare settings.
+  $config['cloudflare.settings']['apikey'] = '';
+  $config['cloudflare.settings']['email'] = '';
+}
+else {
+  $config['system.performance']['cache']['page']['max_age'] = 31536000;
+  $config['system.performance']['cache']['css'] = [
+    'preprocess' => TRUE,
+    'gzip' => TRUE
+  ];
+  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
+  // Cloudflare settings should already be in the DB.
+}
+
 // Automatic Platform.sh settings.
 if (file_exists(__DIR__ . '/settings.platformsh.php')) {
   include __DIR__ . '/settings.platformsh.php';
