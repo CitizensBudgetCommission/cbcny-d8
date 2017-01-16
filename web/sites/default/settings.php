@@ -38,7 +38,7 @@ $settings['install_profile'] = 'standard';
 $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
 // Disable page cache, JS/CSS aggregation on all environments except Platform Master (live) and stage.
-if (getenv('PLATFORM_BRANCH') && in_array(['master', 'stage'], getenv('PLATFORM_BRANCH'))) {
+if (getenv('PLATFORM_BRANCH') && in_array(getenv('PLATFORM_BRANCH'), ['master', 'stage'])) {
   $config['system.performance']['cache']['page']['max_age'] = 31536000;
   $config['system.performance']['cache']['css'] = [
     'preprocess' => TRUE,
