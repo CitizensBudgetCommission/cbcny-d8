@@ -59,6 +59,14 @@ else {
   $config['cloudflare.settings']['email'] = '';
 }
 
+// Disable google analytics except on platform Master environment
+if (getenv('PLATFORM_BRANCH') && getenv('PLATFORM_BRANCH') == 'master') {
+  $config['google_analytics.settings']['account'] = 'UA-11916551-1';
+}
+else {
+  $config['google_analytics.settings']['account'] = '';
+}
+
 // Automatic Platform.sh settings.
 if (file_exists(__DIR__ . '/settings.platformsh.php')) {
   include __DIR__ . '/settings.platformsh.php';
