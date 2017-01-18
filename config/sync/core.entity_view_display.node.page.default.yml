@@ -6,13 +6,14 @@ dependencies:
     - field.field.node.page.field_hero
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_content
-    - field.field.node.page.field_search_exclude
+    - field.field.node.page.field_searchable
     - field.field.node.page.field_teaser_plain
     - field.field.node.page.field_term_section
     - node.type.page
   module:
     - entity_reference_revisions
     - metatag
+    - options
     - user
 id: node.page.default
 targetEntityType: node
@@ -41,6 +42,12 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_searchable:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_term_section:
     weight: 2
     label: hidden
@@ -56,6 +63,5 @@ content:
     label: hidden
     third_party_settings: {  }
 hidden:
-  field_search_exclude: true
   field_teaser_plain: true
   links: true

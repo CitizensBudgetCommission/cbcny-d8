@@ -1,0 +1,28 @@
+uuid: 584f0475-91d3-4b59-910d-0304f6a8125d
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.news_topic
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: news_topic
+theme: cbcny_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'facet_block:news_topic'
+settings:
+  id: 'facet_block:news_topic'
+  label: Topic
+  provider: facets
+  label_display: '0'
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

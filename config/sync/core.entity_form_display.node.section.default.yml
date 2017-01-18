@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.section.field_ref_featured_content
+    - field.field.node.section.field_searchable
     - field.field.node.section.field_term_section
     - field.field.node.section.field_term_topic
     - node.type.section
@@ -16,13 +17,18 @@ bundle: section
 mode: default
 content:
   field_ref_featured_content:
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_searchable:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_term_section:
     weight: 2
     settings: {  }
@@ -35,7 +41,7 @@ content:
     type: chosen_select
   path:
     type: path
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   title:

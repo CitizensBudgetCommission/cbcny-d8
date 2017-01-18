@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.listing.field_searchable
     - field.field.node.listing.field_template
     - field.field.node.listing.field_term_topic
     - node.type.listing
@@ -14,8 +15,13 @@ targetEntityType: node
 bundle: listing
 mode: default
 content:
-  field_template:
+  field_searchable:
     weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_template:
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: chosen_select

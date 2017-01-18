@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.section.field_ref_featured_content
+    - field.field.node.section.field_searchable
     - field.field.node.section.field_term_section
     - field.field.node.section.field_term_topic
     - node.type.section
   module:
+    - options
     - user
 id: node.section.default
 targetEntityType: node
@@ -22,6 +24,12 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+  field_searchable:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_term_section:
     weight: 2
     label: hidden

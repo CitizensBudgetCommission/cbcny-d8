@@ -1,0 +1,23 @@
+uuid: 3f566e19-d1b2-4eef-be31-4fcd69aca99b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_searchable
+    - node.type.report
+  module:
+    - options
+id: node.report.field_searchable
+field_name: field_searchable
+entity_type: node
+bundle: report
+label: Searchable
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Yes'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
