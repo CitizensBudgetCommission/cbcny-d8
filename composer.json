@@ -52,7 +52,7 @@
     "drupal/search_api_solr": "8.1.0-alpha5",
     "drupal/webform": "8.5.0-beta2",
     "drupal/redirect": "8.1.0-alpha1",
-    "drupal/xmlsitemap": "8.1.0-alpha2",
+    "drupal/xmlsitemap": "8.x-1.x-dev",
     "drupal/metatag": "8.1.0-beta11",
     "drupal/redis": "~8",
     "drupal/cloudflare": "~8",
@@ -122,9 +122,6 @@
       },
       "drupal/migrate_plus": {
         "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
-      },
-      "drupal/core": {
-        "Configurable error behavior for file download plugin": "https://www.drupal.org/files/issues/2831686-download-skip-error-2.patch"
       },
       "drupal/facets": {
         "Add default display for Facets to use": "./patches/drupal/facets/allowed_plugins_use_default.patch"
