@@ -34,7 +34,7 @@ http://www.{default}/:
   redirects:
     expires: -1s
     paths: {}
-  to: https://{default}
+  to: https://{default}/
   type: redirect
 http://{default}/:
   cache:
