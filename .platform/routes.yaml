@@ -30,6 +30,12 @@ http://keycdn.cbcny.org/:
     enabled: true
   type: upstream
   upstream: app:http
+http://www.{default}/:
+  redirects:
+    expires: -1s
+    paths: {}
+  to: https://{default}
+  type: redirect
 http://{default}/:
   cache:
     cookies:
