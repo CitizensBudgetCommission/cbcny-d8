@@ -42,6 +42,7 @@ module:
   path: 0
   purge: 0
   purge_drush: 0
+  purge_processor_lateruntime: 0
   purge_queuer_url: 0
   purge_ui: 0
   redirect: 0
@@ -67,7 +68,6 @@ module:
   menu_link_content: 1
   pathauto: 1
   views: 10
-  standard: 1000
 theme:
   stable: 0
   classy: 0
