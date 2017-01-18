@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4d11de5904b6a23b8478ca59fa5a179e",
-    "content-hash": "71568c6d663ed7f3886e8c51c3495dfe",
+    "hash": "fa225894910970901884cd2a5eaa9e6f",
+    "content-hash": "26b518b96b26ceb910880515bbb9d2c8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2057,6 +2057,47 @@
             "description": "Allows users to specify the focal point of an image for use during cropping.",
             "homepage": "https://www.drupal.org/project/focal_point",
             "time": "2016-10-13 13:39:22"
+        },
+        {
+            "name": "drupal/google_analytics",
+            "version": "8.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/google_analytics",
+                "reference": "5a44ad5643af5510ec15c07727ce0d124ee1c1c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.1.zip",
+                "reference": "5a44ad5643af5510ec15c07727ce0d124ee1c1c1",
+                "shasum": null
+            },
+            "require": {
+                "drupal/core": "8.*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-8.x-2.x": "8.2.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/u/hass"
+                },
+                {
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/49388/committers"
+                }
+            ],
+            "description": "Allows your site to be tracked by Google Analytics by adding a Javascript tracking code to every page.",
+            "homepage": "https://www.drupal.org/project/google_analytics",
+            "time": "2016-08-09 21:26:53"
         },
         {
             "name": "drupal/honeypot",
