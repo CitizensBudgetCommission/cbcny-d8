@@ -103,7 +103,7 @@ handlers:
       to_mail: '[webform-submission:values:email:raw]'
       cc_mail: ''
       bcc_mail: ''
-      from_mail: default
+      from_mail: kmedina@cbcny.org
       from_name: default
       subject: 'Thank you for subscribing'
       body: 'Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.'
@@ -118,7 +118,7 @@ handlers:
     status: true
     weight: 1
     settings:
-      to_mail: default
+      to_mail: kmedina@cbcny.org
       cc_mail: ''
       bcc_mail: ''
       from_mail: '[webform-submission:values:email:raw]'
