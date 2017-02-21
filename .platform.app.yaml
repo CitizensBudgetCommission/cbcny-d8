@@ -69,7 +69,7 @@ mounts:
     '/private': 'shared:files/private'
     '/drush-backups': 'shared:files/drush-backups'
     # letsencrypt mounts
-    "/public/.well-known": "shared:files/.well-known"
+    "/web/.well-known": "shared:files/.well-known"
     "/keys": "shared:files/keys"
     "/.platformsh": "shared:files/.platformsh"
 
