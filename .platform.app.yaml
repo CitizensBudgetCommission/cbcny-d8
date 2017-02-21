@@ -50,6 +50,15 @@ web:
             # Can be true, false or a URI path string.
             passthru: '/index.php'
 
+        '/.well-known':
+            # Allow access to all files in the public files directory.
+            allow: true
+            expires: 5m
+            passthru: false
+            root: 'public/.well-known'
+            # Do not execute PHP scripts.
+            scripts: false
+
 # The size of the persistent disk of the application (in MB).
 disk: 2048
 
@@ -59,6 +68,10 @@ mounts:
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/drush-backups': 'shared:files/drush-backups'
+    # letsencrypt mounts
+    "/public/.well-known": "shared:files/.well-known"
+    "/keys": "shared:files/keys"
+    "/.platformsh": "shared:files/.platformsh"
 
 # The build-time dependencies of the app.
 dependencies:
@@ -73,6 +86,11 @@ hooks:
       npm install -g grunt-cli
       npm install
       grunt build
+      mv public/sites/default/scripts ./
+      mkdir -p .global/bin
+      curl -sL https://github.com/xenolf/lego/releases/download/v0.3.1/lego_linux_amd64.tar.xz | tar -C .global/bin -xJ --strip-components=1 lego/lego
+      curl -sfSL -o .global/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.5.0/platform.phar
+      echo -e "\napp:\n  token: $TOKEN" > .platformsh/config.yaml
 
     deploy: |
       cd web
@@ -86,3 +104,6 @@ crons:
     drupal:
         spec: '*/20 * * * *'
         cmd: 'cd web ; drush core-cron'
+    letsencrypt:
+        spec: '0 0 1 * *'
+        cmd: '/bin/sh /app/scripts/letsencrypt.sh'
