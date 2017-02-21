@@ -55,7 +55,7 @@ web:
             allow: true
             expires: 5m
             passthru: false
-            root: 'public/.well-known'
+            root: 'web/.well-known'
             # Do not execute PHP scripts.
             scripts: false
 
