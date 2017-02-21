@@ -90,7 +90,6 @@ hooks:
       mkdir -p .global/bin
       curl -sL https://github.com/xenolf/lego/releases/download/v0.3.1/lego_linux_amd64.tar.xz | tar -C .global/bin -xJ --strip-components=1 lego/lego
       curl -sfSL -o .global/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.5.0/platform.phar
-      echo -e "\napp:\n  token: $TOKEN" > .platformsh/config.yaml
 
     deploy: |
       cd web

@@ -4,7 +4,7 @@
 
 set -e
 
-if [ "$PLATFORM_ENVIRONMENT" = "master" ]
+if [ "$PLATFORM_ENVIRONMENT" = "master-7rqtwti" ]
   then
     # Renew the certificate
     lego --email="kmedina@cbcny.org" --domains="cbcny.org" --webroot=/app/web/ --path=/app/keys/ -a renew
