@@ -1,4 +1,4 @@
-http://old.cbcny.org/:
+http://old.{default}/:
   cache:
     cookies:
     - '*'
