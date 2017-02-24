@@ -1,0 +1,79 @@
+Index: views/plugins/views_plugin_display.inc
+===================================================================
+--- views/plugins/views_plugin_display.inc	(revision 44)
++++ views/plugins/views_plugin_display.inc	(working copy)
+@@ -79,6 +79,10 @@
+     $offset = $this->get_option('offset');
+     $use_pager = $this->get_option('use_pager');
+     $pager = $this->get_option('pager');
++
++    if (!$items_per_page && $pager['options']['items_per_page']) {
++      $items_per_page = $pager['options']['items_per_page'];
++    }
+     // Check if the pager options were already converted.
+     // The pager settings of a Views 2.x view specifying 10 items with an
+     // offset of 0 and no pager is the same as of a Views 3.x view with
+@@ -93,14 +97,13 @@
+       // Find out the right pager type.
+       // If the view "use pager" it's a normal/full pager.
+       if ($use_pager) {
+-        $type = 'full';
++        $type = $use_pager == 'mini' ? 'mini' : 'full';
+       }
+       // If it does not use pager, but 0 items per page it should not page
+       // else it should display just a certain amount of items.
+       else {
+         $type = $items_per_page ? 'some' : 'none';
+       }
+-
+       // Setup the pager options.
+       $pager = array(
+         'type' => $type,
+@@ -112,6 +115,7 @@
+       if ($items_per_page) {
+         $pager['options']['items_per_page'] = $items_per_page;
+       }
++
+       // Setup the pager element.
+       if ($id = $this->get_option('pager_element')) {
+         $pager['options']['id'] = $id;
+@@ -122,7 +126,30 @@
+       $this->set_option('items_per_page', NULL);
+       $this->set_option('offset', NULL);
+       $this->set_option('use_pager', NULL);
+-      $this->set_option('pager', $pager);
++
++      // Only override the defaults if pager settings are different:
++      $override = FALSE;
++      if (!$this->is_default_display()) {
++        $defaults = $this->view->display['default']->display_options['pager'];
++        if ($pager['type'] != $defaults['type']) {
++          $override = TRUE;
++        }
++        else {
++          foreach ($defaults['options'] as $opt_key => $opt_value) {
++            if (!isset($pager['options'][$opt_key]) 
++            || $opt_value != $pager['options'][$opt_key]) {
++              $override = TRUE;
++            }
++          }
++        }
++      }
++      if ($override) {
++        $this->override_option('pager', $pager);
++      }
++      // If we're not overriding, only set the pager on default display:
++      elseif ($this->is_default_display()) {
++        $this->set_option('pager', $pager);
++      }
+     }
+ 
+     // Plugable headers, footer and empty texts are
+@@ -2215,6 +2242,7 @@
+             $plugin->init($this->view, $this->display, $pager['options']);
+ 
+             $pager = array('type' => $form_state['values']['pager']['type'], 'options' => $plugin->options);
++
+             $this->set_option('pager', $pager);
+             if (!empty($plugin->definition['uses options'])) {
+               views_ui_add_form_to_stack('display', $this->view, $this->display->id, array('pager_options'));

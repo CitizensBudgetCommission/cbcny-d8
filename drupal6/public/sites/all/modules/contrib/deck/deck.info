@@ -1,0 +1,15 @@
+; $Id: deck.info,v 1.2 2010/08/08 15:57:19 xen Exp $
+name = Deck
+description = Use a CCK field for teaser, with fallback to auto generation.
+package = CCK
+core = 6.x
+dependencies[] = content
+dependencies[] = text
+dependencies[] = filter
+
+; Information added by drupal.org packaging script on 2010-12-04
+version = "6.x-1.2"
+core = "6.x"
+project = "deck"
+datestamp = "1291497365"
+

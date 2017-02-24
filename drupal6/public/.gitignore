@@ -1,0 +1,4 @@
+#drupal ignores
+sites/default/files
+*/.svn
+*/.DS_Store

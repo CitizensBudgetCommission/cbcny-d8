@@ -26,7 +26,6 @@ runtime:
 relationships:
     database: 'mysql:mysql'
     solr: 'solr:solr'
-    drupal6: 'drupal6:mysql'
     redis: "redis:redis"
 
 # The configuration of app when it is exposed to the web.

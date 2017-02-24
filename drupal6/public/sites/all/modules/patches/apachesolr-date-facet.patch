@@ -1,0 +1,54 @@
+diff --git a/sites/all/modules/contrib/apachesolr/apachesolr.module b/sites/all/modules/contrib/apachesolr/apachesolr.module
+index acf981a..652213c 100644
+--- a/sites/all/modules/contrib/apachesolr/apachesolr.module
++++ b/sites/all/modules/contrib/apachesolr/apachesolr.module
+@@ -19,7 +19,7 @@ function apachesolr_init() {
+     set_include_path(dirname(__FILE__) . PATH_SEPARATOR . get_include_path());
+     require_once 'Zend/Json/Decoder.php';
+     require_once 'Zend/Json/Encoder.php';
+-  
++
+     /**
+      * Substitute for missing PHP built-in functions.
+      */
+@@ -1136,6 +1136,17 @@ function apachesolr_facet_block($response, $query, $module, $delta, $facet_field
+     }
+     // Unless a facet is active only display 2 or more.
+     if ($items && ($response->response->numFound > 1 || $contains_active)) {
++      // Separate active items from all others to put them on top of the list.
++      $active_items = array();
++      if ($contains_active) {
++        // Sort items to get active items first.
++        ksort($items, SORT_STRING);
++        reset($items);
++        while (drupal_substr(key($items), 0, 1) == '*') {
++          $active_items[key($items)] = array_shift($items);
++          $key = key($items);
++        }
++      }
+       switch ($facet_query_sorts[$module][$delta]) {
+         case 'index numeric asc':
+           ksort($items, SORT_NUMERIC);
+@@ -1153,6 +1164,9 @@ function apachesolr_facet_block($response, $query, $module, $delta, $facet_field
+           ksort($items, SORT_STRING);
+           break;
+       }
++      // Merge with active items.
++      $items = array_merge($active_items, $items);
++
+       // Get information needed by the rest of the blocks about limits.
+       $initial_limits = variable_get('apachesolr_facet_query_initial_limits', array());
+       $limit = isset($initial_limits[$module][$delta]) ? $initial_limits[$module][$delta] : variable_get('apachesolr_facet_query_initial_limit_default', 10);
+diff --git a/sites/all/modules/contrib/apachesolr/apachesolr_search.module b/sites/all/modules/contrib/apachesolr/apachesolr_search.module
+index de277b7..db7bc63 100644
+--- a/sites/all/modules/contrib/apachesolr/apachesolr_search.module
++++ b/sites/all/modules/contrib/apachesolr/apachesolr_search.module
+@@ -261,7 +261,7 @@ function apachesolr_search_finalize_query(&$query, &$params) {
+       $fields = array($delta);
+       // CCK and taxonomy facet field block deltas are not the same as their Solr index field names.
+       if (strpos($delta, '_cck_') !== FALSE) {
+-        $fields[] = trim(drupal_substr($delta, 7, drupal_strlen($delta)));
++        $fields[] = trim(drupal_substr($delta, 8, drupal_strlen($delta)));
+       }
+       elseif ($delta == 'tid') {
+         if (function_exists('taxonomy_get_term')) {
