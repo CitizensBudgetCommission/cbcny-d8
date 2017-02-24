@@ -30,7 +30,7 @@ web:
             # The folder from which to serve static assets, for this location.
             #
             # This is a filesystem path, relative to the application root.
-            root: 'drupal6/public'
+            root: 'public'
 
             # How long to allow static assets from this location to be cached.
             # Can be a time in seconds, or -1 for no caching. Times can be
@@ -72,4 +72,4 @@ hooks:
 crons:
     drupal:
         spec: '*/20 * * * *'
-        cmd: 'cd drupal6/public ; drush core-cron'
+        cmd: 'cd public ; drush core-cron'
