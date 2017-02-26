@@ -1,3 +1,9 @@
+# Password protect this directory
+AuthType Basic
+AuthName "Cbcny site archive"
+AuthUserFile /app/.htpasswd
+Require valid-user
+
 #
 # Apache/PHP/Drupal settings:
 #
