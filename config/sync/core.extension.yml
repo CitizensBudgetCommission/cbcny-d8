@@ -1,4 +1,5 @@
 module:
+  action: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   allowed_formats: 0
@@ -41,6 +42,7 @@ module:
   path: 0
   redirect: 0
   redis: 0
+  scheduler: 0
   search_api: 0
   search_api_solr: 0
   system: 0
