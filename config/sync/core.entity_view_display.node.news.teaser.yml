@@ -20,6 +20,7 @@ dependencies:
   module:
     - datetime
     - link
+    - title
     - user
 id: node.news.teaser
 targetEntityType: node
@@ -66,11 +67,13 @@ content:
       link: false
     third_party_settings: {  }
   title:
-    type: string
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
-    weight: 3
-    label: hidden
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
 hidden:
   field_hero: true
