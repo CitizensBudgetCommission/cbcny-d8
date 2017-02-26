@@ -27,5 +27,6 @@ content:
     label: above
     third_party_settings: {  }
 hidden:
+  field_searchable: true
   field_template: true
   field_term_topic: true

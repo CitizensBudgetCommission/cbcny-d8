@@ -9,3 +9,8 @@ label: Content
 tags:
   title: '[node:title] | [site:name]'
   description: '[node:summary]'
+  article_tag: '[node:field_term_topic]'
+  article_publisher: 'https://www.facebook.com/CitizensBudgetCommission'
+  og_description: '[node:summary]'
+  og_type: '[node:content-type]'
+  article_section: '[node:field_term_section]'

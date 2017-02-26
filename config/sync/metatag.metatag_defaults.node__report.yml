@@ -1,0 +1,10 @@
+uuid: d9441c31-a31b-497a-b9db-c8b27eccd203
+langcode: en
+status: true
+dependencies: {  }
+id: node__report
+label: 'Content: Report'
+tags:
+  article_published_time: field_published_date
+  og_image: '[node:field_hero]'
+  og_description: '[node:field_subtitle]: [node:field_teaser_plain]'

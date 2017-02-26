@@ -27,3 +27,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_hero: true
+  field_searchable: true

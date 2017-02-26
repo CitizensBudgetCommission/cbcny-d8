@@ -57,6 +57,10 @@ content:
     third_party_settings: {  }
 hidden:
   field_hero: true
+  field_is_featured: true
+  field_metatags: true
   field_page_content: true
+  field_searchable: true
   field_subtitle: true
+  field_term_section: true
   links: true

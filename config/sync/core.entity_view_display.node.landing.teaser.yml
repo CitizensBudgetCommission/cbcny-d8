@@ -24,4 +24,6 @@ content:
 hidden:
   field_hero: true
   field_page_content: true
+  field_searchable: true
+  field_term_section: true
   links: true
