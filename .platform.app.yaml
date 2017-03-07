@@ -105,3 +105,6 @@ crons:
     letsencrypt:
         spec: '0 0 1 * *'
         cmd: '/bin/sh /app/scripts/letsencrypt.sh'
+    scheduler:
+        spec: '*/5 * * * *'
+        cmd: 'wget -O - -q -t 1 https://cbcny.org/scheduler/cron/85cefefbf611cfb0bb0d'

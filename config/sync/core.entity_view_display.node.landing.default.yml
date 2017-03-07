@@ -11,6 +11,7 @@ dependencies:
   module:
     - entity_reference_revisions
     - options
+    - title
     - user
 id: node.landing.default
 targetEntityType: node
@@ -48,11 +49,13 @@ content:
       link: false
     third_party_settings: {  }
   title:
-    type: string
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
-    weight: 2
-    label: hidden
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
 hidden:
   links: true

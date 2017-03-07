@@ -6,8 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.landing.field_hero
     - field.field.node.landing.field_page_content
+    - field.field.node.landing.field_searchable
+    - field.field.node.landing.field_term_section
     - node.type.landing
   module:
+    - title
     - user
 id: node.landing.teaser
 targetEntityType: node
@@ -15,13 +18,17 @@ bundle: landing
 mode: teaser
 content:
   title:
-    type: string
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
-    weight: 0
-    label: hidden
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
 hidden:
   field_hero: true
   field_page_content: true
+  field_searchable: true
+  field_term_section: true
   links: true

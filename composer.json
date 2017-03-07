@@ -57,7 +57,8 @@
     "drupal/redis": "~1",
     "drupal/cloudflare": "~1",
     "drupal/purge": "~3",
-    "drupal/purge_queuer_url": "~1"
+    "drupal/purge_queuer_url": "~1",
+    "drupal/scheduler": "~1"
   },
   "require-dev": {
     "behat/mink": "~1.7",

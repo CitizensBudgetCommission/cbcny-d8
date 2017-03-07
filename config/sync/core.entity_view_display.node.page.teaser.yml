@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.page.field_term_section
     - node.type.page
   module:
+    - title
     - user
 id: node.page.teaser
 targetEntityType: node
@@ -25,11 +26,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   title:
-    type: string
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
+      tag: h2
+      linked: true
+      classes: ''
     weight: -5
-    label: hidden
+    label: above
     third_party_settings: {  }
 hidden:
   field_hero: true

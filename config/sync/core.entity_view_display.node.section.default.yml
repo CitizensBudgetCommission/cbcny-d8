@@ -10,6 +10,7 @@ dependencies:
     - node.type.section
   module:
     - options
+    - title
     - user
 id: node.section.default
 targetEntityType: node
@@ -44,11 +45,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_id
   title:
-    type: string
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
-    weight: 0
-    label: hidden
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
 hidden:
   links: true
