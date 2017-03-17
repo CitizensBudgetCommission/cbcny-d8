@@ -1,0 +1,7 @@
+name: CBC Token
+type: module
+description: Special tokens and related behaviors for CBC
+core: 8.x
+package: Custom
+dependencies:
+  - token
