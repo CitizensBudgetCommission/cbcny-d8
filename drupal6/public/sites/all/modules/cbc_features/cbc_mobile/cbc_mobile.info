@@ -1,0 +1,8 @@
+name = "CBC Mobile"
+description = "CBC Mobile settings"
+core = "6.x"
+package = "Features"
+dependencies[] = "jquery_update"
+dependencies[] = "strongarm"
+features[ctools][] = "strongarm:strongarm:1"
+features[variable][] = "site_name"

@@ -1,0 +1,183 @@
+<?php
+// $Id: profile_taxonomy.install,v 1.6 2010/12/30 15:10:58 gnindl Exp $
+
+/**
+ * @file profile_taxonomy.install
+ * Database level of profile field to vocabulary assignment.
+ */
+
+/**
+ * hook_schema represents the profile_taxonomy database schema.
+ */
+function profile_taxonomy_schema() {
+  $schema = array();
+
+  $schema['profile_taxonomy'] = array(
+    'description' => 'Stores the relationship of user profile fields to vocabularies.',
+    'fields' => array(
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Primary Key: The {profile_fields}.fid of a profile field.',
+      ),
+      'vid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The {vocabulary}.vid of a vocabulary.',
+      ),
+      'terms' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'description' => 'Term id and names arrays.',
+      ),
+      'settings' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'description' => 'Data, widget and display options.',
+      ),
+    ),
+    'primary key' => array('fid'),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function profile_taxonomy_install() {
+  drupal_install_schema('profile_taxonomy');
+}
+
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function profile_taxonomy_uninstall() {
+  //TODO: remove options in profile fields first
+  drupal_uninstall_schema('profile_taxonomy');
+}
+
+/**
+ * The name of taxonomy terms are stored now, instead of their ids in
+ * the profile values. Upgrade initial development snapshot to 1.0-rc1.
+ */
+function profile_taxonomy_update_6000() {
+  $sql = '
+    SELECT * FROM profile_taxonomy pt
+    INNER JOIN profile_fields pf ON pt.field = pf.name
+    INNER JOIN profile_values pv ON pf.fid = pv.fid
+  ';
+  $result = db_query($sql);
+  
+  $ret = array();
+  while (($row = db_fetch_object($result)) != NULL) {
+	$tid = $row->value;  
+	$term = taxonomy_get_term($tid);
+	if ($term) { //change term id to term name
+	  $update = "UPDATE	profile_values SET value = '$term->name' WHERE fid = $row->fid AND uid = $row->uid";
+	  $ret[] = update_sql($update);
+	}
+  }
+  return $ret;
+}
+
+/**
+ * Upgrade from 1.0-rc1 to 1.0-rc2.
+ * The column field holding the field name is now replaced by
+ * the column fid holding the field id. Further the taxonomy term
+ * names are exported to the profile fields options.
+ */
+function profile_taxonomy_update_6001() {
+ 
+  if (db_column_exists('profile_taxonomy', 'field')) {  	  	
+  	$ret = array(); //array of update statement to be displayed in the final update report
+  	
+  	//create the new first column as primary key holding the field id
+    $spec = array(
+      'type' => 'int',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+      'default' => 0,
+      'description' => 'Primary Key: The {profile_fields}.fid of a profile field.',
+    );
+    $ret[] = update_sql("ALTER TABLE profile_taxonomy ADD " . _db_create_field_sql('fid', _db_process_field($spec)) . " FIRST");
+  	
+    //now transfer data from field name (field) to field id (fid)
+    $result = db_query('SELECT * FROM profile_taxonomy'); //get all assignments
+    while (($row = db_fetch_object($result)) != NULL) {
+  	  $field = db_fetch_object(db_query("SELECT * FROM {profile_fields} WHERE name = '%s'", $row->field)); //get the profile field
+  	  //set field id for the given field name
+  	  $ret[] = update_sql("UPDATE profile_taxonomy SET fid = $field->fid WHERE field = '$row->field'");
+  	
+  	  //export taxonomy terms to profile_fields depending on assigment
+  	  $options = NULL;
+  	  $tree = taxonomy_get_tree($row->vid); //get all terms from vocabulary
+      if ($tree) { //build tree, i. e. term list
+        foreach ($tree as $term) 
+          $options .= $term->name . "\r\n"; 
+        $options = db_escape_string($options); //escape special characters
+        $ret[] = update_sql("UPDATE profile_fields SET options = '$options' WHERE fid = $field->fid"); //update profile field options
+      }
+    }
+  
+    //define primary key for column fid
+    $ret[] = update_sql('ALTER TABLE profile_taxonomy DROP PRIMARY KEY');
+    $ret[] = update_sql('ALTER TABLE profile_taxonomy ADD PRIMARY KEY (fid)');
+    
+    //finally delete obsolete column field
+    db_drop_field($ret, 'profile_taxonomy', 'field');
+  	
+    return $ret;	
+  }
+}
+
+/**
+ * Update to version 1.0. We need to store the term id name mapping to ensure a more accurate identification. 
+ * Further we add a settings field making the field storage and display configurable.
+ */
+function profile_taxonomy_update_6100() {
+  $ret = array();
+  //add new serialized db columns "terms" and "settings"
+  $spec = array(
+    'type' => 'text',
+    'size' => 'medium',
+    'not null' => TRUE,
+    'serialize' => TRUE,
+  );
+  $ret[] = update_sql("ALTER TABLE profile_taxonomy ADD " . 
+    _db_create_field_sql('terms', _db_process_field($spec)));
+    
+  $ret[] = update_sql("ALTER TABLE profile_taxonomy ADD " . 
+    _db_create_field_sql('settings', _db_process_field($spec)));
+    
+  $result = db_query("SELECT * FROM profile_taxonomy");
+  while ($row = db_fetch_object($result)) {
+    $settings = array(
+      'parent_term' => 0,
+      'show_depth' => 1,
+      'depth' => '',
+      'i18n' => 1,
+      'display' => 'text',      
+    );
+    $terms = array();
+    $tree = taxonomy_get_tree($row->vid);
+    if ($tree) { //build tree, i. e. term list
+      foreach ($tree as $leaf) {
+        $terms['keys'][] = $leaf->tid;
+        $terms['values'][] = $leaf->name;
+        $terms['depths'][] = $leaf->depth;
+      }
+    }
+    //update terms and settings  
+    db_query("UPDATE profile_taxonomy SET terms = '%s', settings = '%s' WHERE fid = %d", serialize($terms), serialize($settings), $row->fid);
+  }
+  return $ret;
+}

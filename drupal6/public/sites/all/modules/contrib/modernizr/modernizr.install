@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_requirements.
+ */
+function modernizr_requirements($phase) {
+  $requirements = array();
+  switch($phase) {
+    case 'runtime':
+      module_load_include('module', 'modernizr');
+      $installed = modernizr_lib_path();
+      $requirements[] = array(
+        'title' => t('Modernizr library'),
+        'value' => $installed ? t('Installed') : t('Missing'),
+        'description' => t('Modernizr Javascript Library. Download it from !modernizr-site, copy it to the module directory and rename it to modernizr.min.js.', array(
+          '!modernizr-site' => l(t('here'), 'http://modernizr.com'),
+        )),
+        'severity' => $installed ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+      );
+      break;
+  }
+  return $requirements;
+}

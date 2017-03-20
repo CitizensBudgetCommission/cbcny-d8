@@ -1,0 +1,222 @@
+.BlockContent-body a, a:hover, a:visited, a:active {
+  color:#2D455D;
+  text-decoration:none;
+  font-weight: 500;
+}
+
+.BlockContent-body a:hover {
+    text-decoration:underline;
+}
+
+.BlockContent-body li.leaf, ul.menu li.leaf {
+    list-style-type:none;
+    list-style-image:none;
+   }
+
+#block-taxonomy_block-0 .BlockContent-body ul.menu li a {
+   font-weight:bold;
+}
+
+#block-taxonomy_block-0 .BlockContent-body ul.menu ul li a {
+    font-weight:normal;
+    margin: 0 0 0.25em 1.5em;
+}
+
+ul.primary li a {
+  padding:0 1em;
+}
+
+.BlockContent-body table tbody {
+    border:none;
+ 
+}
+
+.view-content .item-list ul li div.views-field-title {
+  padding: 0;
+  text-align:center;
+  width:100% !important;
+}
+
+.view-recent-events .view-content .item-list ul li {
+    margin:0;
+}
+
+.big-green {
+   overflow:visible;
+   font-size: 5em;
+   line-height:60px;
+  padding-bottom:0;
+   text-align:center;
+}
+
+.item-list ul li .views-field-title a {
+  font-size:12px !important;
+}
+
+.BlockContent-body .view-header {
+  font-weight:bold;
+  color: #0B3149;
+}
+
+.BlockContent-body .view-recent-events .field-content a {
+font-weight:normal;
+color:  #4075af;
+font-family: Sans-Serif;
+}
+
+.BlockContent-body .view-recent-events {
+  line-height: 1.3em;
+}
+
+.BlockContent-body .view-recent-events .view-empty {
+}
+
+.views-field-field-fastfact-number-callout-value {
+    line-height:0em;
+}
+
+#block-views-cbc_homepage-block_1 .BlockHeader {
+  height:20px;
+}
+
+.views-field-body .field-content p {
+   color: #333;
+}
+
+div.content {
+  padding-left:0px;
+}
+
+.pager a {
+  padding: 0 1px;
+}
+
+.item-list ul.pager li.pager-current {
+  padding:0.5em;
+  margin: 0 !important;
+}
+
+.item-list ul.pager li {
+  padding:0;
+  margin:0 !important;
+}
+
+.item-list ul.pager {
+  padding:0;
+  margin:0;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.pager-current {
+  margin:0;
+}
+
+.pager li a.active {
+  font-weight:bold;
+  color:#2763a5;
+}
+
+
+.node-type-blog .teaser div.service-links {
+display:none;
+}
+
+.views-field-field-event-img-teaser-fid {
+text-align: center;
+}
+
+.read-more {
+  text-align: right;
+}
+
+.node-type-blog .teaser .read-more {
+top:0px;
+}
+
+.view-recent-events .field-field-event-img-teaser {
+padding-bottom:0;
+}
+
+#views-exposed-form-power-search-page-1 .views-exposed-widget .form-item {
+margin-top:0;
+}
+
+
+/* Calendar styling */
+.calendar-calendar td.has-events {
+background: #EAF5E4;
+}
+
+.calendar-calendar td.has-events a {
+font-weight:bold;
+text-decoration: none;
+}
+
+.calendar-calendar th.days.sun {
+display:none;
+}
+
+.calendar-calendar th.days.sat {
+display:none;
+}
+
+#container .calendar-calendar td.sun {
+display:none;
+}
+
+#container .calendar-calendar td.sat {
+display:none;
+}
+
+
+/**
+ *moving styles from templates into an actual css file
+ **/
+.sidebar-left {
+  float:left;
+  margin-left:15px;
+  width:25%;
+}
+
+.sidebar-right {
+  float:left;
+  margin-left:5px;
+  width:220px;
+}
+
+.login-with-right {
+  float:left;
+  margin-left:5px;
+  width:480px;
+}
+
+.login-without-right {
+  float:left;
+  width:72%;
+}
+
+.logo-bg-div {
+  height: 144px;
+}
+
+.logo-link {
+  height:144px;
+  width:560px;
+}
+
+.logo-link a {
+  display: block;
+  height:144px;
+  width:560px;
+}
+
+.site-name {
+  display: none;
+}
+
+
+
+#skip-nav {
+  display: none !important;
+}

@@ -1,0 +1,4 @@
+name = CBC
+description = CBC Customizations
+package = CBC
+core = 6.x

@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Reroute Email module installation functions.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function reroute_email_uninstall() {
+  variable_del('reroute_email_address');
+  variable_del('reroute_email_enable');
+  variable_del('reroute_email_enable_message');
+}
+
+/**
+ * Implements hook_install().
+ */
+function reroute_email_install() {
+  update_sql("UPDATE {system} SET weight = 99 WHERE name = 'reroute_email' AND type = 'module'");
+}
+
+/**
+ * Update module's weight.
+ */
+function reroute_email_update_6100() {
+  $ret[] = update_sql("UPDATE {system} SET weight = 99 WHERE name = 'reroute_email' AND type = 'module'");
+  return $ret;
+}

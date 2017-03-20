@@ -1,0 +1,3 @@
+<?php
+
+include_once('pocket_summary_charts.features.inc');

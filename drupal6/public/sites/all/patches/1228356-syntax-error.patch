@@ -1,0 +1,13 @@
+diff --git a/sites/all/modules/contrib/contextual/contextual.module b/sites/all/modules/contrib/contextual/contextual.module
+index 733d583..f3a8983 100644
+--- a/contextual.module
++++ b/contextual.module
+@@ -143,7 +143,7 @@ function views_admin_link($type, $object) {
+         }
+         break;
+     }
+-    if (!empty($view_name)) && module_exists('views_ui')) {
++    if (!empty($view_name) && module_exists('views_ui')) {
+       $links['views-edit'] = array(
+         'title' => t('Edit view'),
+         'href' => "admin/build/views/edit/{$view_name}",

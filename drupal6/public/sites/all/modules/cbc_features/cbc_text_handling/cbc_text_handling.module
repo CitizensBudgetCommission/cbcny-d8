@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the cbc_text_handling feature.
+ */
+
+include_once 'cbc_text_handling.features.inc';

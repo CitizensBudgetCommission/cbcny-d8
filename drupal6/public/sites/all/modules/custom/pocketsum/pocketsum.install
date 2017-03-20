@@ -1,0 +1,83 @@
+<?php
+/**
+ * @file
+ * Install/update hooks related to pocket summaries.
+ */
+
+/**
+ * [#774] delete all imported Expense nodes.
+ */
+function pocketsum_update_6001(&$sandbox) {
+  // Set total count.
+  if (!isset($sandbox['total'])) {
+    $sandbox['total'] = db_result(db_query("SELECT COUNT(nid) FROM {feeds_node_item} WHERE id IN ('pocket_summary_chart_data', 'pocket_summary_nyc_revenue', 'pocket_summary_nys_revenue', 'pocket_summary_nys_expense')"));
+  }
+
+  // Set current count.
+  if (!isset($sandbox['current'])) {
+    $sandbox['current'] = 0;
+  }
+
+  // Delete all the nodes listed for our importers in feeds_node_item, 20 per batch.
+  $result = db_query_range("SELECT nid FROM {feeds_node_item} WHERE id IN ('pocket_summary_chart_data', 'pocket_summary_nyc_revenue', 'pocket_summary_nys_revenue', 'pocket_summary_nys_expense')", 0, 20);
+
+  while ($node = db_fetch_object($result)) {
+    // Copy of node_delete without access checks.
+    if ($node = node_load($node->nid, NULL, TRUE)) {
+      db_query('DELETE FROM {node} WHERE nid = %d', $node->nid);
+      db_query('DELETE FROM {node_revisions} WHERE nid = %d', $node->nid);
+      db_query('DELETE FROM {node_access} WHERE nid = %d', $node->nid);
+
+      // Call the node-specific callback (if any):
+      node_invoke($node, 'delete');
+      node_invoke_nodeapi($node, 'delete');
+
+      // Clear the page and block caches.
+      cache_clear_all();
+
+      $sandbox['current']++;
+    }
+  }
+
+  $ret['#finished'] = $sandbox['current'] / $sandbox['total'];
+  return $ret;
+}
+
+/**
+ * [#774] delete all other Expense nodes.
+ */
+function pocketsum_update_6002(&$sandbox) {
+  // Set total count.
+  if (!isset($sandbox['total'])) {
+    $sandbox['total'] = db_result(db_query("SELECT COUNT(nid) FROM {node} WHERE type = 'expense'"));
+  }
+
+  // Set current count.
+  if (!isset($sandbox['current'])) {
+    $sandbox['current'] = 0;
+  }
+
+  // Delete all the nodes listed for our importers in feeds_node_item, 20 per batch.
+  $result = db_query_range("SELECT nid FROM {node} WHERE type = 'expense'", 0, 20);
+
+  while ($node = db_fetch_object($result)) {
+    // Copy of node_delete without access checks.
+    if ($node = node_load($node->nid, NULL, TRUE)) {
+      db_query('DELETE FROM {node} WHERE nid = %d', $node->nid);
+      db_query('DELETE FROM {node_revisions} WHERE nid = %d', $node->nid);
+      db_query('DELETE FROM {node_access} WHERE nid = %d', $node->nid);
+
+      // Call the node-specific callback (if any):
+      node_invoke($node, 'delete');
+      node_invoke_nodeapi($node, 'delete');
+
+      // Clear the page and block caches.
+      cache_clear_all();
+
+      $sandbox['current']++;
+    }
+  }
+
+  $ret['#finished'] = $sandbox['current'] / $sandbox['total'];
+  return $ret;
+}
