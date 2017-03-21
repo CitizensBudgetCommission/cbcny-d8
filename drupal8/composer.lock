@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "273bec3bf97e03240e0803382036a45f",
-    "content-hash": "66a45a78645870160da5118e57c61dfe",
+    "hash": "610c31008f30079d4c836aee755b3019",
+    "content-hash": "da3e372d90cf67151e2d728492aaf697",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -427,65 +427,6 @@
             ],
             "description": "Provides a way to patch Composer packages.",
             "time": "2016-12-01 01:19:32"
-        },
-        {
-            "name": "d8-contrib-modules/cloudflarephpsdk",
-            "version": "1.0.0-alpha5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/d8-contrib-modules/cloudflarephpsdk.git",
-                "reference": "4bd00bacdb3aa56e88cbd871c3db7925eb0a9e66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/d8-contrib-modules/cloudflarephpsdk/zipball/4bd00bacdb3aa56e88cbd871c3db7925eb0a9e66",
-                "reference": "4bd00bacdb3aa56e88cbd871c3db7925eb0a9e66",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.1",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "drupal/coder": "8.2.*",
-                "pdepend/pdepend": "1.1.*",
-                "phing/phing": "2.11.*",
-                "phploc/phploc": "2.0.*@dev",
-                "phpmd/phpmd": "1.*",
-                "phpunit/phpunit": "~4.8",
-                "sebastian/phpcpd": "2.0.*@dev",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CloudFlarePhpSdk\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Weingarten",
-                    "email": "aweingarten@users.noreply.github.com",
-                    "homepage": "https://github.com/aweingarten"
-                }
-            ],
-            "description": "PHP client for interacting with CloudFlare's SDK. CloudFlare is a copyright of CloudFlare, Inc.  The authors of this tool has no association with CloudFlare, Inc.",
-            "homepage": "https://github.com/d8-contrib-modules/cloudflarephpsdk",
-            "keywords": [
-                "Cloud Flare",
-                "client",
-                "cloudflare",
-                "curl",
-                "framework",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2016-11-01 00:34:10"
         },
         {
             "name": "dflydev/dot-access-configuration",
@@ -1377,118 +1318,6 @@
             "homepage": "https://www.drupal.org/project/chosen",
             "support": {
                 "source": "http://cgit.drupalcode.org/chosen"
-            }
-        },
-        {
-            "name": "drupal/cloudflare",
-            "version": "1.0.0-alpha7",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/cloudflare",
-                "reference": "8.x-1.0-alpha7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cloudflare-8.x-1.0-alpha7.zip",
-                "reference": null,
-                "shasum": "5e9902410922fc9af2853c3f68d0c36e664a8abc"
-            },
-            "require": {
-                "d8-contrib-modules/cloudflarephpsdk": "^1",
-                "drupal/core": "~8.0",
-                "drupal/ctools": "*"
-            },
-            "require-dev": {
-                "behat/behat": "^3.0",
-                "composer/installers": "^1.0.20",
-                "drupal-composer/drupal-scaffold": "^2.0.0",
-                "drupal/coder": "*",
-                "drupal/core": "8.*",
-                "drupal/ctools": "*",
-                "drupal/drupal-extension": "^3.1",
-                "drupal/purge": "*",
-                "drush/drush": "^9.0",
-                "jakoch/phantomjs-installer": "1.9.8",
-                "lakion/mink-debug-extension": "^1.0.3",
-                "phpunit/phpunit": "~4.8",
-                "squizlabs/php_codesniffer": "~2"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha7",
-                    "datestamp": "1477961340"
-                },
-                "installer-paths": {
-                    "docroot/core": [
-                        "type:drupal-core"
-                    ],
-                    "docroot/modules/contrib/{$name}": [
-                        "type:drupal-module"
-                    ],
-                    "docroot/profiles/contrib/{$name}": [
-                        "type:drupal-profile"
-                    ],
-                    "docroot/themes/contrib/{$name}": [
-                        "type:drupal-theme"
-                    ],
-                    "drush/contrib/{$name}": [
-                        "type:drupal-drush"
-                    ]
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Drupal\\Tests\\PHPUnit\\": "tests/phpunit/src/"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "scripts": {
-                "post-install-cmd": [
-                    "PhantomInstaller\\Installer::installPhantomJS",
-                    "mkdir -p docroot/modules/program && rsync -a . docroot/modules/program  --exclude \".idea\" --exclude bin --exclude \".git\" --exclude \".gitignore\" --exclude docroot --exclude \"*.make\" --exclude \".travis.yml\" --exclude vendor && rm -fr modules/contrib themes/contrib"
-                ],
-                "post-update-cmd": [
-                    "mkdir -p docroot/modules/program && rsync -a . docroot/modules/program  --exclude \".idea\" --exclude bin --exclude \".git\" --exclude \".gitignore\" --exclude docroot --exclude \"*.make\" --exclude \".travis.yml\" --exclude vendor && rm -fr modules/contrib themes/contrib"
-                ],
-                "drupal-scaffold": [
-                    "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-                ]
-            },
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Brian294",
-                    "homepage": "https://www.drupal.org/user/348040"
-                },
-                {
-                    "name": "Wim Leers",
-                    "homepage": "https://www.drupal.org/user/99777"
-                },
-                {
-                    "name": "adam.weingarten",
-                    "homepage": "https://www.drupal.org/user/2677413"
-                },
-                {
-                    "name": "phayes",
-                    "homepage": "https://www.drupal.org/user/47098"
-                }
-            ],
-            "description": "Drupal module for interacting with CloudFlare's SDK. CloudFlare is a copyright of CloudFlare, Inc.  The authors of this tool has no association with CloudFlare, Inc.",
-            "homepage": "https://github.com/d8-contrib-modules/cloudflare",
-            "keywords": [
-                "CDN",
-                "Cloud Flare",
-                "CloudFlare",
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/cloudflare"
             }
         },
         {
@@ -2719,101 +2548,6 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "http://cgit.drupalcode.org/pathauto"
-            }
-        },
-        {
-            "name": "drupal/purge",
-            "version": "3.0.0-beta6",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/purge",
-                "reference": "8.x-3.0-beta6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.0-beta6.zip",
-                "reference": null,
-                "shasum": "9d40630d796a95b289ea8ce9518b668f229febe5"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-3.0-beta6",
-                    "datestamp": "1477484639"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "SqyD",
-                    "homepage": "https://www.drupal.org/user/106525"
-                },
-                {
-                    "name": "djbobbydrake",
-                    "homepage": "https://www.drupal.org/user/336378"
-                },
-                {
-                    "name": "nielsvm",
-                    "homepage": "https://www.drupal.org/user/163285"
-                }
-            ],
-            "description": "Provides a generic external cache invalidation API and queue service.",
-            "homepage": "https://www.drupal.org/project/purge",
-            "support": {
-                "source": "http://cgit.drupalcode.org/purge"
-            }
-        },
-        {
-            "name": "drupal/purge_queuer_url",
-            "version": "1.0.0-beta5",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/purge_queuer_url",
-                "reference": "8.x-1.0-beta5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/purge_queuer_url-8.x-1.0-beta5.zip",
-                "reference": null,
-                "shasum": "6ba894aafc8d12aa668ff77820ef5b736ea8377f"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/purge": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta5",
-                    "datestamp": "1473245939"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "nielsvm",
-                    "homepage": "https://www.drupal.org/user/163285"
-                }
-            ],
-            "description": "Queues URLs or paths to your Purge queue utilizing a traffic database.",
-            "homepage": "https://www.drupal.org/project/purge_queuer_url",
-            "support": {
-                "source": "http://cgit.drupalcode.org/purge_queuer_url"
             }
         },
         {
