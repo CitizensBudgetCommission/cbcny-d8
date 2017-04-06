@@ -1,0 +1,43 @@
+uuid: 8c2c4473-d392-40fc-bb50-e1af2b4ab1b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.field_hero
+    - field.field.node.homepage.field_searchable
+    - node.type.homepage
+  module:
+    - entity_reference_revisions
+    - options
+    - title
+    - user
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  field_hero:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_searchable:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  links: true

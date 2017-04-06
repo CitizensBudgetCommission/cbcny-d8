@@ -1,0 +1,493 @@
+<?php
+// $Id: profile_taxonomy.module,v 1.9 2010/12/30 15:10:58 gnindl Exp $
+
+/**
+ * @file profile_taxonomy.module
+ * This module enables the assignment of taxonomy terms to user profiles. Taxonomy terms
+ * are exported and synchronized with the option values of a profile field selection list.
+ * Users can choose these terms on referenced profile fields.
+ */
+
+//Definition of constants
+define('PROFILE_TAXONOMY_MODULE_NAME', 'profile_taxonomy');
+define('PROFILE_TAXONOMY_MODULE_PATH', drupal_get_path('module', PROFILE_TAXONOMY_MODULE_NAME));
+define('PROFILE_TAXONOMY_URL_LIST_TERMS', PROFILE_TAXONOMY_MODULE_NAME . '/list_vocabulary_terms');
+
+
+/**
+ * This menu callback provides a list of vocabulary terms in form of a JSON array. 
+ * The array contains term keys and names as separate sub arrays. 
+ * @param $vid
+ *   integer vocabulary id
+ * @param $parent
+ *   integer parent term id limits to its child terms
+ * @param $hierarchy
+ *   boolean flag for indenting child terms, i. e. display as a hierarchy
+ * @param $max_depth
+ *   integer number of maximum levels of the taxonomy tree
+ */
+function profile_taxonomy_list_vocabulary_terms($vid, $parent = 0, $hierarchy = TRUE, $max_depth = NULL) {
+  drupal_json(profile_taxonomy_get_list_vocabulary_terms($vid, $parent, $hierarchy, $max_depth));
+}
+
+/**
+ * Additional option on the selection list field type enables the administrator to
+ * select a vocabulary and exports (part) of its terms.
+ * @param $form
+ *   array representing profile field edit form
+ */
+function profile_taxonomy_field_settings(&$form) {
+  
+  //Insert the additional settings after the option text area. 
+  //Therefore we have to set the weight of each form element.
+  $weight = 0; //widiget form position
+  $counter = 0;
+  foreach ($form['fields'] as $key => &$field) {
+    if (is_array($field)) {
+      $field['#weight'] = $counter++; //set weight for form elements
+      if ($key == 'options') { //inject vocabularies selection here.
+      	$weight = $counter++;
+      }
+    }
+  }
+  
+  //get a vocabulary reference if existing
+  $reference = profile_taxonomy_get_reference($form['fid']['#value']);
+  
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Advanced selection options referencing taxonomy terms'),
+    '#collapsed' => FALSE,
+    '#collapsible' => TRUE,
+    '#weight' => $weight,
+  );
+  
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['vocabulary'] = array( //create possible references to vocabularies
+    '#type' => 'select',
+    '#title' => t('Vocabulary'),
+    '#description' => t('Referenced vocabulary provide terms as selection options. Taxonomy terms names are exported and synchronized to the "Selection options" text area from above.'),
+    '#options' => profile_taxonomy_vocabularies_options_list(),
+    '#multiple' => FALSE,
+    '#size' => 0,
+    '#default_value' => isset($reference->vid) ? $reference->vid : 0,
+  );
+  
+  $terms = profile_taxonomy_get_list_vocabulary_terms($reference->vid);
+  $parent_terms = array();
+  $parent_terms[0] = t('---');
+  for ($i = 0 ; $i < count($terms['keys']) ; $i++) {
+    $parent_terms[$terms['keys'][$i]] = $terms['values'][$i];
+  }
+  
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['parent_term'] = array(
+    '#type' => 'select',
+    '#title' => t('Parent Term'),
+    '#options' => $parent_terms,
+    '#default_value' => isset($reference->settings['parent_term']) ? $reference->settings['parent_term'] : 0,
+    '#description' => t('Child terms of the selected parent term are going to be exposed the field. No selection exports the whole vocabulary.'),
+  	//excempt this form element from validation as values are updated via Ajax requests
+    '#validated' => TRUE,
+    '#element_validate' => array(),
+  
+  );
+  
+  //the following fields won't be stored and will just be used for narrowing the extent
+  //of taxonomy terms on the client side via JavaScript
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['show_depth'] = array(
+    '#type' => 'checkbox', 
+    '#title' => t('Indent child terms with \' - \' signs'),
+    '#default_value' => isset($reference->settings['show_depth']) ? $reference->settings['show_depth'] : 1,
+    '#description' => t('If this option is checked, a hierarchy gets visualized by indenting child terms, otherwise it\'s a flat list.'),
+  );
+      
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['depth'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Depth of taxonomy tree'),
+    '#default_value' => isset($reference->settings['depth']) ? $reference->settings['depth'] : '',
+    '#description' => t('By setting a numeric value, the depth of the hierarchy shown can be limited. Leave this field blank to show the whole hierarchy.'),
+  );
+  
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['i18n'] = array(
+    '#type' => 'checkbox', 
+    '#title' => t('Enable taxonomy term translations'),
+    '#default_value' => isset($reference->settings['i18n']) ? $reference->settings['i18n'] : 1,
+    '#description' => t('If this option is checked, the term names will be localized according to the i18n taxonomy translations. Otherwise the standard user profile string translations are processed.'),
+  );
+   
+  $form['fields'][PROFILE_TAXONOMY_MODULE_NAME]['display'] = array(
+    '#type' => 'select',
+    '#title' => t('Display'),
+    '#options' => array('text' => t('As Text'), 'link' => t('As Link')),
+    '#default_value' => isset($reference->settings['display']) ? $reference->settings['display'] : 'text',
+    '#description' => t('Formatting of selected values on user view.'),
+  );
+  
+  //load terms dynamically when user selects a certain vocabulary
+  drupal_add_js(PROFILE_TAXONOMY_MODULE_PATH . '/profile_taxonomy.js');
+  
+  //set Ajax callback URL in JavaScript settings
+  $setting[PROFILE_TAXONOMY_MODULE_NAME] = array(
+    'path' => url(PROFILE_TAXONOMY_URL_LIST_TERMS),
+  );
+  drupal_add_js($setting, 'setting');
+  
+  //additional submit handler for saving the above settings
+  $form['#submit'][] = 'profile_taxonomy_field_settings_submit'; 
+}
+
+/**
+ * Submit handler for saving profile taxonomy reference options.
+ * @param $form
+ *   array of submitted form
+ * @param $form_state
+ *   array of form values
+ */
+function profile_taxonomy_field_settings_submit($form, &$form_state) {
+	
+  //new profile field
+  if (!isset($form_state['values']['fid'])) {
+	$fid = profile_taxonomy_get_profile_field_by_name($form_state['values']['name'])->fid;	
+  }
+  else { //existing profile field
+    $fid = $form_state['values']['fid'];
+  }
+  
+  if ($form_state['values']['vocabulary']) {
+  	
+    //init data object
+    $reference = new stdClass();
+    $reference->terms = array();
+    $reference->settings = array();
+  
+    //get submit parameter
+    $reference->fid = $fid; //profile field id
+    $reference->vid = $form_state['values']['vocabulary']; //referenced vocabulary
+    $reference->settings['parent_term'] = intval($form_state['values']['parent_term']);
+    $reference->settings['show_depth'] = $form_state['values']['show_depth'];
+    $reference->settings['depth'] = $form_state['values']['depth'];
+    $reference->settings['i18n'] = $form_state['values']['i18n'];
+    $reference->settings['display'] = $form_state['values']['display'];
+  
+    //Terms wil be stored as a flat list. They will be indented with a '-' 
+    //when the values are exposed to a widget.
+    $reference->terms = 
+      profile_taxonomy_get_list_vocabulary_terms(
+        $reference->vid, 
+        $reference->settings['parent_term'], 
+        0, 
+        !$reference->settings['depth'] ? NULL : $reference->settings['depth']
+      );
+    profile_taxonomy_save_reference($reference);
+  }
+  else { //remove field assignment
+    profile_taxonomy_delete_reference($fid);
+  }
+}
+
+/**
+ * Alters the display of the selection widget exposed to the user. If configured the taxonomy hierarchy is
+ * formatted, i. e. terms are indented with "-", and terms are localized.
+ * @param $form
+ *   array of form elements
+ */
+function profile_taxonomy_field_widget(&$form) {	
+	
+  $references = profile_taxonomy_get_all_references();
+  if (!empty($references)) {
+    foreach ($references as $reference) {
+	  //only alter widget if there's a need to, i. e. format hierarchy or localize terms options are turned on
+      if (!empty($reference->settings) && ($reference->settings['show_depth'] || $reference->settings['i18n'])) {
+        $field = profile_taxonomy_get_profile_field_by_id($reference->fid); //get profile field instance
+        //check if a profile field selection form element exists within or without a cateogry
+        if ($field->type == 'selection' && $field->category && !empty($form[$field->category][$field->name]['#options'])) {
+          $options =& $form[$field->category][$field->name]['#options'];
+        }
+        elseif ($field->type == 'selection' && !empty($form[$field->name]['#options'])) {
+          $options =& $form[$field->name]['#options'];
+        }
+        else { //skip this reference
+          continue;
+        }
+        
+        if ($options) {
+          foreach ($options as $key => &$option) {
+            if (!$key) { //skip "no selection" element
+              continue;
+            }
+            if (!empty($reference->terms['values'])) {
+              //encode html special char and whitespace for correct matching of array values
+              array_walk($reference->terms['values'], '_profile_taxonomy_check_html_special_chars'); 
+              //search for a term name
+              $index = array_search($key, $reference->terms['values']);
+              if ($index) {
+                $tid = $reference->terms['keys'][$index]; //map term name to id
+                $term = taxonomy_get_term($tid);
+                //localize term
+                if ($reference->settings['i18n']) {
+                  profile_taxonomy_localize_term($term);
+                  $option = $term->name;
+                }
+                //simluate hierarchy by '-' indents
+                if ($reference->settings['show_depth']) {
+                  $depth = $reference->terms['depths'][$index];
+                  $option = str_repeat(' - ', $depth) . $term->name;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_form_alter() adapting user related forms.
+ * @param $form
+ *   array of form content
+ * @param $form_state
+ *   array of form values
+ * @param $form_id
+ *   id of the form
+ */
+function profile_taxonomy_form_alter(&$form, &$form_state, $form_id) {
+  
+  switch ($form_id) {
+  	//Alter the profile field's administration form. Vocabularies are referenced here
+    //that supply the term names as options.
+    case 'profile_field_form':
+      if (_profile_taxonomy_get_field_type($form) == 'selection') { //determine field type
+      	profile_taxonomy_field_settings($form);
+      }
+      break;
+    //Alter the widget which is exposed to user
+    case 'user_profile_form':
+      profile_taxonomy_field_widget($form);
+      break;
+  }
+}
+
+/**
+ * Synchronize vocabularies if a referenced vocabulary has changed.
+ * @param $op
+ *   operation, e. g. 'insert', 'update' or 'remove'
+ * @param $voc
+ *   array of vocabulary data
+ */
+function profile_taxonomy_taxonomy_vocabulary($op, $voc) {
+  switch ($op) {
+    case 'delete':
+      //get all profile fields which have assignments to this vocabulary
+      $fields = profile_taxonomy_get_references_by_vid($voc['vid']);
+      foreach ($fields as $field) {
+        //delete profile field options
+        db_query("UPDATE {profile_fields} SET options = '' WHERE fid = %d", $field->fid);
+        profile_taxonomy_delete_references_by_vid($voc['vid']); //remove assignment
+      }
+  }
+}
+
+/**
+ * Synchronize terms if a referenced term has changed.
+ * @param $op
+ *   operation, e. g. 'insert', 'update' or 'remove'
+ * @param $term
+ *   array of term data
+ */
+function profile_taxonomy_taxonomy_term($op, $term) {
+
+  $term = (object)$term;
+
+  $references = profile_taxonomy_get_references_by_vid($term->vid);
+  if (empty($references)) { //no vocabulary is concerned => interrupt
+    return;
+  }
+  //iterate through all fields and check if they contain terms which require updates
+  foreach ($references as $reference) {
+    if (in_array($term->tid, $reference->terms['keys'])) {
+      $index = array_search($term->tid, $reference->terms['keys']);
+      $old_term_name = $reference->terms['values'][$index];
+      
+      switch ($op) {
+        case 'insert':
+        case 'update':
+          db_query("UPDATE {profile_values} SET value = '%s' WHERE fid = %d AND (value LIKE '%s' OR value LIKE '%s' OR value LIKE '%s' OR value LIKE '%s')", 
+            $term->name, $reference->fid, $old_term_name, "$old_term_name,%", "%, $old_term_name,%", "%, $old_term_name");
+          break;
+        case 'delete':
+          db_query("UPDATE {profile_values} SET value = '%s' WHERE fid = %d AND (value = '%s' OR value LIKE '%s' OR value LIKE '%s' OR value LIKE '%s')", 
+            $term->name, $reference->fid, $old_term_name, "$old_term_name,%", "%, $old_term_name,%", "%, $old_term_name");
+          break;
+      }
+      //update term name and level
+      $index = array_search($term->tid, $reference->terms['keys']);
+      $reference->terms['values'][$index] = $term->name;
+      $reference->terms['depths'][$index] = count(taxonomy_get_parents_all($term->tid))-1;
+      
+      //TODO: update term weight (order)
+      $reference->terms;
+      taxonomy_get_parents($term->tid);
+     
+      profile_taxonomy_save_reference($reference);
+    } 
+  }
+}
+
+/**
+ * Synchronize vocabularies with selection profile field options. As term
+ * names are exported only they have to be kept up to date if the referenced
+ * vocabulary has changed.
+ * @param $op
+ *   operation e. g. 'insert', 'update' or 'remove'
+ * @param $type
+ *   type e. g. 'vocabulary' or 'term'
+ * @param $array
+ *   data depends on $type, e. g. vocabulary or term data.
+ */
+function profile_taxonomy_taxonomy($op, $type, $array = NULL) {
+  switch ($type) {
+    case 'vocabulary':
+    profile_taxonomy_taxonomy_vocabulary($op, $array);
+    break;
+  case 'term':
+    profile_taxonomy_taxonomy_term($op, $array);
+    break;
+  }
+}
+
+/**
+ * Display of the profile field value by altering the user profile display array ($account->content).
+ * @param $account
+ *   array of user account information
+ */
+function profile_taxonomy_profile_alter(&$account) {
+  $references = profile_taxonomy_get_all_references(); //get all assignments
+  if (!empty($references)) {
+    foreach ($references as $reference) {
+      //text display is default mode, others alter the user profile
+      if ($reference->settings['display'] == 'link') {
+        $profile_name = $account->taxonomy[$reference->fid]->name;
+      	//Check if profile field has category
+      	if ($account->taxonomy[$reference->fid]->category) {
+      	  $category = $account->taxonomy[$reference->fid]->category;
+      	  $term_name = $account->content[$category][$profile_name]["#value"];
+      	}
+      	else {
+      	  $term_name = $account->content[$profile_name]["#value"];
+      	}
+      	//get mapped term id
+        $index = array_search($term_name, $reference->terms['values']);
+        $term_id = $reference->terms['keys'][$index];
+        //construct URL
+        $term_path = taxonomy_term_path(taxonomy_get_term($term_id));
+        $account->content[$category][$profile_name]["#value"] = l($term_name, $term_path);
+      }
+    }
+  }
+}
+
+/**
+ * Enhance a user profile with taxonomy information.
+ * @param $op
+ *   operation, e. g. load or view
+ * @param $edit
+ *   editing information array
+ * @param $account
+ *   user account information
+ * @param $category
+ *   profile category
+ */
+function profile_taxonomy_user($op, &$edit, &$account, $category = NULL) {
+  switch ($op) {
+    case 'load':
+      return profile_taxonomy_user_load($account);
+  }
+}
+
+/**
+ * Provide assigned user terms for programmatic use, e. g. devel load, user view etc.
+ * @param $account
+ *   user account
+ */
+function profile_taxonomy_user_load(&$account) {
+  profile_taxonomy_init(); //in case hook_init() function wasn't called yet.
+  $assignments = profile_taxonomy_get_all_references();
+
+  $profiles = array();
+  if (!empty($assignments)) {
+    foreach ($assignments as $assignment) {
+      $profile  = profile_taxonomy_get_profile_field_by_id($assignment->fid); //get the profile field
+
+      if ($profile && $profile->fid && $profile->name && isset($account->{$profile->name})) {
+        //get the term
+        $term_name = $account->{$profile->name};
+        $term = taxonomy_get_term_by_name($term_name);
+        if ($term) { //attach term only if term exists
+          $profiles[$profile->fid] = $profile;
+          $profiles[$profile->fid]->terms[$term[0]->tid] = $term[0];
+        }
+      }
+    }
+  }
+  if (!empty($profiles))
+    $account->taxonomy = $profiles; //group terms by profile fields
+}
+
+/**
+ * Implementation of hook_menu().
+ * Menu callbacks/entry points of profile taxonomy module.
+ * @return
+ *   array of menu items
+ */
+function profile_taxonomy_menu() {
+
+  $items = array();
+
+  //module menu item is also root of the tabbed views in the dialog.
+  $items[PROFILE_TAXONOMY_MODULE_NAME] = array(
+    'access arguments' => FALSE,
+  );
+
+  $items[PROFILE_TAXONOMY_URL_LIST_TERMS] = array(
+    'page callback' => 'profile_taxonomy_list_vocabulary_terms',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * hook_init() invoked when module is initialized on runtime.
+ */
+function profile_taxonomy_init() {
+  module_load_include('inc', PROFILE_TAXONOMY_MODULE_NAME, 'profile_taxonomy.api'); //include API as data access layer
+  module_load_include('inc', PROFILE_TAXONOMY_MODULE_NAME, 'profile_taxonomy'); //misc functions
+}
+
+/**
+ * Format an array element into a html safe and whitespace trimmed representation.
+ * @param $value
+ *   string to be formatted
+ * @param $key
+ *   string of array position/name
+ */
+function _profile_taxonomy_check_html_special_chars(&$value, $key) {
+  $value = check_plain(trim($value));
+}
+
+/**
+ * Get the field type of this form by its form parameter.
+ * @param $form
+ * @return
+ *   field type
+ */
+function _profile_taxonomy_get_field_type($form) {
+  if (is_numeric($form['#parameters'][2])) { //profile field type edit form
+    $profile = profile_taxonomy_get_profile_field_by_id($form['#parameters'][2]);
+    return $profile->type;
+  }
+  else { //profile field type add form
+    return $form['#parameters'][2];
+  }
+}

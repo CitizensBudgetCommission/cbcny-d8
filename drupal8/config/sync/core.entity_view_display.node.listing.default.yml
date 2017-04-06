@@ -1,0 +1,48 @@
+uuid: bce780c0-389f-4f5b-9767-513a0a89df1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.listing.field_searchable
+    - field.field.node.listing.field_template
+    - field.field.node.listing.field_term_topic
+    - node.type.listing
+  module:
+    - options
+    - title
+    - user
+id: node.listing.default
+targetEntityType: node
+bundle: listing
+mode: default
+content:
+  field_searchable:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_template:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_term_topic:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_entity_id
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  links: true

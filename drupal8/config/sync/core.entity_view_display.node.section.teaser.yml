@@ -1,0 +1,40 @@
+uuid: 309580c5-e715-4127-ac9b-80b96ea052b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.section.field_ref_featured_content
+    - field.field.node.section.field_searchable
+    - field.field.node.section.field_term_section
+    - field.field.node.section.field_term_topic
+    - node.type.section
+  module:
+    - title
+    - user
+id: node.section.teaser
+targetEntityType: node
+bundle: section
+mode: teaser
+content:
+  field_term_topic:
+    type: entity_reference_label
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_ref_featured_content: true
+  field_searchable: true
+  field_term_section: true
+  links: true

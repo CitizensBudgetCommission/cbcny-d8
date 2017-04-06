@@ -1,0 +1,4 @@
+name = CBC Pocket Summary
+description = Pocket Summary charting for the CBC
+package = CBC
+core = 6.x

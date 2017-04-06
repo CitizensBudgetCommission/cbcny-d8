@@ -1,0 +1,35 @@
+/* $Id: icons.css,v 1.6 2008/09/21 15:38:15 johnalbin Exp $ */
+
+/*
+ * ICON STYLES
+ *
+ * Puts all the references to icon images in one place.
+ */
+
+/* Leaf, collapsed, and expanded icons used for navigation */
+  .block li.leaf, ul.menu li.leaf
+  {
+    list-style-image: url(../images/menu-leaf.png);
+  }
+
+  .block li.collapsed, ul.menu li.collapsed
+  {
+    list-style-image: url(../images/menu-collapsed.png);
+  }
+
+  .block li.expanded, ul.menu li.expanded
+  {
+    list-style-image: url(../images/menu-expanded.png);
+  }
+
+  .block li a.active
+  {
+    text-decoration: none;
+  }
+
+  .block ul li
+  {
+    /*list-style-image: url(../images/bullet.png);*/
+	list-style-type: none;
+  }
+

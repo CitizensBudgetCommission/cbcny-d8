@@ -1,0 +1,21 @@
+diff --git a/date_api.module b/date_api.module
+index 3539ab5..c29214b 100644
+--- a/date_api.module
++++ b/date_api.module
+@@ -1252,8 +1252,14 @@ function date_convert($date, $from_type, $to_type, $tz = 'UTC') {
+       if (!is_array($date)) return NULL;
+       // Make sure all parts exist to avoid PHP notices.
+       foreach (array('month', 'day', 'hour', 'minute', 'second') as $part) {
+-        if (!isset($date[$part])) {
+-          $date[$part] = '';
++        if (!isset($date[$part]) || $date[$part] === 0) {
++          // Datetime type doesn't allow 0 values for month or day.
++          if (in_array($part, array('month', 'day'))) {
++            $date[$part] = $to_type == 'datetime' ? '01' : '';
++          }
++          else {
++            $date[$part] = '';
++          }
+         }
+       }
+       if (isset($date['ampm'])) {

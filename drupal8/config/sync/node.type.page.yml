@@ -1,0 +1,33 @@
+uuid: cfa32c37-e382-4c7e-abde-b67c8379324c
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+    - title
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - about-menu
+    parent: 'about-menu:'
+  title:
+    display_configurable_title: true
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_required: false
+    publish_revision: true
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: true
+name: Page
+type: page
+description: 'Page content type used for creating Basic Page such as About'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

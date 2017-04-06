@@ -1,0 +1,25 @@
+<?php
+
+
+/**
+ * Implementation of hook_preprocess_block().
+ */
+function multiple_facet_choice_preprocess_block(&$vars) {
+  if ($vars['block']->module == 'apachesolr_search') {
+    drupal_add_js(drupal_get_path('module', 'multiple_facet_choice') . '/multiple_facet_choice.js');
+    drupal_add_css(drupal_get_path('module', 'multiple_facet_choice') . '/multiple_facet_choice.css');
+  }
+}
+
+/**
+ * Add filter parameters to javascript.
+ */
+function multiple_facet_choice_apachesolr_modify_query(&$query, &$params, $caller) {
+  $filters = $query->get_filters();
+  $filters_values = array();
+  foreach ($filters as $filter) {
+    $filters_values[$filter['#name']][$filter['#value']] = 1;
+  }
+  $settings = array('multiple_facet_choice_query_filters' => $filters_values);
+  drupal_add_js($settings, 'setting');
+}

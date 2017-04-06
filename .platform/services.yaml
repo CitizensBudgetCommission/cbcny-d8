@@ -7,10 +7,6 @@ mysql:
     type: "mysql:10.0"
     disk: 2048
 
-drupal6:
-    type: "mysql:10.0"
-    disk: 2048
-
 solr:
     type: "solr:4.10"
     disk: 1024
@@ -18,6 +14,14 @@ solr:
 redis:
     type: redis:3.0
 
+# Legacy D6 site
+drupal6_mysql:
+    type: "mysql:10.0"
+    disk: 2048
+
+drupal6_solr:
+    type: "solr:3.6"
+    disk: 1024
 
 #
 #rediscache:

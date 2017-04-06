@@ -1,0 +1,5 @@
+name = "Multiple facets choice"
+description = "Add possibility to have multiple facet links choice on apachesolr search page."
+package = "CBC"
+version = "6.x-1.x-dev"
+core = 6.x

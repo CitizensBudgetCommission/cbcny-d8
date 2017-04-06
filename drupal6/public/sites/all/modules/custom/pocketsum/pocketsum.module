@@ -1,0 +1,173 @@
+<?php
+
+// $Id$
+
+/**
+ * @file
+ * Implements blocks, content type and Views for Pocket Summaries
+ */
+
+/**
+ * Implementation of hook_menu
+ */
+
+function pocketsum_menu() {
+  $items['admin/settings/pocketsum'] = array(
+    'title' => 'Pocket Summary settings',
+    'description' => 'Pocket summary customizations',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('pocketsum_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'pocketsum.admin.inc',
+  );
+  return $items;
+};
+
+
+/**
+ * Define the hierarchical select form for blocks
+ */
+
+function pocketsum_block_form(&$form_state, $delta) {
+  $form_state['block_delta'];
+  // set the apply button text.
+  $applytext = t('Create my chart');
+  if (arg(0) == 'summary' && arg(3) == 'navigator' && arg(4) != '') {
+    $selected = explode(' ', arg(4));
+    $applytext = t('Update my chart');
+  }
+  // Use block delta to determine vocabulary.
+  switch ($delta) {
+  case 'pocketsum_nyc_expense':
+    $form_state['pocketvid'] = variable_get('POCKETSUM_NAVIGATOR_NYCEXP_VID', '8');
+    break;
+  case 'pocketsum_nyc_revenue':
+    $form_state['pocketvid'] = variable_get('POCKETSUM_NAVIGATOR_NYCREV_VID', '10');
+    break;
+  case 'pocketsum_nys_expense':
+    $form_state['pocketvid'] = variable_get('POCKETSUM_NAVIGATOR_NYSEXP_VID', '11');
+    break;
+  case 'pocketsum_nys_revenue':
+    $form_state['pocketvid'] = variable_get('POCKETSUM_NAVIGATOR_NYSREV_VID', '12');
+    break;
+  default:
+    $form_state['pocketvid'] = variable_get('POCKETSUM_NAVIGATOR_NYCEXP_VID', '8');
+  }
+
+  $form['filter'] = array(
+    '#type' => 'hierarchical_select',
+    '#title' => t('Budget categories'),
+    '#required' => TRUE,
+    '#config' => array(
+      'module' => 'hs_taxonomy',
+      'params' => array(
+        'vid' => $form_state['pocketvid'],
+      ),
+      'enforce_deepest' => 0,
+      'dropbox' => array(
+        'status' => 1,
+        'title' => t('All selections'),
+        'reset_hs'  => 0,
+      ),
+    ),
+    '#default_value' => $selected,
+  );
+
+  $form['apply'] = array(
+    '#type' => 'submit',
+    '#value' => $applytext,
+  );
+
+  return $form;
+}
+
+/**
+ * Form submit callback for pocket summary HS form
+ */
+
+function pocketsum_block_form_submit($form_id, &$form_state) {
+  $value = $form_state['values']['filter'];
+  // Array of all selected term names
+  $terms = array();
+  if (is_array($value)) {
+    foreach ($value as $term_id) {
+      $term = taxonomy_get_term($term_id);
+      $terms[] = $term->name;
+    }
+  }
+  else {
+    $term = taxonomy_get_term($value);
+    $terms[] = $term->name;
+  }
+
+  $tidarg = implode('+',$value);
+
+  if ($form_state['pocketvid']) {
+    switch ($form_state['pocketvid']) {
+    case variable_get('POCKETSUM_NAVIGATOR_NYCEXP_VID', '8'):
+      $nav_url = 'summary/nyc/expense/navigator/';
+      break;
+    case variable_get('POCKETSUM_NAVIGATOR_NYCREV_VID', '10'):
+      $nav_url = 'summary/nyc/revenue/navigator/';
+      break;
+    case variable_get('POCKETSUM_NAVIGATOR_NYSEXP_VID', '11'):
+      $nav_url = 'summary/nys/expense/navigator/';
+      break;
+    case variable_get('POCKETSUM_NAVIGATOR_NYSREV_VID', '12'):
+      $nav_url = 'summary/nys/revenue/navigator/';
+      break;
+    default:
+      $nav_url = 'summary/nyc/expense/navigator/';
+    }
+  }
+  else {
+    $currenturl = explode('/', drupal_get_path_alias($_GET['q']));
+    $nav_url = 'summary/' . $currenturl[1] . '/' . $currenturl[2] . '/navigator/';
+  }
+  $nav_url .= $tidarg;
+  drupal_goto("$nav_url");
+}
+
+
+/**
+ * Implementation of hook_block().
+ */
+
+function pocketsum_block($op = 'list', $delta = 0, $edit = array()) {
+  // create an array of the vocabularies involved.
+  $vocabs = array(
+    'nyc_expense' => str_replace('_', '/', 'nyc_expense'),
+    'nyc_revenue' => str_replace('_', '/', 'nyc_revenue'),
+    'nys_expense' => str_replace('_', '/', 'nys_expense'),
+    'nys_revenue' => str_replace('_', '/', 'nys_revenue'),
+  );
+
+  if ($op == 'list') {
+    // Create one block for each vocabulary. Offer default positioning
+    // appropriate for CBC.
+   foreach ($vocabs as $key => $value) { 
+     $blocks['pocketsum_' . $key] = array(
+       'info' => 'Pocket Summary ' . $key,
+       'cache' => BLOCK_NO_CACHE,
+       'status' => '1',
+       'region' => 'content_top',
+       'visibility' => '1',
+       'pages' => "summary/" . $value . "/front\r\nsummary/" . $value . "/navigator*\r\nsummary/" . $value . "/navigator/*",
+    );
+   }
+    return $blocks;
+  }
+
+  else if ($op == 'view') {
+    // If it's a pocketsummary block, pass the block ID to the form builder
+    // function.
+    if (substr($delta, 0, 9) == 'pocketsum') {
+      $block['subject'] = t('Filter by term');
+      $block['content'] = drupal_get_form('pocketsum_block_form', $delta);
+      return $block;
+    }
+  }
+}
+
+?>

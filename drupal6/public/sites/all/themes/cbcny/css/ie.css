@@ -1,0 +1,38 @@
+/* $Id: ie.css,v 1.4 2008/09/20 20:57:27 johnalbin Exp $ */
+
+/*
+ * IE CSS
+ *
+ * CSS targeted specifically for Internet Explorer for Windows.
+ *
+ * Properties starting with an underscore _ are for IE 5 and 6 only.
+ * Properties starting with head:first-child+body are for IE7 only.
+ * Properties with a child selector (>) or sibling selector (+) are for IE7 only.
+ *
+ */
+
+/*
+ * Layout CSS
+ */
+
+/** body **/
+  body
+  {
+    _text-align: center; /* 1st part of IE5/IE6quirks centering hack */
+  }
+
+  #page
+  {
+    _text-align: left; /* 2nd part of IE5/IE6quirks centering hack */
+  }
+
+/*
+ * REFERECES
+ *
+
+1. http://www.positioniseverything.net/explorer/doubled-margin.html
+2. http://browservulsel.blogspot.com/2005/04/ie-overflow-auto-scrollbar-overlap.html
+3. http://www.howtocreate.co.uk/wrongWithIE/?chapter=overflow%3Avisible%3B
+
+ *
+ */

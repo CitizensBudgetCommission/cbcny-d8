@@ -1,0 +1,3 @@
+<?php
+
+include_once('cbc_social_media_links.features.inc');

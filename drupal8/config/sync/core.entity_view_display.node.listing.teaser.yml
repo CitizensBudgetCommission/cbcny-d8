@@ -1,0 +1,33 @@
+uuid: 842255c1-5e47-4735-86ad-7f9dc29c06ee
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.listing.field_searchable
+    - field.field.node.listing.field_template
+    - field.field.node.listing.field_term_topic
+    - node.type.listing
+  module:
+    - title
+    - user
+id: node.listing.teaser
+targetEntityType: node
+bundle: listing
+mode: teaser
+content:
+  links:
+    weight: 100
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_searchable: true
+  field_template: true
+  field_term_topic: true

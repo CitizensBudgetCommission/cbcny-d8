@@ -1,0 +1,129 @@
+.pocketsum.landing div.node-inner div.content, .pocketsum.landing div.node-inner {
+  width:100% !important;
+}
+
+.navigator.container {
+  display:inline-block;
+  width: 436px;
+  height: 275px;
+  text-align: center;
+  color: white;
+}
+
+.nav.header h2 {
+  font-size:1.3em;
+  padding-bottom:15px;
+  padding-top:5px;
+}
+
+.nav.header {
+  text-align:center;
+}
+
+.navigator.container.city {
+  margin-left:15px;
+}
+
+.navigator.container.state {
+  margin-left: 25px;
+}
+
+.navigator span.header {
+  position:relative;
+  width: 436px;
+  background:transparent;
+  font-size: 24pt;
+  bottom:250px;
+}
+
+.navigator.container.city {
+  background:url("../images/nyc.jpeg") no-repeat;
+}
+
+.navigator.container.state {
+  background:url("../images/nys.jpeg") no-repeat;
+}
+
+.navigator .subcat .subheader {
+  top: -50px;
+  position:relative;
+  font-size:22pt;
+}
+
+.navigator .subcat {
+  width:50%;
+  height:100%;
+  float:left;
+}
+
+.navigator.container .sublink {
+  width:100%;
+  float:left;
+  height: 100%;
+}
+
+.navigator.container a {
+  color:white;
+}
+
+.navigator.container a.sublink:hover {
+  background-color: #2D455D;
+  opacity: .3;
+  color:white;
+}
+
+.view-pocket-summary-sponsors {
+  text-align:center;
+}
+
+.view-pocket-summary-sponsors .views-row {
+  display:inline-block;
+  padding-right:10px;
+  padding-left:10px;
+}
+
+.view-pocket-summary-sponsors .views-row.views-row-first {
+  padding-left: 0px;
+}
+
+.view-pocket-summary-sponsors .views-row.views-row-last {
+  padding-right: 0px;
+}
+
+.view-pocket-summary-sponsors .field-content a {
+  opacity: 0.3;
+}
+
+.view-pocket-summary-sponsors .field-content a:hover {
+  opacity: 1;
+}
+
+.navigator.wrapper {
+  height:300px;
+  text-align: center;
+}
+
+#block-service_links-service_links_not_node .service-links, #block-service_links-service_links .service-links {
+  text-align:center;
+}
+
+#block-service_links-service_links_not_node .service-links a, #block-service_links-service_links .service-links a {
+  padding-right: 8px;
+}
+
+#block-service_links-service_links_not_node .service-links iframe.twitter-share-button, #block-service_links-service_links .service-links iframe.twitter-share-button {
+  padding-left:8px;
+}
+
+#chart_text p {
+  color:#666F62;
+  text-align:center;
+}
+
+#primary-menu-links .menu .expanded.last a {
+  padding:12px 0 12px;
+}
+
+#primary-menu-links .menu .expanded.last .menu .leaf a {
+  padding: 0 10px;
+}

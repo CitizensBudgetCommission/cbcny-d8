@@ -1,4 +1,4 @@
-http://admin.cbcny.org/:
+http://old.{default}/:
   cache:
     cookies:
     - '*'
@@ -13,7 +13,7 @@ http://admin.cbcny.org/:
   ssi:
     enabled: true
   type: upstream
-  upstream: app:http
+  upstream: drupal6:http
 http://keycdn.cbcny.org/:
   cache:
     cookies:

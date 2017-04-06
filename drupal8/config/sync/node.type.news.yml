@@ -1,0 +1,32 @@
+uuid: 2cbd88c7-4508-47d6-b98a-f4a1072fcddf
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+    - title
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  title:
+    display_configurable_title: true
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_required: false
+    publish_revision: true
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: true
+name: News
+type: news
+description: 'News content type used to create - In the News'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

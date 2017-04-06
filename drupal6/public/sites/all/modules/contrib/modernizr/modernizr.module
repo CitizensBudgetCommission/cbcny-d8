@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Main module file for Modernizr
+ */
+
+/**
+ * Implements hook_init().
+ */
+function modernizr_init() {
+  drupal_add_js(modernizr_lib_path());
+}
+
+/**
+ * Get modernizr file path.
+ * @return string
+ *   path to modernizr file
+ */
+function modernizr_lib_path() {
+  static $path = NULL;
+  if (is_null($path)) {
+    if (module_exists('libraries')) {
+      $path = libraries_get_path('modernizr');
+    }
+    else {
+      $path = drupal_get_path('module', 'modernizr');
+    }
+
+    $version_agnostic_path = file_exists($path . '/modernizr.min.js') ? $path . '/modernizr.min.js' : FALSE;
+    if (!$version_agnostic_path) {
+      $path = file_exists($path . '/modernizr.js') ? $path . '/modernizr.js' : FALSE;
+    }
+    else {
+      $path = $version_agnostic_path;
+    }
+  }
+  return $path;
+}

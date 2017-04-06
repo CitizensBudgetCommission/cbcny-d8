@@ -1,0 +1,183 @@
+<?php
+
+/**
+ * Implementation of hook_update_6100()
+ */
+function cbc_update_6100() {
+  
+  $types = array_keys(node_get_types());
+
+  $excludes = variable_get('apachesolr_exclude_nodeapi_types', array());
+
+  foreach ($types as $type) {
+    $excludes[$type]['taxonomy'] = 'taxonomy';
+  }
+
+  variable_set('apachesolr_exclude_nodeapi_types', $excludes);
+
+  return array();
+}
+
+/**
+ * Enable modernizr and cbc_mobile Feature, Update site name for the mobile site.
+ */
+function cbc_update_6101() {
+  variable_set('site_name', 'Citizens Budget Commission');
+  module_enable(array('modernizr', 'cbc_mobile'));
+}
+
+/**
+ * [#761] enable htmlawed module and feature.
+ */
+function cbc_update_6102() {
+  module_enable(array('htmLawed', 'cbc_text_handling'));
+}
+
+/**
+ * [#770] enable cbc_views feature.
+ */
+function cbc_update_6103() {
+  module_enable(array('cbc_views'));
+  features_revert(array(
+    'cbc_views' => array('views'),
+  ));
+
+  ctools_include('object-cache');
+  $views_to_revert = array('calendar', 'calendar_date', 'taxonomy_term');
+  foreach ($views_to_revert as $view_name) {
+    $view = views_get_view($view_name);
+    $view->delete();
+    ctools_object_cache_clear('view', $view->name);
+  }
+
+}
+
+/**
+ * [#779] enable cbc_pocketsummary module.
+ */
+function cbc_update_6104() {
+  module_enable(array('cbc_pocketsummary'));
+}
+
+/**
+ * [#772] disable apachesolr related modules, uninstall most.
+ */
+function cbc_update_6105() {
+  $dead_modules_walking = array('multiple_facet_choice', 'apachesolr', 'apachesolr_date', 'apachesolr_nodeaccess', 'apachesolr_search', 'apachesolr_attachments');
+  module_disable($dead_modules_walking);
+  cache_clear_all();
+  foreach ($dead_modules_walking as $dead_module) {
+    if ($dead_module != 'apachesolr_attachments') {
+      drupal_uninstall_module($dead_module);
+    }
+  }
+}
+
+/**
+ * [#772] enable new version of apachesolr related modules.
+ */
+function cbc_update_6106() {
+  db_query("DELETE FROM system WHERE type='module' AND name='apachesolr';");
+  db_query("DELETE FROM system WHERE type='module' AND name='facetapi';");
+  db_query("DELETE FROM system WHERE type='module' AND name='apachesolr_search';");
+
+  module_enable(array('apachesolr', 'facetapi', 'apachesolr_search', 'apachesolr_attachments'));
+}
+
+/**
+ * [#772] configure search behavior
+ */
+function cbc_update_6107() {
+  // enable cbc_search Feature.
+  cache_clear_all();
+  module_enable(array('cbc_search'));
+  cache_clear_all();
+
+  //If used in a install file you need to include the Features module functions
+  require_once('sites/all/modules/contrib/features/features.module');
+
+  $feature = features_get_features('cbc_search');
+  $components = array_keys($feature->info['features']);
+  features_revert(array('cbc_search' => $components));
+  features_revert(array('cbc_search' => $components));
+  features_revert(array('cbc_search' => $components));
+
+  // position the search blocks.
+  $blocks = array(
+    array(
+    'module' => 'facetapi',
+    'delta' => 'DfD8xC6ZbxBO1fgZFPp0c7PBub0U6iJz',
+    'theme' => 'cbcny',
+    'status' => '1',
+    'weight' => '-41',
+    'region' => 'right',
+    'visibility' => '1',
+    'pages' => 'search/site*',
+    'cache' => '0',
+    ),
+    array(
+      'module' => 'facetapi',
+      'delta' => 'GiIy4zr9Gu0ZSa0bumw1Y9qIIpIDf1wu',
+      'theme' => 'cbcny',
+      'status' => '1',
+      'weight' => '-43',
+      'region' => 'right',
+      'visibility' => '1',
+      'pages' => 'search/site*',
+      'cache' => '0',
+    ),
+    array(
+      'module' => 'facetapi',
+      'delta' => 'L1KM2EOKB7livkBdn5GXyQMjV7myGFr9',
+      'theme' => 'cbcny',
+      'status' => '1',
+      'weight' => '-40',
+      'region' => 'right',
+      'visibility' => '1',
+      'pages' => 'search/site*',
+      'cache' => '0',
+    ),
+    array(
+      'module' => 'facetapi',
+      'delta' => 'OUlnjHCSQOJ9hYaneIFj35rE0RINiWTJ',
+      'theme' => 'cbcny',
+      'status' => '1',
+      'weight' => '-42',
+      'region' => 'right',
+      'visibility' => '1',
+      'pages' => 'search/site*',
+      'cache' => '0',
+    ),
+    array(
+      'module' => 'apachesolr_search',
+      'delta' => 'mlt-001',
+      'theme' => 'cbcny',
+      'status' => '1',
+      'weight' => '-44',
+      'region' => 'right',
+      'visibility' => '1',
+      'pages' => 'cbc-blogs/*',
+      'cache' => '0',
+    ),
+  );
+  foreach ($blocks as $block) {
+    drupal_write_record('blocks', $block);
+  }
+
+  features_revert(array('cbc_search' => $components));
+}
+
+/**
+ * [#783] Move all blocks from the right to the left sidebar.
+ */
+function cbc_update_6108() {
+  db_query("UPDATE blocks set region='left' WHERE region='right' AND theme='cbcny';");
+}
+
+/**
+ * [#785] Enable PDF module
+ */
+function cbc_update_6109() {
+  module_enable(array('print_pdf'));
+}
+

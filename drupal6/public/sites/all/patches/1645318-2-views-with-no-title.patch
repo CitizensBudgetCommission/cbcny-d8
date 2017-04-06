@@ -1,0 +1,22 @@
+diff --git a/sites/all/modules/contrib/print/print.module b/sites/all/modules/contrib/print/print.module
+index 02510cf..3a63a51 100644
+--- a/sites/all/modules/contrib/print/print.module
++++ b/sites/all/modules/contrib/print/print.module
+@@ -569,7 +569,16 @@ function _print_get_title($path) {
+       return $res->link_title;
+     }
+     else {
+-      return NULL;
++      $menu_item = menu_get_item($path);
++      if (substr($menu_item['page_callback'], 0, 6) == 'views_') {
++        $view = views_get_view($menu_item['page_arguments']['0']);
++        $output = $view->preview('default', '%1');
++        $title = $view->get_title();
++        return $title;
++      }
++      else{
++        return NULL;
++      }
+     }
+   }
+ }

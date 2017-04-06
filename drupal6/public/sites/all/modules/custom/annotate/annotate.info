@@ -1,0 +1,5 @@
+; $ID$
+name = Annotate
+description = Annotates stuff
+core = 6.x
+package = cylynex drupal inc

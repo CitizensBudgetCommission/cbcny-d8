@@ -1,0 +1,5 @@
+; $Id$
+name = Pocket Summary Navigator
+description = Navigation interface for budget summaries
+package = CBC
+core = 6.x

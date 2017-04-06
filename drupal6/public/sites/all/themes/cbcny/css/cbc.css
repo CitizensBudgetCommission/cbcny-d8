@@ -1,0 +1,502 @@
+body {
+background-image: url(../images/cbc-bg.gif); background-repeat: repeat-x;
+
+}
+
+#page {
+  /* This hack is here so that the centered menu works with drop-downs
+   * Usual approach would be to set the menu container to overflow:hidden,
+   * but that'll hide the drop-downs, se we're setting here, as it'll only
+   * affect the horizontal overflow of the page.
+   */
+  overflow: hidden;
+}
+
+#navigation {
+  margin-top: 0px;
+}
+#primary-menu-links {
+    background-image:url(../images/mnu_bg.png);
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+#primary-menu-links img {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/*
+#navigation a.menu-report {
+  /** background-image: url(../images/mnu_reports_.png); **/
+  /* height: 50px !important; 
+  text-indent: -9999px;
+}
+*/
+
+#navigation .menu {
+  margin: 0;
+  padding: 0;
+  clear: left;
+  float: left;
+  left: 50%;
+  position: relative;
+  text-align: center;
+}
+
+#navigation .menu li {
+  display: block;
+  float: left;
+  width: 119px;
+  height: 50px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  right: 50%;
+}
+
+#navigation a {
+  border-left: 1px solid #256D8E;
+  border-right: 1px solid #256D8E;
+  margin: 0;
+  padding: 24px 0 0;
+  display: block;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 26px;
+  width: 119px;
+  font-size: 11px;
+}
+
+#navigation a:hover,
+#navigation a.active {
+  background-image: url(../images/mnu_bg_active.png);
+}
+
+#navigation .menu ul {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background: url("../images/menu-drop-bg.png") repeat scroll center bottom transparent;
+  width: 200px;
+  padding: 10px 0;
+  left: 0;
+}
+
+#navigation li:hover ul,
+#navigation li.hover ul {
+  display: block;
+}
+
+#navigation .menu ul li {
+  height: auto;
+  width: auto;
+  float: none;
+  text-align: left;
+  right: 0;
+}
+
+#navigation li ul a {
+  border: 0;
+  color: #2D455D;
+  text-transform: none;
+  font-size: 12px;
+  font-weight: normal;
+  display: block;
+  height: auto;
+  width: 176px;
+  margin: 0 2px;
+  padding: 0 10px;
+}
+
+#navigation li ul a:hover,
+#navigation li ul a.active {
+  background: #2D455D;
+  color: #FFFFFF;
+}
+
+#menu-secondary {
+  height: 20px !important;
+  background: url(../images/bg-secondary.png) repeat-x;
+  width:100%;
+  border-bottom: 1px solid #bbcaa4;
+}
+#menu-secondary a {
+  color: #FFF !important;
+  float: none !important;
+  display: inline-block !important;
+  height: 20px;
+  padding: 0 0.5em;
+}
+
+#menu-secondary a:hover,
+#menu-secondary a:hover {
+  background: url(../images/bg-secondary-active.png) repeat-x;
+}
+
+#menu-secondary ul.links li.first {
+  padding: 0 !important;
+  margin: 0px !important;
+}
+
+#menu-secondary ul.links li {
+  border: none !important;
+  height: 20px;
+}
+
+#menu-secondary .seconday-menu-items {
+  float: right;
+}
+
+#user-links {
+  float: right;
+  margin-top: -100px;
+  text-align: right;
+  width: 250px;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+table.views-table {
+  width: 100%;
+}
+
+.node-inner .node-footer {
+  height: 30px;
+}
+
+div.node-title-type {
+  position: absolute;
+  text-align: right;
+  text-transform: capitalize;
+  padding-right: 28px;
+  bottom: 7px;
+  background: transparent url(../images/statement_tab.jpg) no-repeat scroll right bottom;
+  right: 0;
+}
+
+/** Backgrounds for the different types. **/
+div.node-title-type.letter {
+  background-image: url(../images/bar-letter.gif);
+}
+div.node-title-type.blog {
+  background-image: url(../images/bar-blog.gif);
+}
+div.node-title-type.oped {
+  background-image: url(../images/bar-oped.gif);
+}
+div.node-title-type.pocketsummary {
+  background-image: url(../images/bar-pocketsummary.gif);
+}
+div.node-title-type.presentation {
+  background-image: url(../images/bar-presentation.gif);
+}
+div.node-title-type.presscitation {
+  background-image: url(../images/bar-presscitation.gif);
+}
+div.node-title-type.pressrelease {
+  background-image: url(../images/bar-pressrelease.gif);
+}
+div.node-title-type.report {
+  background-image: url(../images/bar-report.gif);
+}
+div.node-title-type.testimony {
+  background-image: url(../images/bar-testimony.gif);
+}
+div.node-title-type.video {
+  background-image: url(../images/video_tab.jpg);
+}
+div.node-title-type.workinprogress {
+  background-image: url(../images/bar-workinprogress.gif);
+}
+div.node-title-type.event {
+  background-image: url(../images/bar-event.gif);
+}
+div.node-title-type.page {
+  background-image: none;
+}
+
+
+.node h2.title a {
+  color: #0B3149;
+  overflow: visible !important;
+}
+
+
+/** Header stufff **/
+div#header div#navigation div {
+  /* height: 50px; */
+}
+
+/***
+ * These are zne overrides to reset
+ * what was done in Zen Classic.
+ */
+div.node div.node-inner {
+  background: none !important;
+}
+
+/** Form Login classes **/
+#user-login .form-item label {
+  float: left;
+}
+#user-login input {
+  float: right;
+  width: 30em;
+}
+#user-login .description {
+  clear: both;
+  display: block;
+}
+#user-login .form-submit {
+  width: 5em;
+}
+
+#quote {
+  margin-left: 165px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+  width: 390px;
+  color: #374f67;
+  text-align: right;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.field-field-event-img-teaser {
+  float: left;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+/*
+.BlockContent-body a:link
+{
+  color: #776B3C;
+  font-family: Arial, Helvetica, Sans-Serif;
+  text-decoration: underline;
+  font-size:14px;
+}
+
+.BlockContent-body a:visited, .BlockContent-body a.visited
+{
+  color: #919A8D;
+  font-family: Arial, Helvetica, Sans-Serif;
+  text-decoration: underline;
+  font-size:14px;
+}
+
+.BlockContent-body a:hover, .BlockContent-body a.hover
+{
+  color: #CDA71D;
+  font-family: Arial, Helvetica, Sans-Serif;
+  text-decoration: none;
+  font-size:14px;
+}
+
+div.views-field-body {
+  background:#fff url(../images/left-right-gray-border.jpg) no-repeat scroll 0 0;
+  background-repeat: repeat-y;
+  width: 451px;
+}
+
+// Removed the sticky comment from zen_classic
+ .sticky
+  {
+    border-bottom: solid 3px #ddd;
+  }
+
+*/
+
+/** old views stuff **/
+/*
+div.views-field-created {
+  background:#fff url(../images/bottom-left-right-gray-border.jpg) no-repeat scroll 0 0 !important;
+  width: 442px !important;
+}
+*/
+
+
+/**** Calendar Stuff ******/
+#container .calendar-calendar div.date-nav {
+  background: none;
+  border: none;
+}
+#container .date-nav div.date-prev{
+  text-align: right;
+}
+#container .date-nav div.date-next{
+  text-align: left;
+}
+#container .calendar-calendar,
+#container .calendar-calendar a,
+#container .calendar-calendar a:visited
+{
+  color: olive;
+}
+#container .calendar-calendar th.days {
+background-color: #FFF;
+/* border:1px solid #CCCCCC;*/
+border: none;
+color:#777777;
+font-weight:bold;
+}
+
+#container .calendar-calendar td.mini {
+  text-align: center;
+}
+
+.big-green {
+  font-size:62px;
+  color:#679146;
+  padding-bottom: .25em;
+}
+/**** TABS ****/
+
+
+/*** Views Stuff ***/
+
+
+div.Block-body div.node div.node-inner .div-links { background: none !important;}
+
+
+div.views-field-title {
+  background: none !important;
+}
+
+div.views-field-title a {
+  font-size: .75em;
+}
+
+div.top-bar {
+  background-image: url(../images/cbctop.jpg);
+  height: 13px;
+}
+
+.logged-in div.top-bar {
+  height: 20px;
+}
+
+.imagecache-event_teaser {
+  float: left;
+  padding-right: 10px;
+}
+
+/* Search Box */
+
+#search-theme-form label {
+  display: none;
+}
+
+#search-theme-form {
+  float: right;
+  position: absolute;
+  bottom: 35px;
+  right: 10px;
+}
+
+#search-theme-form .advanced-link-wrapper {
+  display: block;
+  text-align: right;
+}
+
+#edit-search-theme-form-1 {
+  border: 1px solid #888888;
+  width: 180px; 
+  padding: 4px;
+}
+
+#search-theme-form .form-submit {
+  display: none;
+}
+
+/* Newsletter Block */
+.block #webform-client-form-349 .form-item label {
+  display: none;
+}
+
+.block #webform-client-form-349 .form-text {
+  border: 1px solid #888888;
+  width: 173px; 
+  padding: 4px;
+}
+
+.block #webform-client-form-349 .form-select {
+  width: 173px;
+  padding: 4px;
+}
+
+.block #webform-client-form-349 #edit-submitted-first-name,
+.block #webform-client-form-349 #edit-submitted-last-name {
+  width: 75px;
+}
+
+.block #webform-client-form-349 #edit-submitted-first-name-wrapper {
+  float: left;
+  margin-top: 0;
+}
+
+.block #webform-client-form-349 #edit-submitted-last-name-wrapper {
+  float: left;
+  margin-top: 0;
+  margin-left: 12px;
+}
+
+.block #webform-client-form-349 #edit-submitted-topic-wrapper {
+  margin-bottom: 0;
+}
+
+/* Social Links */
+#block-cbc-social_links li a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url(../images/media_icons.png);
+  float: left;
+  padding: 0;
+  margin-right: 4px;
+}
+
+#block-cbc-social_links li {
+  border: 0;
+}
+
+#block-cbc-social_links .twitter a {
+  background-position: -32px 0;
+}
+
+#block-cbc-social_links .vimeo a {
+  background-position: -64px 0;
+}
+#block-cbc-social_links .facebook a {
+  background-position: -96px 0;
+}
+#block-cbc-social_links .linkedin a {
+  background-position: -128px 0;
+}
+
+#search-form #edit-keys-wrapper {
+    display: inline;
+}
+
+.search-results dt {
+    font-size: 1.25em;
+    margin-top: 1.5em;
+    margin-bottom: 0.4em;
+}
+
+.search-results dd {
+    margin-left: 0;
+}
+/*
+.search-results dd div.node-title-type {
+    position: relative;
+    float: right;
+}*/

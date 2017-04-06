@@ -1,0 +1,225 @@
+<?php
+
+/**
+ * @file: Pocket Summary functionality
+ */
+
+/**
+ * Implements hook_views_pre_view
+ * Modify the "year" argument for pie charts to choose the latest year available.
+ */
+function cbc_pocketsummary_views_pre_view(&$view) {
+  if (isset($view->name) && $view->name=='pocket_summary_piechart') {
+    // Figure out which budget we're looking at, and get all the Total Budget nodes for it.
+    $nycexp = '306';
+    $nycrev = '319';
+    $nysexp = '344';
+    $nysrev = '347';
+    switch (arg(1) . '/' . arg(2)) {
+      case 'nyc/expense':
+        $result = taxonomy_select_nodes(array($nycexp));
+        break;
+      case 'nyc/revenue':
+        $result = taxonomy_select_nodes(array($nycrev));
+        break;
+      case 'nys/expense':
+        $result = taxonomy_select_nodes(array($nysexp));
+        break;
+      case 'nys/revenue':
+        $result = taxonomy_select_nodes(array($nysrev));
+        break;
+      default:
+        $result = '';
+    }
+    while ($row = db_fetch_object($result)) {
+      $node = node_load($row->nid);
+      // we're only really interested in the year.
+      $nodes[] = $node->field_expense_year['0']['value'];
+    }
+    // Get the node with the highest year available.
+    $max_year = max($nodes);
+
+    // Set that value as the date filter value
+    $filter = $view->get_item('block_1', 'filter', 'date_filter');
+    $filter['value']['value'] = $max_year;
+    $filter['value']['min'] = $max_year;
+    $filter['value']['max'] = $max_year;
+
+    $view->set_item('block_1', 'filter', 'date_filter', $filter);
+
+  }
+}
+
+/**
+ * Implements hook_views_post_render
+ * hijacks pocket_summary_chart output by calling google charts API to show chart rather than table
+ */
+function cbc_pocketsummary_views_post_render(&$view, &$output, &$cache) {
+  // The main chart.
+  if (isset($view->name) && $view->name=='pocket_summary_chart') {
+    $results = $view->result;
+    if (isset($results) && is_array($results) && count($results) > 0) {
+      foreach ($results as $r) {
+        $year = substr($r->node_data_field_expense_value_field_expense_year_value,0,4);
+        if ($r->term_data_name !== 'Total Budget') {
+          $data[$year][$r->term_data_name] = $r->node_data_field_expense_value_field_expense_value_value;
+        }
+        $dp_array[] = $r->node_data_field_expense_value_field_expense_value_value;
+        $years_array[] = $year;
+        $terms_array[] = $r->term_data_name;
+      }
+      // Add Total Budget items to the array last, so colors match between the line and pie charts
+      foreach ($results as $r) {
+        $year = substr($r->node_data_field_expense_value_field_expense_year_value,0,4);
+        if ($r->term_data_name == 'Total Budget') {
+          $data[$year][$r->term_data_name] = $r->node_data_field_expense_value_field_expense_value_value;
+        }
+      }
+
+      // Set up a column for Year, and one for each Term in the view
+      $chdl_array = array_unique($terms_array);
+      $chdl_columns = "data.addColumn('string', 'Year'); ";
+      foreach ($chdl_array as $chdl) {
+        if ($chdl != 'Total Budget') {
+          $chdl_columns = $chdl_columns . 'data.addColumn("number", "' . $chdl . '"); ';
+        }
+      }
+      if (in_array('Total Budget', $chdl_array)) {
+        $chdl_columns = $chdl_columns . 'data.addColumn("number", "Total Budget"); ';
+      }
+      // Make sure there's data for every year and term, or gcharts craps out
+      foreach ($data as $y => $d) {
+        foreach ($chdl_array as $t) {
+          if (!isset($data[$y][$t])) {
+            $data[$y][$t] = 0;
+            drupal_set_message(t("No data for $t in $y, displaying this data point as 0."), 'warning');
+          }
+        }
+      }
+      //Build string for formatting the output in gcharts
+      $formatcount = '0';
+      $formatstring = '';
+      foreach ($chdl_array as $t) {
+        $formatstring .= 'formatter.format(data,' . ++$formatcount . ');';
+      }
+      // Build the rows variable
+      foreach ($data as $y => $d) {
+        array_unshift($d, "\"$y\"");
+        $datasets[] = implode(',',$d);
+      }
+      $allpoints = implode('], [', $datasets);
+
+      // Build the JS that we'll add inline.
+      $script = '// Load the Visualization API and the piechart package.
+        google.load(\'visualization\', \'1.0\', {\'packages\':[\'corechart\']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+        var data = new google.visualization.DataTable();
+        ' . $chdl_columns . '
+        data.addRows([[' . $allpoints . ']]);
+        var formatter = new google.visualization.NumberFormat({prefix: \'$\',fractionDigits:0});
+        ' . $formatstring . '
+        // Set chart options
+        var options = {
+        \'width\':880,\'height\':600, chartarea: {height: \'100%\', width: \'100%\'}, pointSize: \'4\', vAxis: {format: \'$#,###\'}}
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.LineChart(document.getElementById(\'chart_div\'));
+        chart.draw(data, options);
+        }';
+
+      // Add the JS to the page
+      drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
+      drupal_add_js($script, 'inline');
+
+      // Replace the content with the placeholder div.
+      $output = '<div class="view-content">
+                <div id="chart_div"></div>
+                <div id="chart_text"><p>(Dollars in millions)</p></div>
+                </div>';
+    }
+  }
+
+  // The Pie chart in the sidebar
+  if (isset($view->name) && $view->name=='pocket_summary_piechart') {
+    $results = $view->result;
+    if (isset($results) && is_array($results) && count($results) > 0) {
+      $remainingbudget = 0;
+
+      foreach ($results as $r) {
+        if ($r->term_data_name != 'Total Budget') {
+          // Look for child terms, modify the parent name and value if a parent and child are selected together
+          foreach ($results as $r2) {
+            $r2_parents = taxonomy_get_parents_all($r2->term_data_tid);
+            foreach ($r2_parents as $r2_parent) {
+              if ($r2_parent->tid == $r->term_data_tid && $r2->term_data_tid != $r->term_data_tid) {
+                // This is a parent term. Subtract the value of children, and prepend "Other " to the name.
+                $r->node_data_field_expense_year_field_expense_value_value = $r->node_data_field_expense_year_field_expense_value_value - $r2->node_data_field_expense_year_field_expense_value_value;
+                if (substr($r->term_data_name, 0, 6) !== "Other ") {
+                  $r->term_data_name = "Other " . $r->term_data_name;
+                }
+              }
+            }
+          }
+          // Subtract each term that is not called "Total Budget" from the remaining budget pie category
+          $remainingbudget = $remainingbudget - $r->node_data_field_expense_year_field_expense_value_value;
+          $data[] = '["' . $r->term_data_name . '", ' . $r->node_data_field_expense_year_field_expense_value_value . ']';
+        }
+        if ($r->term_data_name == 'Total Budget') {
+          $remainingbudget = $remainingbudget + $r->node_data_field_expense_year_field_expense_value_value;
+          $totalbudget = $r->node_data_field_expense_year_field_expense_value_value;
+        }
+      }
+      $remainingbudget_data = '';
+      foreach ($results as $r) {
+        if ($r->term_data_name == 'Total Budget') {
+          $remainingbudget_data = '["Remaining Budget", ' . $remainingbudget . ']';
+        }
+      }
+      $data[] = $remainingbudget_data;
+
+      $datastring = implode(', ', $data);
+
+      $piepercent = round((($totalbudget - $remainingbudget) / $totalbudget) * 100,1);
+      $pie_gstring =   "data.addColumn('string', 'Expense'); data.addColumn('number', 'Budget'); data.addRows([" . $datastring . "]);";
+
+
+      // Build the chart JS.
+      $script = '// Load the Visualization API and the piechart package.
+      google.load(\'visualization\', \'1.0\', {\'packages\':[\'corechart\']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+      var data = new google.visualization.DataTable();
+      ' . $pie_gstring . '
+      var formatter = new google.visualization.NumberFormat({prefix: \'$\',fractionDigits:0});
+      formatter.format(data,1);
+      // Set chart options
+      var options = {
+      \'width\':190,\'height\':220, legend:{position:\'none\'}, chartArea:{width:\'90%\', height:\'90%\'}, is3D: \'true\'}
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById(\'piechart_div\'));
+      chart.draw(data, options);
+      }';
+
+      // Add the JS to the page
+      drupal_set_html_head('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
+      drupal_add_js($script, 'inline');
+
+      // Replace the content with the placeholder div.
+      $output = '<p>Your selections formed <strong style="color:#679146">' . $piepercent . '%</strong> of the total budget this year.</p>
+      <div class="view-content"><div id="piechart_div"></div></div>';
+    }
+  }
+}

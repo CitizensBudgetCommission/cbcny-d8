@@ -1,0 +1,18 @@
+<?php
+
+// $Id: deck.install,v 1.1 2010/08/05 13:47:41 xen Exp $
+
+/**
+ * Implementation of hook_install().
+ */
+function deck_install() {
+  db_query("UPDATE {system} SET weight = -10 WHERE name = 'deck'");
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function deck_uninstall() {
+  // Delete all the excerpt variables and clear the variable cache.
+  db_query("DELETE FROM {variable} WHERE name LIKE 'deck_%'");
+}

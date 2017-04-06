@@ -1,0 +1,70 @@
+uuid: 65f586cb-6a20-459a-84ac-deeabed04134
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.field_hero
+    - field.field.node.page.field_metatags
+    - field.field.node.page.field_page_content
+    - field.field.node.page.field_searchable
+    - field.field.node.page.field_teaser_plain
+    - field.field.node.page.field_term_section
+    - node.type.page
+  module:
+    - entity_reference_revisions
+    - metatag
+    - options
+    - title
+    - user
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  field_hero:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_metatags:
+    type: metatag_empty_formatter
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_page_content:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_searchable:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_term_section:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  field_teaser_plain: true
+  links: true

@@ -1,0 +1,61 @@
+uuid: a6c3c72f-99dc-4b20-891e-4bdda80f6110
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.landing.field_hero
+    - field.field.node.landing.field_page_content
+    - field.field.node.landing.field_searchable
+    - field.field.node.landing.field_term_section
+    - node.type.landing
+  module:
+    - entity_reference_revisions
+    - options
+    - title
+    - user
+id: node.landing.default
+targetEntityType: node
+bundle: landing
+mode: default
+content:
+  field_hero:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_page_content:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  field_searchable:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_term_section:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+hidden:
+  links: true
