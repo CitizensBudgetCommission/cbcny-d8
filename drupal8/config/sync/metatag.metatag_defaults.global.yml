@@ -7,4 +7,23 @@ _core:
 id: global
 label: Global
 tags:
+  geo_placename: 'New York State'
+  image_src: '[current-page:hero-image]'
+  abstract: 'The Citizens Budget Commission (CBC) is a nonpartisan, nonprofit civic organization whose mission is to achieve constructive change in the finances and services of New York City and New York State government.  Our mission is rooted in serving the citizenry at large, rather than narrow special interests; preserving public resources, whether financial or human; and focusing on the well-being of future New Yorkers, the most underrepresented group in city and state government.'
+  robots: 'index, follow'
+  content_language: en
   title: '[current-page:title] | [site:name]'
+  keywords: 'new york, budget, finance, politics'
+  description: 'The Citizens Budget Commission (CBC) is a nonpartisan, nonprofit civic organization whose mission is to achieve constructive change in the finances and services of New York City and New York State government.  Our mission is rooted in serving the citizenry at large, rather than narrow special interests; preserving public resources, whether financial or human; and focusing on the well-being of future New Yorkers, the most underrepresented group in city and state government.'
+  shortlink: '[current-page:url]'
+  canonical_url: '[current-page:url]'
+  geo_region: US-NY
+  news_keywords: 'new york, budget, finance, politics'
+  og_site_name: 'Citizens Budget Commission of New York'
+  article_tag: 'new york, budget, finance, politics'
+  og_image: '[current-page:hero-image]'
+  og_title: '[current-page: title]'
+  og_image_secure_url: '[current-page:hero-image]'
+  article_publisher: 'https://www.facebook.com/CitizensBudgetCommission'
+  og_description: 'The Citizens Budget Commission (CBC) is a nonpartisan, nonprofit civic organization whose mission is to achieve constructive change in the finances and services of New York City and New York State government.'
+  og_url: '[current-page: url]'

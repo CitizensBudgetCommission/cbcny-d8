@@ -1,0 +1,10 @@
+uuid: 0d28e335-2f5a-4fca-a1b3-233b2e9de9f8
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Page'
+tags:
+  abstract: '[node:field_teaser_plain]'
+  description: '[node:field_teaser_plain]'
+  og_description: '[node:field_teaser_plain]'

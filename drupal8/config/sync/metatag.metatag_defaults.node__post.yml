@@ -1,0 +1,11 @@
+uuid: dacb86ed-cd6e-4604-9609-2e45b3ee820b
+langcode: en
+status: true
+dependencies: {  }
+id: node__post
+label: 'Content: Post'
+tags:
+  abstract: '[node:field_teaser_plain]'
+  description: '[node:field_teaser_plain]'
+  og_description: '[node:field_teaser_plain]'
+  og_type: '[node:field_term_post_type]'

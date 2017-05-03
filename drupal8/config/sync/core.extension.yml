@@ -8,6 +8,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  cbc_token: 0
   chosen: 0
   chosen_field: 0
   chosen_lib: 0
@@ -35,6 +36,7 @@ module:
   linkit: 0
   menu_ui: 0
   metatag: 0
+  metatag_open_graph: 0
   node: 0
   options: 0
   page_cache: 0
