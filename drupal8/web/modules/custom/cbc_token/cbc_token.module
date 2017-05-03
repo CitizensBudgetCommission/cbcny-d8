@@ -23,7 +23,7 @@ function cbc_token_tokens($type, $tokens, array $data, array $options, \Drupal\C
     $image = Drupal\Core\Url::fromUri('base://themes/cbcny_theme/images/bg/hero--post.jpg', ['absolute' => TRUE])->toString();
 
     // If we're on a node, and it has field_hero_header, and it has a value, use that path.
-    if (isset($data['node']) && !empty($data['node']) && !empty($data['node']->field_hero)) {
+    if (isset($data['node']) && !empty($data['node']) && !$data['node']->field_hero->isEmpty()) {
       $image = $data['node']->field_hero->entity->field_image->entity->url();
     }
 
