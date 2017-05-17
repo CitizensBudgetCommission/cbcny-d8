@@ -1,40 +1,29 @@
-# Drupal project template for Platform.sh
+# CBCNY Drupal 8
 
-This project provides a starter kit for Drupal 8 projects hosted on [Platform.sh](http://platform.sh). It
-is very closely based on the [Drupal Composer project](https://github.com/drupal-composer/drupal-project).
+This is the Drupal 8 codebase for the cbcny project. It is a relatively vanilla Drupal 8 site, with a theme built using sass and pattern-lab. 
 
-## Starting a new project
+## Local development
 
-To start a new Drupal 8 project on Platform.sh, you have 2 options:
+The local development environment uses docker, based on [docker4drupal](http://docs.docker4drupal.org/en/latest/).
 
-1. Create a new project through the Platform.sh user interface and select "start
-   new project from a template".  Then select Drupal 8 as the template. That will
-   create a new project using this repository as a starting point.
+### Prerequisites
 
-2. Take an existing project, add the necessary Platform.sh files, and push it
-   to a Platform.sh Git repository. This template includes examples of how to
-   set up a Drupal 8 site.  (See the "differences" section below.)
+* [Docker](https://docker.com) and [docker-compose](https://docs.docker.com/compose/install/)
+* [Platform.sh client](https://docs.platform.sh/overview/cli.html#how-do-i-get-it)
+* Nothing else running on your computer's port 80. On *nix/osx you can see what's using that port with `sudo netstat -tlpn |grep -E 'tcp[^6].*:80'`
 
-## Using as a reference
+### Start the development environment
 
-You can also use this repository as a reference for your own Drupal projects, and
-borrow whatever code is needed.  The most important parts are the `.platform.app.yaml` file,
-the `.platform` directory, and the changes made to `settings.php`.
+1) Download Drupal and its modules, by running: `composer install`.
+2) Download the site's database from prod, by running: `platform db:dump -A app -d docker`
+3) Start the development environment, by running: `docker-compose up -d`.
 
-## Managing a Drupal site built with Composer
+Congratulations! You can now access your development version of the website at [http://localhost/](http://localhost/).
 
-Once the site is installed, there is no difference between a site hosted on Platform.sh
-and a site hosted anywhere else.  It's just Composer.  See the [Drupal documentation](https://www.drupal.org/node/2404989)
-for tips on how best to leverage Composer with Drupal 8.
+* After docker setup is complete, it takes 1-2 minutes for the theme to compile and the database to import. You can check the status of it with `docker-compose logs -f patternlab` and `docker-compose logs -f mariadb`. Use ctrl+c to stop watching the log. This only happens the first time you set up.
+* You only need to run `composer install` on first setup, and when the composer.json/lock files change.
+* You only need to download the db from prod on first setup, and when you want to update your database. 
+* To update the database, download a fresh copy again per step 2, then run `docker-compose exec php bash -c 'drush -r $APP_ROOT/web sqlc < $APP_ROOT/docker/*.sql'`
+* To shut down your development environment, run `docker-compose down`. To start it again, run `docker-compose up -d`
 
-## How does this starter kit differ from vanilla Drupal from Drupal.org?
 
-1. The `vendor` directory (where non-Drupal code lives) and the `config` directory
-   (used for syncing configuration from development to production) are outside
-   the web root. This is a bit more secure as those files are now not web-accessible.
-
-2. The `settings.php` and `settings.platformsh.php` files are provided by
-   default. The `settings.platformsh.php` file automatically sets up the database connection on Platform.sh, and allows controlling Drupal configuration from environment variables.
-
-3. We include recommended `.platform.app.yaml` and `.platform` files that should suffice
-   for most use cases. You are free to tweak them as needed for your particular site.

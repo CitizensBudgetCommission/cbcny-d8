@@ -75,6 +75,31 @@ if (file_exists(__DIR__ . '/settings.platformsh.php')) {
 // Include PDF files in core's fast_404 targets
 $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp|pdf)$/i';
 
+// If we're on the local docker environment...
+if (getenv('DB_HOST')) {
+
+  // solr server settings for the local environment
+  $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
+  $config['search_api.server.solr']['backend_config']['host'] = 'solr';
+  $config['search_api.server.solr']['backend_config']['port'] = '8983';
+  $config['search_api.server.solr']['backend_config']['path'] = '/solr';
+  $config['search_api.server.solr']['backend_config']['core'] = '';                                                            
+  $config['search_api.server.solr']['backend_config']['username'] = '';
+  $config['search_api.server.solr']['backend_config']['password'] = '';
+
+  $databases['default']['default'] = [
+    'driver' => getenv('DB_DRIVER'),
+    'database' => getenv('DB_NAME'),
+    'username' => getenv('DB_USER'),
+    'password' => getenv('DB_PASSWORD'),
+    'host' => getenv('DB_HOST'),
+    'port' => 3306,
+  ];
+  // Platform.sh provides its own value... here's ours for local dev.
+  $settings['hash_salt'] = 'CHANGEME';
+
+}
+
 // Local settings. These come last so that they can override anything.
 if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';

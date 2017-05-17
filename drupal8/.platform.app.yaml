@@ -81,6 +81,8 @@ dependencies:
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
     build: |
+      set -e
+      SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhost//tmp/db.sqlite ~/vendor/bin/phpunit -c ~/web/core --verbose ~/web/modules/custom/
       cd web/themes/cbcny_theme
       npm install -g grunt-cli
       npm install
@@ -88,8 +90,8 @@ hooks:
       cd ~
       curl -sL https://github.com/xenolf/lego/releases/download/v0.3.1/lego_linux_amd64.tar.xz | tar -C .global/bin -xJ --strip-components=1 lego/lego
       curl -sfSL -o .global/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.12.1/platform.phar
-
     deploy: |
+      set -e
       cd web
       drush -y cache-rebuild
       drush -y updatedb
@@ -99,11 +101,8 @@ hooks:
 # The configuration of scheduled execution.
 crons:
     drupal:
-        spec: '*/20 * * * *'
-        cmd: 'cd web ; drush core-cron'
+        spec: '*/5 * * * *'
+        cmd: 'cd drupal8/web ; drush core-cron'
     letsencrypt:
         spec: '0 0 1 * *'
         cmd: '/bin/sh /app/scripts/letsencrypt.sh'
-    scheduler:
-        spec: '*/5 * * * *'
-        cmd: 'wget -O - -q -t 1 https://cbcny.org/scheduler/cron/85cefefbf611cfb0bb0d'

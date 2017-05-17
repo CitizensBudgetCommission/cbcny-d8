@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/cbcny-d8
+    docker:
+      - image: wodby/drupal-php:7.0-2.1.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "drupal8/composer.lock" }}
+      - run:
+          name: Composer install
+          command: cd ~/cbcny-d8/drupal8 && composer install
+      - save_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "drupal8/composer.lock" }}
+          paths:
+            - "drupal8/vendor"
+            - "drupal8/web/core"
+            - "drupal8/web/modules/contrib"
+            - "drupal8/web/profiles/contrib"
+            - "drupal8/web/themes/contrib"
+            - "drupal8/drush/contrib"
+            - "drupal8/libraries"
+            - "~/.composer"
+      - run:
+          name: Run Drupal tests
+          command: |
+            cd ~/cbcny-d8/drupal8/web
+            php core/scripts/run-tests.sh --sqlite /tmp/tests.sqlite --dburl sqlite://localhost//tmp/tests.sqlite --non-html --verbose  --color --directory modules/custom

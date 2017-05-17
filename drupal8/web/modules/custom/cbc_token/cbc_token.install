@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install/Update hooks for cbc_token.
+ */
+
+use Drupal\Component\Utility\Crypt;
+
+/**
+ * Change the cron key to invalidate URL that was stored in the repo.
+ */
+function cbc_token_update_8001() {
+  // Change the cron key state variable.
+  $cron_key = Crypt::randomBytesBase64(55);
+  \Drupal::state()->set('system.cron_key', $cron_key);
+}
