@@ -12,7 +12,7 @@
 <article{{ attributes.addClass(classes) }}>
 
   {# Display Hero #}
-  {% if content.field_hero|render %}
+  {% if content.field_hero|render|trim %}
     <div class="hero hero--large" style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
         <div class="page-info">
