@@ -14,29 +14,13 @@ http://old.{default}/:
     enabled: true
   type: upstream
   upstream: drupal6:http
-http://keycdn.cbcny.org/:
-  cache:
-    cookies:
-    - '*'
-    default_ttl: 0
-    enabled: false
-    headers:
-    - Accept
-    - Accept-Language
-  redirects:
-    expires: -1s
-    paths: {}
-  ssi:
-    enabled: true
-  type: upstream
-  upstream: app:http
-http://www.{default}/:
+https://www.{default}/:
   redirects:
     expires: -1s
     paths: {}
   to: https://{default}/
   type: redirect
-http://{default}/:
+https://{default}/:
   cache:
     cookies:
     - '*'
