@@ -42,7 +42,7 @@ web:
             # Can be a time in seconds, or -1 for no caching. Times can be
             # suffixed with "s" (seconds), "m" (minutes), "h" (hours), "d"
             # (days), "w" (weeks), "M" (months, as 30 days) or "y" (years, as 365 days).
-            expires: 2h
+            expires: -1 
 
             # Whether to forward disallowed and missing resources from this
             # location to the application.
