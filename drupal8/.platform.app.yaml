@@ -49,15 +49,6 @@ web:
             # Can be true, false or a URI path string.
             passthru: '/index.php'
 
-        '/.well-known':
-            # Allow access to all files in the public files directory.
-            allow: true
-            expires: 5m
-            passthru: false
-            root: 'web/.well-known'
-            # Do not execute PHP scripts.
-            scripts: false
-
 # The size of the persistent disk of the application (in MB).
 disk: 2048
 
@@ -67,16 +58,20 @@ mounts:
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/drush-backups': 'shared:files/drush-backups'
-    # letsencrypt mounts
-    "/web/.well-known": "shared:files/.well-known"
-    "/keys": "shared:files/keys"
-    "/.platformsh": "shared:files/.platformsh"
+    '/.npm': 'shared:files/.npm'
+    '/web/themes/cbcny_theme/node_modules': 'shared:files/theme/node_modules'
+    '/web/themes/cbcny_theme/bower_components': 'shared:files/theme/bower_components'
+    '/web/themes/cbcny_theme/.sass_cache': 'shared:files/theme/.sass_cache'
+    '/web/themes/cbcny_theme/sass_partials/sass-globbing': 'shared:files/theme/sass_partials/sass-globbing'
+
 
 # The build-time dependencies of the app.
 dependencies:
   php:
     'drush/drush': '~8'
     'drupal/console': '@stable'
+  nodejs:
+    grunt-cli: "~1"
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
@@ -84,16 +79,11 @@ hooks:
       set -e
       SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhost//tmp/db.sqlite ~/vendor/bin/phpunit -c ~/web/core --verbose ~/web/modules/custom/
       cd web/themes/cbcny_theme
-      npm install -g grunt-cli
       npm install
       grunt build
-      cd ~
-      curl -sL https://github.com/xenolf/lego/releases/download/v0.3.1/lego_linux_amd64.tar.xz | tar -C .global/bin -xJ --strip-components=1 lego/lego
-      curl -sfSL -o .global/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.12.1/platform.phar
     deploy: |
       set -e
       cd web
-      drush -y cache-rebuild
       drush -y updatedb
       drush -y config-import
       drush -y entup
@@ -103,6 +93,3 @@ crons:
     drupal:
         spec: '*/5 * * * *'
         cmd: 'cd drupal8/web ; drush core-cron'
-    letsencrypt:
-        spec: '0 0 1 * *'
-        cmd: '/bin/sh /app/scripts/letsencrypt.sh'
