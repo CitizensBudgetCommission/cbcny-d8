@@ -24,12 +24,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
   field_searchable:
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   title:
     type: linked_and_wrapped
     settings:
@@ -39,5 +41,6 @@ content:
     weight: -5
     label: above
     third_party_settings: {  }
+    region: content
 hidden:
   links: true

@@ -17,6 +17,7 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
   title:
     type: linked_and_wrapped
     settings:
@@ -26,6 +27,7 @@ content:
     weight: -5
     label: above
     third_party_settings: {  }
+    region: content
 hidden:
   field_hero: true
   field_searchable: true

@@ -35,6 +35,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+    region: content
   field_published_date:
     weight: 5
     label: hidden
@@ -43,6 +44,7 @@ content:
       date_format: 'F d, Y'
     third_party_settings: {  }
     type: datetime_custom
+    region: content
   field_source_url:
     type: link
     weight: 0
@@ -54,6 +56,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    region: content
   field_subtitle:
     weight: 4
     label: hidden
@@ -61,6 +64,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_term_post_type:
     weight: 2
     label: hidden
@@ -68,6 +72,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   title:
     type: string
     settings:
@@ -75,6 +80,7 @@ content:
     weight: 3
     label: hidden
     third_party_settings: {  }
+    region: content
 hidden:
   field_hero: true
   field_metatags: true

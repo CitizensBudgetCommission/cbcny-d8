@@ -55,7 +55,8 @@
     "drupal/xmlsitemap": "1.x-dev",
     "drupal/metatag": "1.0-beta11",
     "drupal/redis": "~1",
-    "drupal/scheduler": "~1"
+    "drupal/scheduler": "~1",
+    "drupal/stage_file_proxy": "^1.0@alpha"
   },
   "require-dev": {
     "behat/mink": "~1.7",

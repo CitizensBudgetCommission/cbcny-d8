@@ -29,12 +29,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
   field_metatags:
     type: metatag_empty_formatter
     weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_page_content:
     weight: 3
     label: hidden
@@ -43,12 +45,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
   field_searchable:
     weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_term_section:
     weight: 2
     label: hidden
@@ -56,6 +60,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   title:
     type: linked_and_wrapped
     settings:
@@ -65,6 +70,7 @@ content:
     weight: -5
     label: above
     third_party_settings: {  }
+    region: content
 hidden:
   field_teaser_plain: true
   links: true

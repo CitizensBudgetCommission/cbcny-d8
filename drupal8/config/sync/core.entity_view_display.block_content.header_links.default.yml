@@ -20,6 +20,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_link:
     weight: 1
     label: hidden
@@ -31,4 +32,5 @@ content:
       target: '0'
     third_party_settings: {  }
     type: link
+    region: content
 hidden: {  }

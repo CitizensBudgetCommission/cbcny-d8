@@ -26,6 +26,7 @@ content:
     weight: -5
     label: above
     third_party_settings: {  }
+    region: content
 hidden:
   field_hero: true
   field_page_content: true

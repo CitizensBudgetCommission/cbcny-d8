@@ -75,6 +75,9 @@ if (file_exists(__DIR__ . '/settings.platformsh.php')) {
 // Include PDF files in core's fast_404 targets
 $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp|pdf)$/i';
 
+// Disable access checks for entities explicitly rendered by Twig.
+$settings['twig_tweak_check_access'] = FALSE;
+
 // If we're on the local docker environment...
 if (getenv('DB_HOST')) {
 

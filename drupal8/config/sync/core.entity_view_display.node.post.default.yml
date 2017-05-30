@@ -35,6 +35,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_is_featured:
     weight: 8
     label: hidden
@@ -44,12 +45,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_metatags:
     weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
   field_page_content:
     weight: 6
     label: hidden
@@ -58,6 +61,7 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
   field_published_date:
     weight: 5
     label: hidden
@@ -66,12 +70,14 @@ content:
       date_format: 'F d, Y'
     third_party_settings: {  }
     type: datetime_custom
+    region: content
   field_searchable:
     weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_subtitle:
     weight: 4
     label: hidden
@@ -79,6 +85,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_term_post_type:
     weight: 1
     label: hidden
@@ -86,6 +93,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_term_section:
     weight: 7
     label: hidden
@@ -93,6 +101,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_term_topic:
     weight: 2
     label: hidden
@@ -100,6 +109,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   title:
     type: linked_and_wrapped
     settings:
@@ -109,6 +119,7 @@ content:
     weight: -5
     label: above
     third_party_settings: {  }
+    region: content
 hidden:
   field_teaser_plain: true
   links: true
