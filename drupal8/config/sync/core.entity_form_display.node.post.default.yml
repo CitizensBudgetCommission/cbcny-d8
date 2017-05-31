@@ -21,6 +21,7 @@ dependencies:
     - metatag
     - paragraphs
     - path
+    - scheduler
 id: node.post.default
 targetEntityType: node
 bundle: post
@@ -33,8 +34,9 @@ content:
       title: Hero
       title_plural: Hero
       edit_mode: closed
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
+      default_paragraph_type: _none
     third_party_settings: {  }
     region: content
   field_is_featured:
@@ -58,6 +60,7 @@ content:
       edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
@@ -125,6 +128,8 @@ content:
   scheduler_settings:
     weight: 20
     region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 1
