@@ -9,6 +9,7 @@ dependencies:
   module:
     - paragraphs
     - path
+    - scheduler
 id: node.homepage.default
 targetEntityType: node
 bundle: homepage
@@ -20,8 +21,9 @@ content:
       title: Hero
       title_plural: Hero
       edit_mode: open
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
+      default_paragraph_type: _none
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
@@ -46,6 +48,8 @@ content:
   scheduler_settings:
     weight: 20
     region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
