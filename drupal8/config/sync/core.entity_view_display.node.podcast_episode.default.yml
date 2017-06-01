@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
     - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_soundcloud
     - field.field.node.podcast_episode.field_teaser_plain
     - field.field.node.podcast_episode.field_term_topic
     - node.type.podcast_episode
@@ -13,6 +14,7 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - metatag
+    - soundcloudfield
     - user
 id: node.podcast_episode.default
 targetEntityType: node
@@ -20,8 +22,8 @@ bundle: podcast_episode
 mode: default
 content:
   field_hero:
-    weight: 101
-    label: above
+    weight: 0
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -29,45 +31,61 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_metatags:
-    weight: 102
-    label: above
+    type: metatag_empty_formatter
+    weight: 5
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: metatag_empty_formatter
-    region: content
   field_published_date:
-    weight: 104
-    label: above
+    weight: 1
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_soundcloud:
+    weight: 4
+    label: hidden
+    settings:
+      soundcloud_player_type: classic
+      soundcloud_player_width: 100
+      soundcloud_player_height: 166
+      soundcloud_player_height_sets: 450
+      soundcloud_player_visual_height: 450
+      soundcloud_player_autoplay: ''
+      soundcloud_player_color: ff7700
+      soundcloud_player_hiderelated: ''
+      soundcloud_player_showartwork: ''
+      soundcloud_player_showcomments: true
+      soundcloud_player_showplaycount: ''
+    third_party_settings: {  }
+    type: soundcloud_default
+    region: content
   field_teaser_plain:
-    weight: 103
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_term_topic:
-    weight: 105
-    label: above
+    weight: 3
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  links:
-    weight: 100
     region: content
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 116
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
