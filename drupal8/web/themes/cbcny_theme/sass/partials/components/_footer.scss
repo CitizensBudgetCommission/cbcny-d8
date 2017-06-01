@@ -48,6 +48,10 @@
   @include breakpoint($bp-footer-switch, $no-query: true) {
     flex-direction: row;
   }
+
+  @media print {
+    display: none;
+  }
 }
 
 .footer__bottom {
