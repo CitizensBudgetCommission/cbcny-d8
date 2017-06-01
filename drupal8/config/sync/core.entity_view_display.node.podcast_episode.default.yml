@@ -1,0 +1,73 @@
+uuid: 6d9f93bc-ed9d-4e4c-9517-9dea8399a6b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.podcast_episode.field_hero
+    - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_teaser_plain
+    - field.field.node.podcast_episode.field_term_topic
+    - node.type.podcast_episode
+  module:
+    - datetime
+    - entity_reference_revisions
+    - metatag
+    - user
+id: node.podcast_episode.default
+targetEntityType: node
+bundle: podcast_episode
+mode: default
+content:
+  field_hero:
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_metatags:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_published_date:
+    weight: 104
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_teaser_plain:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_term_topic:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }
