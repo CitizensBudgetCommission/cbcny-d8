@@ -10,7 +10,7 @@ dependencies:
     - cbcny_theme
 id: search_type
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: -11
 provider: null
 plugin: 'facet_block:search_type'

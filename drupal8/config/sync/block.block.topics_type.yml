@@ -10,7 +10,7 @@ dependencies:
     - cbcny_theme
 id: topics_type
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: 0
 provider: null
 plugin: 'facet_block:topics_post_type'

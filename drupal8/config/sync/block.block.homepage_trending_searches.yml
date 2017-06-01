@@ -11,7 +11,7 @@ dependencies:
     - cbcny_theme
 id: homepage_trending_searches
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: -5
 provider: null
 plugin: 'block_content:9e0e8f89-28a5-4364-b21e-7837235283c9'
