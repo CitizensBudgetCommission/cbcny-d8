@@ -513,8 +513,9 @@ video {}
     font-family: $base-font-family;
     content: ' <' attr(href) '>';
     font-size: 10pt;
-    font-weight: normal;
+    font-weight: bold;
     text-transform: lowercase;
+    width: auto;
   }
 
   // Uncomment and replace example.com with your site’s domain.

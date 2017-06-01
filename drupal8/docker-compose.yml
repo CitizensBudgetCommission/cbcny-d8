@@ -73,4 +73,4 @@ services:
     volumes:
       - ./web/themes/cbcny_theme:/app
     working_dir: /app
-    command: sh -c 'npm install -g grunt-cli && npm install && grunt build'
+    command: sh -c 'npm install -g grunt-cli && npm install && grunt build && grunt watch'

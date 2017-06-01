@@ -3,7 +3,7 @@
 {% block content %}
   {% if site_name %}
     <div class="site-name">
-      <a class="site-name__link" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <a class="site-name__link" href="{{ url('<front>') }}" title="{{ 'Home'|t }}" rel="home">
         <h1 class="site-name__text">{{ site_name }}</h1>
       </a>
     </div>
