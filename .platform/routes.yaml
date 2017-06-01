@@ -41,7 +41,7 @@ https://{default}/:
     cookies:
     - '*'
     default_ttl: 0
-    enabled: false
+    enabled: true
     headers:
     - Accept
     - Accept-Language
