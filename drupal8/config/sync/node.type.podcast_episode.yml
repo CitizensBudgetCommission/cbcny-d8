@@ -5,6 +5,7 @@ dependencies:
   module:
     - menu_ui
     - scheduler
+    - title
 third_party_settings:
   menu_ui:
     available_menus: {  }
@@ -20,10 +21,12 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
+  title:
+    display_configurable_title: true
 name: 'Podcast episode'
 type: podcast_episode
 description: 'A single episode of a CBC podcast'
 help: ''
 new_revision: true
-preview_mode: 1
-display_submitted: true
+preview_mode: 0
+display_submitted: false

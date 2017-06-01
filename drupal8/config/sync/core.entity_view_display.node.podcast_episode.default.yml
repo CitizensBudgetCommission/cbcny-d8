@@ -15,6 +15,7 @@ dependencies:
     - entity_reference_revisions
     - metatag
     - soundcloudfield
+    - title
     - user
 id: node.podcast_episode.default
 targetEntityType: node
@@ -51,16 +52,16 @@ content:
     label: hidden
     settings:
       soundcloud_player_type: classic
-      soundcloud_player_width: 100
-      soundcloud_player_height: 166
-      soundcloud_player_height_sets: 450
-      soundcloud_player_visual_height: 450
-      soundcloud_player_autoplay: ''
-      soundcloud_player_color: ff7700
-      soundcloud_player_hiderelated: ''
-      soundcloud_player_showartwork: ''
-      soundcloud_player_showcomments: true
-      soundcloud_player_showplaycount: ''
+      soundcloud_player_width: '100'
+      soundcloud_player_height: '166'
+      soundcloud_player_height_sets: '450'
+      soundcloud_player_visual_height: '450'
+      soundcloud_player_color: 007faa
+      soundcloud_player_showartwork: '1'
+      soundcloud_player_autoplay: 0
+      soundcloud_player_hiderelated: 0
+      soundcloud_player_showcomments: 0
+      soundcloud_player_showplaycount: 0
     third_party_settings: {  }
     type: soundcloud_default
     region: content
@@ -80,12 +81,14 @@ content:
     type: entity_reference_label
     region: content
   title:
-    label: hidden
-    type: string
-    weight: 116
-    region: content
+    type: linked_and_wrapped
     settings:
-      link_to_entity: false
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
     third_party_settings: {  }
+    region: content
 hidden:
   links: true
