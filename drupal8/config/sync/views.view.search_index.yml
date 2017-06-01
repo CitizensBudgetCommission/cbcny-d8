@@ -231,6 +231,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        field_published_date:
+          id: field_published_date
+          table: search_api_index_nodes
+          field: field_published_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
         title:
           id: title
           table: search_api_index_nodes
