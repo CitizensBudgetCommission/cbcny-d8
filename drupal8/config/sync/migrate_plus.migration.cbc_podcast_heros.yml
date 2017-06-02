@@ -1,0 +1,38 @@
+langcode: en
+status: true
+id: cbc_podcast_heros
+migration_group: cbc_podcast
+label: 'Import hero headers for podcast episodes from RSS'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://feeds.soundcloud.com/users/soundcloud:users:138976584/sounds.rss'
+  item_selector: /rss/channel/item
+  fields:
+    -
+      name: guid
+      label: GUID
+      selector: guid
+    -
+      name: image
+      label: Image
+      selector: itunes:image['href']
+  ids:
+    guid:
+      type: string
+  high_water_property:
+    name: pub_date
+  destination_uri: public://podcast_episodes/episode.jpg
+process:
+  field_image:
+    plugin: download
+    source:
+      - image
+      - destination_uri
+    rename: true
+  type:
+    plugin: default_value
+    default_value: hero
+destination:
+  plugin: 'entity:paragraph'

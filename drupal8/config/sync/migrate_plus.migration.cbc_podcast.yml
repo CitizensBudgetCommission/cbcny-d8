@@ -49,7 +49,9 @@ process:
   field_soundcloud: link
   field_teaser_plain: summary
   # field_term_topic
-  # field_hero
+  field_hero:
+    plugin: cbc_podcast_heros
+    source: guid
   type:
     plugin: default_value
     default_value: podcast_episode
