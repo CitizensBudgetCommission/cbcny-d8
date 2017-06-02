@@ -94,3 +94,6 @@ crons:
     drupal:
         spec: '*/5 * * * *'
         cmd: 'cd web ; drush core-cron'
+    podcast:
+        spec: '1 * * * *'
+        cmd: 'cd web ; drush mi --all'
