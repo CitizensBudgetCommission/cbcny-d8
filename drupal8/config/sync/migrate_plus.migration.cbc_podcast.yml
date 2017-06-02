@@ -46,7 +46,7 @@ process:
   title: title
   field_published_date:
     plugin: format_date
-    from_format: 'D, d M Y h:i:s O'
+    from_format: 'D, d M Y H:i:s O'
     to_format: 'Y-m-d\TH:i:s'
     source: pub_date
   field_soundcloud: link
