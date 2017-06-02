@@ -93,4 +93,4 @@ hooks:
 crons:
     drupal:
         spec: '*/5 * * * *'
-        cmd: 'cd drupal8/web ; drush core-cron'
+        cmd: 'cd web ; drush core-cron'
