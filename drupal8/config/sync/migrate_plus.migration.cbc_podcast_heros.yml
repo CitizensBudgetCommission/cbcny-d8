@@ -1,6 +1,9 @@
+uuid: 3d8040e4-821d-4e65-9c74-b639215914df
 langcode: en
 status: true
+dependencies: {  }
 id: cbc_podcast_heros
+migration_tags: null
 migration_group: cbc_podcast
 label: 'Import hero headers for podcast episodes from RSS'
 source:
@@ -17,13 +20,13 @@ source:
     -
       name: image
       label: Image
-      selector: itunes:image['href']
+      selector: 'itunes:image[''href'']'
   ids:
     guid:
       type: string
   high_water_property:
     name: pub_date
-  destination_uri: public://podcast_episodes/episode.jpg
+  destination_uri: 'public://podcast_episodes/episode.jpg'
 process:
   field_image:
     plugin: download
@@ -36,3 +39,4 @@ process:
     default_value: hero
 destination:
   plugin: 'entity:paragraph'
+migration_dependencies: null

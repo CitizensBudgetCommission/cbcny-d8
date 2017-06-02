@@ -1,6 +1,9 @@
+uuid: 0965c924-59e6-415a-a15a-34681a074f39
 langcode: en
 status: true
+dependencies: {  }
 id: cbc_podcast
+migration_tags: null
 migration_group: cbc_podcast
 label: 'Import podcast episodes from RSS'
 source:
@@ -20,20 +23,20 @@ source:
       selector: title
     -
       name: pub_date
-      label: Publication date
+      label: 'Publication date'
       selector: pubDate
     -
       name: link
-      label: Soundcloud Link
+      label: 'Soundcloud Link'
       selector: link
     -
       name: summary
       label: Summary
-      selector: itunes:summary
+      selector: 'itunes:summary'
     -
       name: image
       label: Image
-      selector: itunes:image['href']
+      selector: 'itunes:image[''href'']'
   ids:
     guid:
       type: string
@@ -48,7 +51,6 @@ process:
     source: pub_date
   field_soundcloud: link
   field_teaser_plain: summary
-  # field_term_topic
   field_hero:
     plugin: cbc_podcast_heros
     source: guid
@@ -60,3 +62,4 @@ process:
     default_value: 1
 destination:
   plugin: 'entity:node'
+migration_dependencies: null
