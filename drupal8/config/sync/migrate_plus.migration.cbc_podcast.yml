@@ -1,0 +1,60 @@
+langcode: en
+status: true
+id: cbc_podcast
+migration_group: cbc_podcast
+label: 'Import podcast episodes from RSS'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'https://feeds.soundcloud.com/users/soundcloud:users:138976584/sounds.rss'
+  item_selector: /rss/channel/item
+  fields:
+    -
+      name: guid
+      label: GUID
+      selector: guid
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: pub_date
+      label: Publication date
+      selector: pubDate
+    -
+      name: link
+      label: Soundcloud Link
+      selector: link
+    -
+      name: summary
+      label: Summary
+      selector: itunes:summary
+    -
+      name: image
+      label: Image
+      selector: itunes:image['href']
+  ids:
+    guid:
+      type: string
+  high_water_property:
+    name: pub_date
+process:
+  title: title
+  field_published_date:
+    plugin: format_date
+    from_format: 'D, d M Y h:i:s O'
+    to_format: 'Y-m-d\TH:i:s'
+    source: pub_date
+  field_soundcloud: link
+  field_teaser_plain: summary
+  # field_term_topic
+  # field_hero
+  type:
+    plugin: default_value
+    default_value: podcast_episode
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
