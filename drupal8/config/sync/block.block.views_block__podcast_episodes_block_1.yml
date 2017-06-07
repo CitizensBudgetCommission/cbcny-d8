@@ -1,0 +1,31 @@
+uuid: 2ea962b6-9429-4f82-9185-9d73034cd3b6
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.podcast_episodes
+  module:
+    - facets
+    - views
+  theme:
+    - cbcny_theme
+id: views_block__podcast_episodes_block_1
+theme: cbcny_theme
+region: header
+weight: 0
+provider: null
+plugin: 'views_block:podcast_episodes-block_1'
+settings:
+  id: 'views_block:podcast_episodes-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
