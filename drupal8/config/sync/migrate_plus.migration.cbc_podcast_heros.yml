@@ -35,8 +35,14 @@ process:
       - destination_uri
     rename: true
   field_image:
+    -
+      plugin: download
+      source:
+        - image
+        - destination_uri
+      rename: true
+    -
       plugin: entity_generate
-      source: '@file'
   type:
     plugin: default_value
     default_value: hero

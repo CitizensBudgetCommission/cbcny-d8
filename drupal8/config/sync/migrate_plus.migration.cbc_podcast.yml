@@ -33,15 +33,9 @@ source:
       name: summary
       label: Summary
       selector: 'itunes:summary'
-    -
-      name: image
-      label: Image
-      selector: 'itunes:image[''href'']'
   ids:
     guid:
       type: string
-  high_water_property:
-    name: pub_date
 process:
   title: title
   field_published_date:
@@ -49,6 +43,7 @@ process:
     from_format: 'D, d M Y H:i:s O'
     to_format: 'Y-m-d\TH:i:s'
     source: pub_date
+  created: pub_date
   field_soundcloud: link
   field_teaser_plain: summary
   field_hero:
@@ -63,4 +58,6 @@ process:
     default_value: 1
 destination:
   plugin: 'entity:node'
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - cbc_podcast_heros
