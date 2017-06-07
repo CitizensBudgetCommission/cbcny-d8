@@ -104,6 +104,6 @@ if (getenv('DB_HOST')) {
 }
 
 // Local settings. These come last so that they can override anything.
-if (file_exists(__DIR__ . '/settings.local.php')) {
+if (getenv('LOCAL_DEVELOPMENT') && file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
