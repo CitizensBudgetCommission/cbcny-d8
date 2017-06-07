@@ -86,7 +86,7 @@ if (getenv('DB_HOST')) {
   $config['search_api.server.solr']['backend_config']['host'] = 'solr';
   $config['search_api.server.solr']['backend_config']['port'] = '8983';
   $config['search_api.server.solr']['backend_config']['path'] = '/solr';
-  $config['search_api.server.solr']['backend_config']['core'] = '';                                                            
+  $config['search_api.server.solr']['backend_config']['core'] = 'drupal';
   $config['search_api.server.solr']['backend_config']['username'] = '';
   $config['search_api.server.solr']['backend_config']['password'] = '';
 
