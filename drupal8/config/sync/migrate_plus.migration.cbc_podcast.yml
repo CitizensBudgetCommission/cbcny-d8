@@ -43,13 +43,20 @@ process:
     from_format: 'D, d M Y H:i:s O'
     to_format: 'Y-m-d\TH:i:s'
     source: pub_date
-  created: pub_date
+  created:
+    plugin: format_date
+    from_format: 'D, d M Y H:i:s O'
+    to_format: 'U'
+    source: pub_date
   field_soundcloud: link
   field_teaser_plain: summary
   field_hero:
     plugin: migration_lookup
     migration: cbc_podcast_heros
     source: guid
+  field_term_topic:
+    plugin: default_value
+    default_value: 4
   type:
     plugin: default_value
     default_value: podcast_episode
