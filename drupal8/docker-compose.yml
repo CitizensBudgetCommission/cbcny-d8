@@ -24,6 +24,7 @@ services:
       DB_PASSWORD: drupal
       DB_NAME: drupal
       DB_DRIVER: mysql
+      LOCAL_DEVELOPMENT: 1
       PHP_XDEBUG: 1
       # PHP_XDEBUG_DEFAULT_ENABLE: 1
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
