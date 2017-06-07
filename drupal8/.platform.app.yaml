@@ -96,4 +96,4 @@ crons:
         cmd: 'cd web ; drush core-cron'
     podcast:
         spec: '1 * * * *'
-        cmd: 'cd web ; drush mi --all'
+        cmd: 'cd web ; drush mi --group=cbc_podcast'
