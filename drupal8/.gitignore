@@ -29,10 +29,6 @@ bower_components
 
 /_site
 
-# Local configuration
-Vagrantfile.local
-settings.local.php
-
 # SASS cache
 .sass-cache
 
