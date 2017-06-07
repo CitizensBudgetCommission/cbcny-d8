@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.podcast_episode.field_term_topic
     - node.type.podcast_episode
   module:
+    - datetime
     - title
     - user
 id: node.podcast_episode.teaser
@@ -19,23 +20,42 @@ targetEntityType: node
 bundle: podcast_episode
 mode: teaser
 content:
-  links:
-    weight: 100
+  field_published_date:
+    type: datetime_custom
+    weight: 2
     region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F d, Y'
+    third_party_settings: {  }
+  field_teaser_plain:
+    type: basic_string
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_term_topic:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   title:
     type: linked_and_wrapped
     settings:
       tag: h2
       linked: true
       classes: ''
-    weight: -5
-    label: above
+    weight: 0
+    label: hidden
     third_party_settings: {  }
     region: content
 hidden:
   field_hero: true
   field_metatags: true
-  field_published_date: true
   field_soundcloud: true
-  field_teaser_plain: true
-  field_term_topic: true
+  links: true
