@@ -95,5 +95,5 @@ crons:
         spec: '*/5 * * * *'
         cmd: 'cd web ; drush core-cron'
     podcast:
-        spec: '1 * * * *'
+        spec: '0,15,30,45 * * * *'
         cmd: 'cd web ; drush mi --group=cbc_podcast'
