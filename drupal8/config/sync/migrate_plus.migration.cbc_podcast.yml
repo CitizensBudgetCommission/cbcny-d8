@@ -1,0 +1,70 @@
+uuid: 0965c924-59e6-415a-a15a-34681a074f39
+langcode: en
+status: true
+dependencies: {  }
+id: cbc_podcast
+migration_tags: null
+migration_group: cbc_podcast
+label: 'Import podcast episodes from RSS'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: simple_xml
+  urls: 'http://feeds.soundcloud.com/users/soundcloud:users:310624844/sounds.rss'
+  item_selector: /rss/channel/item
+  fields:
+    -
+      name: guid
+      label: GUID
+      selector: guid
+    -
+      name: title
+      label: Title
+      selector: title
+    -
+      name: pub_date
+      label: 'Publication date'
+      selector: pubDate
+    -
+      name: link
+      label: 'Soundcloud Link'
+      selector: link
+    -
+      name: summary
+      label: Summary
+      selector: 'itunes:summary'
+  ids:
+    guid:
+      type: string
+process:
+  title: title
+  field_published_date:
+    plugin: format_date
+    from_format: 'D, d M Y H:i:s O'
+    to_format: 'Y-m-d\TH:i:s'
+    source: pub_date
+  created:
+    plugin: format_date
+    from_format: 'D, d M Y H:i:s O'
+    to_format: 'U'
+    source: pub_date
+  field_soundcloud: link
+  field_teaser_plain: summary
+  field_hero:
+    plugin: migration_lookup
+    migration: cbc_podcast_heros
+    source: guid
+  field_term_topic:
+    plugin: default_value
+    default_value: 4
+  type:
+    plugin: default_value
+    default_value: podcast_episode
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - cbc_podcast_heros

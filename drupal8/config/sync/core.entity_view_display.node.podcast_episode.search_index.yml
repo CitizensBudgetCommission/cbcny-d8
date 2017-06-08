@@ -1,0 +1,61 @@
+uuid: 03486236-c3ca-4d4c-ac22-784e6388fb06
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.podcast_episode.field_hero
+    - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_soundcloud
+    - field.field.node.podcast_episode.field_teaser_plain
+    - field.field.node.podcast_episode.field_term_topic
+    - node.type.podcast_episode
+  module:
+    - datetime
+    - title
+    - user
+id: node.podcast_episode.search_index
+targetEntityType: node
+bundle: podcast_episode
+mode: search_index
+content:
+  field_published_date:
+    weight: 1
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_teaser_plain:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_term_topic:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_hero: true
+  field_metatags: true
+  field_soundcloud: true
+  links: true

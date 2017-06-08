@@ -1,0 +1,94 @@
+uuid: 6d9f93bc-ed9d-4e4c-9517-9dea8399a6b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.podcast_episode.field_hero
+    - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_soundcloud
+    - field.field.node.podcast_episode.field_teaser_plain
+    - field.field.node.podcast_episode.field_term_topic
+    - node.type.podcast_episode
+  module:
+    - datetime
+    - entity_reference_revisions
+    - metatag
+    - soundcloudfield
+    - title
+    - user
+id: node.podcast_episode.default
+targetEntityType: node
+bundle: podcast_episode
+mode: default
+content:
+  field_hero:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_metatags:
+    type: metatag_empty_formatter
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_published_date:
+    weight: 1
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_soundcloud:
+    weight: 4
+    label: hidden
+    settings:
+      soundcloud_player_type: classic
+      soundcloud_player_width: '100'
+      soundcloud_player_height: '166'
+      soundcloud_player_height_sets: '450'
+      soundcloud_player_visual_height: '450'
+      soundcloud_player_color: 007faa
+      soundcloud_player_showartwork: '1'
+      soundcloud_player_autoplay: 0
+      soundcloud_player_hiderelated: 0
+      soundcloud_player_showcomments: 0
+      soundcloud_player_showplaycount: 0
+    third_party_settings: {  }
+    type: soundcloud_default
+    region: content
+  field_teaser_plain:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_term_topic:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h1
+      linked: false
+      classes: ''
+    weight: -5
+    label: above
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true

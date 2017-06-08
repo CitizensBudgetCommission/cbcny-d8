@@ -77,8 +77,10 @@ display:
         options:
           view_modes:
             'entity:node':
+              listing: default
               news: teaser
               page: teaser
+              podcast_episode: teaser
               post: teaser
               report: teaser
             'entity:taxonomy_term':

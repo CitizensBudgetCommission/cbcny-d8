@@ -1,0 +1,10 @@
+uuid: 5441e5c6-6c15-4f53-a06a-911a4b37bb59
+langcode: en
+status: true
+dependencies: {  }
+id: cbc_podcast
+label: cbc_podcast
+description: ''
+source_type: null
+module: null
+shared_configuration: null

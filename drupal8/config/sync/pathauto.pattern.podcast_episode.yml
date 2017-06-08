@@ -1,0 +1,22 @@
+uuid: f989d3e4-e5b6-4a95-a01b-1203d8ab4b77
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: podcast_episode
+label: 'Podcast episode'
+type: 'canonical_entities:node'
+pattern: 'podcast/[node:title]'
+selection_criteria:
+  d3ec5701-ecf2-4bfc-89dd-135f4a2fdf62:
+    id: node_type
+    bundles:
+      podcast_episode: podcast_episode
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d3ec5701-ecf2-4bfc-89dd-135f4a2fdf62
+selection_logic: and
+weight: -5
+relationships: {  }

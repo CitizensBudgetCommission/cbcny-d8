@@ -1,0 +1,79 @@
+uuid: 8148ebf7-2851-426a-8f1d-eec47ce8274d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.podcast_episode.field_hero
+    - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_soundcloud
+    - field.field.node.podcast_episode.field_teaser_plain
+    - field.field.node.podcast_episode.field_term_topic
+    - node.type.podcast_episode
+  module:
+    - datetime
+    - soundcloudfield
+    - title
+    - user
+id: node.podcast_episode.teaser
+targetEntityType: node
+bundle: podcast_episode
+mode: teaser
+content:
+  field_published_date:
+    type: datetime_custom
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'F d, Y'
+    third_party_settings: {  }
+  field_soundcloud:
+    type: soundcloud_default
+    weight: 4
+    region: content
+    label: above
+    settings:
+      soundcloud_player_type: classic
+      soundcloud_player_width: '100'
+      soundcloud_player_height: '166'
+      soundcloud_player_height_sets: '450'
+      soundcloud_player_visual_height: '450'
+      soundcloud_player_color: ff7700
+      soundcloud_player_showartwork: '1'
+      soundcloud_player_autoplay: 0
+      soundcloud_player_hiderelated: 0
+      soundcloud_player_showcomments: 0
+      soundcloud_player_showplaycount: 0
+    third_party_settings: {  }
+  field_teaser_plain:
+    type: basic_string
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_term_topic:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  title:
+    type: linked_and_wrapped
+    settings:
+      tag: h2
+      linked: true
+      classes: ''
+    weight: 0
+    label: hidden
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_hero: true
+  field_metatags: true
+  links: true

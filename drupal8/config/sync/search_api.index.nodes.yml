@@ -11,6 +11,7 @@ dependencies:
     - field.storage.node.field_term_section
     - field.storage.node.field_searchable
     - search_api.server.solr
+    - core.entity_view_mode.node.search_index
     - core.entity_view_mode.node.teaser
   module:
     - search_api
@@ -31,10 +32,14 @@ field_settings:
         anonymous: anonymous
       view_mode:
         'entity:node':
+          listing: ''
           news: teaser
           page: teaser
+          podcast_episode: search_index
           post: teaser
           report: teaser
+        'entity:taxonomy_term':
+          taxonomy_term: ''
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -111,11 +116,28 @@ field_settings:
       config:
         - field.storage.node.field_searchable
 processor_settings:
-  add_url:
-    plugin_id: add_url
+  node_status:
+    plugin_id: node_status
     settings: {  }
   aggregated_field:
     plugin_id: aggregated_field
+    settings: {  }
+  transliteration:
+    plugin_id: transliteration
+    settings:
+      fields:
+        - rendered_item
+        - title
+        - field_term_topic
+        - field_term_post_type
+        - field_subtitle
+        - field_teaser_plain
+        - title_1
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  rendered_item:
+    plugin_id: rendered_item
     settings: {  }
   ignorecase:
     plugin_id: ignorecase
@@ -132,26 +154,9 @@ processor_settings:
       weights:
         preprocess_index: -10
         preprocess_query: -10
-  node_status:
-    plugin_id: node_status
+  add_url:
+    plugin_id: add_url
     settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
-  transliteration:
-    plugin_id: transliteration
-    settings:
-      fields:
-        - rendered_item
-        - title
-        - field_term_topic
-        - field_term_post_type
-        - field_subtitle
-        - field_teaser_plain
-        - title_1
-      weights:
-        preprocess_index: -10
-        preprocess_query: -10
 options:
   index_directly: true
   cron_limit: 50

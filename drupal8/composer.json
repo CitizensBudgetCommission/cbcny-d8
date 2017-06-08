@@ -56,7 +56,8 @@
     "drupal/metatag": "1.0-beta11",
     "drupal/redis": "~1",
     "drupal/scheduler": "~1",
-    "drupal/stage_file_proxy": "^1.0@alpha"
+    "drupal/stage_file_proxy": "^1.0@alpha",
+    "drupal/soundcloudfield": "~1"
   },
   "require-dev": {
     "behat/mink": "~1.7",

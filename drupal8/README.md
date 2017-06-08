@@ -23,7 +23,9 @@ Congratulations! You can now access your development version of the website at [
 * After docker setup is complete, it takes 1-2 minutes for the theme to compile and the database to import. You can check the status of it with `docker-compose logs -f patternlab` and `docker-compose logs -f mariadb`. Use ctrl+c to stop watching the log. This only happens the first time you set up.
 * You only need to run `composer install` on first setup, and when the composer.json/lock files change.
 * You only need to download the db from prod on first setup, and when you want to update your database. 
+* Changes in the theme will cause the theme to be automatically recompiled immediately. You will still have to clear Drupal's cache though.
 * To update the database, download a fresh copy again per step 2, then run `docker-compose exec php bash -c 'drush -r $APP_ROOT/web sqlc < $APP_ROOT/docker/*.sql'`
 * To shut down your development environment, run `docker-compose down`. To start it again, run `docker-compose up -d`
+* If you want to use solr locally, first run `docker exec -ti drupal8_solr_1 make core=drupal -f /usr/local/bin/actions.mk` to create the solr core your environment will use.
 
 

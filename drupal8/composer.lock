@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d925872fa8a717592b9bf11445ab573",
+    "content-hash": "0bec9fb63f26b54500e6dc68657d2207",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2863,6 +2863,49 @@
             }
         },
         {
+            "name": "drupal/soundcloudfield",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/soundcloudfield",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/soundcloudfield-8.x-1.0-alpha1.zip",
+                "reference": null,
+                "shasum": "0e05eab259271b5d8dd83b6d2f303dff27471966"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1450046339"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "attila.fekete",
+                    "homepage": "https://www.drupal.org/user/762986"
+                }
+            ],
+            "description": "Field for SoundCloud tracks and sets.",
+            "homepage": "https://www.drupal.org/project/soundcloudfield",
+            "support": {
+                "source": "http://cgit.drupalcode.org/soundcloudfield"
+            }
+        },
+        {
             "name": "drupal/stage_file_proxy",
             "version": "1.0.0-alpha2",
             "source": {
@@ -2873,7 +2916,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-8.x-1.0-alpha2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha2",
                 "shasum": "e80ff02d173c8571d7b7005258bed110a62b7884"
             },
             "require": {
@@ -6685,7 +6728,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-rc2.zip",
-                "reference": null,
+                "reference": "8.x-1.0-rc2",
                 "shasum": "011322bf9c263dab29f94640829f4b654e9c5632"
             },
             "require": {
