@@ -10,7 +10,7 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
-  urls: 'https://feeds.soundcloud.com/users/soundcloud:users:138976584/sounds.rss'
+  urls: 'http://feeds.soundcloud.com/users/soundcloud:users:310624844/sounds.rss'
   item_selector: /rss/channel/item
   fields:
     -
