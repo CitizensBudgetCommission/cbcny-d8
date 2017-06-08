@@ -11,6 +11,7 @@ dependencies:
     - field.storage.node.field_term_section
     - field.storage.node.field_searchable
     - search_api.server.solr
+    - core.entity_view_mode.node.search_index
     - core.entity_view_mode.node.teaser
   module:
     - search_api
@@ -34,7 +35,7 @@ field_settings:
           listing: ''
           news: teaser
           page: teaser
-          podcast_episode: teaser
+          podcast_episode: search_index
           post: teaser
           report: teaser
         'entity:taxonomy_term':
