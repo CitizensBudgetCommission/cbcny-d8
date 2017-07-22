@@ -10,7 +10,7 @@ dependencies:
     - cbcny_theme
 id: advocacy_topic
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: 0
 provider: null
 plugin: 'facet_block:advocacy_topic'

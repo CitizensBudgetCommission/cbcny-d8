@@ -10,7 +10,7 @@ dependencies:
     - cbcny_theme
 id: topic_cards
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: -6
 provider: null
 plugin: 'views_block:topics_terms-topic_cards'

@@ -11,7 +11,7 @@ dependencies:
     - cbcny_theme
 id: about_menu
 theme: cbcny_theme
-region: '-1'
+region: header
 weight: -12
 provider: null
 plugin: 'system_menu_block:about-menu'
