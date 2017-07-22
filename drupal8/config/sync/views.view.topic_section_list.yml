@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - node.type.news
+    - node.type.podcast_episode
     - node.type.post
     - node.type.report
     - taxonomy.vocabulary.post_type
@@ -142,6 +143,7 @@ display:
           operator: in
           value:
             news: news
+            podcast_episode: podcast_episode
             post: post
             report: report
           group: 1
@@ -324,6 +326,7 @@ display:
           operator: in
           value:
             news: news
+            podcast_episode: podcast_episode
             post: post
             report: report
           group: 1
