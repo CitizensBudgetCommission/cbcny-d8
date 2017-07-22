@@ -4,9 +4,8 @@
 {% else %}
   {% set card_link = url %}
 {% endif %}
-
 {# Use "podcast episode" as type for podcast episdoes #}
-{%  if content.type == 'podcast_episode' %}
+{%  if node.bundle == 'podcast_episode' %}
   {% set card_type = 'Podcast Episode' %}
 {% else %}
   {% set card_type = content.field_term_post_type %}
