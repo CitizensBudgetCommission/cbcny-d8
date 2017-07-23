@@ -6,7 +6,7 @@
 %}
 
 {# For Press Mentions, use the external URL as the link destination. #}
-{% if (node.bundle == 'news') and (content.field_term_post_type.0['#plain_text'] == "Press Mention") %}
+{% if (node.bundle == 'news') and (content.field_term_post_type.0['#plain_text'] == "Press Mention") and (content.field_source_url.0['#url'] is not empty) %}
     {%  set destinationUrl = content.field_source_url.0['#url'] %}
     {% set linkTarget = '_blank' %}
 {% else %}
