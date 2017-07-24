@@ -4,6 +4,12 @@
 {% else %}
   {% set card_link = url %}
 {% endif %}
+{# Use "podcast episode" as type for podcast episdoes #}
+{%  if node.bundle == 'podcast_episode' %}
+  {% set card_type = 'Podcast Episode' %}
+{% else %}
+  {% set card_type = content.field_term_post_type %}
+{% endif %}
 
 {%
   set classes = [
@@ -14,7 +20,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   <a class="card__link" href="{{ card_link }}">
-	  <div class="card__type">{{ content.field_term_post_type }}</div>
+	  <div class="card__type">{{ card_type }}</div>
 	  <h2 class="card__title">{{ content.title }}</h2>
 	  <h3 class="card__subtitle">{{ content.field_subtitle }}</h3>
 	  <div class="card__date">{{ content.field_published_date }}</div>
