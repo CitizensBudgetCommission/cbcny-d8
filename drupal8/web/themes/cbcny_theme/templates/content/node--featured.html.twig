@@ -5,21 +5,29 @@
   ]
 %}
 
+{# For Press Mentions, use the external URL as the link destination. #}
+{% if (node.bundle == 'news') and (content.field_term_post_type.0['#plain_text'] == "Press Mention") and (content.field_source_url.0['#url']) %}
+    {%  set destinationUrl = content.field_source_url.0['#url'] %}
+    {% set linkTarget = '_blank' %}
+{% else %}
+    {% set destinationUrl = url %}
+{% endif %}
+
 <article{{ attributes.addClass(classes) }}>
   <div class="l-slat l-slat--feature">
     <div class="l-slat__media">
-      <a href="{{ url }}" class="feature__image" style="background-image: url({{ content.field_hero|render|trim }});"></a>
+      <a target="{{ linkTarget }}" href="{{ destinationUrl }}" class="feature__image" style="background-image: url({{ content.field_hero|render|trim }});"></a>
     </div>
     <div class="l-slat__content">
       <div class="l-slat__content-container">
         <div class="feature__type">{{ content.field_term_post_type }}</div>
-        <h1 class="feature__title"><a href="{{ url }}">{{ content.title }}</a></h1>
+        <h1 class="feature__title"><a target="{{ linkTarget }}" href="{{ destinationUrl }}">{{ content.title }}</a></h1>
         <h2 class="feature__subtitle">{{ content.field_subtitle }}</h2>
         <div class="feature__divider"></div>
         <div class="feature__body">
           <span class="feature__date">{{ content.field_published_date }}</span>
             - {{ teaser|length > 200 ? teaser|slice(0, 200) ~ '...' : teaser }}
-          <div class="read-more"><a href="{{ url }}">Read more</a></div>
+          <div class="read-more"><a target="{{ linkTarget }}" href="{{ destinationUrl }}">Read more</a></div>
         </div>
       </div>
     </div>
