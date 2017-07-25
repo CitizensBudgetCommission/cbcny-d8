@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/cbcny-d8
     docker:
-      - image: wodby/drupal-php:7.0-2.1.0
+      - image: wodby/drupal-php:7.1
     steps:
       - checkout
       - restore_cache:
