@@ -36,6 +36,7 @@
         ]
       });
       $('.slick-carousel-homepage').slick({
+        autoplay: true,
         infinite: false,
         dots: true
       });
