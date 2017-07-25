@@ -37,6 +37,7 @@
       });
       $('.slick-carousel-homepage').slick({
         autoplay: true,
+        autoplaySpeed: 3500,
         infinite: false,
         dots: true
       });
