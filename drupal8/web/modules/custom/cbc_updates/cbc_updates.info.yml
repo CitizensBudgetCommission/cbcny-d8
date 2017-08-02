@@ -1,0 +1,6 @@
+name: CBC Updates
+type: module
+description: CBC update hooks
+core: 8.x
+package: Custom
+dependencies:
