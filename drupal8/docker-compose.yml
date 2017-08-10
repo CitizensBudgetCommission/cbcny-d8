@@ -14,6 +14,8 @@ services:
     volumes:
       - database:/var/lib/mysql # I want to manage volumes manually.
       - ./docker:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+    ports:
+      - 3306:3306
 
   php:
     image: wodby/drupal-php:7.0-2.1.0

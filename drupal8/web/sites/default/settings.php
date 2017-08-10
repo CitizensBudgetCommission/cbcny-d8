@@ -20,7 +20,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 // As the settings.php file is not writable during install on Platform.sh (for
 // good reasons), Drupal will refuse to install a profile that is not defined
 // here.
-$settings['install_profile'] = 'standard';
+$settings['install_profile'] = 'minimal';
 
 // The hash_salt should be a unique random value for each application.
 // If left unset, the settings.platformsh.php file will attempt to provide one.
@@ -29,6 +29,8 @@ $settings['install_profile'] = 'standard';
 // can configure a separate hash_salt in your settings.local.php file for
 // local development.
 // $settings['hash_salt'] = 'change_me';
+$settings['hash_salt'] = 'CHANGEME';
+
 
 // Set up a config sync directory.
 //
@@ -106,4 +108,16 @@ if (getenv('DB_HOST')) {
 // Local settings. These come last so that they can override anything.
 if (getenv('LOCAL_DEVELOPMENT') && file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
+}
+
+// Local behat testing settings.
+if (getenv('LOCAL_BEHAT')) {
+  $databases['default']['default'] = [
+    'driver' => 'mysql',
+    'database' => 'drupal',
+    'username' => 'drupal',
+    'password' => 'drupal',
+    'host' => '127.0.0.1',
+    'port' => 3306,
+  ];
 }
