@@ -46,7 +46,9 @@
     </div>
 
     <div class="published-date">{{ content.field_published_date }}</div>
-
+    {% if (content.field_source_url.0['#url']) %}
+      <a href="{{ content.field_source_url.0['#url'] }}" target="_blank">Original source</a>
+    {% endif %}
     {{ content.field_page_content }}
   </div>
 
