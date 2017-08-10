@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.featured_content
     - field.storage.block_content.field_featured_items
     - node.type.news
+    - node.type.podcast_episode
     - node.type.post
     - node.type.report
 id: block_content.featured_content.field_featured_items
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       news: news
+      podcast_episode: podcast_episode
       post: post
       report: report
     sort:
