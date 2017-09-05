@@ -5,7 +5,8 @@
  * Local development settings.
  */
 
-// solr server settings for the local environment
+// solr server settings for the local environment.
+// NB: run `docker exec -ti [ID] make core=drupal -f /usr/local/bin/actions.mk` to set this up.
 $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
 $config['search_api.server.solr']['backend_config']['host'] = 'solr';
 $config['search_api.server.solr']['backend_config']['port'] = '8983';
