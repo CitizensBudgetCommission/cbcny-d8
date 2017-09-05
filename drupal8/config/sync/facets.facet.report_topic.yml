@@ -3,7 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - search_api.index.nodes
     - views.view.report_listing
+  module:
+    - search_api
 id: report_topic
 name: 'Report Topic'
 url_alias: report_topic
@@ -21,7 +24,7 @@ query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: null
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
@@ -47,6 +50,11 @@ processor_configs:
     processor_id: hide_non_narrowing_result_processor
     weights:
       build: -10
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
     settings: {  }
   translate_taxonomy:
     processor_id: translate_taxonomy
