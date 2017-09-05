@@ -4,3 +4,43 @@
  * @file
  * Install/Update hooks for cbc_updates.
  */
+
+use Drupal\Core\Utility\UpdateException;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Create Podcast post type, set searchable on all podcasts.
+ */
+function cbc_updates_update_8001() {
+  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+  /** @var \Drupal\node\Entity\Node[] $nodes */
+  $nodes = $nodeStorage->loadByProperties([
+    'type' => 'podcast_episode',
+  ]);
+  if (empty($nodes)) {
+    throw new UpdateException('Podcast nodes could not be loaded');
+  }
+  // Make sure that nodes have the post type field.
+  $test_node = reset($nodes);
+  if (!$test_node->hasField('field_term_post_type')) {
+    throw new UpdateException('Post type field has not been added to nodes yet.');
+  }
+  // Create the Podcast Post Type.
+  $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $term = $termStorage->loadByProperties(['name' => 'Podcast Episode']);
+  if (empty($term)) {
+    $term = Term::create([
+      'vid' => 'post_type',
+      'name' => 'Podcast Episode',
+    ]);
+    $term->save();
+  }
+  else {
+    $term = reset($term);
+  }
+  foreach ($nodes as $node) {
+    // Set the value of the field.
+    $node->set('field_term_post_type', $term->id());
+    $node->save();
+  }
+}
