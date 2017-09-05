@@ -46,7 +46,7 @@ process:
   created:
     plugin: format_date
     from_format: 'D, d M Y H:i:s O'
-    to_format: 'U'
+    to_format: U
     source: pub_date
   field_soundcloud: link
   field_teaser_plain: summary
