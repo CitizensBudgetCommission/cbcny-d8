@@ -122,8 +122,8 @@
       "drupal/migrate_plus": {
         "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
       },
-      "drupal/facets": {
-        "Add default display for Facets to use": "./patches/drupal/facets/allowed_plugins_use_default.patch"
+      "drupal/search_api": {
+        "Allow default views as a source for facets": "https://www.drupal.org/files/issues/2836477-search_api-views_default_deriver.patch"
       }
     }
   }
