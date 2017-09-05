@@ -54,7 +54,7 @@ services:
     image: wodby/redis:3.2-2.1.0
 
   solr:
-    image: wodby/drupal-solr:8-6.3
+    image: wodby/drupal-solr:8-6.6
     environment:
       SOLR_HEAP: 1024m
 #    labels:
