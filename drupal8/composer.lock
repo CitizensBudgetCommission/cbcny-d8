@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bec9fb63f26b54500e6dc68657d2207",
+    "content-hash": "f780831bc2ccfb608f68de4d6b6390f5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1965,7 +1965,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/entity_reference_revisions-8.x-1.3.zip",
-                "reference": null,
+                "reference": "8.x-1.3",
                 "shasum": "78aebb58efbbfcbb2faa40a1afc0830312b32631"
             },
             "require": {
@@ -1981,7 +1981,11 @@
                 },
                 "drupal": {
                     "version": "8.x-1.3",
-                    "datestamp": "1495814284"
+                    "datestamp": "1495814284",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 },
                 "patches_applied": {
                     "accept scalar values per https://www.drupal.org/node/2667748": "https://www.drupal.org/files/issues/allow-single-scalar-2667748-28.patch"
@@ -2013,17 +2017,17 @@
         },
         {
             "name": "drupal/facets",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/facets",
-                "reference": "8.x-1.0-alpha4"
+                "reference": "8.x-1.0-alpha11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.0-alpha4.zip",
-                "reference": "8.x-1.0-alpha4",
-                "shasum": "be46fce4fffe5e37b46047ac342c420ec752173b"
+                "url": "https://ftp.drupal.org/files/projects/facets-8.x-1.0-alpha11.zip",
+                "reference": "8.x-1.0-alpha11",
+                "shasum": "7b53517e7049048a4379a5e30a2ca4a243ca1fe9"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2033,15 +2037,36 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
+                "installer-paths": {
+                    "web/core": [
+                        "type:drupal-core"
+                    ],
+                    "web/modules/contrib/{$name}": [
+                        "type:drupal-module"
+                    ],
+                    "web/profiles/contrib/{$name}": [
+                        "type:drupal-profile"
+                    ],
+                    "web/themes/contrib/{$name}": [
+                        "type:drupal-theme"
+                    ],
+                    "drush/contrib/{$name}": [
+                        "type:drupal-drush"
+                    ],
+                    "web/libraries/{$name}": [
+                        "type:drupal-library"
+                    ]
                 },
-                "drupal": {
-                    "version": "8.x-1.0-alpha4",
-                    "datestamp": "1475153339"
-                },
-                "patches_applied": {
-                    "Add default display for Facets to use": "./patches/drupal/facets/allowed_plugins_use_default.patch"
+                "patches": {
+                    "drupal/entity_reference_revisions": {
+                        "accept scalar values per https://www.drupal.org/node/2667748": "https://www.drupal.org/files/issues/allow-single-scalar-2667748-28.patch"
+                    },
+                    "drupal/migrate_plus": {
+                        "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
+                    },
+                    "drupal/facets": {
+                        "Add default display for Facets to use": "./patches/drupal/facets/allowed_plugins_use_default.patch"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2060,26 +2085,6 @@
                 {
                     "name": "borisson_",
                     "homepage": "https://www.drupal.org/user/2393360"
-                },
-                {
-                    "name": "drunken monkey",
-                    "homepage": "https://www.drupal.org/user/205582"
-                },
-                {
-                    "name": "jurcello",
-                    "homepage": "https://www.drupal.org/user/774070"
-                },
-                {
-                    "name": "marthinal",
-                    "homepage": "https://www.drupal.org/user/387593"
-                },
-                {
-                    "name": "mr.baileys",
-                    "homepage": "https://www.drupal.org/user/383424"
-                },
-                {
-                    "name": "swentel",
-                    "homepage": "https://www.drupal.org/user/107403"
                 }
             ],
             "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
@@ -2207,7 +2212,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/honeypot-8.x-1.27.zip",
-                "reference": null,
+                "reference": "8.x-1.27",
                 "shasum": "b40f86ef45a7f4325343e8aa455ecbdceab51ffe"
             },
             "require": {
@@ -2425,7 +2430,11 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-beta1",
-                    "datestamp": "1476307739"
+                    "datestamp": "1494450485",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
                 },
                 "patches_applied": {
                     "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
@@ -2440,6 +2449,10 @@
                     "name": "Mike Ryan",
                     "homepage": "https://www.drupal.org/u/mikeryan",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "mikeryan",
+                    "homepage": "https://www.drupal.org/user/4420"
                 }
             ],
             "description": "Enhancements to core migration support.",
@@ -2783,20 +2796,20 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.0.0-alpha16",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api",
-                "reference": "8.x-1.0-alpha16"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.0-alpha16.zip",
-                "reference": "8.x-1.0-alpha16",
-                "shasum": "ca14ead13f570a8f5891ae50ef48833eed7cd648"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "e064dc8769a95ce3ebb3f30cdfe0fba8ea661dfb"
             },
             "require": {
-                "drupal/core": "^8.1"
+                "drupal/core": "^8.3"
             },
             "require-dev": {
                 "drupal/search_api_db": "*"
@@ -2807,8 +2820,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha16",
-                    "datestamp": "1472120490"
+                    "version": "8.x-1.3",
+                    "datestamp": "1500483242",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2839,22 +2856,32 @@
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "1.0.0-alpha5",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_solr",
-                "reference": "8.x-1.0-alpha5"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0-alpha5.zip",
-                "reference": "8.x-1.0-alpha5",
-                "shasum": "bd2736f1d0560e52eaa2f21fd3d9da75679adb84"
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "2559a2d54867632b2b0fac12e634da3eb820993d"
             },
             "require": {
                 "drupal/core": "~8.0",
-                "drupal/search_api": "*",
-                "solarium/solarium": "3.6.*"
+                "drupal/search_api": "~1.2",
+                "solarium/solarium": "3.8.*"
+            },
+            "require-dev": {
+                "drupal/facets": "1.x-dev",
+                "drupal/geofield": "1.x-dev",
+                "drupal/search_api_autocomplete": "1.x-dev",
+                "drupal/search_api_location": "1.x-dev"
+            },
+            "suggest": {
+                "drupal/facets": "Provides facetted search.",
+                "drupal/search_api_solr_multilingual": "Highly recommended if installation is multilingual or uses a language different than English."
             },
             "type": "drupal-module",
             "extra": {
@@ -2862,8 +2889,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha5",
-                    "datestamp": "1472136239"
+                    "version": "8.x-1.0",
+                    "datestamp": "1498580642",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2872,12 +2903,12 @@
             ],
             "authors": [
                 {
-                    "name": "Berdir",
-                    "homepage": "https://www.drupal.org/user/214652"
+                    "name": "Markus Kalkbrenner",
+                    "homepage": "https://www.drupal.org/u/mkalkbrenner"
                 },
                 {
-                    "name": "Nick_vh",
-                    "homepage": "https://www.drupal.org/user/122682"
+                    "name": "Other contributors",
+                    "homepage": "https://www.drupal.org/node/982682/committers"
                 },
                 {
                     "name": "amateescu",
@@ -2899,7 +2930,9 @@
             "description": "Offers an implementation of the Search API that uses an Apache Solr server for indexing content.",
             "homepage": "https://www.drupal.org/project/search_api_solr",
             "support": {
-                "source": "http://cgit.drupalcode.org/search_api_solr"
+                "source": "http://git.drupal.org/project/search_api_solr.git",
+                "issues": "https://www.drupal.org/project/issues/search_api_solr",
+                "irc": "irc://irc.freenode.org/drupal-search-api"
             }
         },
         {
@@ -2913,7 +2946,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/soundcloudfield-8.x-1.0-alpha1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha1",
                 "shasum": "0e05eab259271b5d8dd83b6d2f303dff27471966"
             },
             "require": {
@@ -2956,7 +2989,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-8.x-1.0-alpha3.zip",
-                "reference": null,
+                "reference": "8.x-1.0-alpha3",
                 "shasum": "0eb1fc47fa1437c2db623a57c2b2cdbecab5b350"
             },
             "require": {
@@ -3140,7 +3173,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/twig_tweak-8.x-1.8.zip",
-                "reference": null,
+                "reference": "8.x-1.8",
                 "shasum": "2cf63537214e77a5c0d2697d8062604113980228"
             },
             "require": {
@@ -4403,16 +4436,16 @@
         },
         {
             "name": "solarium/solarium",
-            "version": "3.6.0",
+            "version": "3.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/solariumphp/solarium.git",
-                "reference": "b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5"
+                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5",
-                "reference": "b945cbe4e8f96b639d82c4d1e2cae4ef3ab6fce5",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/c353babec89fdbe8c64054bfec8e77bcb5da6705",
+                "reference": "c353babec89fdbe8c64054bfec8e77bcb5da6705",
                 "shasum": ""
             },
             "require": {
@@ -4420,10 +4453,14 @@
                 "symfony/event-dispatcher": "~2.3|~3.0"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "^3.8 || ^6.2",
                 "phpunit/phpunit": "~3.7",
                 "satooshi/php-coveralls": "~1.0",
                 "squizlabs/php_codesniffer": "~1.4",
                 "zendframework/zendframework1": "~1.12"
+            },
+            "suggest": {
+                "minimalcode/search": "Query builder compatible with Solarium, allows simplified solr-query handling"
             },
             "type": "library",
             "extra": {
@@ -4453,7 +4490,7 @@
                 "search",
                 "solr"
             ],
-            "time": "2016-05-03T07:08:49+00:00"
+            "time": "2017-02-02T13:32:22+00:00"
         },
         {
             "name": "stack/builder",

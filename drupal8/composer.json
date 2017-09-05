@@ -47,9 +47,8 @@
     "harvesthq/chosen": "*",
     "drupal/allowed_formats": "~1.0",
     "drupal/honeypot": "^1",
-    "drupal/search_api": "1.0-alpha16",
-    "drupal/facets": "1.0-alpha4",
-    "drupal/search_api_solr": "1.0-alpha5",
+    "drupal/search_api": "~1.0",
+    "drupal/facets": "1.0-alpha11",
     "drupal/webform": "5.0-beta2",
     "drupal/redirect": "1.0-alpha1",
     "drupal/xmlsitemap": "1.x-dev",
@@ -57,7 +56,8 @@
     "drupal/redis": "~1",
     "drupal/scheduler": "~1",
     "drupal/stage_file_proxy": "^1.0@alpha",
-    "drupal/soundcloudfield": "~1"
+    "drupal/soundcloudfield": "~1",
+    "drupal/search_api_solr": "1.0"
   },
   "require-dev": {
     "behat/mink": "~1.7",
