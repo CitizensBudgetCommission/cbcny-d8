@@ -1,8 +1,0 @@
-uuid: 782b27e8-5e7c-461d-9f77-a4908f158725
-langcode: en
-status: true
-dependencies: {  }
-id: search_api_views__blog_listing__default
-name: 'search_api_views:blog_listing:default'
-filter_key: null
-url_processor: query_string

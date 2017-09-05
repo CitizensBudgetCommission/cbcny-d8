@@ -1,8 +1,0 @@
-uuid: 8fcd5ca8-9257-42f0-9e8d-57386f88d897
-langcode: en
-status: true
-dependencies: {  }
-id: search_api_views__news_listing__default
-name: 'search_api_views:news_listing:default'
-filter_key: null
-url_processor: query_string

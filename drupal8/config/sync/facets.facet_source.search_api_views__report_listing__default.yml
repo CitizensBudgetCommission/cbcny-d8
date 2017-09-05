@@ -1,8 +1,0 @@
-uuid: 206c0132-ce80-43e1-8490-19b97f79a144
-langcode: en
-status: true
-dependencies: {  }
-id: search_api_views__report_listing__default
-name: 'search_api_views:report_listing:default'
-filter_key: null
-url_processor: query_string
