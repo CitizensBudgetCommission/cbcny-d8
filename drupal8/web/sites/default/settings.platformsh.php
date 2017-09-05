@@ -52,11 +52,11 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
   }
 
   // Override solr server settings for the platform environment
-  $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
-  $config['search_api.server.solr']['backend_config']['host'] = 'solr.internal';
-  $config['search_api.server.solr']['backend_config']['port'] = '8080';
-  $config['search_api.server.solr']['backend_config']['path'] = '/solr';
-  $config['search_api.server.solr']['backend_config']['core'] = '';
+  $config['search_api.server.solr']['backend_config']['connector_config']['scheme'] = 'http';
+  $config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr.internal';
+  $config['search_api.server.solr']['backend_config']['connector_config']['port'] = '8080';
+  $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+  $config['search_api.server.solr']['backend_config']['connector_config']['core'] = '';
   $config['search_api.server.solr']['backend_config']['username'] = '';
   $config['search_api.server.solr']['backend_config']['password'] = '';
 }

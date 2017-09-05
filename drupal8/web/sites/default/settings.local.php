@@ -7,13 +7,13 @@
 
 // solr server settings for the local environment.
 // NB: run `docker exec -ti [ID] make core=drupal -f /usr/local/bin/actions.mk` to set this up.
-$config['search_api.server.solr']['backend_config']['scheme'] = 'http';
-$config['search_api.server.solr']['backend_config']['host'] = 'solr';
-$config['search_api.server.solr']['backend_config']['port'] = '8983';
-$config['search_api.server.solr']['backend_config']['path'] = '/solr';
-$config['search_api.server.solr']['backend_config']['core'] = 'drupal';
-$config['search_api.server.solr']['backend_config']['username'] = '';
-$config['search_api.server.solr']['backend_config']['password'] = '';
+$config['search_api.server.solr']['backend_config']['connector_config']['scheme'] = 'http';
+$config['search_api.server.solr']['backend_config']['connector_config']['host'] = 'solr';
+$config['search_api.server.solr']['backend_config']['connector_config']['port'] = '8983';
+$config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+$config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'drupal';
+$config['search_api.server.solr']['backend_config']['connector_config']['username'] = '';
+$config['search_api.server.solr']['backend_config']['connector_config']['password'] = '';
 
 $databases['default']['default'] = [
   'driver' => getenv('DB_DRIVER'),
