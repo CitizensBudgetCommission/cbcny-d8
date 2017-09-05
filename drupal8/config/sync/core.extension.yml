@@ -4,6 +4,7 @@ module:
   admin_toolbar_tools: 0
   allowed_formats: 0
   automated_cron: 0
+  backup_migrate: 0
   big_pipe: 0
   block: 0
   block_content: 0
@@ -71,8 +72,8 @@ module:
   menu_link_content: 1
   pathauto: 1
   views: 10
-  standard: 1000
-profile: standard
+  minimal: 1000
+profile: minimal
 theme:
   stable: 0
   classy: 0

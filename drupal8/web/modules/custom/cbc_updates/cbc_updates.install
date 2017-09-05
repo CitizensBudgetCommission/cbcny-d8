@@ -9,9 +9,28 @@ use Drupal\Core\Utility\UpdateException;
 use Drupal\taxonomy\Entity\Term;
 
 /**
+ * Change the stored profile to "minimal" [#34].
+ */
+function cbc_updates_update_8002() {
+  // @see https://www.messageagency.com/blog/changing-install-profiles-drupal-8.
+  $profile_name = "minimal";
+  $version = \Drupal::keyValue('system.schema')->get('standard');
+  \Drupal::keyValue('system.schema')->delete('standard');
+  \Drupal::keyValue('system.schema')->set($profile_name, $version);
+
+  $extension_config = \Drupal::configFactory()->getEditable('core.extension');
+  $modules = $extension_config->get('module');
+  $modules[$profile_name] = 1;
+  unset($modules['standard']);
+  $extension_config->set('module', $modules);
+  $extension_config->set('profile', $profile_name);
+  $extension_config->save(); drupal_flush_all_caches();
+}
+
+/**
  * Create Podcast post type, set searchable on all podcasts.
  */
-function cbc_updates_update_8001() {
+function cbc_updates_update_8003() {
   $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
   /** @var \Drupal\node\Entity\Node[] $nodes */
   $nodes = $nodeStorage->loadByProperties([

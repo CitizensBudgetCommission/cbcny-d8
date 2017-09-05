@@ -1,29 +1,117 @@
 version: 2
+# From https://gist.github.com/rachellawson/75dcb9d1c6cf706b6d9909740def7668 . Thanks, Rachel!
 jobs:
   build:
-    working_directory: ~/cbcny-d8
     docker:
-      - image: wodby/drupal-php:7.1
+      - image: circleci/php:7.1-apache-browsers
+      - image: wodby/mariadb:latest
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: drupal
+    working_directory: ~/cbcny-d8
     steps:
       - checkout
+      - run:
+          name: Add PHP module prerequisites
+          command: |
+            sudo apt-get update -y
+            sudo apt-get install -y libpng-dev mysql-client
+            sudo docker-php-ext-install gd pdo pdo_mysql
+      - restore_cache:
+          key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
+      - run:
+          name: Build the theme
+          command: |
+            curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+            sudo apt-get install nodejs build-essential -y
+            nodejs --version
+            npm --version
+            cd ~/cbcny-d8/drupal8/web/themes/cbcny_theme
+            sudo npm install -g grunt-cli
+            npm install
+            grunt build
+      - save_cache:
+          key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
+          paths:
+            - "~/cbcny-d8/drupal8/web/themes/cbcny_theme/node_modules"
+            - "~/.npm"
+      - run:
+          name: Start Xvfb
+          command: |
+            sudo Xvfb :7055
+            export DISPLAY=:7055
+          background: true
+      - run:
+          name: Start Selenium
+          command: |
+            sudo apt-get install -y default-jre
+            wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar -O selenium-server.jar
+            java -jar selenium-server.jar
+          background: true
+      - run:
+          name: PhantomJS install
+          command: |
+            sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "drupal8/composer.lock" }}
       - run:
-          name: Composer install
-          command: cd ~/cbcny-d8/drupal8 && composer install
+          name: Configure & Start Apache
+          command: |
+            sudo cp ~/cbcny-d8/.circleci/sia.conf /etc/apache2/sites-available/sia.conf
+            sudo a2ensite sia
+            sudo service apache2 start
+      - run:
+          name: Install composer and then project
+          command: |
+            cd ~/cbcny-d8/drupal8
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Installer verified'; } else { echo 'Installer invalid'; unlink('composer-setup.php'); } echo PHP_EOL;"
+            php composer-setup.php
+            php -r "unlink('composer-setup.php');"
+            php composer.phar self-update
+            php composer.phar install -n --prefer-dist
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "drupal8/composer.lock" }}
+          key: deps1-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/composer.lock" }}
           paths:
-            - "drupal8/vendor"
-            - "drupal8/web/core"
-            - "drupal8/web/modules/contrib"
-            - "drupal8/web/profiles/contrib"
-            - "drupal8/web/themes/contrib"
-            - "drupal8/drush/contrib"
-            - "drupal8/libraries"
+            - "~/cbcny-d8/drupal8/vendor"
+            - "~/cbcny-d8/drupal8/web/core"
+            - "~/cbcny-d8/drupal8/web/modules/contrib"
+            - "~/cbcny-d8/drupal8/web/profiles/contrib"
+            - "~/cbcny-d8/drupal8/web/themes/contrib"
+            - "~/cbcny-d8/drupal8/drush/contrib"
+            - "~/cbcny-d8/drupal8/libraries"
             - "~/.composer"
       - run:
-          name: Run Drupal tests
+          name: Run PHPUnit tests
           command: |
             cd ~/cbcny-d8/drupal8/web
             php core/scripts/run-tests.sh --sqlite /tmp/tests.sqlite --dburl sqlite://localhost//tmp/tests.sqlite --non-html --verbose  --color --directory modules/custom
+      # Install the site, then import a barebones dump of structural content. Disable emails during installation.
+      - run:
+          name: Site Install with CBC scaffold
+          command: |
+            cd ~/cbcny-d8/drupal8/web
+            ../vendor/bin/drush si -y --db-url=mysql://drupal:drupal@127.0.0.1/drupal minimal install_configure_form.enable_update_status_emails=NULL install_configure_form.update_status_module=NULL
+            gunzip -c ../../.circleci/circleci.sql.gz | ../vendor/bin/drush sqlc
+            ../vendor/bin/drush cr
+      - run:
+          name: Apply updates
+          command: |
+            cd ~/cbcny-d8/drupal8/web
+            ../vendor/bin/drush entup -y
+            ../vendor/bin/drush updb -y
+            ../vendor/bin/drush cim -y
+      - run:
+          name: Test
+          command: |
+            cd ~/cbcny-d8/drupal8/behat
+            mkdir ~/cbcny-d8/test-reports
+            mkdir ~/cbcny-d8/test-reports/cucumber
+            ../vendor/bin/behat --no-snippets -f pretty -o std -f junit -o ~/cbcny-d8/test-reports/cucumber/junit.xml
+      - store_artifacts:
+          path: drupal8/screenshots
+          prefix: screenshots
+      - store_test_results:
+          path: test-reports
