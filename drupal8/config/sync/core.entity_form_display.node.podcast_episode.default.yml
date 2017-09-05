@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.podcast_episode.field_published_date
     - field.field.node.podcast_episode.field_soundcloud
     - field.field.node.podcast_episode.field_teaser_plain
+    - field.field.node.podcast_episode.field_term_post_type
     - field.field.node.podcast_episode.field_term_topic
     - node.type.podcast_episode
   module:
@@ -60,6 +61,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_term_post_type:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_term_topic:
     weight: 3
