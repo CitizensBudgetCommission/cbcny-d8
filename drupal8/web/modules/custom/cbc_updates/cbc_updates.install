@@ -23,3 +23,11 @@ function cbc_updates_update_8002() {
   $extension_config->set('profile', $profile_name);
   $extension_config->save(); drupal_flush_all_caches();
 }
+
+/**
+ * Force uninstall cloudflare, yamlform modules.
+ */
+function cbc_updates_update_8003() {
+  $moduleInstaller = \Drupal::service('module_installer');
+  $moduleInstaller->uninstall(['cloudflare', 'yamlform']);
+}
