@@ -29,38 +29,54 @@ function cbc_updates_update_8002() {
 }
 
 /**
- * Create the Post Type field on podcast nodes.
+ * Create the Post Type and Searchable fields on podcast nodes.
  */
 function cbc_updates_update_8003() {
-  // Copy the field instance directly from the Post content type.
-  $fields = \Drupal::entityManager()->getStorage('field_config')
-    ->loadByProperties([
-      'field_name' => 'field_term_post_type',
-      'entity_type' => 'node',
-      'bundle' => 'post',
-    ]);
-  if (empty($fields)) {
-    throw new UpdateException('Could not find field_term_post_type on the Post bundle.');
-  }
-  $sourceField = reset($fields);
-  $newField = $sourceField->toArray();
-  $newField['bundle'] = 'podcast_episode';
-  $newField['id'] = 'node.podcast_episode.field_term_post_type';
-  unset($newField['uuid'], $newField['dependencies']);
-  $newField = FieldConfig::create($newField);
-  $newField->enforceIsNew(TRUE);
-  try {
-    if (!$newField->save()) {
-      throw new UpdateException('Failed saving the new field.');
-    };
-  }
-  catch (\Exception $e) {
-    throw new UpdateException('Error saving the new field', 1, $e);
+  $newFields = [];
+  foreach (['field_term_post_type', 'field_searchable'] as $fieldName) {
+    // If the field doesn't exist yet.
+    $existingField = \Drupal::entityManager()->getStorage('field_config')
+      ->loadByProperties([
+        'field_name' => $fieldName,
+        'entity_type' => 'node',
+        'bundle' => 'podcast_episode',
+      ]);
+    if (!empty($existingField)) {
+      continue;
+    }
+    // Copy the field instances directly from the Post content type.
+    $fields = \Drupal::entityManager()->getStorage('field_config')
+      ->loadByProperties([
+        'field_name' => $fieldName,
+        'entity_type' => 'node',
+        'bundle' => 'post',
+      ]);
+    if (empty($fields)) {
+      throw new UpdateException("Could not find {$fieldName} on the Post bundle.");
+    }
+    $sourceField = reset($fields);
+    $newField = $sourceField->toArray();
+    $newField['bundle'] = 'podcast_episode';
+    $newField['id'] = "node.podcast_episode.{$fieldName}";
+    unset($newField['uuid'], $newField['dependencies']);
+    $newField = FieldConfig::create($newField);
+
+    // Save the new field.
+    $newField->enforceIsNew(TRUE);
+    try {
+      if (!$newField->save()) {
+        // Generic "did not save" FALSE return should be an exception too.
+        throw new UpdateException("Failed saving the {$fieldName} field.");
+      };
+    }
+    catch (\Exception $e) {
+      throw new UpdateException("Error saving the {$fieldName} field", 1, $e);
+    }
   }
 }
 
 /**
- * Create Podcast post type, set searchable on all podcasts.
+ * Create/set Podcast post type, set searchable on all podcasts.
  */
 function cbc_updates_update_8004() {
   $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
@@ -76,6 +92,9 @@ function cbc_updates_update_8004() {
   if (!$test_node->hasField('field_term_post_type')) {
     throw new UpdateException('Post type field has not been added to nodes yet.');
   }
+  if (!$test_node->hasField('field_searchable')) {
+    throw new UpdateException('Searchable field has not been added to nodes yet.');
+  }
   // Create the Podcast Post Type.
   $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
   $term = $termStorage->loadByProperties(['name' => 'Podcast Episode']);
@@ -90,8 +109,9 @@ function cbc_updates_update_8004() {
     $term = reset($term);
   }
   foreach ($nodes as $node) {
-    // Set the value of the field.
+    // Set the value of the fields.
     $node->set('field_term_post_type', $term->id());
+    $node->set('field_searchable', 'Yes');
     $node->save();
   }
 }
