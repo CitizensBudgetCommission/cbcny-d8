@@ -39,7 +39,7 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
     $config['search_api.server.solr']['backend_config']['connector_config']['host'] = $endpoint['host'];
     $config['search_api.server.solr']['backend_config']['connector_config']['port'] = $endpoint['port'];
     $config['search_api.server.solr']['backend_config']['connector_config']['path'] = "/{$endpoint['path']}";
-    $config['search_api.server.solr']['backend_config']['connector_config']['core'] = '';
+    $config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'collection1';
     $config['search_api.server.solr']['backend_config']['username'] = '';
     $config['search_api.server.solr']['backend_config']['password'] = '';
   }
