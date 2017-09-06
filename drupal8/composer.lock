@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8669e9f8ebac825fdf04bb5cbb3f4eb4",
+    "content-hash": "5a174ee914299b5f2fb715fb7ad8d631",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2775,9 +2775,6 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
-                },
-                "patches_applied": {
-                    "Add default display for Facets to use": "https://www.drupal.org/files/issues/2836477-search_api-views_default_deriver.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3537,6 +3534,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Add default display for Facets to use": "https://www.drupal.org/files/issues/2836477-search_api-views_default_deriver.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
