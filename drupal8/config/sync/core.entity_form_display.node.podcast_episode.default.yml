@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
     - field.field.node.podcast_episode.field_published_date
+    - field.field.node.podcast_episode.field_searchable
     - field.field.node.podcast_episode.field_soundcloud
     - field.field.node.podcast_episode.field_teaser_plain
     - field.field.node.podcast_episode.field_term_post_type
@@ -45,6 +46,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_searchable:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_soundcloud:
     weight: 5

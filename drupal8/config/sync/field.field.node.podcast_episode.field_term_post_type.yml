@@ -7,7 +7,7 @@ dependencies:
     - node.type.podcast_episode
     - taxonomy.vocabulary.post_type
   content:
-    - 'taxonomy_term:post_type:35830720-9140-4c1e-bf00-431b212d9ae4'
+    - 'taxonomy_term:post_type:5f7a18fe-7ffc-4d56-b1fe-6e632578dab0'
 id: node.podcast_episode.field_term_post_type
 field_name: field_term_post_type
 entity_type: node
@@ -18,7 +18,7 @@ required: false
 translatable: true
 default_value:
   -
-    target_uuid: 35830720-9140-4c1e-bf00-431b212d9ae4
+    target_uuid: 5f7a18fe-7ffc-4d56-b1fe-6e632578dab0
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

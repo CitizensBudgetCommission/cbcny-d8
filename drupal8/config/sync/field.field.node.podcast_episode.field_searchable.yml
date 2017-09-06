@@ -1,0 +1,23 @@
+uuid: cb1f53cc-d69f-4ead-b929-6f2626c89424
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_searchable
+    - node.type.podcast_episode
+  module:
+    - options
+id: node.podcast_episode.field_searchable
+field_name: field_searchable
+entity_type: node
+bundle: podcast_episode
+label: Searchable
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Yes'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
