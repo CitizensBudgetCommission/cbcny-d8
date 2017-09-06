@@ -31,7 +31,7 @@ function cbc_updates_update_8002() {
 /**
  * Create the Post Type and Searchable fields on podcast nodes.
  */
-function cbc_updates_update_8003() {
+function cbc_updates_update_8004() {
   $newFields = [];
   foreach (['field_term_post_type', 'field_searchable'] as $fieldName) {
     // If the field doesn't exist yet.
@@ -78,7 +78,7 @@ function cbc_updates_update_8003() {
 /**
  * Create/set Podcast post type, set searchable on all podcasts.
  */
-function cbc_updates_update_8004() {
+function cbc_updates_update_8005() {
   $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
   /** @var \Drupal\node\Entity\Node[] $nodes */
   $nodes = $nodeStorage->loadByProperties([
