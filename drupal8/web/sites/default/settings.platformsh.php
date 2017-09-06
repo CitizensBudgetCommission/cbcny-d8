@@ -33,15 +33,23 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
   }
 
   // Solr setup.
-  foreach ($relationships['solr'] as $endpoint) {
-    // Override solr server settings for the platform environment.
-    $config['search_api.server.solr']['backend_config']['connector_config']['scheme'] = 'http';
-    $config['search_api.server.solr']['backend_config']['connector_config']['host'] = $endpoint['host'];
-    $config['search_api.server.solr']['backend_config']['connector_config']['port'] = $endpoint['port'];
-    $config['search_api.server.solr']['backend_config']['connector_config']['path'] = "/{$endpoint['path']}";
-    $config['search_api.server.solr']['backend_config']['connector_config']['core'] = 'collection1';
-    $config['search_api.server.solr']['backend_config']['username'] = '';
-    $config['search_api.server.solr']['backend_config']['password'] = '';
+  if (!empty($relationships['solr'][0])) {
+    // The configuration received from platform.
+    $solr = $relationships['solr'][0];
+
+    // Gets the name of the Solr core from the Platform.sh relationship. Uses
+    // 'collection1' if empty to conform with the default Solr service single
+    // core configuration for versions lower than 6.x.
+    $core = substr($solr['path'], 5) ? : 'collection1';
+
+    $config['search_api.server.solr']['backend_config']['connector_config']['core'] = $core;
+
+    // The path is always 'solr'.
+    $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+
+    // Gets the host and port from the values returned from the relationship.
+    $config['search_api.server.solr']['backend_config']['connector_config']['host'] = $solr['host'];
+    $config['search_api.server.solr']['backend_config']['connector_config']['port'] = $solr['port'];
   }
 }
 
