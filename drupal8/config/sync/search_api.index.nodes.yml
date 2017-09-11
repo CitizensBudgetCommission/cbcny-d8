@@ -117,26 +117,22 @@ field_settings:
         - field.storage.node.field_searchable
 datasource_settings:
   'entity:node':
-    plugin_id: 'entity:node'
-    settings:
-      bundles:
-        default: true
-        selected:
-          - homepage
-          - landing
-          - section
-      languages:
-        default: true
-        selected: {  }
+    bundles:
+      default: true
+      selected:
+        - homepage
+        - landing
+        - section
+    languages:
+      default: true
+      selected: {  }
   'entity:taxonomy_term':
-    plugin_id: 'entity:taxonomy_term'
-    settings:
-      bundles:
-        default: false
-        selected: {  }
-      languages:
-        default: true
-        selected: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
 processor_settings:
   node_status:
     plugin_id: node_status
