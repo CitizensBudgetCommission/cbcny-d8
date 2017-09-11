@@ -17,31 +17,36 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
   if (isset($variables['elements']['field_term_section'])) {
 
     // Grab Node and Field
-    $node = \Drupal::routeMatch()->getParameter('node');
-    $field = $node->get('field_term_section');
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $variables['elements']['field_term_section']['#node'] ??
+      $variables['elements']['field_term_section']['#object'] ??
+      \Drupal::routeMatch()->getParameter('node');
+    if ($node->hasField('field_term_section')) {
+      $field = $node->get('field_term_section');
 
-    // If field not empty then grab value and use as theme suggestions
-    if (!$field->isEmpty() && $node->getType() == "section") {
-      $term = $field
-        ->first()
-        ->get('entity')
-        ->getTarget()
-        ->getValue()
-        ->getName();
-      $suggestions[] = 'node__' . 'section__' . strtolower($term);
+      // If field not empty then grab value and use as theme suggestions
+      if (!$field->isEmpty() && $node->getType() == "section") {
+        $term = $field
+          ->first()
+          ->get('entity')
+          ->getTarget()
+          ->getValue()
+          ->getName();
+        $suggestions[] = 'node__section__' . strtolower($term);
+      }
+
+      // If field not empty then grab value and use as theme suggestions.
+      if (!$field->isEmpty() && $node->getType() == "page") {
+        $term = $field
+          ->first()
+          ->get('entity')
+          ->getTarget()
+          ->getValue()
+          ->getName();
+        $suggestions[] = 'node__page__' . strtolower($term);
+      }
+
     }
-
-    // If field not empty then grab value and use as theme suggestions
-    if (!$field->isEmpty() && $node->getType() == "page") {
-      $term = $field
-        ->first()
-        ->get('entity')
-        ->getTarget()
-        ->getValue()
-        ->getName();
-      $suggestions[] = 'node__' . 'page__' . strtolower($term);
-    }
-
   }
 
   // Test for existence of Template field
@@ -49,8 +54,9 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
 
     // Grab Node and Field.
     /** @var \Drupal\node\NodeInterface $node */
-    $node = $variables['elements']['field_template']['#object'] ?? \Drupal::routeMatch()->getParameter('node');
-    if ($node->hasField('field_template')) {
+    $node = $variables['elements']['field_template']['#node'] ??
+      $variables['elements']['field_template']['#object'] ??
+      \Drupal::routeMatch()->getParameter('node');    if ($node->hasField('field_template')) {
       $field = $node->get('field_template');
 
       // If field not empty then grab value and use as theme suggestions.
