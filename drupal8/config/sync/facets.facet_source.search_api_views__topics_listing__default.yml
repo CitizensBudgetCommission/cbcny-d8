@@ -1,8 +1,0 @@
-uuid: 59d996f4-2583-4e52-9547-52fc20f842fd
-langcode: en
-status: true
-dependencies: {  }
-id: search_api_views__topics_listing__default
-name: 'search_api_views:topics_listing:default'
-filter_key: null
-url_processor: query_string

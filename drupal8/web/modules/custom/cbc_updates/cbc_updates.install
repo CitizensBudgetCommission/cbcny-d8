@@ -5,6 +5,10 @@
  * Install/Update hooks for cbc_updates.
  */
 
+use Drupal\Core\Utility\UpdateException;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\field\Entity\FieldConfig;
+
 /**
  * Change the stored profile to "minimal" [#34].
  */
@@ -22,4 +26,92 @@ function cbc_updates_update_8002() {
   $extension_config->set('module', $modules);
   $extension_config->set('profile', $profile_name);
   $extension_config->save(); drupal_flush_all_caches();
+}
+
+/**
+ * Create the Post Type and Searchable fields on podcast nodes.
+ */
+function cbc_updates_update_8004() {
+  $newFields = [];
+  foreach (['field_term_post_type', 'field_searchable'] as $fieldName) {
+    // If the field doesn't exist yet.
+    $existingField = \Drupal::entityManager()->getStorage('field_config')
+      ->loadByProperties([
+        'field_name' => $fieldName,
+        'entity_type' => 'node',
+        'bundle' => 'podcast_episode',
+      ]);
+    if (!empty($existingField)) {
+      continue;
+    }
+    // Copy the field instances directly from the Post content type.
+    $fields = \Drupal::entityManager()->getStorage('field_config')
+      ->loadByProperties([
+        'field_name' => $fieldName,
+        'entity_type' => 'node',
+        'bundle' => 'post',
+      ]);
+    if (empty($fields)) {
+      throw new UpdateException("Could not find {$fieldName} on the Post bundle.");
+    }
+    $sourceField = reset($fields);
+    $newField = $sourceField->toArray();
+    $newField['bundle'] = 'podcast_episode';
+    $newField['id'] = "node.podcast_episode.{$fieldName}";
+    unset($newField['uuid'], $newField['dependencies']);
+    $newField = FieldConfig::create($newField);
+
+    // Save the new field.
+    $newField->enforceIsNew(TRUE);
+    try {
+      if (!$newField->save()) {
+        // Generic "did not save" FALSE return should be an exception too.
+        throw new UpdateException("Failed saving the {$fieldName} field.");
+      };
+    }
+    catch (\Exception $e) {
+      throw new UpdateException("Error saving the {$fieldName} field", 1, $e);
+    }
+  }
+}
+
+/**
+ * Create/set Podcast post type, set searchable on all podcasts.
+ */
+function cbc_updates_update_8005() {
+  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+  /** @var \Drupal\node\Entity\Node[] $nodes */
+  $nodes = $nodeStorage->loadByProperties([
+    'type' => 'podcast_episode',
+  ]);
+  if (empty($nodes)) {
+    throw new UpdateException('Podcast nodes could not be loaded');
+  }
+  // Make sure that nodes have the post type field.
+  $test_node = reset($nodes);
+  if (!$test_node->hasField('field_term_post_type')) {
+    throw new UpdateException('Post type field has not been added to nodes yet.');
+  }
+  if (!$test_node->hasField('field_searchable')) {
+    throw new UpdateException('Searchable field has not been added to nodes yet.');
+  }
+  // Create the Podcast Post Type.
+  $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $term = $termStorage->loadByProperties(['name' => 'Podcast Episode']);
+  if (empty($term)) {
+    $term = Term::create([
+      'vid' => 'post_type',
+      'name' => 'Podcast Episode',
+    ]);
+    $term->save();
+  }
+  else {
+    $term = reset($term);
+  }
+  foreach ($nodes as $node) {
+    // Set the value of the fields.
+    $node->set('field_term_post_type', $term->id());
+    $node->set('field_searchable', 'Yes');
+    $node->save();
+  }
 }

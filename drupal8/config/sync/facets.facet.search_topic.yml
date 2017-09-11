@@ -3,21 +3,28 @@ langcode: en
 status: true
 dependencies:
   config:
+    - search_api.index.nodes
     - views.view.search_index
+  module:
+    - search_api
 id: search_topic
 name: 'Search Topic'
 url_alias: search_topic
 weight: 0
+min_count: 1
 show_only_one_result: false
 field_identifier: field_term_topic
-query_type_name: null
-facet_source_id: 'search_api_views:search_index:default'
+facet_source_id: 'search_api:views_default__search_index__default'
 widget:
   type: checkbox
   config:
     show_numbers: true
     soft_limit: 0
 query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
@@ -44,6 +51,11 @@ processor_configs:
     weights:
       build: -10
     settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
   translate_taxonomy:
     processor_id: translate_taxonomy
     weights:
@@ -57,4 +69,3 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
-facet_configs: {  }

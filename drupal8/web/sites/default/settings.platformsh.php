@@ -31,6 +31,26 @@ if (isset($_ENV['PLATFORM_RELATIONSHIPS'])) {
       }
     }
   }
+
+  // Solr setup.
+  if (!empty($relationships['solr'][0])) {
+    // The configuration received from platform.
+    $solr = $relationships['solr'][0];
+
+    // Gets the name of the Solr core from the Platform.sh relationship. Uses
+    // 'collection1' if empty to conform with the default Solr service single
+    // core configuration for versions lower than 6.x.
+    $core = substr($solr['path'], 5) ? : 'collection1';
+
+    $config['search_api.server.solr']['backend_config']['connector_config']['core'] = $core;
+
+    // The path is always 'solr'.
+    $config['search_api.server.solr']['backend_config']['connector_config']['path'] = '/solr';
+
+    // Gets the host and port from the values returned from the relationship.
+    $config['search_api.server.solr']['backend_config']['connector_config']['host'] = $solr['host'];
+    $config['search_api.server.solr']['backend_config']['connector_config']['port'] = $solr['port'];
+  }
 }
 
 if (isset($_ENV['PLATFORM_APP_DIR'])) {
@@ -50,15 +70,6 @@ if (isset($_ENV['PLATFORM_APP_DIR'])) {
   if (!isset($settings['php_storage']['twig'])) {
     $settings['php_storage']['twig']['directory'] = $settings['file_private_path'];
   }
-
-  // Override solr server settings for the platform environment
-  $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
-  $config['search_api.server.solr']['backend_config']['host'] = 'solr.internal';
-  $config['search_api.server.solr']['backend_config']['port'] = '8080';
-  $config['search_api.server.solr']['backend_config']['path'] = '/solr';
-  $config['search_api.server.solr']['backend_config']['core'] = '';
-  $config['search_api.server.solr']['backend_config']['username'] = '';
-  $config['search_api.server.solr']['backend_config']['password'] = '';
 }
 
 // Set trusted hosts based on Platform.sh routes.

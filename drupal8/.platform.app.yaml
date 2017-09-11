@@ -25,7 +25,7 @@ runtime:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'mysql:mysql'
-    solr: 'solr:solr'
+    solr: 'solr:main'
     redis: "redis:redis"
 
 # The configuration of app when it is exposed to the web.
