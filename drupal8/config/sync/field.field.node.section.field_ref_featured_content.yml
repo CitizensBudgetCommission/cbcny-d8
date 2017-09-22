@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_ref_featured_content
     - node.type.news
+    - node.type.podcast_episode
     - node.type.post
     - node.type.report
     - node.type.section
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       news: news
+      podcast_episode: podcast_episode
       post: post
       report: report
     sort:
