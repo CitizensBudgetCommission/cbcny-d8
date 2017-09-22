@@ -4,6 +4,8 @@ default:
       contexts:
         - FeatureContext
         - Drupal\DrupalExtension\Context\DrupalContext
+        - NuvoleWeb\Drupal\DrupalExtension\Context\DrupalContext
+        - NuvoleWeb\Drupal\DrupalExtension\Context\ContentContext
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
@@ -13,7 +15,8 @@ default:
       selenium2: ~
       base_url: http://localhost
       browser_name: chrome
-    Drupal\DrupalExtension:
+      show_cmd: firefox %s
+    NuvoleWeb\Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal'
       drupal:

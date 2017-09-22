@@ -2,12 +2,16 @@
   "name": "forumone/cbcny",
   "description": "Citizens Budget Commission",
   "type": "project",
-  "repositories": {
-    "0": {
+  "repositories": [
+    {
       "type": "path",
       "url": "web/modules/custom/*"
     },
-    "1": {
+    {
+      "type": "vcs",
+      "url": "git@github.com:ohthehugemanatee/DrupalDriver.git"
+    },
+    {
       "type": "package",
       "package": {
         "name": "harvesthq/chosen",
@@ -19,15 +23,15 @@
         }
       }
     },
-    "2": {
+    {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
     },
-    "backup_migrate": {
+    {
       "type": "vcs",
       "url": "https://github.com/backupmigrate/backup_migrate_core"
     }
-  },
+  ],
   "require": {
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "^2.0.1",
@@ -65,7 +69,8 @@
     "drupal/drupal-extension": "^3.1",
     "psr/log": "dev-master",
     "drupal/backup_migrate": "^4.0@alpha",
-    "nuvoleweb/drupal-behat": "^1.0"
+    "nuvoleweb/drupal-behat": "^1.0",
+    "drupal/drupal-driver": "dev-links-without-title-1.2 as 1.2.1"
   },
   "require-dev": {
     "behat/mink": "~1.7",

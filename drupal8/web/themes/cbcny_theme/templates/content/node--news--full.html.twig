@@ -47,7 +47,16 @@
 
     <div class="published-date">{{ content.field_published_date }}</div>
 
-    {{ content.field_page_content }}
+      {% if (content.field_page_content|render) %}
+          {{ content.field_page_content }}
+      {% else %}
+          <section class="section"><p>{{ content.field_teaser_plain }}</p></section>
+      {% endif %}
+      {%  if (content.field_source_url.0['#title']) %}
+          <a href="{{ content.field_source_url.0['#url'] }}" target="_blank">{{ content.field_source_url.0['#title'] }}</a>
+      {% elseif (content.field_source_url.0['#url']) %}
+          <a href="{{ content.field_source_url.0['#url'] }}" target="_blank">Read the original article</a>
+      {% endif %}
   </div>
 
 </article>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0242af2efc50bfc8bae991c159fea4bd",
+    "content-hash": "a1f60a879539188ce003621fc5b17909",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2611,16 +2611,16 @@
         },
         {
             "name": "drupal/drupal-driver",
-            "version": "v1.2.1",
+            "version": "dev-links-without-title-1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jhedstrom/DrupalDriver.git",
-                "reference": "125d39918c97f7a08e3110d456a0a1db864dae46"
+                "url": "https://github.com/ohthehugemanatee/DrupalDriver.git",
+                "reference": "86294a41767de779f67c6bced1c3a66c1ed0ab62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jhedstrom/DrupalDriver/zipball/125d39918c97f7a08e3110d456a0a1db864dae46",
-                "reference": "125d39918c97f7a08e3110d456a0a1db864dae46",
+                "url": "https://api.github.com/repos/ohthehugemanatee/DrupalDriver/zipball/86294a41767de779f67c6bced1c3a66c1ed0ab62",
+                "reference": "86294a41767de779f67c6bced1c3a66c1ed0ab62",
                 "shasum": ""
             },
             "require": {
@@ -2647,7 +2647,6 @@
                     "Drupal\\Tests\\Driver": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -2664,7 +2663,10 @@
                 "test",
                 "web"
             ],
-            "time": "2016-06-20T16:29:51+00:00"
+            "support": {
+                "source": "https://github.com/ohthehugemanatee/DrupalDriver/tree/links-without-title-1.2"
+            },
+            "time": "2017-09-22 12:10:52"
         },
         {
             "name": "drupal/drupal-extension",
@@ -8751,14 +8753,22 @@
             "time": "2015-06-21T13:59:46+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.2.1",
+            "alias_normalized": "1.2.1.0",
+            "version": "dev-links-without-title-1.2",
+            "package": "drupal/drupal-driver"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/migrate_plus": 20,
         "drupal/xmlsitemap": 20,
         "drupal/stage_file_proxy": 15,
         "psr/log": 20,
-        "drupal/backup_migrate": 15
+        "drupal/backup_migrate": 15,
+        "drupal/drupal-driver": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
