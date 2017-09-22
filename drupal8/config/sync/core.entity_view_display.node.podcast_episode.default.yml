@@ -84,7 +84,7 @@ content:
     region: content
   field_term_post_type:
     weight: 6
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
