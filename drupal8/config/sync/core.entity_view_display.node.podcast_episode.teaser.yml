@@ -34,7 +34,7 @@ content:
     type: soundcloud_default
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings:
       soundcloud_player_type: classic
       soundcloud_player_width: '100'

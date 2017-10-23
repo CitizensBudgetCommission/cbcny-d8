@@ -42,13 +42,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_published_date:
-    weight: 1
+    weight: 5
     label: hidden
     settings:
-      format_type: medium
       timezone_override: ''
+      date_format: 'F d, Y'
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_searchable:
     weight: 7
