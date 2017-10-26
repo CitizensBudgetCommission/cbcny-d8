@@ -4,8 +4,12 @@ status: true
 dependencies:
   config:
     - search_api.index.nodes
+    - taxonomy.vocabulary.post_type
+  content:
+    - 'taxonomy_term:post_type:629b3daf-2bc7-4adf-b036-c6bd4d536280'
   module:
     - search_api
+    - search_api_views_taxonomy
 id: search_index
 label: 'Search Index'
 module: views
@@ -148,11 +152,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
+          operator: 'not empty'
           value:
-            min: ''
-            max: ''
-            value: 'No'
+            'No': 'No'
           group: 1
           exposed: false
           expose:
@@ -167,6 +169,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -179,6 +182,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          reduce_duplicates: false
           plugin_id: search_api_string
         search_api_fulltext:
           id: search_api_fulltext
@@ -220,6 +224,93 @@ display:
           min_length: 3
           fields: {  }
           plugin_id: search_api_fulltext
+        field_term_post_type:
+          id: field_term_post_type
+          table: search_api_index_nodes
+          field: field_term_post_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value: {  }
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: post_type
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_term_post_type_1:
+          id: field_term_post_type_1
+          table: search_api_index_nodes
+          field: field_term_post_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value:
+            17: 17
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: post_type
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
       sorts:
         search_api_relevance:
           id: search_api_relevance
@@ -290,9 +381,12 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }

@@ -24,7 +24,6 @@ read_only: false
 field_settings:
   rendered_item:
     label: 'Rendered HTML output'
-    datasource_id: null
     property_path: rendered_item
     type: text
     configuration:
@@ -118,11 +117,12 @@ field_settings:
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
+      default: false
       selected:
-        - homepage
-        - landing
-        - section
+        - news
+        - podcast_episode
+        - post
+        - report
     languages:
       default: true
       selected: {  }
@@ -134,51 +134,77 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  node_status:
-    plugin_id: node_status
+  add_url:
+    plugin_id: add_url
     settings: {  }
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
-  transliteration:
-    plugin_id: transliteration
-    settings:
-      fields:
-        - rendered_item
-        - title
-        - field_term_topic
-        - field_term_post_type
-        - field_subtitle
-        - field_teaser_plain
-        - title_1
-      weights:
-        preprocess_index: -10
-        preprocess_query: -10
+  ignorecase:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_term_topic
+      - field_term_post_type
+      - type
+      - field_subtitle
+      - field_teaser_plain
+      - title_1
+      - field_term_section
+      - field_searchable
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
   rendered_item:
     plugin_id: rendered_item
     settings: {  }
-  ignorecase:
-    plugin_id: ignorecase
-    settings:
-      fields:
-        - rendered_item
-        - title
-        - field_term_topic
-        - field_term_post_type
-        - type
-        - field_subtitle
-        - field_teaser_plain
-        - title_1
-      weights:
-        preprocess_index: -10
-        preprocess_query: -10
-  add_url:
-    plugin_id: add_url
-    settings: {  }
+  stemmer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - type
+      - field_subtitle
+      - field_teaser_plain
+    exceptions:
+      texan: texa
+      mexican: mexic
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  tokenizer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - type
+      - field_subtitle
+      - field_teaser_plain
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+  transliteration:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - field_term_topic
+      - field_term_post_type
+      - type
+      - field_subtitle
+      - field_teaser_plain
+      - title_1
+      - field_term_section
+      - field_searchable
+    weights:
+      preprocess_index: -20
+      preprocess_query: -20
 tracker_settings:
-  default:
-    plugin_id: default
-    settings: {  }
+  default: {  }
 options:
   index_directly: true
   cron_limit: 50
