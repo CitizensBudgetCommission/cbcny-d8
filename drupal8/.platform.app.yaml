@@ -63,7 +63,7 @@ mounts:
     '/web/themes/cbcny_theme/bower_components': 'shared:files/theme/bower_components'
     '/web/themes/cbcny_theme/.sass_cache': 'shared:files/theme/.sass_cache'
     '/web/themes/cbcny_theme/sass_partials/sass-globbing': 'shared:files/theme/sass_partials/sass-globbing'
-
+    "/.platformsh": 'shared:files/.platformsh'
 
 # The build-time dependencies of the app.
 dependencies:
@@ -81,6 +81,8 @@ hooks:
       cd web/themes/cbcny_theme
       npm install
       grunt build
+      cd ~
+      curl -sfSL -o .global/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.21.0/platform.phar
     deploy: |
       set -e
       cd web
@@ -97,3 +99,6 @@ crons:
     podcast:
         spec: '0,15,30,45 * * * *'
         cmd: 'cd web ; drush mi --group=cbc_podcast'
+    snapshot:
+        spec: '30 4 * * *'
+        cmd: '/bin/sh /app/scripts/snapshot.sh'
