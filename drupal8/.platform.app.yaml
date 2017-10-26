@@ -42,12 +42,21 @@ web:
             # Can be a time in seconds, or -1 for no caching. Times can be
             # suffixed with "s" (seconds), "m" (minutes), "h" (hours), "d"
             # (days), "w" (weeks), "M" (months, as 30 days) or "y" (years, as 365 days).
-            expires: -1
+            expires: '1M'
 
             # Whether to forward disallowed and missing resources from this
             # location to the application.
             # Can be true, false or a URI path string.
             passthru: '/index.php'
+        '/sites/default/files':
+            root: 'web/sites/default/files'
+            expires: '1h'
+            scripts: false
+            passthru: '/index.php'
+            rules:
+                # compressed css/js cache for a year.
+                '^/sites/default/files/(css|js)/':
+                  expires: '1y'
 
 # The size of the persistent disk of the application (in MB).
 disk: 6144

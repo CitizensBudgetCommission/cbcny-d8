@@ -70,7 +70,8 @@
     "psr/log": "dev-master",
     "drupal/backup_migrate": "^4.0@alpha",
     "nuvoleweb/drupal-behat": "^1.0",
-    "drupal/drupal-driver": "dev-links-without-title-1.2 as 1.2.1"
+    "drupal/drupal-driver": "dev-links-without-title-1.2 as 1.2.1",
+    "drupal/advagg": "^3.4"
   },
   "require-dev": {
     "behat/mink": "~1.7",
