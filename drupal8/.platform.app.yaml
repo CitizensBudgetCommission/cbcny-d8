@@ -102,12 +102,19 @@ hooks:
 
 # The configuration of scheduled execution.
 crons:
+    # Drupal core cron.
     drupal:
         spec: '*/5 * * * *'
         cmd: 'cd web ; drush core-cron'
+    # Import new podcast episodes from Soundcloud.
     podcast:
         spec: '0,15,30,45 * * * *'
         cmd: 'cd web ; drush mi --group=cbc_podcast'
+    # Create a backup snapshot.
     snapshot:
         spec: '30 4 * * *'
         cmd: '/bin/sh /app/scripts/snapshot.sh'
+    # Force redeploy to check and re-issue SSL certs if necessary.
+    cert-check:
+        spec: '45 4 * * 7'
+        cmd: '/app/scripts/redeploy.sh'
