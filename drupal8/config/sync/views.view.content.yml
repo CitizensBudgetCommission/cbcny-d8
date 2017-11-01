@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.storage.node.field_is_featured
     - field.storage.node.field_searchable
+    - taxonomy.vocabulary.topics
   module:
     - node
     - options
+    - taxonomy
     - user
 _core:
   default_config_hash: YIwhIF9MSP1E_HMam6MrYeti_UqMXQiLDMjDsPFKK8s
@@ -583,6 +585,51 @@ display:
           plugin_id: bundle
           entity_type: node
           entity_field: type
+        field_term_topic_target_id:
+          id: field_term_topic_target_id
+          table: node__field_term_topic
+          field: field_term_topic_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_term_topic_target_id_op
+            label: Topic
+            description: ''
+            use_operator: false
+            operator: field_term_topic_target_id_op
+            identifier: field_term_topic_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: topics
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         field_is_featured_value:
           id: field_is_featured_value
           table: node__field_is_featured
