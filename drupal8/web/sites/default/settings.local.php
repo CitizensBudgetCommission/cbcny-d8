@@ -119,6 +119,4 @@ $settings['rebuild_access'] = TRUE;
  */
 $settings['skip_permissions_hardening'] = TRUE;
 
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
-
 $settings['hash_salt'] = 'CHANGEME';
