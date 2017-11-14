@@ -116,5 +116,5 @@ crons:
         cmd: '/bin/sh /app/scripts/snapshot.sh'
     # Force redeploy to check and re-issue SSL certs if necessary.
     cert-check:
-        spec: '45 4 * * 7'
+        spec: '45 4 * * *'
         cmd: '/app/scripts/redeploy.sh'
