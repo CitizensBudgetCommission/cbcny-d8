@@ -1,0 +1,22 @@
+uuid: 861ea038-efa2-440e-a8ec-671e8925ef25
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.advocacy_published_date
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: advocacypublisheddate
+theme: cbcny_theme
+region: header
+weight: 0
+provider: null
+plugin: 'facet_block:advocacy_published_date'
+settings:
+  id: 'facet_block:advocacy_published_date'
+  label: 'Published date'
+  provider: facets
+  label_display: visible
+visibility: {  }

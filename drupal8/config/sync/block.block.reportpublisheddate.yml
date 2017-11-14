@@ -1,0 +1,22 @@
+uuid: 84e03edd-cd6e-47a2-af33-2538f5984bcd
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.report_published_date
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: reportpublisheddate
+theme: cbcny_theme
+region: header
+weight: 0
+provider: null
+plugin: 'facet_block:report_published_date'
+settings:
+  id: 'facet_block:report_published_date'
+  label: 'Published date'
+  provider: facets
+  label_display: visible
+visibility: {  }
