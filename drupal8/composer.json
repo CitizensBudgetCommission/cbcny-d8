@@ -24,6 +24,18 @@
       }
     },
     {
+      "type": "package",
+      "package": {
+        "name": "jackmoore/colorbox",
+        "version": "1.6.4",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/jackmoore/colorbox/archive/1.6.4.zip",
+          "type": "zip"
+        }
+      }
+    },
+    {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
     },
@@ -74,7 +86,8 @@
     "drupal/advagg": "^3.4",
     "drupal/colorbox": "^1.4",
     "drupal/colorbox_load": "^1.0@RC",
-    "drupal/colorbox_inline": "^1.0"
+    "drupal/colorbox_inline": "^1.0",
+    "jackmoore/colorbox": "^1.6"
   },
   "require-dev": {
     "behat/mink": "~1.7",
