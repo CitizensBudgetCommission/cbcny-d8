@@ -16,9 +16,10 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
   // Test for existence of Term Section
   if (isset($variables['elements']['field_term_section'])) {
 
-    // Grab Node and Field
+    // Grab Node and Field. It can be in a variety of places.
     /** @var \Drupal\node\NodeInterface $node */
-    $node = $variables['elements']['field_term_section']['#node'] ??
+    $node = $variables['elements']['#node'] ??
+      $variables['elements']['field_term_section']['#node'] ??
       $variables['elements']['field_term_section']['#object'] ??
       \Drupal::routeMatch()->getParameter('node');
     if ($node->hasField('field_term_section')) {
