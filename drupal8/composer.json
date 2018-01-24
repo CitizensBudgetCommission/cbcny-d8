@@ -71,7 +71,8 @@
     "drupal/backup_migrate": "^4.0@alpha",
     "nuvoleweb/drupal-behat": "^1.0",
     "drupal/drupal-driver": "dev-links-without-title-1.2 as 1.2.1",
-    "drupal/advagg": "^3.4"
+    "drupal/advagg": "^3.4",
+    "drupal/drush_delete": "^2.2"
   },
   "require-dev": {
     "behat/mink": "~1.7",
@@ -138,6 +139,9 @@
       },
       "drupal/search_api": {
         "Add default display for Facets to use": "https://www.drupal.org/files/issues/2836477-search_api-views_default_deriver.patch"
+      },
+      "drupal/soundcloudfield": {
+        "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch"
       }
     }
   }

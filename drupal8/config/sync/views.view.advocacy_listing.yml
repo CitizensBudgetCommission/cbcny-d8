@@ -146,10 +146,10 @@ display:
           multi_type: separator
           multi_separator: ', '
       filters:
-        field_term_section:
-          id: field_term_section
-          table: search_api_index_nodes
-          field: field_term_section
+        field_term_section_target_id:
+          id: field_term_section_target_id
+          table: node__field_term_section
+          field: field_term_section_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -189,7 +189,7 @@ display:
           vid: section
           hierarchy: false
           error_message: true
-          plugin_id: search_api_term
+          plugin_id: taxonomy_index_tid
         field_term_post_type:
           id: field_term_post_type
           table: search_api_index_nodes

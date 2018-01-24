@@ -95,9 +95,8 @@ hooks:
     deploy: |
       set -e
       cd web
-      drush -y updatedb
+      drush -y updatedb --entity-updates
       drush -y config-import
-      drush -y entup
       drush -y cr
 
 # The configuration of scheduled execution.

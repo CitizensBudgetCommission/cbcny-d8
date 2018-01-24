@@ -10,9 +10,18 @@ jobs:
           MYSQL_DATABASE: drupal
           MYSQL_USER: drupal
           MYSQL_PASSWORD: drupal
+      - image: wodby/drupal-solr:8-6.6
+        environment:
+          SOLR_HEAP: 1024m
     working_directory: ~/cbcny-d8
     steps:
       - checkout
+      - run:
+          name: Wait for solr
+          command: dockerize -wait tcp://localhost:8983 -timeout 1m
+      - run:
+          name: Setup solr
+          command: curl -sIN "http://localhost:8983/solr/admin/cores?action=CREATE&name=drupal&configSet=data_driven_schema_configs" | grep -q 200
       - run:
           name: Add PHP module prerequisites
           command: |
@@ -100,8 +109,8 @@ jobs:
           name: Apply updates
           command: |
             cd ~/cbcny-d8/drupal8/web
-            ../vendor/bin/drush entup -y
             ../vendor/bin/drush updb -y
+            ../vendor/bin/drush entup -y
             ../vendor/bin/drush cim -y
       - run:
           name: Test

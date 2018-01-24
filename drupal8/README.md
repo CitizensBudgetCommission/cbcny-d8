@@ -28,4 +28,21 @@ Congratulations! You can now access your development version of the website at [
 * To shut down your development environment, run `docker-compose down`. To start it again, run `docker-compose up -d`
 * If you want to use solr locally, first run `docker exec -ti drupal8_solr_1 make core=drupal -f /usr/local/bin/actions.mk` to create the solr core your environment will use.
 
+### Tests
 
+Tests are run through Circleci. It uses their "docker" build mode to set up something very similar to our local development environment, loads a sanitized DB dump from prod, and runs Behat and PHPUnit tests.
+
+To generate a new DB dump: 
+
+* Sync the database from live to a local instance, using Drush's `--sanitize` option.
+* Dump the database from local to the gzipped circleci db dump file, using Drush's `--skip-tables` and `--structure-tables` options to minimize.
+```bash
+cd drupal8
+docker-compose up -d
+cd web
+# Dump the DB.
+DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mysql drush sql-sync @cbcny-org-drupal-8.master--app @self --sanitize
+# Delete non-structural nodes.
+DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mysql drush en -y drush_delete
+DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mysql drush sql-dump --skip-tables-key=common --structure-tables-key=common --gzip --result-file=../../.circleci/circleci.sql
+``` 

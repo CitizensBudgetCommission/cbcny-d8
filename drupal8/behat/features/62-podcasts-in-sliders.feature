@@ -36,7 +36,8 @@ Feature: Podcasts inclusion in sliders
     When I fill in the following:
       | Title | My testing section |
       | Featured Content | Testing podcast episode |
-    And I press the "Save and publish" button
+    And I check the box "Published"
+    And I press the "Save" button
     Then I should not see the error message containing "There are no entities matching"
     When I am an anonymous user
     And I visit the "section" content "My testing section"
