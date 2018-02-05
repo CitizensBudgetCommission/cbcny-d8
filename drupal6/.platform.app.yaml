@@ -20,7 +20,6 @@ access:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'drupal6_mysql:mysql'
-    solr: 'drupal6_solr:solr'
 
 # The configuration of app when it is exposed to the web.
 web:

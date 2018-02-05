@@ -26,10 +26,6 @@ drupal6_mysql:
     type: "mysql:10.0"
     disk: 2048
 
-drupal6_solr:
-    type: "solr:3.6"
-    disk: 1024
-
 #
 #rediscache:
 #    type: "redis:3.0"
