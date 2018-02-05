@@ -1,0 +1,10 @@
+uuid: cc5c0a29-994b-4616-ba21-c4ce01d5eec0
+langcode: en
+status: true
+dependencies: {  }
+id: node__podcast_episode
+label: 'Content: Podcast episode'
+tags:
+  abstract: '[node:field_teaser_plain]'
+  description: '[node:field_teaser_plain]'
+  og_description: '[node:field_teaser_plain]'
