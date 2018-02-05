@@ -146,10 +146,10 @@ display:
           multi_type: separator
           multi_separator: ', '
       filters:
-        field_term_section_target_id:
-          id: field_term_section_target_id
-          table: node__field_term_section
-          field: field_term_section_target_id
+        field_term_section:
+          id: field_term_section
+          table: search_api_index_nodes
+          field: field_term_section
           relationship: none
           group_type: group
           admin_label: ''
@@ -189,7 +189,7 @@ display:
           vid: section
           hierarchy: false
           error_message: true
-          plugin_id: taxonomy_index_tid
+          plugin_id: search_api_term
         field_term_post_type:
           id: field_term_post_type
           table: search_api_index_nodes
@@ -324,8 +324,10 @@ display:
       defaults:
         cache: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }
