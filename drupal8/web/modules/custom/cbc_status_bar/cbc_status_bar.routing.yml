@@ -1,0 +1,7 @@
+cbc_status_bar.config:
+    path: /admin/config/system/cbc-status-bar
+    defaults:
+      _form: 'Drupal\cbc_status_bar\Form\ConfigForm'
+      _title: 'CBC Status Bar Configuration'
+    requirements:
+      _permission: 'configure_cbc_status_bar'

@@ -1,0 +1,8 @@
+<?php
+
+declare(strict_types = 1);
+
+/**
+ * @file
+ * Procedural code for cbc_status_bar module.
+ */

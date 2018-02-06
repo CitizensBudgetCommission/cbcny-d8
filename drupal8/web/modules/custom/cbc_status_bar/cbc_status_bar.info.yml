@@ -1,0 +1,5 @@
+name: CBC Status Bar
+type: module
+description: Provides a special status bar that appears at the top of every page
+core: 8.x
+package: Custom
