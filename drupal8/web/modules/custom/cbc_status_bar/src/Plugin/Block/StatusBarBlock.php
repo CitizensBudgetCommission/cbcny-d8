@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\book\Plugin\Block;
+namespace Drupal\cbc_status_bar\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
