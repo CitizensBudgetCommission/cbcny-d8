@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation for rendering the CBC status bar block.
+ *
+ * Available variables:
+ * - message: The HTML text to display in the block.
+ * @see template_preprocess_book_all_books_block()
+ *
+ * @ingroup themeable
+ */
+#}
+<div role="alert" aria-label="{% trans %}{{ message }}{% endtrans %}" id="cbc-status-bar">
+  <p>{{ message }}</p>
+</div>
