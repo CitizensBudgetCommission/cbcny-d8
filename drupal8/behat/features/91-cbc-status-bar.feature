@@ -12,7 +12,6 @@ Feature: CBC Status Bar
     And I press the "Save configuration" button
     Then I should not get a "500" HTTP response
     Then I am on "/admin/structure/block/manage/cbcstatusbar"
-    Then show last response
     Then I should see text matching "Here is a test message"
     And the "Enable the status bar" checkbox should be checked
     Given I am an anonymous user
