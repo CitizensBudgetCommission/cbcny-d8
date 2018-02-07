@@ -59,10 +59,10 @@ class ConfigForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
-    $config = $this->config('cbc_status_bar.settings');
-    $config->set('enabled', $form_state->getValue('enabled'));
-    $config->set('message', $form_state->getValue('message'));
-    $config->save();
+    $config = $this->config('block.block.cbcstatusbar')->get('settings');
+    $config['enabled'] = $form_state->getValue('enabled');
+    $config['message'] = $form_state->getValue('message');
+    $this->config('block.block.cbcstatusbar')->set('settings', $config);
   }
 
 }
