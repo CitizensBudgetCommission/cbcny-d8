@@ -1,7 +1,0 @@
-# Configuration for cbc_status_bar.
-
-# Is the status bar enabled?
-enabled: false
-
-# The message to display (when enabled)
-message: ''
