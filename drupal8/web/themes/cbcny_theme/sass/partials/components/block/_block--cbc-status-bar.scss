@@ -1,0 +1,13 @@
+// @file
+// Styles for block--cbc-status-bar.
+
+#cbc-status-bar {
+	background: $cbcny-dark-green;
+	height: 2em;
+	color: $cbcny-lightest-gray;
+	text-align: center;
+	a {
+		color: $cbcny-pale-blue;
+		line-height: 1em;
+	}
+}
