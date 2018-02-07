@@ -3,8 +3,7 @@
 namespace Drupal\cbc_status_bar\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides the 'CBC Status Bar' block.
@@ -15,19 +14,43 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   category = @Translation("Custom")
  * )
  */
-class StatusBarBlock extends BlockBase implements ContainerFactoryPluginInterface {
+class StatusBarBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    $settings = $container->get('config.factory')
-      ->get('cbc_status_bar.settings');
-    return new static(
-      $settings->get(),
-      $plugin_id,
-      $plugin_definition
-    );
+  public function blockForm($form, FormStateInterface $form_state) : array {
+    $form = parent::blockForm($form, $form_state);
+    $config = $this->getConfiguration();
+    $form['note'] = [
+      '#markup' => $this->t('Note: these settings can also be configured from the CBC Status Bar block admin menu item.'),
+    ];
+    // Enabled checkbox.
+    $form['enabled'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable the status bar'),
+      '#description' => $this->t('When checked, the status bar will be displayed on all pages.'),
+      '#default_value' => $config['enabled'],
+    ];
+    // Status message.
+    $form['message'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Message'),
+      '#description' => $this->t('The message to display. May include HTML.'),
+      '#default_value' => $config['message'],
+    ];
+
+    return $form;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function blockSubmit($form, FormStateInterface $form_state) {
+    parent::blockSubmit($form, $form_state);
+    $values = $form_state->getValues();
+    $this->configuration['enabled'] = $values['enabled'];
+    $this->configuration['message'] = $values['message'];
   }
 
   /**
@@ -43,11 +66,13 @@ class StatusBarBlock extends BlockBase implements ContainerFactoryPluginInterfac
   /**
    * {@inheritdoc}
    */
-  public function build() {
+  public function build() : array {
     if ($this->configuration['enabled']) {
       return [
         '#theme' => 'cbc_status_bar_block',
-        '#message' => $this->configuration['message'],
+        '#message' => [
+          '#markup' => $this->configuration['message'],
+        ],
       ];
     }
     return [];

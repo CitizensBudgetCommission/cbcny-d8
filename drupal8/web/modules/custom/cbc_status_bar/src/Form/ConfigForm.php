@@ -25,27 +25,30 @@ class ConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() : array {
-    return ['cbc_status_bar.settings'];
+    return ['block.block.cbcstatusbar'];
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('cbc_status_bar.settings');
+    $config = $this->config('block.block.cbcstatusbar')->get('settings');
 
+    $form['note'] = [
+      '#markup' => $this->t('Note: these settings can also be configured from the Block Administration interface.'),
+    ];
     $form['enabled'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Enable the status bar'),
       '#description' => $this->t('When checked, the status bar will be displayed on all pages.'),
-      '#default_value' => $config->get('enabled'),
+      '#default_value' => $config['enabled'],
     ];
 
     $form['message'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Message'),
       '#description' => $this->t("The message to display. May include HTML."),
-      '#default_value' => $config->get('message'),
+      '#default_value' => $config['message'],
     ];
 
     return parent::buildForm($form, $form_state);
