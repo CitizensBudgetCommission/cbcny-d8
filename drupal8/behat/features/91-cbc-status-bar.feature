@@ -12,7 +12,7 @@ Feature: CBC Status Bar
     And I press the "Save configuration" button
     Then I should not get a "500" HTTP response
     Then I am on "/admin/structure/block/manage/cbcstatusbar"
-    Then I should see text matching "Here is a test message"
+    And the "Message" field should contain "Here is a test message"
     And the "Enable the status bar" checkbox should be checked
     Given I am an anonymous user
     And I am on the homepage
