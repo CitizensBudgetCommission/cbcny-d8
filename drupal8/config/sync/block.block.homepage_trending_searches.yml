@@ -6,7 +6,6 @@ dependencies:
     - 'block_content:search_block:9e0e8f89-28a5-4364-b21e-7837235283c9'
   module:
     - block_content
-    - facets
   theme:
     - cbcny_theme
 id: homepage_trending_searches
