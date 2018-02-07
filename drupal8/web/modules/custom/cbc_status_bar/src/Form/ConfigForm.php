@@ -62,7 +62,7 @@ class ConfigForm extends ConfigFormBase {
     $config = $this->config('block.block.cbcstatusbar')->get('settings');
     $config['enabled'] = $form_state->getValue('enabled');
     $config['message'] = $form_state->getValue('message');
-    $this->config('block.block.cbcstatusbar')->set('settings', $config);
+    $this->config('block.block.cbcstatusbar')->set('settings', $config)->save();
   }
 
 }
