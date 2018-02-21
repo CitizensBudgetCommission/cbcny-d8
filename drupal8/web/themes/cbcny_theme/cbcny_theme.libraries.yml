@@ -3,6 +3,7 @@ global:
   css:
     theme:
       //fonts.googleapis.com/css?family=Libre+Baskerville:400,700: { type: external }
+      //fonts.googleapis.com/css?family=Lato:200,400,700: { type: external }
       css/styles.css: { browsers: { IE: 'gte IE 9' } }
       css/no-mq.css: { browsers: { IE: 'lte IE 8', '!IE': false } }
   js:
