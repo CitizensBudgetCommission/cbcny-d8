@@ -11,7 +11,7 @@ _core:
 id: cbcny_theme_messages
 theme: cbcny_theme
 region: highlighted
-weight: 0
+weight: -18
 provider: null
 plugin: system_messages_block
 settings:

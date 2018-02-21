@@ -2,8 +2,6 @@ uuid: faf250cb-7563-4f99-8ef9-9e276d060ccf
 langcode: en
 status: true
 dependencies:
-  module:
-    - facets
   theme:
     - cbcny_theme
 id: cbcny_theme_local_tasks

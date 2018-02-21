@@ -1,0 +1,22 @@
+uuid: 4409ac15-30dd-4e9f-86d4-4f45fccbafcb
+langcode: en
+status: true
+dependencies:
+  module:
+    - cbc_status_bar
+  theme:
+    - cbcny_theme
+id: cbcstatusbar
+theme: cbcny_theme
+region: highlighted
+weight: -19
+provider: null
+plugin: cbc_status_bar
+settings:
+  id: cbc_status_bar
+  label: 'CBC Status bar'
+  provider: cbc_status_bar
+  label_display: '0'
+  enabled: 0
+  message: ''
+visibility: {  }

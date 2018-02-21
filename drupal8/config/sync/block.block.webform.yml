@@ -3,7 +3,6 @@ langcode: en
 status: false
 dependencies:
   module:
-    - facets
     - webform
   theme:
     - cbcny_theme

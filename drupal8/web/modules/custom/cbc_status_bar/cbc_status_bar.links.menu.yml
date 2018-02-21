@@ -1,0 +1,5 @@
+cbc_status_bar.config:
+  title: 'CBC Status Bar'
+  description: 'Configure the CBC status bar'
+  route_name: cbc_status_bar.config
+  parent: system.admin_config_system

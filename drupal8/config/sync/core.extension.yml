@@ -15,6 +15,7 @@ module:
   block_content: 0
   breakpoint: 0
   cbc_search: 0
+  cbc_status_bar: 0
   cbc_token: 0
   cbc_updates: 0
   chosen: 0

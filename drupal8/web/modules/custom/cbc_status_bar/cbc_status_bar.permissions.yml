@@ -1,0 +1,3 @@
+configure_cbc_status_bar:
+  title: 'Configure the CBC Status bar'
+  description: 'Configure the status bar message and other settings.'

@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types = 1);
+
+/**
+ * @file
+ * Procedural code for cbc_status_bar module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function cbc_status_bar_theme() {
+  return [
+    'cbc_status_bar_block' => [
+      'variables' => [
+        'message' => '',
+      ],
+    ],
+  ];
+}
