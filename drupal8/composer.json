@@ -142,6 +142,9 @@
       },
       "drupal/soundcloudfield": {
         "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch"
+      },
+      "drupal/core": {
+        "Fix busted installation of revision_default field": "patches/drupal/revision_default.patch"
       }
     }
   }

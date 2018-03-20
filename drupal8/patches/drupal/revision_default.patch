@@ -1,0 +1,13 @@
+diff --git a/core/modules/system/system.install b/core/modules/system/system.install
+index 1838326451..8e3f36c311 100644
+--- a/core/modules/system/system.install
++++ b/core/modules/system/system.install
+@@ -2087,7 +2087,7 @@ function system_update_8501() {
+   foreach ($definitions as $entity_type_id => $entity_type) {
+     $field_name = $entity_type->getRevisionMetadataKey('revision_default');
+     // Install the 'revision_default' field if needed.
+-    if (!$definition_update_manager->getFieldStorageDefinition($field_name, $entity_type_id)) {
++    if (TRUE) {
+       // Make sure the new "revision_default" revision metadata key is available
+       // also to code using the latest installed definition.
+       $installed_entity_type = $definition_update_manager->getEntityType($entity_type_id);

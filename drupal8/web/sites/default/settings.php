@@ -110,8 +110,10 @@ if (getenv('LOCAL_DEVELOPMENT') && file_exists(__DIR__ . '/settings.local.php'))
   include __DIR__ . '/settings.local.php';
 }
 
-// Local behat testing settings.
-if (getenv('LOCAL_BEHAT')) {
+
+// If nothing else set it, here's the fallback db for testing.
+if (!isset($databases['default']['default'])) {
+  // Local testing settings for behat, circleci, etc.
   $databases['default']['default'] = [
     'driver' => 'mysql',
     'database' => 'drupal',

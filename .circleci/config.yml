@@ -97,20 +97,23 @@ jobs:
           command: |
             cd ~/cbcny-d8/drupal8/web
             php core/scripts/run-tests.sh --sqlite /tmp/tests.sqlite --dburl sqlite://localhost//tmp/tests.sqlite --non-html --verbose  --color --directory modules/custom
-      # Install the site, then import a barebones dump of structural content. Disable emails during installation.
+      # Import the site db from live.
       - run:
-          name: Site Install with CBC scaffold
+          name: Download db dump and import.
           command: |
+            cd ~
+            mkdir ~/bin
+            curl -sfSL -o ~/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.21.0/platform.phar
+            chmod u+x ~/bin/platform.phar
             cd ~/cbcny-d8/drupal8/web
-            ../vendor/bin/drush si -y --db-url=mysql://drupal:drupal@127.0.0.1/drupal minimal install_configure_form.enable_update_status_emails=NULL install_configure_form.update_status_module=NULL
-            gunzip -c ../../.circleci/circleci.sql.gz | ../vendor/bin/drush sqlc
-            ../vendor/bin/drush cr
+            cat ../../.circleci/known_hosts >> ~/.ssh/known_hosts
+            ~/bin/platform.phar db:dump -y -p jm7ogp6xamel6 -e master -A app -o | ../vendor/bin/drush -r ~/cbcny-d8/drupal8/web sqlc --db-url=mysql://drupal:drupal@127.0.0.1/drupal
       - run:
           name: Apply updates
           command: |
             cd ~/cbcny-d8/drupal8/web
-            ../vendor/bin/drush updb -y
-            ../vendor/bin/drush entup -y
+            ../vendor/bin/drush cr
+            ../vendor/bin/drush updb --entity-updates -y
             ../vendor/bin/drush cim -y
       - run:
           name: Test
@@ -118,7 +121,7 @@ jobs:
             cd ~/cbcny-d8/drupal8/behat
             mkdir ~/cbcny-d8/test-reports
             mkdir ~/cbcny-d8/test-reports/cucumber
-            ../vendor/bin/behat --no-snippets -f pretty -o std -f junit -o ~/cbcny-d8/test-reports/cucumber/junit.xml
+            LOCAL_BEHAT=y ../vendor/bin/behat --no-snippets -f pretty -o std -f junit -o ~/cbcny-d8/test-reports/cucumber/junit.xml
       - store_artifacts:
           path: drupal8/screenshots
           prefix: screenshots
