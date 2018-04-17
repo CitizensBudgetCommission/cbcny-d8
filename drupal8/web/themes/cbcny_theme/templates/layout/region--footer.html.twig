@@ -8,7 +8,7 @@
 <footer class="footer" role="contentinfo">
   <div class="footer__inner l-constrain">
     <div class="footer__top">
-  		{{ drupal_block('social_media_links') }}
+      {{ drupal_block('social_media_links') }}
       {{ drupal_block('stay_updated_callout') }}
     </div>
     <div class="footer__middle">
@@ -17,8 +17,8 @@
       {{ drupal_block('cbcny_address') }}
     </div>
     <div class="footer__bottom">
-      {{ drupal_block('copyright') }}
-  		{{ drupal_block('cbcny_footer_menu') }}
+      <div id="block-copyright" class="block--copyright">&copy; {{ 'now' | date('Y') }} Citizens Budget Commission</div>
+      {{ drupal_block('cbcny_footer_menu') }}
     </div>
   </div>
 </footer>
