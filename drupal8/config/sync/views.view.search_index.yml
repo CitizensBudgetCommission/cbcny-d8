@@ -9,7 +9,6 @@ dependencies:
     - 'taxonomy_term:post_type:629b3daf-2bc7-4adf-b036-c6bd4d536280'
   module:
     - search_api
-    - search_api_views_taxonomy
 id: search_index
 label: 'Search Index'
 module: views
@@ -37,7 +36,7 @@ display:
           skip_access: false
           parse_mode: terms
       exposed_form:
-        type: input_required
+        type: basic
         options:
           submit_button: Search
           reset_button: false
@@ -46,8 +45,6 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: '<br />'
-          text_input_required_format: full_html
       pager:
         type: full
         options:
@@ -360,18 +357,7 @@ display:
           content: '<div class="total-results">Showing @start - @end of @total</div>'
           plugin_id: result
       footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: "<h2>Sorry, no results were found.</h2>\n<p>Search suggestions:</p>\n<ul>\n<li>Check your spelling</li>\n<li>Try more general words</li>\n<li>Try different words that mean the same thing</li>\n</ul>\n<p>Or maybe we can help...</p>\n<a href=\"/contact-us\" class=\"button\" target=\"_blank\">CONTACT US</a>"
-          plugin_id: text_custom
+      empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
