@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_make_unsearchable_action
+label: 'Make content unsearchable'
+type: node
+plugin: node_make_unsearchable_action

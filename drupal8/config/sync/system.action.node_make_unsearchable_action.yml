@@ -1,0 +1,13 @@
+uuid: 61b84596-4aee-4208-ba3e-dd549aa08b31
+langcode: en
+status: true
+dependencies:
+  module:
+    - cbc_searchable_actions
+_core:
+  default_config_hash: 1w_TgRLYzNHgtAjsappc4SaZco3fmPnRy7I_npDiEu8
+id: node_make_unsearchable_action
+label: 'Make content unsearchable'
+type: node
+plugin: node_make_unsearchable_action
+configuration: {  }

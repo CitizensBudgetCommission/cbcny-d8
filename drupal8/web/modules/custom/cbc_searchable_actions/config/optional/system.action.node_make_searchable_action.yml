@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_make_searchable_action
+label: 'Make content searchable'
+type: node
+plugin: node_make_searchable_action

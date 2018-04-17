@@ -1,0 +1,13 @@
+uuid: a95fbd0c-a205-4009-be2c-a886b1871833
+langcode: en
+status: true
+dependencies:
+  module:
+    - cbc_searchable_actions
+_core:
+  default_config_hash: 4zrgOIqeGdX3yNmtNsluLzSM1FoPrTn1W_2YZCqbbIU
+id: node_make_searchable_action
+label: 'Make content searchable'
+type: node
+plugin: node_make_searchable_action
+configuration: {  }

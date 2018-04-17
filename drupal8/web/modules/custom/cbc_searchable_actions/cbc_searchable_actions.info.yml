@@ -1,0 +1,7 @@
+name: CBC Searchability actions
+type: module
+description: Special search related actions for CBC
+core: 8.x
+package: Custom
+dependencies:
+  - node
