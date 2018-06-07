@@ -77,34 +77,17 @@ function cbcny_theme_theme_suggestions_node_alter(array &$suggestions, array $va
 
 
 function cbcny_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form['#id'] == 'views-exposed-form-search-index-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
-  }
-  if ($form['#id'] == 'views-exposed-form-topics-listing-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
-  }
-  if ($form['#id'] == 'views-exposed-form-news-listing-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
-  }
-  if ($form['#id'] == 'views-exposed-form-blog-listing-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
-  }
-  if ($form['#id'] == 'views-exposed-form-advocacy-listing-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
-  }
-  if ($form['#id'] == 'views-exposed-form-report-listing-default') {
-    if (isset($form['keywords'])) {
-      $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
-    }
+  // Set placeholder text in fulltext search fields.
+  $applyToFormIds = [
+    'views-exposed-form-search-index-default',
+    'views-exposed-form-topics-listing-default',
+    'views-exposed-form-news-listing-default',
+    'views-exposed-form-blog-listing-default',
+    'views-exposed-form-advocacy-listing-default',
+    'views-exposed-form-report-listing-default',
+    'views-exposed-form-combined-listing-default',
+  ];
+  if (in_array($form['#id'], $applyToFormIds, TRUE) && isset($form['keywords'])) {
+    $form['keywords']['#attributes'] = array('placeholder' => array(t('Enter your search terms')));
   }
 }

@@ -1,0 +1,20 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  {# Display Page content #}
+  <div class="l-constrain l-constrain--main-content">
+    <h1 class="page-title">{{ content.title }}</h1>
+    {{ drupal_view('combined_listing','default') }}
+  </div>
+
+</article>

@@ -5,7 +5,11 @@
  * Install/Update hooks for cbc_updates.
  */
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Utility\UpdateException;
+use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\field\Entity\FieldConfig;
 
@@ -114,4 +118,39 @@ function cbc_updates_update_8005() {
     $node->set('field_searchable', 'Yes');
     $node->save();
   }
+}
+
+/**
+ * Create a unified Research listing node.
+ *
+ * @throws \Drupal\Core\Utility\UpdateException
+ *   If anything goes wrong.
+ */
+function cbc_updates_update_8006() {
+  // Create the listing node.
+  $node = Node::create([
+    'title' => 'More Research',
+    'type' => 'listing',
+  ]);
+  // Create the 'Combined' term.
+  $term = Term::create(['name' => 'Combined', 'vid' => 'template_suggestions']);
+  try {
+    $term->save();
+  }
+  catch (EntityStorageException $e) {
+    throw new UpdateException("Could not create 'Combined' template suggestion.", $e->getCode(), $e);
+  }
+  // Set the template.
+  if ($node->hasField('field_template')) {
+    $node->set('field_template', $term);
+  }
+  // Save the node.
+  try {
+    $node->save();
+  }
+  catch (EntityStorageException $e) {
+    throw new UpdateException("Could not save listing node.", $e->getCode(), $e);
+  }
+  // Set the path alias.
+  \Drupal::service('path.alias_storage')->save('/node/' . $node->id(), '/research/listing');
 }

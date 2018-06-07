@@ -1,0 +1,22 @@
+uuid: a8e06b2d-7b6e-4c6d-95ee-0bcad810e58d
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.combined_type
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: combined_type
+theme: cbcny_theme
+region: header
+weight: 0
+provider: null
+plugin: 'facet_block:combined_type'
+settings:
+  id: 'facet_block:combined_type'
+  label: Type
+  provider: facets
+  label_display: visible
+visibility: {  }

@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.card
     - taxonomy.vocabulary.post_type
   content:
-    - 'taxonomy_term:post_type:51cf18cf-7cfa-4ebd-b18a-cac47f4f4c68'
     - 'taxonomy_term:post_type:83110d81-b5bf-42f6-97dc-749ff54b80e0'
     - 'taxonomy_term:post_type:d548f9b0-8854-4dc1-b7b3-dc6ab7a786ce'
   module:
@@ -17,7 +16,7 @@ dependencies:
 id: research
 label: Research
 module: views
-description: 'Listing of tagged with Research'
+description: 'Listing of blog and reports for the research page'
 tag: Research
 base_table: node_field_data
 base_field: nid
@@ -57,7 +56,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 6
+          items_per_page: 12
           offset: 0
       style:
         type: default
@@ -159,10 +158,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  blog:
+  combined:
     display_plugin: block
-    id: blog
-    display_title: Blog
+    id: combined
+    display_title: 'Combined Reports/Blog'
     position: 1
     display_options:
       display_extenders: {  }
@@ -191,6 +190,7 @@ display:
           operator: or
           value:
             1: 1
+            19: 19
           group: 1
           exposed: false
           expose:
@@ -236,7 +236,7 @@ display:
         operator: AND
         groups:
           1: AND
-      title: 'Latest Blog Posts'
+      title: ''
       footer:
         area_text_custom:
           id: area_text_custom
@@ -247,130 +247,10 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/research/blogs/listing\">See More Blog Posts</a>\n</div>"
+          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/research/listing\">See More Research</a>\n</div>"
           plugin_id: text_custom
       css_class: ''
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<h2 class="heading--card-grid">Latest Blog Posts</h2>'
-          plugin_id: text_custom
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  report:
-    display_plugin: block
-    id: report
-    display_title: Report
-    position: 2
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        field_term_post_type_target_id:
-          id: field_term_post_type_target_id
-          table: node__field_term_post_type
-          field: field_term_post_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            16: 16
-            19: 19
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: post_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
-      defaults:
-        filters: false
-        filter_groups: false
-        title: false
-        footer: false
-        header: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      title: 'Latest Reports'
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<div class=\"centered\">\n<a class=\"button button--blue\" href=\"/research/reports/listing\">See More Reports</a>\n</div>"
-          plugin_id: text_custom
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<h2 class="heading--card-grid">Latest Reports</h2>'
-          plugin_id: text_custom
+      header: null
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,22 @@
+uuid: 73f434a2-198d-4a28-9c9a-954234056c1b
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.combined_topic
+  module:
+    - facets
+  theme:
+    - cbcny_theme
+id: combined_topic
+theme: cbcny_theme
+region: header
+weight: 0
+provider: null
+plugin: 'facet_block:combined_topic'
+settings:
+  id: 'facet_block:combined_topic'
+  label: Topic
+  provider: facets
+  label_display: visible
+visibility: {  }
