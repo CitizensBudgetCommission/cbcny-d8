@@ -26,5 +26,8 @@
     "postcss-assets": "~4.1.0",
     "autoprefixer": "~6.3.6",
     "grunt-bower-task": "~0.4.0"
+  },
+  "dependencies": {
+    "bower": "^1.8.4"
   }
 }
