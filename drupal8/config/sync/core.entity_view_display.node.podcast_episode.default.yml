@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_page_content
     - field.field.node.podcast_episode.field_published_date
     - field.field.node.podcast_episode.field_searchable
     - field.field.node.podcast_episode.field_soundcloud
@@ -41,6 +42,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_page_content:
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
   field_published_date:
     weight: 5
     label: hidden

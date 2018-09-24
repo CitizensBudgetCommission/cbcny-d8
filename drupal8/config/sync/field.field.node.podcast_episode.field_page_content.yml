@@ -1,0 +1,68 @@
+uuid: e730a06d-5cc5-4354-801e-089fad31efd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.podcast_episode
+  module:
+    - entity_reference_revisions
+id: node.podcast_episode.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: podcast_episode
+label: 'Page Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles: null
+    target_bundles_drag_drop:
+      aside:
+        weight: 15
+        enabled: false
+      author:
+        weight: 16
+        enabled: false
+      block_embed:
+        weight: 17
+        enabled: false
+      chart_embed:
+        weight: 18
+        enabled: false
+      download_callout:
+        weight: 19
+        enabled: false
+      footnotes:
+        weight: 20
+        enabled: false
+      full_text:
+        weight: 21
+        enabled: false
+      hero:
+        weight: 22
+        enabled: false
+      image_caption:
+        weight: 23
+        enabled: false
+      introduction:
+        weight: 24
+        enabled: false
+      pullquote:
+        weight: 25
+        enabled: false
+      section_heading:
+        weight: 26
+        enabled: false
+      video_embed:
+        weight: 27
+        enabled: false
+      view_embed:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

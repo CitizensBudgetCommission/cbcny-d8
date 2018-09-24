@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_page_content
     - field.field.node.podcast_episode.field_published_date
     - field.field.node.podcast_episode.field_searchable
     - field.field.node.podcast_episode.field_soundcloud
@@ -36,10 +37,22 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_metatags:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
+    region: content
+  field_page_content:
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
     region: content
   field_published_date:
     weight: 2
@@ -48,13 +61,13 @@ content:
     type: datetime_default
     region: content
   field_searchable:
-    weight: 27
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_soundcloud:
-    weight: 5
+    weight: 4
     settings:
       url: ''
       placeholder_url: ''
@@ -62,7 +75,7 @@ content:
     type: soundcloud_url
     region: content
   field_teaser_plain:
-    weight: 4
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -70,7 +83,7 @@ content:
     type: string_textarea
     region: content
   field_term_post_type:
-    weight: 26
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -89,7 +102,7 @@ content:
     region: content
   path:
     type: path
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -97,7 +110,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 11
     region: content
     third_party_settings: {  }
   title:
