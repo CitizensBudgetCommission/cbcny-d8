@@ -49,7 +49,7 @@ assert_options(ASSERT_ACTIVE, TRUE);
 /**
  * Enable local development services.
  */
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = __DIR__ . '/local.services.yml';
 
 /**
  * Show all error messages, with backtrace information.

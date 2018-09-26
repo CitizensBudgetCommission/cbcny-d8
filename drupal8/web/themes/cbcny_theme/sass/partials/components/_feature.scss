@@ -7,7 +7,7 @@ $bp-first: max-width 990px;
   background-color: $cbcny-feature-white;
   box-shadow: 0 5px 21px -4px rgba(0, 0, 0, .21);
   margin-bottom: em(65px);
-  margin-top: em(65px);
+  margin-top: em(20px);
   overflow: hidden;
   position: relative;
   &:hover,
@@ -15,6 +15,9 @@ $bp-first: max-width 990px;
     box-shadow: 0 6px 38px -10px rgba(0, 0, 0, .92);
   }
 
+  @include breakpoint($bp-hide-mobile-menu) {
+    margin-top: em(65px);
+  }
   &.slick-slide {
     box-shadow: none;
 
@@ -44,20 +47,24 @@ $bp-first: max-width 990px;
 
   .feature__subtitle {
     @extend .subtitle;
+    margin-bottom: 1rem;
+    @include breakpoint($bp-hide-mobile-menu) {
+      margin-bottom: 0.555556rem;
+    }
   }
 
   .feature__image {
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: em(300px);
+    min-height: em(205px);
     width: 100%;
 
     @include breakpoint($bp-first) {
-      min-height: em(280px);
+      min-height: em(205px);
     }
     @include breakpoint($bp-second) {
-      min-height: em(400px);
+      min-height: em(300px);
     }
   }
 

@@ -63,7 +63,20 @@ $bp-largest-hero: 960px;
 		top: 0;
 	}
 
+	.dropdown__options {
+		min-width: 285px;
+		.dropdown__link {
+			min-width: 285px;
+		}
+	}
+
 	@include breakpoint($bp-largest-hero) {
 		right: 1em;
 	}
+}
+
+.centered .dropdown__options {
+	left: 1em;
+	right: 1em;
+	top: 4em;
 }

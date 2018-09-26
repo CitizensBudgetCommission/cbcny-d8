@@ -1,0 +1,7 @@
+/* @file Slick slideshow overrides. */
+#block-homepage-featured-items-slider.slick-carousel ul.slick-dots {
+  margin-top: 0;
+  @include breakpoint($bp-second) {
+    margin-top: 2em;
+  }
+}

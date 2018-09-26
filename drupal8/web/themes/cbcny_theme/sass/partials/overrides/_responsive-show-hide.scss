@@ -1,0 +1,24 @@
+/* @file: Displays blocks in a different position depending on breakpoints. */
+.fullwidth-show {
+  display: none;
+  @include breakpoint($bp-hide-mobile-menu) {
+    display: block;
+  }
+  .block.block--trending-searches {
+    display: none;
+    @include breakpoint($bp-hide-mobile-menu) {
+      display: flex;
+    }
+  }
+}
+.fullwidth-hide {
+  @include breakpoint($bp-hide-mobile-menu) {
+    display: none;
+  }
+  .block.block--trending-searches {
+    display: flex;
+    @include breakpoint($bp-hide-mobile-menu) {
+      display: none
+    }
+  }
+}

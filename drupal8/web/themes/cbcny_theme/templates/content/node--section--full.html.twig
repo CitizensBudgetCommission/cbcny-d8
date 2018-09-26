@@ -16,15 +16,21 @@
   <div class="hero hero--feature hero--section-page">
     <div class="hero__content--feature l-constrain">
       <h1 class="page-title page-title--section-page">{{ content.title }}</h1>
-      {{ drupal_view('topics_terms', 'topic_menu') }}
+      <div class="fullwidth-hide">
+          {{ drupal_view('topics_terms', 'topic_menu', 'Choose a different topic') }}
+      </div>
       {{ content.field_ref_featured_content }}
     </div>
   </div>
 
   <div class="l-constrain">
-    {{ drupal_view('topic_section_list', 'default', tid) }}
-    {{ drupal_view('topic_section_button') }}
+      {{ drupal_view('topic_section_list', 'default', tid) }}
+      {{ drupal_view('topic_section_button') }}
+    <div class="fullwidth-show">
+      {{ drupal_view('topics_terms', 'topic_menu', 'Choose a different topic') }}
+    </div>
   </div>
-
-  {{ drupal_block('section_slider') }}
+  <div class="fullwidth-show">
+      {{ drupal_block('section_slider') }}
+  </div>
 </article>

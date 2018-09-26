@@ -1,7 +1,12 @@
 // @file
 // Styles for section components.
 
-.section {}
+.section {
+  padding-bottom: 1em;
+  @include breakpoint($bp-hide-mobile-menu) {
+    padding-bottom: 0;
+  }
+}
 
 // Custom section styles.
 @import 'section/section--aside';

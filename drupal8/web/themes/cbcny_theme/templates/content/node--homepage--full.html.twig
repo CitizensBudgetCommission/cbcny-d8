@@ -7,15 +7,21 @@
 </div>
 <div class="l-constrain">
   <section class="section">
-    <h2 class="section-title centered">Browse Topics</h2>
-    {{ drupal_block('homepage_topics_slider') }}
+    <div class="fullwidth-show">
+      <h2 class="section-title centered">Browse Topics</h2>
+      {{ drupal_block('homepage_topics_slider') }}
+    </div>
+    <div class="fullwidth-hide centered">
+      {{ drupal_view('topics_terms', 'topic_menu', 'Browse Topics') }}
+    </div>
   </section>
 </div>
 <section class="section section--gray-gradient">
   <div class="l-constrain">
     <h2 class="section-title centered">Browse Our Work</h2>
-    {{ drupal_block('homepage_trending_searches') }}
+    <div class="fullwidth-show">{{ drupal_block('homepage_trending_searches') }}</div>
     {{ drupal_view('topic_section_list', 'homepage_topics_list') }}
+    <div class="fullwidth-hide">{{ drupal_block('homepage_trending_searches') }}</div>
     <div class="centered"><a class="button button--blue" href="/search">Search all Content</a></div>
   </div>
 </section>

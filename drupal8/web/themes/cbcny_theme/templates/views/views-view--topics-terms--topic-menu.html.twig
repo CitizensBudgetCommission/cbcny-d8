@@ -6,7 +6,7 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div class="button button--dropdown">Choose a Different Topic</div>
+  <div class="button button--dropdown">{{ header }}</div>
   {% if rows %}
     <div class="dropdown__options">
       {{ rows }}

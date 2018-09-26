@@ -76,8 +76,13 @@ $bp-largest-hero: 960px;
 }
 
 .hero--feature {
-  margin-bottom: em(180px);
-  padding-top: em(60px);
+  /*margin-top: em(60px); */
+  padding-top: em(20px);
+  margin-bottom: 8em;
+  @include breakpoint($bp-hide-mobile-menu) {
+    margin-bottom: 10em;
+    padding-top: em(60px);
+  }
 
   .hero__content--feature {
     background: none;
@@ -99,8 +104,12 @@ $bp-largest-hero: 960px;
 }
 
 .hero--homepage {
-  padding: 110px 0 90px;
-  margin-bottom: em(50px);
+  padding: 1em 0 1em;
+  margin-bottom: 0;
+  @include breakpoint($bp-second) {
+    padding: 110px 0 90px;
+    margin-bottom: em(50px);
+  }
 
 }
 
