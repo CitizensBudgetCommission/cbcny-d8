@@ -81,8 +81,12 @@
     "jcalderonzumba/gastonjs": "~1.0.2",
     "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
     "mikey179/vfsStream": "~1.2",
-    "phpunit/phpunit": "~4.8",
-    "symfony/css-selector": "~2.8"
+    "symfony/css-selector": "~2.8",
+    "composer/composer": "dev-master",
+    "g1a/composer-test-scenarios": "^2.1.0",
+    "phpunit/phpunit": "^6",
+    "symfony/phpunit-bridge": "^3.2",
+    "squizlabs/php_codesniffer": "^2.8"
   },
   "replace": {
     "drupal/drupal": "*"
@@ -131,9 +135,6 @@
       ]
     },
     "patches": {
-      "drupal/entity_reference_revisions": {
-        "accept scalar values per https://www.drupal.org/node/2667748": "https://www.drupal.org/files/issues/allow-single-scalar-2667748-28.patch"
-      },
       "drupal/migrate_plus": {
         "Format_date migration process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-17.patch"
       },
@@ -142,10 +143,6 @@
       },
       "drupal/soundcloudfield": {
         "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch"
-      },
-      "drupal/core": {
-        "Fix busted installation of revision_default field": "patches/drupal/revision_default.patch",
-        "Fix update 8400 per https://www.drupal.org/project/drupal/issues/2951242#comment-12524414": "https://www.drupal.org/files/issues/2018-03-13/2951242-26.patch"
       }
     }
   }

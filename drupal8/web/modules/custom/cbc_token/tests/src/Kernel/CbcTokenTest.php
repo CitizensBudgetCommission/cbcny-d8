@@ -134,7 +134,7 @@ class CbcTokenTest extends TokenKernelTestBase {
     $this->assertToken('current-page', array('node' => $node), 'hero-image', $fallback_image);
 
     // Add our hero paragraph.
-    $node->field_hero = $paragraph->id();
+    $node->field_hero = $paragraph;
     $node->save();
     // The token for that node should return our image URI.
     $this->assertToken('current-page', array('node' => $node), 'hero-image', $image->url());

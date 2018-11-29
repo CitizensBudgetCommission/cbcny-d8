@@ -80,7 +80,7 @@ jobs:
             php composer-setup.php
             php -r "unlink('composer-setup.php');"
             php composer.phar self-update
-            php composer.phar install -n --prefer-dist
+            php composer.phar install -n --prefer-dist --dev
       - save_cache:
           key: deps1-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/composer.lock" }}
           paths:
