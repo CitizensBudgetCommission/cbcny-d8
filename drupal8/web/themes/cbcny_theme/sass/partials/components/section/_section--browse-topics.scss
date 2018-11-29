@@ -1,0 +1,6 @@
+.section--browse-topics {
+  padding-bottom: 1em;
+  @include breakpoint($bp-hide-mobile-menu) {
+    padding-bottom: 0;
+  }
+}
