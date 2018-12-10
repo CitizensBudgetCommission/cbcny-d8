@@ -9,4 +9,6 @@ _core:
   default_config_hash: egUVOkBF8Rfzd-cuycbVPEBBfN8PpBQAyq_8iRd7Nns
 id: time_zones
 label: 'Time zones'
+category: null
+likert: false
 options: ''

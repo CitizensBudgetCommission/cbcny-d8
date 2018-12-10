@@ -1,13 +1,18 @@
 uuid: 22a318aa-1486-47d1-b707-edec0090b2cc
 langcode: en
-status: true
+status: open
 dependencies: {  }
+open: null
+close: null
+weight: 0
 uid: 23
 template: false
+archive: false
 id: prize_for_public_service_innovat
 title: 'Prize for Public Service Innovation Application'
 description: ''
-elements: "contact_details:\n  '#type': wizard_page\n  '#title': 'Contact Details'\n  '#next_button_label': Questions\n  program_or_initiative_0:\n    '#type': textfield\n    '#title': 'Program or Initiative:'\n  agency_department_or_public_authority_:\n    '#type': textfield\n    '#title': 'Agency, Department, or Public Authority:'\n  content_name_:\n    '#type': textfield\n    '#title': 'Contact Name:'\n  contact_title_:\n    '#type': textfield\n    '#title': 'Contact Title:'\n  contact_telephone_:\n    '#type': textfield\n    '#title': 'Contact Telephone:'\n  contact_email_:\n    '#type': textfield\n    '#title': 'Contact Email:'\nquestions:\n  '#type': wizard_page\n  '#title': Questions\n  '#prev_button_label': 'Contact Details'\n  '#next_button_label': Submit\n  problem_solving_:\n    '#type': textarea\n    '#title': 'Problem Solving:'\n    '#description': 'Describe the purpose of the program or initiative. What problem does it address and what does it seek to accomplish? When did it begin? Is it part of a state/citywide agenda or specific to your agency?'\n  mission:\n    '#type': textarea\n    '#title': Mission\n    '#description': 'How do the objectives of the program align with CBC&rsquo;s mission to constructively change the finances and services of New York? Does it improve service, lower costs, or increase efficiency? Does it employ data-driven management or evidence-based policy making?'\n  results_:\n    '#type': textarea\n    '#title': 'Results:'\n    '#description': \"<br />\\nProvide metrics that demonstrate an improvement in the public service or operations affected. If it is too soon to demonstrate results, what data will be collected and how will the program be evaluated? Is a formal evaluation process in place? Have prior evaluation results been used to adapt the approach?\"\n  scope_of_public_impact_:\n    '#type': textarea\n    '#title': 'Scope of Public Impact:'\n  optional_attachments_:\n    '#type': document_file\n    '#title': 'Optional Attachments:'\n    '#description': 'Attach additional files to support your application here, or email Kevin Medina,&nbsp;<a href=\"mailto:kmedina@cbcny.org?subject=Additional%20Material%20for%20CBC%20Prize%20Application\">kmedina@cbcny.org</a>.'\ngdpr:\n  '#type': checkbox\n  '#title': 'I allow CBCNY to use this information to process my application'\n  '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your application by email. It will not be sent to any third party processors or systems. Applications will be stored until the prize selection is complete. All relevant data will be deleted within 30 days of the prize announcement. Prize winners will be individually contacted for further privacy consent specific to their case.'\n  '#required': true\n"
+category: null
+elements: "contact:\n  '#type': webform_wizard_page\n  '#title': 'Contact Details'\n  processed_text:\n    '#type': processed_text\n    '#text': \"<p>Applications will be judged based on 1) mission, 2) ability to solve problems, 3) results, and 4) the scope of public impact.</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li><strong>Mission</strong><br />\\r\\n\\tHow do the objectives of the program align with CBC's mission to constructively change the finances and services of New York City? Does it improve service, lower costs, or increase efficiency? Does it employ data-driven management or evidence-based policy making?</li>\\r\\n\\t<li><strong>Problem Solving</strong><br />\\r\\n\\tDescribe the purpose of the program or initiative. What problem does it address and what does it seek to accomplish? When did it begin? Is it part of a Citywide agenda or specific to your agency?</li>\\r\\n\\t<li><strong>Results</strong><br />\\r\\n\\tProvide metrics that demonstrate an improvement in the public service or operations affected. If it is too soon to demonstrate results, what data will be collected, and how will the program be evaluated? Is a formal evaluation process in place? Have prior evaluation results been used to adapt the approach?</li>\\r\\n\\t<li><strong>Scope of Public Impact </strong><br />\\r\\n\\tHow many New Yorkers benefit from the innovation or program? Is the program scalable? Can it be transferred to other agencies, departments, or government services?</li>\\r\\n</ul>\\r\\n\"\n    '#format': full_html\n  program_or_initiative_0:\n    '#type': textfield\n    '#title': 'Program or Initiative:'\n    '#required': true\n  content_name_:\n    '#type': textfield\n    '#title': 'Contact Name:'\n    '#required': true\n  contact_title_:\n    '#type': textfield\n    '#title': 'Contact Title:'\n    '#required': true\n  agency_department_or_public_authority_:\n    '#type': textfield\n    '#title': 'Agency, Department, or Public Authority:'\n    '#required': true\n  contact_email_:\n    '#type': textfield\n    '#title': 'Contact Email:'\n    '#required': true\n  contact_telephone_:\n    '#type': textfield\n    '#title': 'Contact Telephone:'\n    '#required': true\nquestions_0:\n  '#type': webform_wizard_page\n  '#title': Questions\n  mission:\n    '#type': textarea\n    '#title': Mission\n    '#description': 'How do the objectives of the program align with CBC&rsquo;s mission to constructively change the finances and services of New York? Does it improve service, lower costs, or increase efficiency? Does it employ data-driven management or evidence-based policy making?'\n    '#required': true\n  problem_solving_:\n    '#type': textarea\n    '#title': 'Problem Solving:'\n    '#description': 'Describe the purpose of the program or initiative. What problem does it address and what does it seek to accomplish? When did it begin? Is it part of a state/citywide agenda or specific to your agency?'\n    '#required': true\n  scope_of_public_impact_:\n    '#type': textarea\n    '#title': 'Scope of Public Impact:'\n    '#required': true\n  results_:\n    '#type': textarea\n    '#title': 'Results:'\n    '#description': |\n      <br />\n      Provide metrics that demonstrate an improvement in the public service or operations affected. If it is too soon to demonstrate results, what data will be collected and how will the program be evaluated? Is a formal evaluation process in place? Have prior evaluation results been used to adapt the approach?\n      \n    '#required': true\n  optional_attachments_:\n    '#type': document_file\n    '#title': 'Optional Attachments:'\n    '#description': 'Attach additional files to support your application here, or email Kevin Medina,&nbsp;<a href=\"mailto:kmedina@cbcny.org?subject=Additional%20Material%20for%20CBC%20Prize%20Application\">kmedina@cbcny.org</a>.'\n  gdpr:\n    '#type': checkbox\n    '#title': 'I allow CBCNY to use this information to process my application'\n    '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your application by email. It will not be sent to any third party processors or systems. Applications will be stored until the prize selection is complete. All relevant data will be deleted within 30 days of the prize announcement. Prize winners will be individually contacted for further privacy consent specific to their case.'\n    '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'"
 css: ''
 javascript: ''
 settings:
@@ -43,14 +48,14 @@ settings:
   preview_prev_button_label: ''
   preview_prev_button_attributes: {  }
   preview_message: ''
-  draft: false
+  draft: ''
   draft_auto_save: false
   draft_button_label: ''
   draft_button_attributes: {  }
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
-  confirmation_message: ''
+  confirmation_message: 'You application has been submitted. Thank you.'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -65,6 +70,69 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  ajax: false
+  ajax_scroll_top: form
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_convert_anonymous: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_submit_back: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_link: false
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview_label: ''
+  preview_title: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft_multiple: false
+  confirmation_title: 'Submission Confirmed'
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total_interval: null
+  limit_total_unique: false
+  limit_user_interval: null
+  limit_user_unique: false
+  entity_limit_total_interval: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
 access:
   create:
     roles:
@@ -98,16 +166,32 @@ handlers:
     label: 'Prize for Public Service Innovation Application'
     handler_id: prize_for_public_service_innovation_application
     status: true
+    conditions: {  }
     weight: 0
     settings:
-      to_mail: default
+      to_mail: _default
       cc_mail: ''
       bcc_mail: ''
-      from_mail: default
-      from_name: default
-      subject: default
-      body: default
+      from_mail: _default
+      from_name: _default
+      subject: _default
+      body: _default
       excluded_elements: {  }
       html: true
       attachments: false
       debug: false
+      states:
+        - completed
+      to_options: {  }
+      cc_options: {  }
+      bcc_options: {  }
+      from_options: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      twig: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
