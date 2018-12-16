@@ -50,10 +50,16 @@ process:
     source: pub_date
   field_soundcloud: link
   field_teaser_plain: summary
-  field_hero:
+  field_hero/target_id:
+  -
     plugin: migration_lookup
-    migration: cbc_podcast_heros
+    migration: cbc_podcast_heros2
+    no_stub: true,
     source: guid
+  -
+    plugin: extract
+    index:
+      - '0'
   field_term_topic:
     plugin: default_value
     default_value: 4
@@ -67,4 +73,4 @@ destination:
   plugin: 'entity:node'
 migration_dependencies:
   required:
-    - cbc_podcast_heros
+    - cbc_podcast_heros2

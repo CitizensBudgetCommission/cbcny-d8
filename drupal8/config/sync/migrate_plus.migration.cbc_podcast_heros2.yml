@@ -1,11 +1,10 @@
-uuid: 3d8040e4-821d-4e65-9c74-b639215914df
 langcode: en
 status: true
 dependencies: {  }
-id: cbc_podcast_heros
+id: cbc_podcast_heros2
 migration_tags: null
-migration_group: deprecated
-label: 'Import hero headers for podcast episodes from RSS'
+migration_group: cbc_podcast
+label: 'Import hero headers for podcast episodes from RSS - version 2'
 source:
   plugin: url
   data_fetcher_plugin: http
@@ -47,5 +46,5 @@ process:
     plugin: default_value
     default_value: hero
 destination:
-  plugin: 'entity:paragraph'
+  plugin: 'entity_reference_revisions:paragraph'
 migration_dependencies: null
