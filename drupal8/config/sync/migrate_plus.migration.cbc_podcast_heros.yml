@@ -47,5 +47,5 @@ process:
     plugin: default_value
     default_value: hero
 destination:
-  plugin: 'entity:paragraph'
+  plugin: 'entity_reference_revisions:paragraph'
 migration_dependencies: null
