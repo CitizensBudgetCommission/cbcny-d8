@@ -1,0 +1,58 @@
+uuid: 1c882208-0a88-4236-80b5-60073890f42a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.slider
+    - field.field.node.page.field_hero
+    - field.field.node.page.field_metatags
+    - field.field.node.page.field_page_content
+    - field.field.node.page.field_searchable
+    - field.field.node.page.field_teaser_plain
+    - field.field.node.page.field_term_section
+    - node.type.page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.page.slider
+targetEntityType: node
+bundle: page
+mode: slider
+content:
+  field_hero:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: slider
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_teaser_plain:
+    type: basic_string
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_term_section:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  title:
+    type: string
+    settings:
+      link_to_entity: false
+    weight: 1
+    label: hidden
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_metatags: true
+  field_page_content: true
+  field_searchable: true
+  links: true
