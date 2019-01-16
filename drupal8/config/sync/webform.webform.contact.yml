@@ -1,6 +1,6 @@
 uuid: ec77b310-139b-4efc-9865-89430fe88ca9
 langcode: en
-status: '1'
+status: open
 dependencies:
   enforced:
     module:
@@ -17,7 +17,7 @@ id: contact
 title: Contact
 description: 'Basic email contact webform.'
 category: null
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[webform-authenticated-user:display-name]'\nphone:\n  '#type': tel\n  '#title': Phone\n  '#title_display': before\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\njob_title:\n  '#type': textfield\n  '#title': 'Job Title'\n  '#title_display': before\norganization_name:\n  '#type': textfield\n  '#title': 'Organization Name'\n  '#title_display': before\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\ngdpr:\n  '#type': checkbox\n  '#title': 'I allow CBCNY to use this information to correspond with me'\n  '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your message by email. It will not be sent to any third party processors or systems. The information will be deleted from our systems within 30 days.'\n  '#description_display': after\n  '#required': true\n  '#required_error': 'We cannot process your submission without permission!'\n"
+elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#title_display': before\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\njob_title:\n  '#type': textfield\n  '#title': 'Job Title'\n  '#title_display': before\norganization_name:\n  '#type': textfield\n  '#title': 'Organization Name'\n  '#title_display': before\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\ngdpr:\n  '#type': checkbox\n  '#title': 'I allow CBCNY to use this information to correspond with me'\n  '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your message by email. It will not be sent to any third party processors or systems. The information will be deleted from our systems within 30 days.'\n  '#description_display': after\n  '#required': true\n  '#required_error': 'We cannot process your submission without permission!'"
 css: ''
 javascript: ''
 settings:
@@ -75,6 +75,69 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  ajax: false
+  ajax_scroll_top: form
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_convert_anonymous: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_submit_back: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_link: false
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview_label: ''
+  preview_title: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft_multiple: false
+  confirmation_title: ''
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total_interval: null
+  limit_total_unique: false
+  limit_user_interval: null
+  limit_user_unique: false
+  entity_limit_total_interval: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
 access:
   create:
     roles:
