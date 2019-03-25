@@ -16,6 +16,8 @@ access:
 
 # Include the PHP Redis extension
 runtime:
+    sizing_hints:
+        request_memory: 11
     extensions:
         - redis
 
