@@ -1,0 +1,6 @@
+name: CBC Slider
+type: module
+description: Add new content to the frontpage slider
+core: 8.x
+package: Custom
+dependencies:

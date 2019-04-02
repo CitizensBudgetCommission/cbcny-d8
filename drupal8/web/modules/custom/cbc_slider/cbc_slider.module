@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Add new content to the frontpage slider.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function cbc_slider_node_insert(Node $node) {
+  drupal_set_message(t("Don't forget to add this content to the frontpage slider if needed."), 'warning');
+}
