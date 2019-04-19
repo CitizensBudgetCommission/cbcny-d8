@@ -6,10 +6,61 @@
  */
 
 use Drupal\node\Entity\Node;
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_ENTITY_TYPE_insert().
+ * Implements hook_form_alter().
  */
-function cbc_slider_node_insert(Node $node) {
-  drupal_set_message(t("Don't forget to add this content to the frontpage slider if needed."), 'warning');
+function cbc_slider_form_alter(&$form, $form_state, $form_id) {
+  // Get current path.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $parameters = explode('/', $current_path);
+
+  // Check if it's a node add or edit form.
+  if ($parameters[1] = 'node' && ($parameters[2] == 'add' || (isset($parameters[3]) && $parameters[3] == 'edit'))) {
+    // Load the nodes of the slider block.
+    $block = BlockContent::load(13);
+    $items = $block->get('field_featured_items')->getValue();
+    $nodes[0] = Node::load($items[0]['target_id']);
+    $nodes[1] = Node::load($items[1]['target_id']);
+    $nodes[2] = Node::load($items[2]['target_id']);
+
+    // Add a select list with the node titles.
+    $form['cbc_slider'] = array(
+      '#type' => 'select',
+      '#title' => t("Replace the following in the slider"),
+      '#options' => array('none' => t('None'),
+                          0 => $nodes[0]->get('title')->value,
+                          1 => $nodes[1]->get('title')->value,
+                          2 => $nodes[2]->get('title')->value),
+      '#weight' => 100,
+    );
+
+    // Add a submit handler.
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions']['submit']['#submit'][] = 'cbc_slider_node_form_submit';
+      }
+    }
+  }
+}
+
+/**
+ * Custom submit handler to replace the selected slider item with the new node.
+ */
+function cbc_slider_node_form_submit($form, FormStateInterface $form_state) {
+  // Get the position of the selected item.
+  $old = $form_state->getValue('cbc_slider');
+  // Get the nid of the new node.
+  $new = $form_state->getValue('nid');
+  // Load the slider block.
+  $block = BlockContent::load(13);
+  
+  // Replace the item at the selected position with the new node.
+  $items = $block->get('field_featured_items')->getValue();
+  $items[$old]['target_id'] = $new;
+  $block->set('field_featured_items', $items);
+  $block->save();
+  \Drupal::messenger()->addMessage(t('The homepage slider has been updated.'));
 }
