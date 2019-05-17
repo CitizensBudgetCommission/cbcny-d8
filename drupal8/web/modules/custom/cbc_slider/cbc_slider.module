@@ -21,31 +21,30 @@ function cbc_slider_form_alter(&$form, $form_state, $form_id) {
   if ($parameters[1] = 'node' && ($parameters[2] == 'add' || (isset($parameters[3]) && $parameters[3] == 'edit'))) {
     // Load the nodes of the slider block.
     $block = BlockContent::load(13);
-    if (empty($block)) {
-      return;
-    }
-    $items = $block->get('field_featured_items')->getValue();
-    $nodes[0] = Node::load($items[0]['target_id']);
-    $nodes[1] = Node::load($items[1]['target_id']);
-    $nodes[2] = Node::load($items[2]['target_id']);
+    if ($block) {
+      $items = $block->get('field_featured_items')->getValue();
+      $nodes[0] = Node::load($items[0]['target_id']);
+      $nodes[1] = Node::load($items[1]['target_id']);
+      $nodes[2] = Node::load($items[2]['target_id']);
 
-    // Add a select list with the node titles.
-    $form['cbc_slider'] = array(
-      '#type' => 'select',
-      '#title' => t("Replace the following in the slider"),
-      '#options' => array('none' => t('None'),
-                          0 => $nodes[0]->get('title')->value,
-                          1 => $nodes[1]->get('title')->value,
-                          2 => $nodes[2]->get('title')->value),
-      '#weight' => 100,
-    );
+      // Add a select list with the node titles.
+      $form['cbc_slider'] = array(
+        '#type' => 'select',
+        '#title' => t("Replace the following in the slider"),
+        '#options' => array('none' => t('None'),
+          0 => $nodes[0]->get('title')->value,
+          1 => $nodes[1]->get('title')->value,
+          2 => $nodes[2]->get('title')->value),
+        '#weight' => 100,
+      );
 
-    // Add a submit handler.
-    foreach (array_keys($form['actions']) as $action) {
-      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
-        $form['actions']['submit']['#submit'][] = 'cbc_slider_node_form_submit';
+      // Add a submit handler.
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions']['submit']['#submit'][] = 'cbc_slider_node_form_submit';
+        }
       }
-    }
+    }  
   }
 }
 
