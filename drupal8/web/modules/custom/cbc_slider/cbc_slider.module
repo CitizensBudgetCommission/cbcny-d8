@@ -21,6 +21,9 @@ function cbc_slider_form_alter(&$form, $form_state, $form_id) {
   if ($parameters[1] = 'node' && ($parameters[2] == 'add' || (isset($parameters[3]) && $parameters[3] == 'edit'))) {
     // Load the nodes of the slider block.
     $block = BlockContent::load(13);
+    if (empty($block)) {
+      return;
+    }
     $items = $block->get('field_featured_items')->getValue();
     $nodes[0] = Node::load($items[0]['target_id']);
     $nodes[1] = Node::load($items[1]['target_id']);
