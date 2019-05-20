@@ -23,18 +23,19 @@ function cbc_slider_form_alter(&$form, $form_state, $form_id) {
     $block = BlockContent::load(13);
     if ($block) {
       $items = $block->get('field_featured_items')->getValue();
-      $nodes[0] = Node::load($items[0]['target_id']);
-      $nodes[1] = Node::load($items[1]['target_id']);
-      $nodes[2] = Node::load($items[2]['target_id']);
+      $options = ['none' => t('None')];
+      foreach ($items as $item) {
+        $node = Node::load($item['target_id']);
+        if ($node) {
+          $options[$node->id()] = $node->get('title')->value;
+        }
+      }
 
       // Add a select list with the node titles.
       $form['cbc_slider'] = array(
         '#type' => 'select',
         '#title' => t("Replace the following in the slider"),
-        '#options' => array('none' => t('None'),
-          0 => $nodes[0]->get('title')->value,
-          1 => $nodes[1]->get('title')->value,
-          2 => $nodes[2]->get('title')->value),
+        '#options' => $options,
         '#weight' => 100,
       );
 
@@ -44,7 +45,7 @@ function cbc_slider_form_alter(&$form, $form_state, $form_id) {
           $form['actions']['submit']['#submit'][] = 'cbc_slider_node_form_submit';
         }
       }
-    }  
+    }
   }
 }
 
