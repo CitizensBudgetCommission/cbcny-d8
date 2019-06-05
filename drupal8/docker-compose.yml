@@ -12,7 +12,7 @@ services:
       MYSQL_USER: drupal
       MYSQL_PASSWORD: drupal
     volumes:
-      - database:/var/lib/mysql # I want to manage volumes manually.
+      - database:/var/lib/mysql:delegated # I want to manage volumes manually.
       - ./docker:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
     ports:
       - 3306:3306
@@ -33,7 +33,7 @@ services:
       # PHP_XDEBUG_REMOTE_CONNECT_BACK: 0         # This is needed to respect remote.host setting bellow
       # PHP_XDEBUG_REMOTE_HOST: "10.254.254.254"  # You will also need to 'sudo ifconfig lo0 alias 10.254.254.254'
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html:delegated
 
   nginx:
     image: wodby/drupal-nginx:8-1.10-2.1.0
@@ -47,7 +47,7 @@ services:
       NGINX_BACKEND_HOST: php
       NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html:delegated
 #    labels:
       #      - 'traefik.backend=nginx'
       #     - 'traefik.port=80'
@@ -75,6 +75,6 @@ services:
   patternlab:
     image: savaslabs/node-php-composer:1.2
     volumes:
-      - ./web/themes/cbcny_theme:/app
+      - ./web/themes/cbcny_theme:/app:delegated
     working_dir: /app
     command: sh -c 'npm install -g grunt-cli && npm install && grunt build && grunt watch'
