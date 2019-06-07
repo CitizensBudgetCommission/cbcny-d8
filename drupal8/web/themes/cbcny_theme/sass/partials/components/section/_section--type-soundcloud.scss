@@ -1,0 +1,14 @@
+// @file
+// Styles for the video embed.
+
+.section--type-soundcloud {
+  background-color: $cbcny-blue;
+  padding: 15px;
+  color: $cbcny-almost-white;
+  margin-bottom: em($base-line-height, map-get($font-size, l));
+
+  h2 {
+    color: $cbcny-yellow;
+  }
+
+}
