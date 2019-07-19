@@ -34,7 +34,7 @@ jobs:
           name: Build the theme
           command: |
             curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-            sudo apt-get install nodejs build-essential -y
+            sudo apt-get install nodejs build-essential npm -y
             nodejs --version
             npm --version
             cd ~/cbcny-d8/drupal8/web/themes/cbcny_theme
