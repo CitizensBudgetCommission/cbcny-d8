@@ -1,0 +1,12 @@
+uuid: 6b883be7-e0b0-4a0a-bdca-6f124ebfc4fa
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - yamlform
+_core:
+  default_config_hash: zare-AzI84_HR4zTos_oMoiFb_cFQuhImeb8Jd0edCo
+id: country_names
+label: 'Country names'
+options: ''

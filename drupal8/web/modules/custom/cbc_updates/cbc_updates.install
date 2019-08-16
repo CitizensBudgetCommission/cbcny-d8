@@ -159,3 +159,21 @@ function cbc_updates_update_8006() {
   // Set the path alias.
   \Drupal::service('path.alias_storage')->save('/node/' . $node->id(), '/research/listing');
 }
+
+/**
+ * Uninstall: devel; Install: search_api_pantheon.
+ *
+ * @throws \Drupal\Core\Extension\MissingDependencyException
+ */
+function cbc_updates_update_8007() {
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+  $moduleInstaller = Drupal::service('module_installer');
+
+  $moduleInstaller->uninstall([
+    'devel',
+  ]);
+
+  $moduleInstaller->install([
+    'search_api_pantheon',
+  ]);
+}

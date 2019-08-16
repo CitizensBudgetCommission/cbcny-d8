@@ -14,6 +14,7 @@ dependencies:
     - paragraphs.paragraphs_type.image_caption
     - paragraphs.paragraphs_type.introduction
     - paragraphs.paragraphs_type.pullquote
+    - paragraphs.paragraphs_type.soundcloud
     - paragraphs.paragraphs_type.video_embed
   module:
     - entity_reference_revisions
@@ -30,6 +31,7 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       aside: aside
       author: author
@@ -41,6 +43,7 @@ settings:
       introduction: introduction
       pullquote: pullquote
       video_embed: video_embed
+      soundcloud: soundcloud
     target_bundles_drag_drop:
       aside:
         enabled: true
@@ -72,4 +75,19 @@ settings:
       video_embed:
         enabled: true
         weight: -12
+      soundcloud:
+        enabled: true
+        weight: 16
+      block_embed:
+        weight: 19
+        enabled: false
+      hero:
+        weight: 24
+        enabled: false
+      section_heading:
+        weight: 28
+        enabled: false
+      view_embed:
+        weight: 30
+        enabled: false
 field_type: entity_reference_revisions

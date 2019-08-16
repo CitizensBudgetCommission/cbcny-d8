@@ -20,10 +20,8 @@ backend_config:
     index_timeout: 5
     optimize_timeout: 10
     commit_within: 1000
-    solr_version: '6'
+    solr_version: '4'
     http_method: AUTO
-  username: admin
-  password: drupal@dm1n
   retrieve_data: false
   highlight_data: false
   excerpt: false

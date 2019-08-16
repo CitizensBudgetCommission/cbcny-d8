@@ -10,8 +10,55 @@
 // default.settings.php file.
 //
 // See https://api.drupal.org/api/drupal/sites!default!default.settings.php/8
-$databases = [];
-$config_directories = [];
+$databases = [
+  'default' => [
+    'default' => [
+      'driver' => 'mysql',
+      'namespace' => '\Drupal\Core\Database\Driver\\mysql',
+      'username' => '',
+      'password' => '',
+      'host' => '127.0.0.1',
+      'port' => 3306,
+      'prefix' => '',
+      'database' => 'cbcny__default',
+      'collation' => 'utf8mb4_general_ci',
+    ],
+  ],
+];
+
+/**
+ * Public file path:
+ *
+ * A local file system path where public files will be stored. This directory
+ * must exist and be writable by Drupal. This directory must be relative to
+ * the Drupal installation directory and be accessible over the web.
+ */
+$settings['file_public_path'] = 'sites/default/files';
+
+/**
+ * Private file path:
+ *
+ * A local file system path where private files will be stored. This directory
+ * must be absolute, outside of the Drupal installation directory and not
+ * accessible over the web.
+ *
+ * Note: Caches need to be cleared when this value is changed to make the
+ * private:// stream wrapper available to the system.
+ *
+ * See https://www.drupal.org/documentation/modules/file for more information
+ * about securing private files.
+ */
+$settings['file_private_path'] = 'sites/default/files/private';
+
+// Set up a config sync directory.
+//
+// This is defined inside the read-only "config" directory. This works well,
+// however it requires a patch from issue https://www.drupal.org/node/2607352
+// to fix the requirements check and the installer.
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => '../config/sync',
+];
+
 $settings['update_free_access'] = FALSE;
 $settings['container_yamls'][] = __DIR__ . '/services.yml';
 
@@ -31,48 +78,10 @@ $settings['install_profile'] = 'minimal';
 // $settings['hash_salt'] = 'change_me';
 $settings['hash_salt'] = 'CHANGEME';
 
-
-// Set up a config sync directory.
-//
-// This is defined inside the read-only "config" directory. This works well,
-// however it requires a patch from issue https://www.drupal.org/node/2607352
-// to fix the requirements check and the installer.
-$config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
-
-// Disable page cache, JS/CSS aggregation on all environments except Platform Master (live) and stage.
-if (getenv('PLATFORM_BRANCH') && in_array(getenv('PLATFORM_BRANCH'), ['master', 'stage'])) {
-  //$config['system.performance']['cache']['page']['max_age'] = 31536000;
-  $config['system.performance']['cache']['css'] = [
-    'preprocess' => TRUE,
-    'gzip' => TRUE
-  ];
-  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
-  // Cloudflare settings should already be in the DB.
-}
-else {
-  $config['system.performance']['cache']['page']['max_age'] = 0;
-  $config['system.performance']['cache']['css'] = [
-    'preprocess' => FALSE,
-    'gzip' => FALSE
-  ];
-  $config['system.performance']['cache']['js'] = $config['system.performance']['cache']['css'];
-  // Ensure empty cloudflare settings.
-  $config['cloudflare.settings']['apikey'] = '';
-  $config['cloudflare.settings']['email'] = '';
-}
-
-// Disable google analytics except on platform Master environment
-if (getenv('PLATFORM_BRANCH') && getenv('PLATFORM_BRANCH') == 'master') {
-  $config['google_analytics.settings']['account'] = 'UA-11916551-1';
-}
-else {
-  $config['google_analytics.settings']['account'] = '';
-}
-
-// Automatic Platform.sh settings.
-if (file_exists(__DIR__ . '/settings.platformsh.php')) {
-  include __DIR__ . '/settings.platformsh.php';
-}
+$config['system.performance']['css']['preprocess'] = TRUE;
+$config['system.performance']['css']['gzip'] = TRUE;
+$config['system.performance']['js']['preprocess'] = TRUE;
+$config['system.performance']['js']['gzip'] = TRUE;
 
 // Include PDF files in core's fast_404 targets
 $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp|pdf)$/i';
@@ -80,36 +89,19 @@ $config['system.performance']['fast_404']['paths'] = '/\.(?:txt|png|gif|jpe?g|cs
 // Disable access checks for entities explicitly rendered by Twig.
 $settings['twig_tweak_check_access'] = FALSE;
 
-// If we're on the local docker environment...
 if (getenv('DB_HOST')) {
-
-  // solr server settings for the local environment
-  $config['search_api.server.solr']['backend_config']['scheme'] = 'http';
-  $config['search_api.server.solr']['backend_config']['host'] = 'solr';
-  $config['search_api.server.solr']['backend_config']['port'] = '8983';
-  $config['search_api.server.solr']['backend_config']['path'] = '/solr';
-  $config['search_api.server.solr']['backend_config']['core'] = 'drupal';
-  $config['search_api.server.solr']['backend_config']['username'] = '';
-  $config['search_api.server.solr']['backend_config']['password'] = '';
-
-  $databases['default']['default'] = [
-    'driver' => getenv('DB_DRIVER'),
-    'database' => getenv('DB_NAME'),
-    'username' => getenv('DB_USER'),
-    'password' => getenv('DB_PASSWORD'),
-    'host' => getenv('DB_HOST'),
-    'port' => 3306,
-  ];
-  // Platform.sh provides its own value... here's ours for local dev.
-  $settings['hash_salt'] = 'CHANGEME';
-
+  $databases['default']['default']['driver'] = getenv('DB_DRIVER');
+  $databases['default']['default']['username'] = getenv('DB_USER');
+  $databases['default']['default']['password'] = getenv('DB_PASSWORD');
+  $databases['default']['default']['host'] = getenv('DB_HOST');
+  $databases['default']['default']['port'] = getenv('DB_PORT') ?: 3306;
+  $databases['default']['default']['database'] = getenv('DB_NAME');
 }
 
 // Local settings. These come last so that they can override anything.
-if (getenv('LOCAL_DEVELOPMENT') && file_exists(__DIR__ . '/settings.local.php')) {
+if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
-
 
 // If nothing else set it, here's the fallback db for testing.
 if (!isset($databases['default']['default'])) {

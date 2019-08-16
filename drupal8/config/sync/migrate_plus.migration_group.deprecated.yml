@@ -1,0 +1,10 @@
+uuid: b860ce70-14e8-4900-94ad-b62070e81f0e
+langcode: en
+status: true
+dependencies: {  }
+id: deprecated
+label: deprecated
+description: ''
+source_type: null
+module: null
+shared_configuration: null
