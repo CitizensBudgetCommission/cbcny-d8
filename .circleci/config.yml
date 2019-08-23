@@ -26,7 +26,7 @@ jobs:
           name: Add PHP module prerequisites
           command: |
             sudo apt-get update -y
-            sudo apt-get install -y libpng-dev mysql-client
+            sudo apt-get install -y libpng-dev mariadb-client-10.3
             sudo docker-php-ext-install gd pdo pdo_mysql
       - restore_cache:
           key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
@@ -34,7 +34,7 @@ jobs:
           name: Build the theme
           command: |
             curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-            sudo apt-get install nodejs build-essential -y
+            sudo apt-get install -y build-essential nodejs npm
             nodejs --version
             npm --version
             cd ~/cbcny-d8/drupal8/web/themes/cbcny_theme
