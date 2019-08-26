@@ -112,9 +112,10 @@ jobs:
           name: Apply updates
           command: |
             cd ~/cbcny-d8/drupal8/web
+            ../vendor/bin/drush --yes pm-enable yamlform cloudflare template_mapper
+            ../vendor/bin/drush --yes updb --entity-updates
+            ../vendor/bin/drush --yes cim
             ../vendor/bin/drush cr
-            ../vendor/bin/drush updb --entity-updates -y
-            ../vendor/bin/drush cim -y
       - run:
           name: Test
           command: |
