@@ -158,7 +158,8 @@
         "Add default display for Facets to use": "https://www.drupal.org/files/issues/2836477-search_api-views_default_deriver.patch"
       },
       "drupal/soundcloudfield": {
-        "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch"
+        "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch",
+        "Set oembed url to https": "https://www.drupal.org/files/issues/2019-08-15/soundcloud-oembed_https-3075203-2-D8.patch"
       }
     }
   }

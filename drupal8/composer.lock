@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d15abbb6dcdc8fb543578ccf6886618",
+    "content-hash": "ea3330b85b9008e6d6914aca18a185b1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4709,7 +4709,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch"
+                    "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch",
+                    "Set oembed url to https": "https://www.drupal.org/files/issues/2019-08-15/soundcloud-oembed_https-3075203-2-D8.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
