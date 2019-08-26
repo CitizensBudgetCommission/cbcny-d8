@@ -15,24 +15,13 @@ $config['search_api.server.solr']['backend_config']['connector_config']['core'] 
 $config['search_api.server.solr']['backend_config']['connector_config']['username'] = '';
 $config['search_api.server.solr']['backend_config']['connector_config']['password'] = '';
 
-//$databases['default']['default'] = [
-//  'driver' => getenv('DB_DRIVER'),
-//  'database' => getenv('DB_NAME'),
-//  'username' => getenv('DB_USER'),
-//  'password' => getenv('DB_PASSWORD'),
-//  'host' => getenv('DB_HOST'),
-//  'port' => 3306,
-//];
-
 $databases['default']['default'] = [
-  'driver' => 'mysql',
-  'username' => 'andor',
-  'password' => 'admin',
-  'host' => '127.0.0.1',
-  'port' => 3310,
-  'prefix' => '',
-  'database' => 'cbcny__default',
-  'collation' => 'utf8mb4_general_ci',
+  'driver' => getenv('DB_DRIVER'),
+  'database' => getenv('DB_NAME'),
+  'username' => getenv('DB_USER'),
+  'password' => getenv('DB_PASSWORD'),
+  'host' => getenv('DB_HOST'),
+  'port' => 3306,
 ];
 
 $config['stage_file_proxy.settings']['origin'] = 'https://cbcny.org';
