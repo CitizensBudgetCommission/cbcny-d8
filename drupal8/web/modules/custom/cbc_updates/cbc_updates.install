@@ -162,8 +162,6 @@ function cbc_updates_update_8006() {
 
 /**
  * Uninstall: devel; Install: search_api_pantheon.
- *
- * @throws \Drupal\Core\Extension\MissingDependencyException
  */
 function cbc_updates_update_8007() {
   /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */

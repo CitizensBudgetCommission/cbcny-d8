@@ -1,0 +1,41 @@
+
+options:
+  root: '${drush.vendor-dir}/../web'
+
+command:
+  core:
+    status:
+      options:
+        format: 'yaml'
+  #    rsync:
+  #      options:
+  #        # @app.prod%files /path/to/files
+  #        exclude-paths: '/css/*:/js/*:/languages/*:/styles/*:/private/*'
+
+  sql:
+    dump:
+      options:
+        skip-tables-key: 'common'
+        structure-tables-key: 'common'
+
+  site:
+    install:
+      options:
+        sites-subdir: 'default'
+        site-name: 'Drupal.hu'
+        account-name: 'admin'
+        account-pass: 'admin'
+        account-mail: 'admin@localhost'
+        marvin-migrate: 'default'
+
+sql:
+  skip-tables:
+    common: []
+  structure-tables:
+    common:
+      - 'cache'
+      - 'cache_*'
+      - 'history'
+      - 'search_*'
+      - 'sessions'
+      - 'watchdog'

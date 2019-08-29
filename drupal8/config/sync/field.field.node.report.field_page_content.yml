@@ -15,7 +15,6 @@ dependencies:
     - paragraphs.paragraphs_type.introduction
     - paragraphs.paragraphs_type.pullquote
     - paragraphs.paragraphs_type.section_heading
-    - paragraphs.paragraphs_type.soundcloud
     - paragraphs.paragraphs_type.video_embed
     - paragraphs.paragraphs_type.view_embed
   module:
@@ -33,11 +32,9 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       aside: aside
       author: author
-      soundcloud: soundcloud
       chart_embed: chart_embed
       download_callout: download_callout
       footnotes: footnotes
@@ -55,9 +52,6 @@ settings:
       author:
         enabled: true
         weight: 15
-      soundcloud:
-        enabled: true
-        weight: 16
       chart_embed:
         enabled: true
         weight: 16
@@ -67,9 +61,6 @@ settings:
       footnotes:
         enabled: true
         weight: 18
-      block_embed:
-        weight: 19
-        enabled: false
       full_text:
         enabled: true
         weight: 19

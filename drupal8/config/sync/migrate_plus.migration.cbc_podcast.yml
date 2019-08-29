@@ -54,7 +54,7 @@ process:
     -
       plugin: migration_lookup
       migration: cbc_podcast_heros2
-      no_stub: true
+      no_stub: 'true,'
       source: guid
     -
       plugin: extract
