@@ -18,7 +18,7 @@ services:
       - 3306:3306
 
   php:
-    image: wodby/drupal-php:7.1-4.2.5
+    image: wodby/drupal-php:7.3-4.13.6
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       DB_HOST: mariadb

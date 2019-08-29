@@ -1,9 +1,0 @@
-uuid: b203074c-3838-4afb-8d16-6f10279de178
-langcode: en
-status: true
-dependencies: {  }
-id: soundcloud
-label: Soundcloud
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

@@ -24,7 +24,6 @@ module:
   chosen_field: 0
   chosen_lib: 0
   ckeditor: 0
-  cloudflare: 0
   config: 0
   content_lock: 0
   crop: 0
@@ -61,7 +60,6 @@ module:
   redis: 0
   scheduler: 0
   search_api: 0
-  search_api_pantheon: 0
   search_api_solr: 0
   search_api_views_taxonomy: 0
   soundcloudfield: 0
@@ -82,7 +80,6 @@ module:
   webform_ui: 0
   xmlsitemap: 0
   xmlsitemap_engines: 0
-  yamlform: 0
   menu_link_content: 1
   pathauto: 1
   views: 10
