@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea3330b85b9008e6d6914aca18a185b1",
+    "content-hash": "52af544464563ffd6c15ed19ee16f8ba",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5317,6 +5317,9 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/project/yamlform/issues/3032913 - Incompatible parent-child classes": "https://www.drupal.org/files/issues/2019-02-14/PHP7.2-error-3032913-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
