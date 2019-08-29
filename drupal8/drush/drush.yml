@@ -1,0 +1,6 @@
+
+drush:
+  paths:
+    config:
+      - '${drush.vendor-dir}/../drush/drush.app.yml'
+      - '${drush.vendor-dir}/../drush/drush.local.yml'
