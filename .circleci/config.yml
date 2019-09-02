@@ -5,6 +5,7 @@ version: 2
   COMPOSER_NO_INTERACTION: '1'
   COMPOSER_MEMORY_LIMIT: '-1'
   composerVersion: '1.9.0'
+  terminusVersion: '2.0.1'
   platformVersion: '3.46.0'
 
 .env_mysql: &env_mysql
@@ -23,7 +24,7 @@ jobs:
           <<: *env_common
           <<: *env_mysql
 
-      # @todo Pantheon uses MariaDB 5.5
+      # @todo Pantheon uses MariaDB 5.5.5-10.1.22
       - image: wodby/mariadb:latest
         environment:
           <<: *env_mysql
@@ -58,19 +59,20 @@ jobs:
             mkdir -p ~/.ssh
             cat .circleci/known_hosts >> ~/.ssh/known_hosts
       - run:
-          name: 'Install Platform.sh CLI tool'
+          name: 'Install Terminus Pantheon CLI tool'
           command: |-
             mkdir -p ~/bin
+            mkdir -p ~/terminus
             curl \
-              --fail \
-              --silent \
-              --show-error \
-              --location \
-              --output ~/bin/platform \
-              "https://github.com/platformsh/platformsh-cli/releases/download/v${platformVersion}/platform.phar"
-
-            chmod +x ~/bin/platform
-            platform --version
+            -O \
+            https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar \
+            && php installer.phar install \
+            --bin-dir ~/bin \
+            --install-dir ~/terminus \
+            --install-version "${terminusVersion}" \
+            rm installer.phar
+            chmod +x ~/bin/terminus
+            terminus --version
       - run:
           name: 'Install Composer CLI tool'
           command: |-
@@ -181,37 +183,57 @@ jobs:
               --directory modules/custom
 
       - run:
-          name: 'Download the site database dump from live and import.'
+          name: 'Create release on Pantheon'
           command: |-
             cd ./drupal8
-            platform db:dump \
-              -y \
-              -p jm7ogp6xamel6 \
-              -e master \
-              -A app \
-              --stdout \
-            | vendor/bin/drush \
+            vendor/bin/robo cbcny:release:pantheon
+
+      - run:
+          name: 'Prepare release settings.local.php'
+          command: |-
+            cat <<PHP > drupal8-release/web/sites/default/settings.local.php
+            <?php
+
+            \$databases['default']['default']['username'] = '${MYSQL_USER}';
+            \$databases['default']['default']['password'] = '${MYSQL_PASSWORD}';
+            \$databases['default']['default']['host'] = '${MYSQL_HOST}';
+            \$databases['default']['default']['port'] = '${MYSQL_PORT}';
+            \$databases['default']['default']['database'] = '${MYSQL_DATABASE}';
+
+            \$settings['trusted_host_patterns'] = ['.+'];
+            PHP
+
+      - run:
+          name: 'Download the site database dump from test environment and import.'
+          command: |-
+            cd ./drupal8-release
+            terminus backup:get cbcny.test \
+              --element database \
+              --to backup/dump-database.sql.gz
+
+            gunzip backup/dump-database.sql.gz
+            vendor/bin/drush \
               --root "${PWD}/web" \
               sql:cli \
-              --db-url="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
+              < backup/dump-database.sql
       - run:
           name: 'Apply updates'
           command: |
-            cd ./drupal8
+            cd ./drupal8-release
             ./vendor/bin/drush updatedb --yes --entity-updates
             ./vendor/bin/drush config:import --yes
             ./vendor/bin/drush cache:rebuild
       - run:
           name: 'Check updatedb:status'
           command: |-
-            cd ./drupal8
+            cd ./drupal8-release
             status="$(./vendor/bin/drush updatedb:status --format=yaml)"
             echo "${status}"
             [[ "${status}" == '' ]]
       - run:
           name: 'Check config:status'
           command: |-
-            cd ./drupal8
+            cd ./drupal8-release
             status="$(./vendor/bin/drush config:status --format=yaml)"
             echo "${status}"
             [[ "${status}" == '' ]]
@@ -219,6 +241,10 @@ jobs:
           name: 'Test'
           command: |-
             cd ./drupal8/behat
+            sed \
+            --in-place \
+            --expression @drupal_root: '../web' @drupal_root: '../../drupal8-release/web' @global \
+            behat.yml
             mkdir -p ./test-reports/cucumber
             LOCAL_BEHAT=y \
               ../vendor/bin/behat \
