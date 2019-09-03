@@ -195,7 +195,9 @@ jobs:
           name: 'Create release artifact for Pantheon'
           command: |-
             cd ./drupal8
-            vendor/bin/robo cbcny:release:pantheon
+            vendor/bin/robo \
+              --define='release.pantheon.remoteUrl=' \
+              cbcny:release:pantheon
 
       - run:
           name: 'Prepare release settings.local.php'
