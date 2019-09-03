@@ -218,11 +218,14 @@ jobs:
           name: 'Download the site database dump from test environment and import.'
           command: |-
             cd ./drupal8-release
+            mkdir -p ./backup
+
             terminus backup:get cbcny.test \
               --element database \
               --to backup/dump-database.sql.gz
 
             gunzip backup/dump-database.sql.gz
+
             vendor/bin/drush \
               --root "${PWD}/web" \
               sql:cli \
