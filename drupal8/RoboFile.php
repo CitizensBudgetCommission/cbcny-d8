@@ -60,7 +60,7 @@ class RoboFile extends Robo\Tasks implements LoggerAwareInterface, ConfigAwareIn
       ->dir($dir);
   }
 
-  protected function getTaskNpmBuild(string $dir):TaskInterface {
+  protected function getTaskNpmBuild(string $dir): TaskInterface {
     return $this
       ->taskExec(sprintf('grunt build'))
       ->dir($dir);

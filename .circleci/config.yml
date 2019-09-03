@@ -241,9 +241,8 @@ jobs:
           name: 'Test'
           command: |-
             cd ./drupal8/behat
-            sed \
-            --in-place \
-            --expression @drupal_root: '../web' @drupal_root: '../../drupal8-release/web' @global \
+            sed -i -e \
+            "s/drupal_root: \'..\/web\'/drupal_root: \'..\/..\/drupal8-release\/web\'/g" \
             behat.yml
             mkdir -p ./test-reports/cucumber
             LOCAL_BEHAT=y \
