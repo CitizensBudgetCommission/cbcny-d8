@@ -63,14 +63,17 @@ jobs:
           command: |-
             mkdir -p ~/bin
             mkdir -p ~/terminus
+
             curl \
-            -O \
-            https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar \
-            && php installer.phar install \
-            --bin-dir ~/bin \
-            --install-dir ~/terminus \
-            --install-version "${terminusVersion}" \
-            rm installer.phar
+              --output terminus-installer.phar \
+              https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
+
+            php terminus-installer.phar install \
+                --bin-dir ~/bin \
+                --install-dir ~/terminus \
+                --install-version "${terminusVersion}"
+
+            rm terminus-installer.phar
             chmod +x ~/bin/terminus
             terminus --version
       - run:
@@ -183,7 +186,7 @@ jobs:
               --directory modules/custom
 
       - run:
-          name: 'Create release on Pantheon'
+          name: 'Create release artifact for Pantheon'
           command: |-
             cd ./drupal8
             vendor/bin/robo cbcny:release:pantheon
@@ -238,23 +241,29 @@ jobs:
             echo "${status}"
             [[ "${status}" == '' ]]
       - run:
-          name: 'Test'
+          name: 'Behat'
           command: |-
             cd ./drupal8/behat
-            sed -i -e \
-            "s/drupal_root: \'..\/web\'/drupal_root: \'..\/..\/drupal8-release\/web\'/g" \
-            behat.yml
+
+            sed \
+              --in-place \
+              --expression 's@../web@../../drupal8-release/web@g' \
+              behat.yml
+
             mkdir -p ./test-reports/cucumber
+
             LOCAL_BEHAT=y \
-              ../vendor/bin/behat \
+            ../vendor/bin/behat \
               --no-snippets \
               -f pretty \
               -o std \
               -f junit \
               -o ~/cbcny-d8/test-reports/cucumber/junit.xml
+
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
           path: './drupal8/screenshots'
           destination: 'screenshots'
+
       - store_test_results:
           path: './test-reports'
