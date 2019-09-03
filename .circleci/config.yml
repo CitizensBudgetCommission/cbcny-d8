@@ -59,7 +59,7 @@ jobs:
             mkdir -p ~/.ssh
             cat .circleci/known_hosts >> ~/.ssh/known_hosts
       - run:
-          name: 'Install Terminus Pantheon CLI tool'
+          name: 'Install Terminus CLI tool'
           command: |-
             mkdir -p ~/bin
             mkdir -p ~/terminus
@@ -76,6 +76,12 @@ jobs:
             rm terminus-installer.phar
             chmod +x ~/bin/terminus
             terminus --version
+      - run:
+          name: 'Terminus auth:login'
+          command: |-
+            terminus \
+              auth:login \
+              --machine-token="${PANTHEON_CLI_MACHINE_TOKEN}"
       - run:
           name: 'Install Composer CLI tool'
           command: |-
