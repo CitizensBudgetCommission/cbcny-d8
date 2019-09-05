@@ -8,11 +8,18 @@ Repository for the main website of cbcny, and the old archived version. The site
 Run the following steps: 
 1. `git clone -b pantheon git@github.com:CitizensBudgetCommission/cbcny-d8.git`
 1. `cd cbcny-d8/drupal8`
-1. `docker-compose up -d`
-1. `docker-compose run php /bin/bash --login`
 1. `composer install`
+1. If you didn't install pattern-lap before, run the following steps:
+    - `cd web/themes/cbcny_theme/pattern-lab`
+    - `composer install`
+    - `cd ../../../`
+1. If you didn't install grunt-cli, you should running the following steps:
+    - `cd web/themes/cbcny_theme`
+    - `npm install -g grunt-cli`
+    - `npm install`
+    - `grunt build`
+    - `cd ../../`
 1. `vendor/bin/robo cbcny:release:pantheon`
 1. `cd ../drupal8-release`
 1. `git commit -m 'My favourite commit message'`
 1. `git push pantheon master`
-    
