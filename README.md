@@ -5,7 +5,11 @@ Repository for the main website of cbcny, and the old archived version. The site
 
 # How to create to deploy new release
 
-Run the following steps: 
+**Requirements:**
+- PHP >=7.3
+- node 8.6
+
+**Run the following steps:** 
 1. `git clone -b pantheon git@github.com:CitizensBudgetCommission/cbcny-d8.git`
 1. `cd cbcny-d8/drupal8`
 1. `composer install`
