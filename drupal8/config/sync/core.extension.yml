@@ -54,6 +54,7 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  pantheon_advanced_page_cache: 0
   paragraphs: 0
   path: 0
   redirect: 0
