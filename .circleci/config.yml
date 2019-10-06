@@ -270,7 +270,12 @@ jobs:
               -o std \
               -f junit \
               -o ~/cbcny-d8/test-reports/cucumber/junit.xml
-
+      - run:
+          name: 'Deploy to Pantheon DEV'
+          command: |-
+            cd ./drupal8-release
+            git commit 'Test CircleCI release.'
+            git push pantheon
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
           path: './drupal8/screenshots'
