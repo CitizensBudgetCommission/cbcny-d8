@@ -195,9 +195,10 @@ jobs:
           name: 'Create release artifact for Pantheon'
           command: |-
             cd ./drupal8
-            vendor/bin/robo \
-              --define="release.pantheon.remoteUrl=${PANTHEON_GIT_REMOTE}" \
-              cbcny:release:pantheon
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
+            vendor/bin/robo cbcny:release:pantheon <<< 'y\n'
+            ssh-agent -k
 
       - run:
           name: 'Prepare release settings.local.php'
