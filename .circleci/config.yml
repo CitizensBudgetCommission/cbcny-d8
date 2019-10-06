@@ -273,9 +273,10 @@ jobs:
       - run:
           name: 'Deploy to Pantheon DEV'
           command: |-
-            author=$(git log -1 --format="%an <%ae>")
             cd ./drupal8-release
-            git commit -m 'Test CircleCI release.' --author "${author}"
+            git config user.name "$(git log -1 --format="%an")"
+            git config user.email "$(git log -1 --format="%ae")"
+            git commit -m "Build from $CIRCLE_SHA1"
             git push pantheon
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
