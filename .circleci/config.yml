@@ -274,11 +274,14 @@ jobs:
       - run:
           name: 'Deploy to Pantheon DEV'
           command: |-
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
             cd ./drupal8-release
             git config user.name "$(git log -1 --format="%an")"
             git config user.email "$(git log -1 --format="%ae")"
             git commit -m "Build from $CIRCLE_SHA1"
             git push pantheon
+            ssh-agent -k
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
           path: './drupal8/screenshots'
