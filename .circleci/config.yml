@@ -196,7 +196,7 @@ jobs:
           command: |-
             cd ./drupal8
             vendor/bin/robo \
-              --define='release.pantheon.remoteUrl=' \
+              --define='release.pantheon.remoteUrl=${PANTHEON_GIT_REMOTE}' \
               cbcny:release:pantheon
 
       - run:
