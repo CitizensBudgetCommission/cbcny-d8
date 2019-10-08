@@ -195,9 +195,10 @@ jobs:
           name: 'Create release artifact for Pantheon'
           command: |-
             cd ./drupal8
-            vendor/bin/robo \
-              --define='release.pantheon.remoteUrl=' \
-              cbcny:release:pantheon
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
+            vendor/bin/robo cbcny:release:pantheon
+            ssh-agent -k
 
       - run:
           name: 'Prepare release settings.local.php'
@@ -270,7 +271,17 @@ jobs:
               -o std \
               -f junit \
               -o ~/cbcny-d8/test-reports/cucumber/junit.xml
-
+      - run:
+          name: 'Deploy to Pantheon DEV'
+          command: |-
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
+            cd ./drupal8-release
+            git config user.name "$(git log -1 --format="%an")"
+            git config user.email "$(git log -1 --format="%ae")"
+            git commit -m "Built from $CIRCLE_SHA1"
+            git push pantheon
+            ssh-agent -k
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
           path: './drupal8/screenshots'
