@@ -280,7 +280,13 @@ jobs:
             git config user.name "$(git log -1 --format="%an")"
             git config user.email "$(git log -1 --format="%ae")"
             git commit -m "Built from $CIRCLE_SHA1"
-            git push pantheon
+            if git push pantheon; then
+              echo "Successfully deployed to Pantheon DEV."
+            else
+              echo "git push failed, going to force push."
+              git push -f pantheon
+              echo "Successfully deployed to Pantheon DEV."
+            fi
             ssh-agent -k
       - store_artifacts:
           # @todo Behat has no configuration to create and store screenshots.
