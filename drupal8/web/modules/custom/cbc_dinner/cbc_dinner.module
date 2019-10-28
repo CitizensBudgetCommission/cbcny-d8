@@ -1,0 +1,63 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+
+/*
+ * CBC Dinner ticket purchase form related functionality.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function cbc_dinner_form_webform_submission_dinner_2019_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#submit'][] = '_cbc_dinner_submit';
+}
+
+/**
+ * Custom submit handler.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function _cbc_dinner_submit(&$form, FormStateInterface $form_state) {
+  //require_once DRUPAL_ROOT . '/modules/contrib/devel/kint/kint/Kint.class.php';
+  //Kint::$maxLevels = 3;
+  $variation_id = $form_state->getValues();
+  $variation = \Drupal\commerce_product\Entity\ProductVariation::load($variation_id['category']);
+  $store_id = 1;
+  $order_type = 'default'; // If you have several order types, specify one here.
+  $variation_id = $form_state->getValue('product_reference'); // This is the product_variation ID.
+
+  $entity_manager = \Drupal::entityManager();
+  $cart_manager = \Drupal::service('commerce_cart.cart_manager');
+  $cart_provider = \Drupal::service('commerce_cart.cart_provider');
+
+  // Following line is the same as Drupal\commerce_store\Entity\Store::load($store_id);
+  $store = $entity_manager->getStorage('commerce_store')->load($store_id);
+  // This is special: We must know if there is already a cart for the provided
+  // order type and store:
+  $cart = $cart_provider->getCart($order_type, $store);
+  if (!$cart) {
+    $cart = $cart_provider->createCart($order_type, $store);
+  }
+  // Create a new order item.
+  $order_item = $entity_manager->getStorage('commerce_order_item')->create(array(
+    'type' => 'default', // Also, Commerce 2.x have a feature to define custom "line item types".
+    'purchased_entity' => $variation,
+    'quantity' => $form_state->getValue('quantity'), // Amount or quantity to be added to the cart.
+    'unit_price' => $variation->getPrice(),
+  ));
+  $order_item->save();
+  $cart_manager->addOrderItem($cart, $order_item);
+
+  $url = Url::fromRoute('commerce_checkout.form',
+    ['commerce_order' => $cart->id()]
+  );
+
+  $url->toString();
+  $form_state->setRedirectUrl($url);
+}

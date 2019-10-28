@@ -70,13 +70,16 @@
     "drupal/title": "~2.0",
     "drupal/twig_tweak": "~1.0",
     "drupal/video_embed_field": "~1.0",
-    "drupal/webform": "5.0-rc26",
+    "drupal/webform": "^5.4",
     "drupal/xmlsitemap": "1.x-dev",
     "drupal/yamlform": "dev-1.x",
     "drush/drush": "~8",
     "harvesthq/chosen": "*",
     "nuvoleweb/drupal-behat": "^1.0",
-    "psr/log": "dev-master"
+    "psr/log": "dev-master",
+    "drupal/ajax_add_to_cart": "^1.0",
+    "drupal/commerce_paypal": "^1.0@beta",
+    "drupal/commerce_cart_redirection": "^2.1"
   },
   "require-dev": {
     "behat/mink": "~1.7",
