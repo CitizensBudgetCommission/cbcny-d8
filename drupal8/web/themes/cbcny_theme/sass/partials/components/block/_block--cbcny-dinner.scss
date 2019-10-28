@@ -1,9 +1,22 @@
 // @file
 // Styles for CBC Dinner blocks
 
-#block-cbcdinnertop, #block-webform-3, #block-cbcdinnerbottom, .paypal-buttons-container {
-  width: 30em;
+#block-cbcdinnertop, #block-webform-3, #block-cbcdinnerbottom, #block-selectpaymentmethod, .paypal-buttons-container {
+  width: 32em;
   margin: 2em auto;
+}
+
+#block-cbcdinnertop {
+  text-align: center;
+}
+
+.js-form-item-category:nth-of-type(4):after {
+  content: "Non-Trustees";
+  color: #4c4c4c;
+  display: block;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: .6666666667rem;
 }
 
 .form-item__label[for="edit-category-4"], .form-item__label[for="edit-category-7"] {
