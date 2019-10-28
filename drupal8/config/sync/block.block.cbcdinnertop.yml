@@ -1,0 +1,31 @@
+uuid: 21d592d8-e483-41bd-ae2d-d8d35b02d834
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:48bf76fc-00a6-4ea6-9f34-38a6e4d9a8d4'
+  module:
+    - block_content
+    - system
+  theme:
+    - cbcny_theme
+id: cbcdinnertop
+theme: cbcny_theme
+region: content
+weight: -19
+provider: null
+plugin: 'block_content:48bf76fc-00a6-4ea6-9f34-38a6e4d9a8d4'
+settings:
+  id: 'block_content:48bf76fc-00a6-4ea6-9f34-38a6e4d9a8d4'
+  label: 'CBC Dinner top'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /cbc-dinner
+    negate: false
+    context_mapping: {  }

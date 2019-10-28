@@ -1,5 +1,6 @@
 module:
   action: 0
+  address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   advagg: 0
@@ -14,6 +15,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  cbc_dinner: 0
   cbc_search: 0
   cbc_searchable_actions: 0
   cbc_slider: 0
@@ -24,14 +26,26 @@ module:
   chosen_field: 0
   chosen_lib: 0
   ckeditor: 0
+  commerce: 0
+  commerce_cart: 0
+  commerce_cart_redirection: 0
+  commerce_checkout: 0
+  commerce_order: 0
+  commerce_payment: 0
+  commerce_paypal: 0
+  commerce_price: 0
+  commerce_product: 0
+  commerce_store: 0
   config: 0
   content_lock: 0
   crop: 0
   ctools: 0
   datetime: 0
   dblog: 0
+  devel: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   entity_reference_revisions: 0
   facets: 0
   field: 0
@@ -43,6 +57,8 @@ module:
   honeypot: 0
   image: 0
   image_url_formatter: 0
+  inline_entity_form: 0
+  kint: 0
   link: 0
   linkit: 0
   menu_ui: 0
@@ -56,6 +72,7 @@ module:
   page_cache: 0
   paragraphs: 0
   path: 0
+  profile: 0
   redirect: 0
   redis: 0
   scheduler: 0
@@ -64,6 +81,7 @@ module:
   search_api_views_taxonomy: 0
   soundcloudfield: 0
   stage_file_proxy: 0
+  state_machine: 0
   system: 0
   taxonomy: 0
   telephone: 0
@@ -77,6 +95,7 @@ module:
   video_embed_field: 0
   views_ui: 0
   webform: 0
+  webform_devel: 0
   webform_ui: 0
   xmlsitemap: 0
   xmlsitemap_engines: 0

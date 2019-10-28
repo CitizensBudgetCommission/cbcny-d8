@@ -1,0 +1,13 @@
+uuid: a62622c7-738c-484b-be6b-eaeb0d9cf7a2
+langcode: en
+status: true
+dependencies: {  }
+id: database
+label: Database
+type: MySQL
+config:
+  host: 127.0.0.1
+  database: dinner
+  username: drupaluser
+  password: ''
+  port: '33067'
