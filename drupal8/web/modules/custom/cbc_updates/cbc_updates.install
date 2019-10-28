@@ -175,3 +175,16 @@ function cbc_updates_update_8007() {
     'search_api_pantheon',
   ]);
 }
+
+/**
+ * Configure search_api_pantheon
+ */
+function cbc_updates_update_8009() {
+  \Drupal::configFactory()
+    ->getEditable('search_api.server.solr')
+    ->set('backend_config.connector', 'pantheon')
+    ->set('backend_config.connector_config', [
+      'schema' => 'modules/contrib/search_api_solr/solr-conf/4.x/schema.xml',
+    ])
+    ->save();
+}
