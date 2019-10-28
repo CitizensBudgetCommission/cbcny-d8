@@ -1,0 +1,31 @@
+uuid: 2d196093-6ff8-42b9-a86f-a00ef3ac689a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2158c4b2-aa78-4565-8761-ee0fcf347e48'
+  module:
+    - block_content
+    - system
+  theme:
+    - cbcny_theme
+id: selectpaymentmethod
+theme: cbcny_theme
+region: content
+weight: -20
+provider: null
+plugin: 'block_content:2158c4b2-aa78-4565-8761-ee0fcf347e48'
+settings:
+  id: 'block_content:2158c4b2-aa78-4565-8761-ee0fcf347e48'
+  label: 'Select payment method'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/checkout/*/payment'
+    negate: false
+    context_mapping: {  }

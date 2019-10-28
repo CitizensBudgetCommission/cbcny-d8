@@ -193,7 +193,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -202,9 +202,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: entity_reference_entity_view
+          type: entity_reference_label
           settings:
-            view_mode: summary
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -269,7 +269,7 @@ display:
           click_sort_column: number
           type: commerce_price_default
           settings:
-            strip_trailing_zeroes: false
+            strip_trailing_zeroes: true
             currency_display: symbol
           group_column: ''
           group_columns: {  }
@@ -301,16 +301,7 @@ display:
           entity_field: order_item_id
           plugin_id: standard
       header: {  }
-      footer:
-        commerce_order_total:
-          id: commerce_order_total
-          table: views
-          field: commerce_order_total
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          plugin_id: commerce_order_total
+      footer: {  }
       empty: {  }
       relationships:
         order_items:
