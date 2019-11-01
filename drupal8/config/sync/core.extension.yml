@@ -1,5 +1,6 @@
 module:
   action: 0
+  address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   advagg: 0
@@ -43,6 +44,7 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   entity_reference_revisions: 0
   facets: 0
   field: 0
@@ -54,6 +56,7 @@ module:
   honeypot: 0
   image: 0
   image_url_formatter: 0
+  inline_entity_form: 0
   link: 0
   linkit: 0
   menu_ui: 0
