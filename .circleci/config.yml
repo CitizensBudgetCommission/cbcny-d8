@@ -26,8 +26,8 @@ jobs:
           name: Add PHP module prerequisites
           command: |
             sudo apt-get update -y
-            sudo apt-get install -y libpng-dev mariadb-client-10.3 php7.3-bcmath
-            sudo docker-php-ext-install gd pdo pdo_mysql
+            sudo apt-get install -y libpng-dev mariadb-client-10.3
+            sudo docker-php-ext-install gd pdo pdo_mysql bcmath
       - restore_cache:
           key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
       - run:
