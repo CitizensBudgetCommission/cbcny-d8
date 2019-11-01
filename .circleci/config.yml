@@ -246,13 +246,6 @@ jobs:
             echo "${status}"
             [[ "${status}" == '' ]]
       - run:
-          name: 'Check config:status'
-          command: |-
-            cd ./drupal8-release
-            status="$(./vendor/bin/drush config:status --format=yaml)"
-            echo "${status}"
-            [[ "${status}" == '' ]]
-      - run:
           name: 'Behat'
           command: |-
             cd ./drupal8/behat
