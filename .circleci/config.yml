@@ -236,7 +236,7 @@ jobs:
           command: |
             cd ./drupal8-release
             ./vendor/bin/drush updatedb --yes --entity-updates
-            ./vendor/bin/drush config:import --yes
+            php -d memory_limit=2G ./vendor/bin/drush config:import --yes
             ./vendor/bin/drush cache:rebuild
       - run:
           name: 'Check updatedb:status'
