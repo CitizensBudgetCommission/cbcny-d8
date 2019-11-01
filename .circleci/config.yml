@@ -52,7 +52,7 @@ jobs:
             sudo apt-get install -y \
               libpng-dev \
               mariadb-client-10.3
-            sudo docker-php-ext-install gd pdo pdo_mysql
+            sudo docker-php-ext-install gd pdo pdo_mysql bcmath
       - run:
           name: 'Setup ~/.ssh/known_hosts'
           command: |-
