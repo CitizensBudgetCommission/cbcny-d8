@@ -12,79 +12,38 @@ id: prize_for_public_service_innovat
 title: 'Prize for Public Service Innovation Application'
 description: ''
 category: ''
-elements: "contact:\n  '#type': webform_wizard_page\n  '#title': 'Contact Details'\n  processed_text:\n    '#type': processed_text\n    '#text': \"<p>Applications will be judged based on 1) mission, 2) ability to solve problems, 3) results, and 4) the scope of public impact.</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li><strong>Mission</strong><br />\\r\\n\\tHow do the objectives of the program align with CBC's mission to constructively change the finances and services of New York City? Does it improve service, lower costs, or increase efficiency? Does it employ data-driven management or evidence-based policy making?</li>\\r\\n\\t<li><strong>Problem Solving</strong><br />\\r\\n\\tDescribe the purpose of the program or initiative. What problem does it address and what does it seek to accomplish? When did it begin? Is it part of a Citywide agenda or specific to your agency?</li>\\r\\n\\t<li><strong>Results</strong><br />\\r\\n\\tProvide metrics that demonstrate an improvement in the public service or operations affected. If it is too soon to demonstrate results, what data will be collected, and how will the program be evaluated? Is a formal evaluation process in place? Have prior evaluation results been used to adapt the approach?</li>\\r\\n\\t<li><strong>Scope of Public Impact </strong><br />\\r\\n\\tHow many New Yorkers benefit from the innovation or program? Is the program scalable? Can it be transferred to other agencies, departments, or government services?</li>\\r\\n</ul>\\r\\n\"\n    '#format': full_html\n  program_or_initiative_0:\n    '#type': textfield\n    '#title': 'Program or Initiative:'\n    '#required': true\n  content_name_:\n    '#type': textfield\n    '#title': 'Contact Name:'\n    '#required': true\n  contact_title_:\n    '#type': textfield\n    '#title': 'Contact Title:'\n    '#required': true\n  agency_department_or_public_authority_:\n    '#type': textfield\n    '#title': 'Agency, Department, or Public Authority:'\n    '#required': true\n  contact_email_:\n    '#type': textfield\n    '#title': 'Contact Email:'\n    '#required': true\n  contact_telephone_:\n    '#type': textfield\n    '#title': 'Contact Telephone:'\n    '#required': true\nquestions_0:\n  '#type': webform_wizard_page\n  '#title': Questions\n  mission:\n    '#type': textarea\n    '#title': Mission\n    '#description': 'How do the objectives of the program align with CBC&rsquo;s mission to constructively change the finances and services of New York? Does it improve service, lower costs, or increase efficiency? Does it employ data-driven management or evidence-based policy making?'\n    '#required': true\n  problem_solving_:\n    '#type': textarea\n    '#title': 'Problem Solving:'\n    '#description': 'Describe the purpose of the program or initiative. What problem does it address and what does it seek to accomplish? When did it begin? Is it part of a state/citywide agenda or specific to your agency?'\n    '#required': true\n  scope_of_public_impact_:\n    '#type': textarea\n    '#title': 'Scope of Public Impact:'\n    '#required': true\n  results_:\n    '#type': textarea\n    '#title': 'Results:'\n    '#description': |\n      <br />\n      Provide metrics that demonstrate an improvement in the public service or operations affected. If it is too soon to demonstrate results, what data will be collected and how will the program be evaluated? Is a formal evaluation process in place? Have prior evaluation results been used to adapt the approach?\n      \n    '#required': true\n  optional_attachments_:\n    '#type': document_file\n    '#title': 'Optional Attachments:'\n    '#description': 'Attach additional files to support your application here, or email Kevin Medina,&nbsp;<a href=\"mailto:kmedina@cbcny.org?subject=Additional%20Material%20for%20CBC%20Prize%20Application\">kmedina@cbcny.org</a>.'\n  gdpr:\n    '#type': checkbox\n    '#title': 'I allow CBCNY to use this information to process my application'\n    '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your application by email. It will not be sent to any third party processors or systems. Applications will be stored until the prize selection is complete. All relevant data will be deleted within 30 days of the prize announcement. Prize winners will be individually contacted for further privacy consent specific to their case.'\n    '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'"
+elements: "prize_title_page:\n  '#type': webform_wizard_page\n  '#title': 'Prize Description'\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  processed_text:\n    '#type': processed_text\n    '#text': \"<h5>Section 1 – Program Description</h5>\\r\\n\\r\\n<ol>\\r\\n\\t<li>Describe the purpose of the program or initiative. When was it initiated and why? What was the problem to be solved? What is the goal to be accomplished?</li>\\r\\n\\t<li>How is the program managed? What data are used to manage, and if necessary adjust, the program on an ongoing basis?</li>\\r\\n\\t<li>How is the program evaluated? Is a formal evaluation process in place?</li>\\r\\n</ol>\\r\\n\\r\\n<h5>Section 2 – Results and Impact</h5>\\r\\n\\r\\n<ol>\\r\\n\\t<li>Please provide metrics that demonstrate:\\r\\n\\t<ul>\\r\\n\\t\\t<li>an improvement or expansion in public service;</li>\\r\\n\\t\\t<li>enhanced efficiency or effectiveness;</li>\\r\\n\\t\\t<li>reductions in total program costs or unit costs; and/or</li>\\r\\n\\t\\t<li>other outcomes.</li>\\r\\n\\t</ul>\\r\\n\\t</li>\\r\\n\\t<li>How many New Yorkers benefit from the innovation or program?</li>\\r\\n</ol>\\r\\n\\r\\n<h5>Section 3 – Innovation</h5>\\r\\n\\r\\n<ol>\\r\\n\\t<li>What makes the program an innovation? For example, is this program providing a traditional service or operation in a new way through creative use of technology, data analytics, or process redesign? Is this providing a different or new type of services that replaces or alleviates the need for another less impactful service? Does it apply best practices or evidence-based policymaking?</li>\\r\\n\\t<li>Is the program scalable? Can it be transferred to other agencies, department, or government services?</li>\\r\\n\\t<li>Has the program received other recognition or awards?</li>\\r\\n</ol>\\r\\n\"\n    '#format': full_html\ncontact:\n  '#type': webform_wizard_page\n  '#title': 'Contact Details'\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  program_or_initiative_0:\n    '#type': textfield\n    '#title': 'Program or Initiative:'\n    '#required': true\n  content_name_:\n    '#type': textfield\n    '#title': 'Contact Name:'\n    '#required': true\n  contact_title_:\n    '#type': textfield\n    '#title': 'Contact Title:'\n    '#required': true\n  agency_department_or_public_authority_:\n    '#type': textfield\n    '#title': 'Agency, Department, or Public Authority:'\n    '#required': true\n  contact_email_:\n    '#type': textfield\n    '#title': 'Contact Email:'\n    '#required': true\n  contact_telephone_:\n    '#type': textfield\n    '#title': 'Contact Telephone:'\n    '#required': true\nquestions_0:\n  '#type': webform_wizard_page\n  '#title': 'Program Description'\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  mission:\n    '#type': textarea\n    '#title': Purpose\n    '#description': '<p>Describe the purpose of the program or initiative. When was it initiated and why? What was the problem to be solved? What is the goal to be accomplished?</p>'\n    '#required': true\n  problem_solving_:\n    '#type': textarea\n    '#title': 'Program Management'\n    '#description': 'How is the program managed? What data are used to manage, and if necessary adjust, the program on an ongoing basis?'\n    '#required': true\n  scope_of_public_impact_:\n    '#type': textarea\n    '#title': Evaluation\n    '#description': 'How is the program evaluated? Is a formal evaluation process in place?'\n    '#required': true\nresults_and_impact:\n  '#type': webform_wizard_page\n  '#title': 'Results and Impact'\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  program_description_d:\n    '#type': textarea\n    '#title': Benefits\n    '#description': 'How many New Yorkers benefit from the innovation or program?'\n    '#required': true\n  results_:\n    '#type': textarea\n    '#title': Metrics\n    '#description': \"Please provide metrics that demonstrate:\\r\\n\\t<ul>\\r\\n\\t\\t<li>an improvement or expansion in public service; </span></span></span></span></span></span></li>\\r\\n\\t\\t<li>enhanced efficiency or effectiveness;</li>\\r\\n\\t\\t<li>reductions in total program costs or unit costs; and/or</li>\\r\\n\\t\\t<li>other outcomes.</li>\\r\\n\\t</ul>\"\n    '#required': true\ninnovation:\n  '#type': webform_wizard_page\n  '#title': Innovation\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  what_makes_it_innovative_:\n    '#type': textarea\n    '#title': 'What Makes It Innovative?'\n    '#description': 'What makes the program an innovation? For example, is this program providing a traditional service or operation in a new way through creative use of technology, data analytics, or process redesign? Is this providing a different or new type of services that replaces or alleviates the need for another less impactful service? Does it apply best practices or evidence-based policymaking?'\n    '#required': true\n  scalability:\n    '#type': textarea\n    '#title': Scalability\n    '#description': 'Is the program scalable? Can it be transferred to other agencies, department, or government services?'\n    '#required': true\n  recognition:\n    '#type': textarea\n    '#title': Recognition\n    '#description': 'Has the program received other recognition or awards?'\n    '#required': true\nadditional_attachments_and_submit:\n  '#type': webform_wizard_page\n  '#title': 'Additional Attachments and Submit'\n  '#open': true\n  '#prev_button_label': Previous\n  '#next_button_label': Next\n  optional_attachments_:\n    '#type': webform_document_file\n    '#title': 'Optional Attachments:'\n    '#description': 'Attach additional files to support your application here, or email Kevin Medina,&nbsp;<a href=\"mailto:kmedina@cbcny.org?subject=Additional%20Material%20for%20CBC%20Prize%20Application\">kmedina@cbcny.org</a>.'\n  gdpr:\n    '#type': checkbox\n    '#title': 'I allow CBCNY to use this information to process my application'\n    '#description': 'The information submitted on this form will only be used to process and (if appropriate) respond to your application by email. It will not be sent to any third party processors or systems. Applications will be stored until the prize selection is complete. All relevant data will be deleted within 30 days of the prize announcement. Prize winners will be individually contacted for further privacy consent specific to their case.'\n    '#required': true\n  actions:\n    '#type': webform_actions\n    '#title': 'Submit button(s)'"
 css: ''
 javascript: ''
 settings:
+  ajax: true
+  ajax_scroll_top: form
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  form_submit_label: ''
-  form_submit_attributes: {  }
-  form_exception_message: ''
-  form_closed_message: ''
-  form_confidential: false
-  form_confidential_message: ''
-  form_prepopulate: false
-  form_prepopulate_source_entity: false
-  form_novalidate: false
-  form_unsaved: false
-  form_disable_back: false
-  form_autofocus: false
-  form_details_toggle: false
-  wizard_progress_bar: true
-  wizard_progress_pages: false
-  wizard_progress_percentage: false
-  wizard_next_button_label: ''
-  wizard_next_button_attributes: {  }
-  wizard_prev_button_label: ''
-  wizard_prev_button_attributes: {  }
-  wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
-  preview: 0
-  preview_next_button_label: ''
-  preview_next_button_attributes: {  }
-  preview_prev_button_label: ''
-  preview_prev_button_attributes: {  }
-  preview_message: ''
-  draft: ''
-  draft_auto_save: false
-  draft_button_label: ''
-  draft_button_attributes: {  }
-  draft_saved_message: ''
-  draft_loaded_message: ''
-  confirmation_type: page
-  confirmation_message: 'You application has been submitted. Thank you.'
-  confirmation_url: ''
-  confirmation_attributes: {  }
-  confirmation_back: true
-  confirmation_back_label: ''
-  confirmation_back_attributes: {  }
-  limit_total: null
-  limit_total_message: ''
-  limit_user: null
-  limit_user_message: ''
-  entity_limit_total: null
-  entity_limit_user: null
-  results_disabled: false
-  results_disabled_ignore: false
-  token_update: false
-  ajax: true
-  ajax_scroll_top: form
   form_title: source_entity_webform
   form_submit_once: false
+  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
   form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
   form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
   form_reset: false
   form_disable_autocomplete: false
+  form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
+  form_unsaved: false
+  form_disable_back: false
   form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
@@ -110,56 +69,102 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
   wizard_progress_link: false
+  wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
   wizard_track: ''
+  preview: 0
   preview_label: ''
   preview_title: ''
+  preview_message: ''
   preview_attributes: {  }
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
+  draft: none
   draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
   confirmation_title: 'Submission Confirmed'
+  confirmation_message: 'You application has been submitted. Thank you.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
+  limit_total: null
   limit_total_interval: null
+  limit_total_message: ''
   limit_total_unique: false
+  limit_user: null
   limit_user_interval: null
+  limit_user_message: ''
   limit_user_unique: false
+  entity_limit_total: null
   entity_limit_total_interval: null
+  entity_limit_user: null
   entity_limit_user_interval: null
   purge: none
   purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
 access:
   create:
     roles:
       - anonymous
       - authenticated
     users: {  }
+    permissions: {  }
   view_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   purge_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   view_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_own:
     roles: {  }
     users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   prize_for_public_service_innovation_application:
     id: email
@@ -170,28 +175,29 @@ handlers:
     weight: 0
     settings:
       to_mail: _default
+      to_options: {  }
       cc_mail: ''
+      cc_options: {  }
       bcc_mail: ''
+      bcc_options: {  }
       from_mail: _default
+      from_options: {  }
       from_name: _default
       subject: _default
       body: _default
       excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
       html: true
       attachments: false
       debug: false
       states:
         - completed
-      to_options: {  }
-      cc_options: {  }
-      bcc_options: {  }
-      from_options: {  }
-      ignore_access: false
-      exclude_empty: true
       exclude_empty_checkbox: false
       twig: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
+      sender_options: {  }
       sender_name: ''
       theme_name: ''

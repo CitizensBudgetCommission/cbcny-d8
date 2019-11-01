@@ -9,6 +9,6 @@ _core:
   default_config_hash: 6iKOLiv3WqdDwbLEYesK2txBl-1W8frLFe3PbT8-AaE
 id: employment_status
 label: 'Employment status'
-category: null
+category: Demographic
 likert: false
 options: "'Full Time': 'Full Time'\n'Part Time': 'Part Time'\n'Military': 'Military'\nUnemployed: Unemployed\nRetired: Retired\n"

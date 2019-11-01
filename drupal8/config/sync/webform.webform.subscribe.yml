@@ -1,4 +1,3 @@
-uuid: 7d3d69cc-c962-46a4-9bec-db87df22f5bf
 langcode: en
 status: open
 dependencies: {  }
@@ -11,80 +10,39 @@ archive: false
 id: subscribe
 title: Subscribe
 description: 'Basic subscription contact form.'
-category: null
-elements: "first_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#title_display': before\norganization_name:\n  '#type': textfield\n  '#title': 'Organization Name'\n  '#title_display': before\njob_title:\n  '#type': textfield\n  '#title': 'Job Title'\n  '#title_display': before\ntopics:\n  '#type': checkboxes\n  '#title': Topics\n  '#default_value':\n    - ''\n  '#title_display': before\n  '#options':\n    'City Budget': 'City Budget'\n    'State Budget': 'State Budget'\n    'Capital Spending': 'Capital Spending'\n    'Economic Development': 'Economic Development'\n    Education: Education\n    'Health Care': 'Health Care'\n    Housing: Housing\n    'Pensions & Benefits': 'Pensions & Benefits'\n    'Public Workforce': 'Public Workforce'\n    Taxes: Taxes\n    Transportation: Transportation\n  '#options_display': three_columns\ngdpr:\n  '#type': checkbox\n  '#title': 'I allow CBCNY to use this information to correspond with me'\n  '#description': 'CBCNY will use the information on this form to get in touch with you and notify you with updates in the topic areas you select. It will only be shared with our newsletter processor, Constant Contact (see their <a href=\"https://www.constantcontact.com/legal/privacy-statement\">privacy statement</a> for what they can do with our contact list to provide the service). You can unsubscribe at any time with a link in the email, or request your complete profile information through our <a href=\"/contact-us\">contact form</a>.'\n  '#required': true"
+category: ''
+elements: "first_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#title_display': before\norganization_name:\n  '#type': textfield\n  '#title': 'Organization Name'\n  '#title_display': before\njob_title:\n  '#type': textfield\n  '#title': 'Job Title'\n  '#title_display': before\ntopics:\n  '#type': checkboxes\n  '#title': Topics\n  '#default_value':\n    - ''\n  '#title_display': before\n  '#options':\n    'City Budget': 'City Budget'\n    'State Budget': 'State Budget'\n    'Capital Spending': 'Capital Spending'\n    'Economic Development': 'Economic Development'\n    Education: Education\n    'Health Care': 'Health Care'\n    Housing: Housing\n    'Pensions & Benefits': 'Pensions & Benefits'\n    'Public Workforce': 'Public Workforce'\n    Taxes: Taxes\n    Transportation: Transportation\n  '#options_display': three_columns\ngdpr:\n  '#type': checkbox\n  '#title': 'I allow CBCNY to use this information to correspond with me'\n  '#description': 'CBCNY will use the information on this form to get in touch with you and notify you with updates in the topic areas you select. It will only be shared with our newsletter processor, Constant Contact (see their <a href=\"https://www.constantcontact.com/legal/privacy-statement\">privacy statement</a> for what they can do with our contact list to provide the service). You can unsubscribe at any time with a link in the email, or request your complete profile information through our <a href=\"/contact-us\">contact form</a>.'\n  '#required': true\n"
 css: ''
 javascript: ''
 settings:
+  ajax: false
+  ajax_scroll_top: form
   page: false
   page_submit_path: ''
   page_confirm_path: ''
-  form_submit_label: ''
-  form_submit_attributes: {  }
-  form_exception_message: ''
-  form_closed_message: ''
-  form_confidential: false
-  form_confidential_message: ''
-  form_prepopulate: false
-  form_prepopulate_source_entity: false
-  form_novalidate: false
-  form_unsaved: false
-  form_disable_back: false
-  form_autofocus: false
-  form_details_toggle: false
-  wizard_progress_bar: true
-  wizard_progress_pages: false
-  wizard_progress_percentage: false
-  wizard_next_button_label: ''
-  wizard_next_button_attributes: {  }
-  wizard_prev_button_label: ''
-  wizard_prev_button_attributes: {  }
-  wizard_start_label: ''
-  wizard_complete: true
-  wizard_complete_label: ''
-  preview: 0
-  preview_next_button_label: ''
-  preview_next_button_attributes: {  }
-  preview_prev_button_label: ''
-  preview_prev_button_attributes: {  }
-  preview_message: ''
-  draft: ''
-  draft_auto_save: false
-  draft_button_label: ''
-  draft_button_attributes: {  }
-  draft_saved_message: ''
-  draft_loaded_message: ''
-  confirmation_type: message
-  confirmation_message: 'Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.'
-  confirmation_url: ''
-  confirmation_attributes: {  }
-  confirmation_back: true
-  confirmation_back_label: ''
-  confirmation_back_attributes: {  }
-  limit_total: null
-  limit_total_message: ''
-  limit_user: 100
-  limit_user_message: ''
-  entity_limit_total: null
-  entity_limit_user: 100
-  results_disabled: false
-  results_disabled_ignore: false
-  token_update: false
-  ajax: false
-  ajax_scroll_top: form
   form_title: source_entity_webform
   form_submit_once: false
+  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
   form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
   form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
   form_reset: false
   form_disable_autocomplete: false
+  form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
+  form_unsaved: false
+  form_disable_back: false
   form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
@@ -110,56 +68,102 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
   wizard_progress_link: false
+  wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
   wizard_track: ''
+  preview: 0
   preview_label: ''
   preview_title: ''
+  preview_message: ''
   preview_attributes: {  }
   preview_excluded_elements: {  }
   preview_exclude_empty: true
   preview_exclude_empty_checkbox: false
+  draft: none
   draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
   confirmation_title: ''
+  confirmation_message: 'Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
+  limit_total: null
   limit_total_interval: null
+  limit_total_message: ''
   limit_total_unique: false
+  limit_user: 100
   limit_user_interval: null
+  limit_user_message: ''
   limit_user_unique: false
+  entity_limit_total: null
   entity_limit_total_interval: null
+  entity_limit_user: 100
   entity_limit_user_interval: null
   purge: none
   purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
 access:
   create:
     roles:
       - anonymous
       - authenticated
     users: {  }
+    permissions: {  }
   view_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   purge_any:
     roles: {  }
     users: {  }
+    permissions: {  }
   view_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   update_own:
     roles: {  }
     users: {  }
+    permissions: {  }
   delete_own:
     roles: {  }
     users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email_confirmation:
     id: email
@@ -169,30 +173,31 @@ handlers:
     conditions: {  }
     weight: 0
     settings:
-      to_mail: '[webform-submission:values:email:raw]'
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
       cc_mail: ''
+      cc_options: {  }
       bcc_mail: ''
+      bcc_options: {  }
       from_mail: kmedina@cbcny.org
+      from_options: {  }
       from_name: _default
       subject: 'Thank you for subscribing'
       body: 'Thank you for subscribing. You can follow us on Twitter at www.twitter.com/cbcny for real-time updates.'
       excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
       html: true
       attachments: false
       debug: false
       states:
         - completed
-      to_options: {  }
-      cc_options: {  }
-      bcc_options: {  }
-      from_options: {  }
-      ignore_access: false
-      exclude_empty: true
       exclude_empty_checkbox: false
       twig: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
+      sender_options: {  }
       sender_name: ''
       theme_name: ''
   email_notification:
@@ -204,28 +209,30 @@ handlers:
     weight: 1
     settings:
       to_mail: kmedina@cbcny.org
+      to_options: {  }
       cc_mail: ''
+      cc_options: {  }
       bcc_mail: ''
-      from_mail: '[webform-submission:values:email:raw]'
-      from_name: '[webform-submission:values:first_name:value]'
+      bcc_options: {  }
+      from_mail: '[webform_submission:values:email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:first_name:raw]'
       subject: 'Subscription Form Submission'
       body: _default
       excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
       html: true
       attachments: false
       debug: false
       states:
         - completed
-      to_options: {  }
-      cc_options: {  }
-      bcc_options: {  }
-      from_options: {  }
-      ignore_access: false
-      exclude_empty: true
       exclude_empty_checkbox: false
       twig: false
       reply_to: ''
       return_path: ''
       sender_mail: ''
+      sender_options: {  }
       sender_name: ''
       theme_name: ''
+uuid: 7d3d69cc-c962-46a4-9bec-db87df22f5bf

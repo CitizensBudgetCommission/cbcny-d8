@@ -9,6 +9,6 @@ _core:
   default_config_hash: T744d_CMtx_CsVZD1MNNvyiSNlemzmFgmzVdBKtuKq8
 id: days
 label: Days
-category: null
+category: 'Date and time'
 likert: false
 options: "Sunday: Sunday\nMonday: Monday\nTuesday: Tuesday\nWednesday: Wednesday\nThursday: Thursday\nFriday: Friday\nSaturday: Saturday\n"

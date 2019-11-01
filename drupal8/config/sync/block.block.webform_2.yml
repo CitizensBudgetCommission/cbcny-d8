@@ -2,6 +2,8 @@ uuid: 2c684ed8-81c4-44a6-a4d7-2d72b8ec6270
 langcode: en
 status: false
 dependencies:
+  config:
+    - webform.webform.contact
   module:
     - webform
   theme:
