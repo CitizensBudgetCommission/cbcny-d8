@@ -1,0 +1,10 @@
+uuid: ccf50b49-2839-4d80-9383-f6b8c53ebbbe
+langcode: en
+status: true
+dependencies: {  }
+id: ticket
+label: Ticket
+orderItemType: default
+generateTitle: false
+traits: {  }
+locked: false

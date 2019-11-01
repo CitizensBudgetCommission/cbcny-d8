@@ -1,0 +1,5 @@
+product_bundles:
+  default: default
+  table: table
+  ticket: ticket
+negate_product_bundles: 0

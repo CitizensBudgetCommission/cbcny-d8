@@ -1,0 +1,27 @@
+uuid: b3cab9be-e713-4d76-89d8-f849cbf4a1cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_paypal
+_core:
+  default_config_hash: v3WYnbcsIjMTyTs_qsQDkgaupdP8D_HfgeR1WSFNSJI
+id: paypal_checkout
+label: 'PayPal Checkout'
+plugin: paypal_checkout
+configuration:
+  display_checkout_progress: true
+  panes:
+    paypal_checkout_payment_process:
+      step: payment
+      weight: '0'
+    review:
+      step: _disabled
+      weight: '3'
+    completion_message:
+      step: complete
+      weight: '1'
+    order_summary:
+      view: ''
+      step: _sidebar
+      weight: '2'

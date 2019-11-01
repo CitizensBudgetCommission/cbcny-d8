@@ -1,0 +1,10 @@
+uuid: 05a03d33-9c89-4e9f-b5e7-febc72149dde
+langcode: en
+status: true
+dependencies: {  }
+id: table
+label: Table
+orderItemType: default
+generateTitle: false
+traits: {  }
+locked: false
