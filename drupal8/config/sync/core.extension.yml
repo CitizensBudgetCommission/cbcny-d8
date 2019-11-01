@@ -14,6 +14,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  cbc_dinner: 0
   cbc_search: 0
   cbc_searchable_actions: 0
   cbc_slider: 0
@@ -24,6 +25,16 @@ module:
   chosen_field: 0
   chosen_lib: 0
   ckeditor: 0
+  commerce: 0
+  commerce_cart: 0
+  commerce_cart_redirection: 0
+  commerce_checkout: 0
+  commerce_order: 0
+  commerce_payment: 0
+  commerce_paypal: 0
+  commerce_price: 0
+  commerce_product: 0
+  commerce_store: 0
   config: 0
   content_lock: 0
   crop: 0
