@@ -1,0 +1,7 @@
+cbc_dinner.items_listing:
+  path: '/cbc-dinner'
+  defaults:
+    _controller: '\Drupal\cbc_dinner\Controller\CBCController::itemlisting'
+    _title: '88TH ANNUAL AWARDS DINNER'
+  requirements:
+    _access: 'TRUE'
