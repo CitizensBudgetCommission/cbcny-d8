@@ -9,6 +9,6 @@ _core:
   default_config_hash: Tq6nZxoRP6_RwY5Q6Z4ecRFadf4xCmFRgg6PqnBzJLc
 id: size
 label: Size
-category: null
+category: General
 likert: false
 options: "Extra Small: Extra Small\nSmall: Small\nMedium: Medium\nLarge: Large\nExtra Large: Extra Large\n"

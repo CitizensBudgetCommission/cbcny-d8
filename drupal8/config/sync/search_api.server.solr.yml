@@ -3,27 +3,16 @@ langcode: en
 status: true
 dependencies:
   module:
+    - search_api_pantheon
     - search_api_solr
 id: solr
 name: Solr
 description: ''
 backend: search_api_solr
 backend_config:
-  connector: standard
+  connector: pantheon
   connector_config:
-    scheme: http
-    host: localhost
-    port: '8983'
-    path: /solr
-    core: drupal
-    timeout: 5
-    index_timeout: 5
-    optimize_timeout: 10
-    commit_within: 1000
-    solr_version: '6'
-    http_method: AUTO
-  username: admin
-  password: drupal@dm1n
+    schema: modules/contrib/search_api_solr/solr-conf/4.x/schema.xml
   retrieve_data: false
   highlight_data: false
   excerpt: false

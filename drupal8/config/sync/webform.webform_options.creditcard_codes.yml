@@ -1,14 +1,14 @@
-uuid: 48a41522-286d-47fc-b451-7c9b8a1fc06a
 langcode: en
 status: true
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: Ai9t0SUFQABCrwdqoi8LBqhaMzROfaFHGgsURpEWnm4
 id: creditcard_codes
 label: 'Credit card codes'
 category: null
 likert: false
 options: "VI: 'Visa'\nMC: 'Mastercard'\nAE: 'American Express'\nDC: 'Discover'\n"
+uuid: 48a41522-286d-47fc-b451-7c9b8a1fc06a
+_core:
+  default_config_hash: Ai9t0SUFQABCrwdqoi8LBqhaMzROfaFHGgsURpEWnm4

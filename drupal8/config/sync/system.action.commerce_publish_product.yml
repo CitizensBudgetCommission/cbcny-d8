@@ -1,0 +1,13 @@
+uuid: e3921339-0c95-42db-bddf-182888a7bd90
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+_core:
+  default_config_hash: 83abjxFWTlkso65OfwvUzv_VvAc9iIswF2kW_MGZmY8
+id: commerce_publish_product
+label: 'Publish product'
+type: commerce_product
+plugin: commerce_publish_product
+configuration: {  }

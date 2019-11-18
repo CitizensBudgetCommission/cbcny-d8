@@ -18,7 +18,7 @@ function cbc_slider_form_alter(&$form, $form_state, $form_id) {
   $parameters = explode('/', $current_path);
 
   // Check if it's a node add or edit form.
-  if ($parameters[1] = 'node' && ($parameters[2] == 'add' || (isset($parameters[3]) && $parameters[3] == 'edit'))) {
+  if ($parameters[1] == 'node' && ($parameters[2] == 'add' || (isset($parameters[3]) && $parameters[3] == 'edit'))) {
     // Load the nodes of the slider block.
     $block = BlockContent::load(13);
     if ($block) {

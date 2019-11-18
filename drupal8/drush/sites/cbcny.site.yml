@@ -1,0 +1,14 @@
+
+local:
+    root: '${drush.vendor-dir}/../web'
+
+dev:
+    uri: 'http://dev-cbcny.pantheonsite.io'
+    user: 'dev.7fc302c1-122e-4b24-835e-b4d4e3149413'
+    host: 'appserver.dev.7fc302c1-122e-4b24-835e-b4d4e3149413.drush.in'
+    root: '/srv/bindings/74353e3114a6403f9e31051569d391c5/code'
+
+test: {}
+
+live:
+    uri: 'https://cbcny.org'

@@ -18,5 +18,5 @@ settings:
   provider: cbc_status_bar
   label_display: '0'
   enabled: 0
-  message: ''
+  message: 'CBC Annual Dinner'
 visibility: {  }

@@ -1,0 +1,5 @@
+name: CBC Dinner
+type: module
+description: 'Dinner ticket purchase form related functionality.'
+package: Custom
+core: 8.x

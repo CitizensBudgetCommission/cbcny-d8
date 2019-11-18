@@ -1,129 +1,290 @@
 version: 2
 # From https://gist.github.com/rachellawson/75dcb9d1c6cf706b6d9909740def7668 . Thanks, Rachel!
+
+.env_common: &env_common
+  COMPOSER_NO_INTERACTION: '1'
+  COMPOSER_MEMORY_LIMIT: '-1'
+  composerVersion: '1.9.0'
+  terminusVersion: '2.0.1'
+  platformVersion: '3.46.0'
+
+.env_mysql: &env_mysql
+  MYSQL_ROOT_PASSWORD: 'password'
+  MYSQL_USER: 'drupal'
+  MYSQL_PASSWORD: 'drupal'
+  MYSQL_HOST: '127.0.0.1'
+  MYSQL_PORT: '3306'
+  MYSQL_DATABASE: 'drupal'
+
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1-apache-browsers
+      - image: circleci/php:7.3-apache-browsers
+        environment:
+          <<: *env_common
+          <<: *env_mysql
+
+      # @todo Pantheon uses MariaDB 5.5.5-10.1.22
       - image: wodby/mariadb:latest
         environment:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: drupal
-          MYSQL_USER: drupal
-          MYSQL_PASSWORD: drupal
+          <<: *env_mysql
+
       - image: wodby/drupal-solr:8-6.6
         environment:
           SOLR_HEAP: 1024m
+
     working_directory: ~/cbcny-d8
+
     steps:
       - checkout
       - run:
-          name: Wait for solr
-          command: dockerize -wait tcp://localhost:8983 -timeout 1m
+          name: 'Wait for solr'
+          command: |-
+            dockerize -wait tcp://localhost:8983 -timeout 1m
       - run:
-          name: Setup solr
-          command: curl -sIN "http://localhost:8983/solr/admin/cores?action=CREATE&name=drupal&configSet=data_driven_schema_configs" | grep -q 200
+          name: 'Setup solr'
+          command: |-
+            curl -sIN "http://localhost:8983/solr/admin/cores?action=CREATE&name=drupal&configSet=data_driven_schema_configs" | grep -q 200
       - run:
-          name: Add PHP module prerequisites
+          name: 'Add PHP module prerequisites'
           command: |
             sudo apt-get update -y
-            sudo apt-get install -y libpng-dev mariadb-client-10.3
-            sudo docker-php-ext-install gd pdo pdo_mysql
-      - restore_cache:
-          key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
+            sudo apt-get install -y \
+              libpng-dev \
+              mariadb-client-10.3
+            sudo docker-php-ext-install gd pdo pdo_mysql bcmath
       - run:
-          name: Build the theme
+          name: 'Setup ~/.ssh/known_hosts'
+          command: |-
+            mkdir -p ~/.ssh
+            cat .circleci/known_hosts >> ~/.ssh/known_hosts
+      - run:
+          name: 'Install Terminus CLI tool'
+          command: |-
+            mkdir -p ~/bin
+            mkdir -p ~/terminus
+
+            curl \
+              --output terminus-installer.phar \
+              https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar
+
+            php terminus-installer.phar install \
+                --bin-dir ~/bin \
+                --install-dir ~/terminus \
+                --install-version "${terminusVersion}"
+
+            rm terminus-installer.phar
+            chmod +x ~/bin/terminus
+            terminus --version
+      - run:
+          name: 'Terminus auth:login'
+          command: |-
+            terminus \
+              auth:login \
+              --machine-token="${PANTHEON_CLI_MACHINE_TOKEN}"
+      - run:
+          name: 'Install Composer CLI tool'
+          command: |-
+            mkdir -p ~/bin
+            expectedSignature=$(curl --disable https://composer.github.io/installer.sig)
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            actualSignature=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+            test "${expectedSignature}" == "${actualSignature}"
+            php composer-setup.php \
+              --quiet \
+              --version     "${composerVersion}" \
+              --install-dir ~/bin \
+              --filename    'composer' \
+            rm composer-setup.php
+            composer --version
+
+      - restore_cache:
+          key: 'theme-deps-{{ checksum "drupal8/web/themes/cbcny_theme/npm-shrinkwrap.json" }}-1'
+      - run:
+          name: 'Build the theme'
           command: |
             curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
             sudo apt-get install -y build-essential nodejs npm
             nodejs --version
             npm --version
-            cd ~/cbcny-d8/drupal8/web/themes/cbcny_theme
+            cd drupal8/web/themes/cbcny_theme
             sudo npm install -g grunt-cli
             npm install
             grunt build
       - save_cache:
-          key: theme-deps-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/web/themes/cbcny_theme/package.json" }}
+          key: 'theme-deps-{{ checksum "drupal8/web/themes/cbcny_theme/npm-shrinkwrap.json" }}-1'
           paths:
-            - "~/cbcny-d8/drupal8/web/themes/cbcny_theme/node_modules"
-            - "~/.npm"
+            - 'drupal8/web/themes/cbcny_theme/node_modules'
+            - '~/.npm'
+
       - run:
-          name: Start Xvfb
+          name: 'Start Xvfb'
           command: |
             sudo Xvfb :7055
             export DISPLAY=:7055
           background: true
       - run:
-          name: Start Selenium
+          name: 'Start Selenium'
           command: |
             sudo apt-get install -y default-jre
             wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar -O selenium-server.jar
             java -jar selenium-server.jar
           background: true
       - run:
-          name: PhantomJS install
+          name: 'PhantomJS install'
           command: |
             sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
-      - restore_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "drupal8/composer.lock" }}
       - run:
-          name: Configure & Start Apache
+          name: 'Configure & Start Apache'
           command: |
-            sudo cp ~/cbcny-d8/.circleci/sia.conf /etc/apache2/sites-available/sia.conf
+            sudo cp .circleci/sia.conf /etc/apache2/sites-available/sia.conf
             sudo a2ensite sia
             sudo service apache2 start
+
+      - restore_cache:
+          name: 'Composer - restore cache'
+          keys:
+            - 'composer-{{ checksum "./drupal8/composer.lock" }}-1'
       - run:
-          name: Install composer and then project
-          command: |
-            cd ~/cbcny-d8/drupal8
-            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Installer verified'; } else { echo 'Installer invalid'; unlink('composer-setup.php'); } echo PHP_EOL;"
-            php composer-setup.php
-            php -r "unlink('composer-setup.php');"
-            php composer.phar self-update
-            php composer.phar install -n --prefer-dist --dev
+          name: 'Composer - install'
+          command: |-
+            cd drupal8
+            [[ -d './vendor' ]] || composer install \
+              --no-progress \
+              --prefer-dist \
+              --dev
       - save_cache:
-          key: deps1-{{ .Branch }}-{{ checksum "~/cbcny-d8/drupal8/composer.lock" }}
+          name: 'Composer - save cache'
+          key: 'composer-{{ checksum "./drupal8/composer.lock" }}-1'
           paths:
-            - "~/cbcny-d8/drupal8/vendor"
-            - "~/cbcny-d8/drupal8/web/core"
-            - "~/cbcny-d8/drupal8/web/modules/contrib"
-            - "~/cbcny-d8/drupal8/web/profiles/contrib"
-            - "~/cbcny-d8/drupal8/web/themes/contrib"
-            - "~/cbcny-d8/drupal8/drush/contrib"
-            - "~/cbcny-d8/drupal8/libraries"
-            - "~/.composer"
+            - 'drupal8/vendor'
+            - 'drupal8/web/core'
+            - 'drupal8/web/modules/contrib'
+            - 'drupal8/web/profiles/contrib'
+            - 'drupal8/web/themes/contrib'
+            - 'drupal8/drush/contrib'
+            - 'drupal8/libraries'
+            - '~/.composer'
       - run:
-          name: Run PHPUnit tests
-          command: |
-            cd ~/cbcny-d8/drupal8/web
-            php core/scripts/run-tests.sh --sqlite /tmp/tests.sqlite --dburl sqlite://localhost//tmp/tests.sqlite --non-html --verbose  --color --directory modules/custom
-      # Import the site db from live.
+          name: 'Prepare settings.local.php'
+          command: |-
+            cat <<PHP > drupal8/web/sites/default/settings.local.php
+            <?php
+
+            \$databases['default']['default']['username'] = '${MYSQL_USER}';
+            \$databases['default']['default']['password'] = '${MYSQL_PASSWORD}';
+            \$databases['default']['default']['host'] = '${MYSQL_HOST}';
+            \$databases['default']['default']['port'] = '${MYSQL_PORT}';
+            \$databases['default']['default']['database'] = '${MYSQL_DATABASE}';
+
+            \$settings['trusted_host_patterns'] = ['.+'];
+            PHP
       - run:
-          name: Download db dump and import.
+          name: 'Run PHPUnit tests'
           command: |
-            cd ~
-            mkdir ~/bin
-            curl -sfSL -o ~/bin/platform.phar https://github.com/platformsh/platformsh-cli/releases/download/v3.21.0/platform.phar
-            chmod u+x ~/bin/platform.phar
-            cd ~/cbcny-d8/drupal8/web
-            cat ../../.circleci/known_hosts >> ~/.ssh/known_hosts
-            ~/bin/platform.phar db:dump -y -p jm7ogp6xamel6 -e master -A app -o | ../vendor/bin/drush -r ~/cbcny-d8/drupal8/web sqlc --db-url=mysql://drupal:drupal@127.0.0.1/drupal
+            cd drupal8/web
+            php core/scripts/run-tests.sh \
+              --sqlite /tmp/tests.sqlite \
+              --dburl sqlite://localhost//tmp/tests.sqlite \
+              --non-html \
+              --verbose \
+              --color \
+              --directory modules/custom
+
       - run:
-          name: Apply updates
-          command: |
-            cd ~/cbcny-d8/drupal8/web
-            ../vendor/bin/drush --yes updb --entity-updates
-            ../vendor/bin/drush --yes cim
-            ../vendor/bin/drush cr
+          name: 'Create release artifact for Pantheon'
+          command: |-
+            cd ./drupal8
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
+            vendor/bin/robo cbcny:release:pantheon
+            ssh-agent -k
+
       - run:
-          name: Test
+          name: 'Prepare release settings.local.php'
+          command: |-
+            cat <<PHP > drupal8-release/web/sites/default/settings.local.php
+            <?php
+
+            \$databases['default']['default']['username'] = '${MYSQL_USER}';
+            \$databases['default']['default']['password'] = '${MYSQL_PASSWORD}';
+            \$databases['default']['default']['host'] = '${MYSQL_HOST}';
+            \$databases['default']['default']['port'] = '${MYSQL_PORT}';
+            \$databases['default']['default']['database'] = '${MYSQL_DATABASE}';
+
+            \$settings['trusted_host_patterns'] = ['.+'];
+            PHP
+
+      - run:
+          name: 'Download the site database dump from test environment and import.'
+          command: |-
+            cd ./drupal8-release
+            mkdir -p ./backup
+
+            terminus backup:get cbcny.test \
+              --element database \
+              --to backup/dump-database.sql.gz
+
+            gunzip backup/dump-database.sql.gz
+
+            vendor/bin/drush \
+              --root "${PWD}/web" \
+              sql:cli \
+              < backup/dump-database.sql
+      - run:
+          name: 'Apply updates'
           command: |
-            cd ~/cbcny-d8/drupal8/behat
-            mkdir ~/cbcny-d8/test-reports
-            mkdir ~/cbcny-d8/test-reports/cucumber
-            LOCAL_BEHAT=y ../vendor/bin/behat --no-snippets -f pretty -o std -f junit -o ~/cbcny-d8/test-reports/cucumber/junit.xml
+            cd ./drupal8-release
+            ./vendor/bin/drush updatedb --yes --entity-updates
+            php -d memory_limit=2G ./vendor/bin/drush config:import --yes
+            ./vendor/bin/drush cache:rebuild
+      - run:
+          name: 'Check updatedb:status'
+          command: |-
+            cd ./drupal8-release
+            status="$(./vendor/bin/drush updatedb:status --format=yaml)"
+            echo "${status}"
+            [[ "${status}" == '' ]]
+      - run:
+          name: 'Behat'
+          command: |-
+            cd ./drupal8/behat
+
+            sed \
+              --in-place \
+              --expression 's@../web@../../drupal8-release/web@g' \
+              behat.yml
+
+            mkdir -p ./test-reports/cucumber
+
+            LOCAL_BEHAT=y \
+            ../vendor/bin/behat \
+              --no-snippets \
+              -f pretty \
+              -o std \
+              -f junit \
+              -o ~/cbcny-d8/test-reports/cucumber/junit.xml
+      - run:
+          name: 'Deploy to Pantheon DEV'
+          command: |-
+            eval $(ssh-agent -s)
+            ssh-add <(echo "$PANTHEON_SSH_KEY" | base64 -d)
+            cd ./drupal8-release
+            git config user.name "$(git log -1 --format="%an")"
+            git config user.email "$(git log -1 --format="%ae")"
+            git commit -m "Built from $CIRCLE_SHA1"
+            if git push pantheon; then
+              echo "Successfully deployed to Pantheon DEV."
+            else
+              echo "git push failed, going to force push."
+              git push -f pantheon
+              echo "Successfully deployed to Pantheon DEV."
+            fi
+            ssh-agent -k
       - store_artifacts:
-          path: drupal8/screenshots
-          prefix: screenshots
+          # @todo Behat has no configuration to create and store screenshots.
+          path: './drupal8/screenshots'
+          destination: 'screenshots'
+
       - store_test_results:
-          path: test-reports
+          path: './test-reports'

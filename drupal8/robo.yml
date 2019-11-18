@@ -1,0 +1,7 @@
+
+release:
+  pantheon:
+    remoteName: pantheon
+    remoteUrl: ssh://codeserver.dev.7fc302c1-122e-4b24-835e-b4d4e3149413@codeserver.dev.7fc302c1-122e-4b24-835e-b4d4e3149413.drush.in:2222/~/repository.git
+    remoteBranch: master
+    localBranch: master
