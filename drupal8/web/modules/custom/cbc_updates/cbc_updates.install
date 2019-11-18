@@ -188,3 +188,15 @@ function cbc_updates_update_8009() {
     ])
     ->save();
 }
+
+/**
+ * Install cbc_soundcloud
+ */
+function cbc_updates_update_8010() {
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+  $moduleInstaller = Drupal::service('module_installer');
+
+  $moduleInstaller->install([
+    'cbc_soundcloud',
+  ]);
+}

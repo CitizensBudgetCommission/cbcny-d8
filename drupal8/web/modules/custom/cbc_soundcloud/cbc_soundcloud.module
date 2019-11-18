@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types = 1);
+
+/**
+ * @file
+ * Migrate from Soundcloud to Drupal
+ */
+
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessage;
+
+/**
+ * Implements hook_cron().
+ */
+function cbc_soundcloud_cron() {
+  $manager = \Drupal::service('plugin.manager.config_entity_migration');
+  $plugins = $manager->createInstances([
+    'cbc_podcast',
+    'cbc_podcast_heros2',
+  ]);
+
+  /** @var \Drupal\migrate\Plugin\Migration $plugin */
+  foreach ($plugins as $plugin) {
+    $plugin->getIdMap()->prepareUpdate();
+    $executable = new MigrateExecutable($plugin, new MigrateMessage());
+    $executable->import();
+  }
+}

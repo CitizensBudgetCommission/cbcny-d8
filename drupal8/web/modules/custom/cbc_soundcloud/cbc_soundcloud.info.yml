@@ -1,0 +1,5 @@
+name: CBC Soundcloud
+type: module
+description: Migrate CBCNY Soundcloud podcasts into Drupal
+core: 8.x
+package: Custom
