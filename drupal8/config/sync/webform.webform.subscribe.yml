@@ -1,3 +1,4 @@
+uuid: 7d3d69cc-c962-46a4-9bec-db87df22f5bf
 langcode: en
 status: open
 dependencies: {  }
@@ -208,9 +209,9 @@ handlers:
     conditions: {  }
     weight: 1
     settings:
-      to_mail: kmedina@cbcny.org
+      to_mail: cbcnyinfo@gmail.com
       to_options: {  }
-      cc_mail: ''
+      cc_mail: kmedina@cbcny.org
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
@@ -235,4 +236,3 @@ handlers:
       sender_options: {  }
       sender_name: ''
       theme_name: ''
-uuid: 7d3d69cc-c962-46a4-9bec-db87df22f5bf

@@ -1,9 +1,9 @@
-uuid: f2fc3520-b894-4fa2-9ea3-10f35e08a792
+uuid: 44246296-cc49-48f8-ac8a-d214a3d2261a
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:4ec0b83f-2a01-47b5-817d-5772ac42baa2'
+    - 'block_content:basic:21c28ec9-ab3b-4566-8069-3fd26310db03'
   module:
     - block_content
     - system
@@ -14,9 +14,9 @@ theme: cbcny_theme
 region: content
 weight: -16
 provider: null
-plugin: 'block_content:4ec0b83f-2a01-47b5-817d-5772ac42baa2'
+plugin: 'block_content:21c28ec9-ab3b-4566-8069-3fd26310db03'
 settings:
-  id: 'block_content:4ec0b83f-2a01-47b5-817d-5772ac42baa2'
+  id: 'block_content:21c28ec9-ab3b-4566-8069-3fd26310db03'
   label: 'CBC Dinner bottom'
   provider: block_content
   label_display: '0'
