@@ -7,7 +7,7 @@ dependencies:
 id: cbcny_theme_local_tasks
 theme: cbcny_theme
 region: content
-weight: -12
+weight: -22
 provider: null
 plugin: local_tasks_block
 settings:

@@ -9,7 +9,7 @@ _core:
 id: cbcny_theme_local_actions
 theme: cbcny_theme
 region: content
-weight: -11
+weight: -21
 provider: null
 plugin: local_actions_block
 settings:

@@ -10,8 +10,8 @@ weight: null
 plugin: paypal_checkout
 configuration:
   payment_solution: smart_payment_buttons
-  client_id: ASbwbjXGRNhyCI6-3CHt5NYrWQnUMhJ5Qsmn0pbzyM87sVRkjm2dpbv_78m56eXZLiDYXc2-co7T9RTJ
-  secret: EGUWBP137kpKsJDcvLUNWR2NOnQhUHcB3DQCXQCQ9Xo7TwLBtSQwkWkxZ2cyz1-IeUTTOR_bEMPEMPpf
+  client_id: AWTpN8Yo7T9fGituoQL1uD255l6hBH52Hq3JSeFcV74pic9ydFGIbNZu665E0wt8o7cEWyTdjrnAOktf
+  secret: EKJcgEV6w6Gk3zWYVBrX-evOI9x53GgeZlorc1nP8yG1grjQO2JdggPZphzRBkeJdCG4Prcy8EYUjTLu
   intent: capture
   disable_funding: {  }
   disable_card: {  }
@@ -22,7 +22,7 @@ configuration:
   enable_on_cart: true
   collect_billing_information: true
   display_label: PayPal
-  mode: test
+  mode: live
   payment_method_types:
     - credit_card
 conditions: {  }

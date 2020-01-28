@@ -1,0 +1,31 @@
+uuid: 798edf0e-9870-494f-a6f5-242b9d7da8b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.dinner_2019
+  module:
+    - system
+    - webform
+  theme:
+    - cbcny_theme
+id: webform_3
+theme: cbcny_theme
+region: content
+weight: -17
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  provider: webform
+  label_display: '0'
+  webform_id: dinner_2019
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /cbc-dinner
+    negate: false
+    context_mapping: {  }
