@@ -104,7 +104,6 @@ class CbcTokenTest extends TokenKernelTestBase {
 
   /**
    * Tests hero image tokens.
-   *
    */
   public function testHeroImageToken() {
     // Create an image.
