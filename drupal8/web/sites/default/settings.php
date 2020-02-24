@@ -34,6 +34,8 @@ $databases = [
  * the Drupal installation directory and be accessible over the web.
  */
 $settings['file_public_path'] = 'sites/default/files';
+$config['image.settings']['suppress_itok_output'] = TRUE;
+$config['image.settings']['allow_insecure_derivatives'] = TRUE;
 
 /**
  * Private file path:
