@@ -10,6 +10,7 @@ dependencies:
   module:
     - chosen_field
     - path
+    - scheduler
 id: node.listing.default
 targetEntityType: node
 bundle: listing
@@ -48,6 +49,8 @@ content:
   scheduler_settings:
     weight: 20
     region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
