@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66654401d890e38dd3faaef3ecb06053",
+    "content-hash": "cbce77c8e23900d006786a3f147f8930",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4862,6 +4862,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Bug while updating paragraphs": "https://www.drupal.org/files/issues/2020-02-20/2833935-2_0.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5034,20 +5037,20 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.0.0-alpha1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redirect.git",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "cdc683b607027d26cbb2360acc7448fc51f84ad8"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "7940acfb28bd802235d159f1c7a9a58e89dd3d15"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8.7.7 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -5055,11 +5058,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1481901483",
+                    "version": "8.x-1.5",
+                    "datestamp": "1576656784",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
