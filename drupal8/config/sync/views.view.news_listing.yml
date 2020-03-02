@@ -16,7 +16,6 @@ description: 'A Listing of all News content not Press Mentions'
 tag: ''
 base_table: search_api_index_nodes
 base_field: search_api_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -166,6 +165,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -205,6 +206,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -249,6 +252,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

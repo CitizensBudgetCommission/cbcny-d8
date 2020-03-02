@@ -1,0 +1,13 @@
+uuid: c057b2ff-5c11-43e3-88f8-c77f57f9e826
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - commerce_order
+  module:
+    - profile
+id: profile.admin
+label: Admin
+targetEntityType: profile
+cache: true

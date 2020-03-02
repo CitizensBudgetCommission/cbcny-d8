@@ -1,0 +1,13 @@
+uuid: a5a6c0bf-7d25-4f09-9954-2c03ef41602e
+langcode: en
+status: true
+dependencies: {  }
+id: order_default
+label: Default
+targetEntityType: commerce_order
+plugin: infinite
+configuration:
+  pattern: '[pattern:number]'
+  initial_number: 1
+  padding: 0
+  per_store_sequence: true
