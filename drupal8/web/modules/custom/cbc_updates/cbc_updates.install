@@ -188,3 +188,16 @@ function cbc_updates_update_8009() {
     ])
     ->save();
 }
+
+/**
+ * Fix long lost modules are missing from the filesystem.
+ */
+function cbc_updates_update_8011() {
+  $modules = [
+    'cbc_soundcloud',
+  ];
+  \Drupal::database()->delete('key_value')
+    ->condition('collection', 'system.schema')
+    ->condition('name', $modules, 'IN')
+    ->execute();
+}

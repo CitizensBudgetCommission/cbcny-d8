@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_page_content
     - node.type.page
+    - paragraphs.paragraphs_type.aside
     - paragraphs.paragraphs_type.block_embed
     - paragraphs.paragraphs_type.chart_embed
     - paragraphs.paragraphs_type.download_callout
@@ -28,7 +29,9 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
+      aside: aside
       chart_embed: chart_embed
       block_embed: block_embed
       download_callout: download_callout
@@ -39,8 +42,8 @@ settings:
       video_embed: video_embed
     target_bundles_drag_drop:
       aside:
+        enabled: true
         weight: 14
-        enabled: false
       author:
         weight: 15
         enabled: false
