@@ -87,7 +87,7 @@
     "drupal/twig_tweak": "~1.0",
     "drupal/video_embed_field": "^2.2",
     "drupal/webform": "^5.8",
-    "drupal/xmlsitemap": "1.x-dev",
+    "drupal/xmlsitemap": "^1.0@RC",
     "drush/drush": "^9",
     "harvesthq/chosen": "*",
     "nuvoleweb/drupal-behat": "^1.1",
