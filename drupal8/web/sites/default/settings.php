@@ -4,6 +4,17 @@
  * Platform.sh example settings.php file for Drupal 8.
  */
 
+/**
+ * Include the Pantheon-specific settings file.
+ *
+ * n.b. The settings.pantheon.php file makes some changes
+ *      that affect all envrionments that this site
+ *      exists in.  Always include this file, even in
+ *      a local development environment, to insure that
+ *      the site settings remain consistent.
+ */
+include __DIR__ . "/settings.pantheon.php";
+
 // Default Drupal 8 settings.
 //
 // These are already explained with detailed comments in Drupal's
