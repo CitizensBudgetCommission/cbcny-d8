@@ -12,6 +12,20 @@
  * attempting to apply upstream updates.
  */
 
+$variables = [
+  'https' => TRUE,
+  'domains' => [
+    'canonical' => 'cbcny.org',
+    'synonyms' => [
+      'live-cbcny.pantheonsite.io',
+    ],
+    'additional' => [
+      'www.cbcny.org',
+    ],
+  ],
+  'redis' => TRUE,
+];
+
 /**
  * Version of Pantheon files.
  *
@@ -24,8 +38,26 @@
  * release is made that includes changes to Pantheon files, but
  * not to any Drupal files.
  */
-if (!defined("PANTHEON_VERSION")) {
-  define("PANTHEON_VERSION", "3");
+if (!defined('PANTHEON_VERSION')) {
+  define('PANTHEON_VERSION', '3');
+}
+
+if (!defined('PANTHEON_ENVIRONMENT')) {
+  define('PANTHEON_ENVIRONMENT', $_ENV['PANTHEON_ENVIRONMENT'] ?? 'live');
+}
+
+$is_cli = php_sapi_name() === 'cli';
+$is_installer_url = strpos($_SERVER['SCRIPT_NAME'], '/core/install.php') === 0;
+
+if ($variables['https']
+  && !$is_cli
+  && $_SERVER['HTTPS'] === 'OFF'
+  && (!isset($_SERVER['HTTP_X_SSL']) || $_SERVER['HTTP_X_SSL'] != 'ON')
+) {
+  header('HTTP/1.0 301 Moved Permanently');
+  header('Location: https://'. $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+
+  exit();
 }
 
 /**
@@ -35,27 +67,13 @@ if (!defined("PANTHEON_VERSION")) {
  * 'pantheon-preproduction-services.yml' (for 'dev' or multidev environments).
  */
 $pantheon_services_file = __DIR__ . '/services.pantheon.preproduction.yml';
-if (
-  isset($_ENV['PANTHEON_ENVIRONMENT']) &&
-  ( ($_ENV['PANTHEON_ENVIRONMENT'] == 'live') || ($_ENV['PANTHEON_ENVIRONMENT'] == 'test') )
-) {
+if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live' || $_ENV['PANTHEON_ENVIRONMENT'] === 'test') {
   $pantheon_services_file = __DIR__ . '/services.pantheon.production.yml';
 }
 
 if (file_exists($pantheon_services_file)) {
   $settings['container_yamls'][] = $pantheon_services_file;
 }
-
-/**
- * Set the default location for the 'private' directory.  Note
- * that this location is protected when running on the Pantheon
- * environment, but may be exposed if you migrate your site to
- * another environment.
- */
-$settings['file_private_path'] = 'sites/default/files/private';
-
-// Check to see if we are serving an installer page.
-$is_installer_url = (strpos($_SERVER['SCRIPT_NAME'], '/core/install.php') === 0);
 
 /**
  * Add the Drupal 8 CMI Directory Information directly in settings.php to make sure
@@ -71,12 +89,10 @@ $is_installer_url = (strpos($_SERVER['SCRIPT_NAME'], '/core/install.php') === 0)
  *
  */
 if ($is_installer_url) {
-  $settings['config_sync_directory'] =  'sites/default/files';
+  $config_directories = [
+    CONFIG_SYNC_DIRECTORY => 'sites/default/files',
+  ];
 }
-else {
-  $settings['config_sync_directory'] = 'sites/default/config';
-}
-
 
 /**
  * Allow Drupal 8 to Cleanly Redirect to Install.php For New Sites.
@@ -86,46 +102,45 @@ else {
  * c.f. https://github.com/pantheon-systems/drops-8/pull/53
  *
  */
-if (
-  isset($_ENV['PANTHEON_ENVIRONMENT']) &&
-  !$is_installer_url &&
-  (isset($_SERVER['PANTHEON_DATABASE_STATE']) && ($_SERVER['PANTHEON_DATABASE_STATE'] == 'empty')) &&
-  (empty($GLOBALS['install_state'])) &&
-  (php_sapi_name() != "cli")
+if (!$is_cli
+  && !$is_installer_url
+  && isset($_SERVER['PANTHEON_DATABASE_STATE'])
+  && $_SERVER['PANTHEON_DATABASE_STATE'] === 'empty'
+  && empty($GLOBALS['install_state'])
 ) {
   include_once __DIR__ . '/../../core/includes/install.core.inc';
   include_once __DIR__ . '/../../core/includes/install.inc';
+
   install_goto('core/install.php');
 }
 
-/**
- * Override the $databases variable to pass the correct Database credentials
- * directly from Pantheon to Drupal.
- *
- * Issue: https://github.com/pantheon-systems/drops-8/issues/8
- *
- */
-if (isset($_SERVER['PRESSFLOW_SETTINGS'])) {
-  $pressflow_settings = json_decode($_SERVER['PRESSFLOW_SETTINGS'], TRUE);
-  foreach ($pressflow_settings as $key => $value) {
-    // One level of depth should be enough for $conf and $database.
-    if ($key == 'conf') {
-      foreach($value as $conf_key => $conf_value) {
-        $conf[$conf_key] = $conf_value;
-      }
-    }
-    elseif ($key == 'databases') {
-      // Protect default configuration but allow the specification of
-      // additional databases. Also, allows fun things with 'prefix' if they
-      // want to try multisite.
-      if (!isset($databases) || !is_array($databases)) {
-        $databases = array();
-      }
-      $databases = array_replace_recursive($databases, $value);
-    }
-    else {
-      $$key = $value;
-    }
+$config['search_api.server.solr']['backend_config']['connector'] = 'pantheon';
+$config['search_api.server.solr']['backend_config']['connector_config']['schema'] = 'modules/contrib/search_api_solr/solr-conf/4.x/schema.xml';
+
+if (!empty($variables['redis']) && !empty($_ENV['CACHE_HOST'])) {
+  $redisServicesYml = implode(
+    DIRECTORY_SEPARATOR,
+    [
+      'modules',
+      'contrib',
+      'redis',
+      'example.services.yml',
+    ]
+  );
+  if (file_exists($redisServicesYml)) {
+    $settings['container_yamls'][] = $redisServicesYml;
+
+    $settings['redis.connection']['interface'] = 'PhpRedis';
+    $settings['redis.connection']['host'] = $_ENV['CACHE_HOST'];
+    $settings['redis.connection']['port'] = $_ENV['CACHE_PORT'];
+    $settings['redis.connection']['password'] = $_ENV['CACHE_PASSWORD'];
+
+    $settings['cache']['default'] = 'cache.backend.redis';
+    $settings['cache_prefix']['default'] = 'pantheon-redis';
+
+    $settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+    $settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+    $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
   }
 }
 
@@ -135,7 +150,7 @@ if (isset($_SERVER['PRESSFLOW_SETTINGS'])) {
  * Issue: https://github.com/pantheon-systems/drops-8/issues/10
  *
  */
-if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+if (isset($_ENV['DRUPAL_HASH_SALT'])) {
   $settings['hash_salt'] = $_ENV['DRUPAL_HASH_SALT'];
 }
 
@@ -145,9 +160,14 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
  * Issue: https://github.com/pantheon-systems/drops-8/issues/114
  *
  */
-if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-  $settings["file_temp_path"] = $_SERVER['HOME'] .'/tmp';
-}
+$config['system.file']['path']['temporary'] = $_SERVER['HOME'] .'/tmp';
+
+/**
+ * Install the Pantheon Service Provider to hook Pantheon services into
+ * Drupal 8. This service provider handles operations such as clearing the
+ * Pantheon edge cache whenever the Drupal cache is rebuilt.
+ */
+$GLOBALS['conf']['container_service_providers']['PantheonServiceProvider'] = '\Pantheon\Internal\PantheonServiceProvider';
 
 /**
  * Place Twig cache files in the Pantheon rolling temporary directory.
@@ -161,6 +181,7 @@ if (isset($_ENV['PANTHEON_ROLLING_TMP']) && isset($_ENV['PANTHEON_DEPLOYMENT_IDE
   // Relocate the compiled twig files to <binding-dir>/tmp/ROLLING/twig.
   // The location of ROLLING will change with every deploy.
   $settings['php_storage']['twig']['directory'] = $_ENV['PANTHEON_ROLLING_TMP'];
+
   // Ensure that the compiled twig templates will be rebuilt whenever the
   // deployment identifier changes.  Note that a cache rebuild is also necessary.
   $settings['deployment_identifier'] = $_ENV['PANTHEON_DEPLOYMENT_IDENTIFIER'];
@@ -168,22 +189,13 @@ if (isset($_ENV['PANTHEON_ROLLING_TMP']) && isset($_ENV['PANTHEON_DEPLOYMENT_IDE
 }
 
 /**
- * Install the Pantheon Service Provider to hook Pantheon services into
- * Drupal 8. This service provider handles operations such as clearing the
- * Pantheon edge cache whenever the Drupal cache is rebuilt.
- */
-if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-  $GLOBALS['conf']['container_service_providers']['PantheonServiceProvider'] = '\Pantheon\Internal\PantheonServiceProvider';
-}
-
-/**
  * "Trusted host settings" are not necessary on Pantheon; traffic will only
  * be routed to your site if the host settings match a domain configured for
  * your site in the dashboard.
  */
-if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
-  $settings['trusted_host_patterns'][] = '.*';
-}
+$settings['trusted_host_patterns'] = [
+  '.*',
+];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -200,4 +212,95 @@ if (empty($settings['file_scan_ignore_directories'])) {
     'node_modules',
     'bower_components',
   ];
+}
+
+/**
+ * Override the $databases variable to pass the correct Database credentials
+ * directly from Pantheon to Drupal.
+ *
+ * Issue: https://github.com/pantheon-systems/drops-8/issues/8
+ */
+if (isset($_SERVER['PRESSFLOW_SETTINGS'])) {
+  foreach (json_decode($_SERVER['PRESSFLOW_SETTINGS'], TRUE) as $key => $value) {
+    switch ($key) {
+      case 'conf';
+        foreach($value as $conf_key => $conf_value) {
+          $conf[$conf_key] = $conf_value;
+        }
+        break;
+
+      case 'databases';
+        // Protect default configuration but allow the specification of
+        // additional databases. Also, allows fun things with 'prefix' if they
+        // want to try multisite.
+        $databases = array_replace_recursive($databases ?? [], $value);
+        break;
+
+      default:
+        $$key = $value;
+        break;
+    }
+  }
+}
+
+if (PANTHEON_ENVIRONMENT !== 'live') {
+  $config['system.logging']['error_level'] = 'verbose';
+  $config['google_analytics.settings']['account'] = '';
+
+  $config['cloudflare.settings']['apikey'] = '';
+  $config['cloudflare.settings']['email'] = '';
+}
+
+if (PANTHEON_ENVIRONMENT === 'dev') {
+  // Place for settings for the dev environment.
+}
+
+if (PANTHEON_ENVIRONMENT === 'test') {
+  // Place for settings for the test environment.
+}
+
+if (PANTHEON_ENVIRONMENT === 'live') {
+  // Redirect to canonical domain.
+  if (!$is_cli) {
+    $location = FALSE;
+
+    // Get current protocol.
+    $protocol = 'http';
+    if ($_SERVER['SERVER_PORT'] == 443
+      || (
+        $variables['https']
+        && !empty($_SERVER['HTTPS'])
+        && $_SERVER['HTTPS'] !== 'off'
+      )
+    ) {
+      $protocol = 'https';
+    }
+
+    // Default redirect.
+    $redirect = "$protocol://{$variables['domains']['canonical']}{$_SERVER['REQUEST_URI']}";
+    if ($_SERVER['HTTP_HOST'] === $variables['domains']['canonical']
+      || in_array($_SERVER['HTTP_HOST'], $variables['domains']['synonyms'])
+    ) {
+      $redirect = FALSE;
+    }
+
+    if ($redirect) {
+      header("HTTP/1.0 301 Moved Permanently");
+      header("Location: $redirect");
+
+      exit();
+    }
+  }
+
+  $config['google_analytics.settings']['account'] = 'UA-11916551-1';
+}
+
+if (!empty($variables['environments'][PANTHEON_ENVIRONMENT]['conf'])) {
+  foreach ($variables['environments'][PANTHEON_ENVIRONMENT]['conf'] as $variable => $value) {
+    $conf[$variable] = $value;
+  }
+}
+
+if (file_exists("{$settings['file_private_path']}/settings/{$_ENV['PANTHEON_ENVIRONMENT']}.settings.php")) {
+  include "{$settings['file_private_path']}/settings/{$_ENV['PANTHEON_ENVIRONMENT']}.settings.php";
 }
