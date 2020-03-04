@@ -15,6 +15,6 @@ function cbcny_theme_preprocess_fieldset(&$vars) {
  * Implements template_preprocess_input().
  */
 function cbcny_theme_preprocess_input(&$vars) {
-  $vars['required'] = isset($vars['element']['#required']) ? $vars['element']['#required'] : $vars['required'];
+  $vars['required'] = isset($vars['element']['#required']) ? $vars['element']['#required'] : NULL;
   $vars['type'] = isset($vars['element']['#attributes']['type']) ? $vars['element']['#attributes']['type'] : NULL;
 }
