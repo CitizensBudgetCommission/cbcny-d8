@@ -64,7 +64,6 @@
     "drupal/facets": "1.0-alpha11",
     "drupal/field_group": "^3.0",
     "drupal/focal_point": "^1.2",
-    "drupal/gesso": "^3.2",
     "drupal/honeypot": "^1.30",
     "drupal/image_url_formatter": "~1.0",
     "drupal/linkit": "~5.0",
