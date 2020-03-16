@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.post.field_is_featured
     - field.field.node.post.field_metatags
     - field.field.node.post.field_page_content
+    - field.field.node.post.field_press_release
     - field.field.node.post.field_published_date
     - field.field.node.post.field_searchable
     - field.field.node.post.field_subtitle
@@ -18,6 +19,7 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
+    - link
     - metatag
     - options
     - title
@@ -61,6 +63,18 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_press_release:
+    weight: 11
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_published_date:
     weight: 5
@@ -123,3 +137,4 @@ content:
 hidden:
   field_teaser_plain: true
   links: true
+  search_api_excerpt: true

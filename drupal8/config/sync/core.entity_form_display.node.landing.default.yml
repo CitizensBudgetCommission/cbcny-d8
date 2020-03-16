@@ -5,10 +5,12 @@ dependencies:
   config:
     - field.field.node.landing.field_hero
     - field.field.node.landing.field_page_content
+    - field.field.node.landing.field_press_release
     - field.field.node.landing.field_searchable
     - field.field.node.landing.field_term_section
     - node.type.landing
   module:
+    - link
     - paragraphs
     - path
     - scheduler
@@ -40,6 +42,14 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     type: entity_reference_paragraphs
+    region: content
+  field_press_release:
+    weight: 121
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_searchable:
     weight: 3

@@ -1,0 +1,23 @@
+uuid: dbc8a221-e484-483b-971e-02331ee14020
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_press_release
+    - node.type.report
+  module:
+    - link
+id: node.report.field_press_release
+field_name: field_press_release
+entity_type: node
+bundle: report
+label: 'Press Release'
+description: 'Press Release link.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link
