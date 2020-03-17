@@ -51,15 +51,20 @@
         <a href="{{ node.field_press_release.0.url }}" target="_blank"
            class="share-links__item">Press Release</a>
       {% endif %}
-      <a href="#"><img class="share-links__icon"
-                       src="/themes/cbcny_theme/images/download-icon.svg"></a>
-      <a href="#" class="share-links__item">Download Blog</a>
+      {% if report_uri %}
+        <a href="{{ file_url(report_uri) }}" target="_blank"
+           class="share-links__icon_link"><img class="share-links__icon"
+                                               src="/themes/cbcny_theme/images/download-icon.svg"></a>
+        <a href="{{ file_url(report_uri) }}" target="_blank"
+           class="share-links__item">Download Blog</a>
+      {% endif %}
       <a href="#" onclick="window.print();return false;"><img
           class="share-links__icon"
           src="/themes/cbcny_theme/images/printer-icon.svg"></a>
       <a href="#" class="share-links__item"
          onclick="window.print();return false;">Print</a>
-      <a class="addthis_button_compact"><img class="share-links__icon"  src="/themes/cbcny_theme/images/addthis-icon.svg"></a>
+      <a class="addthis_button_compact"><img class="share-links__icon"
+                                             src="/themes/cbcny_theme/images/addthis-icon.svg"></a>
       <a class="addthis_button_compact share-links__item"><span>Share</span></a>
     </div>
 

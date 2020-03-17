@@ -1,22 +1,23 @@
-{%
-  set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--display-mode-' ~ view_mode|clean_class,
+] %}
 
 <article{{ attributes.addClass(classes) }}>
 
   {% if content.field_hero|render %}
-    <div class="hero hero--large" style="background-image: url({{ content.field_hero|render|trim }});">
+    <div class="hero hero--large"
+         style="background-image: url({{ content.field_hero|render|trim }});">
       <div class="hero__content">
         <div class="page-info">
-          <span class="page-info__item">{{ content.field_term_post_type }}</span>
-          <span class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
+          <span
+            class="page-info__item">{{ content.field_term_post_type }}</span>
+          <span
+            class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
         </div>
         <h1 class="page-title">{{ content.title }}</h1>
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
@@ -26,8 +27,10 @@
     <div class="hero hero--small">
       <div class="hero__content">
         <div class="page-info">
-          <span class="page-info__item">{{ content.field_term_post_type }}</span>
-          <span class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
+          <span
+            class="page-info__item">{{ content.field_term_post_type }}</span>
+          <span
+            class="page-info__item">{{ content.field_term_topic.0['#plain_text'] }}</span>
         </div>
         <h1 class="page-title">{{ content.title }}</h1>
         <h2 class="subtitle">{{ content.field_subtitle }}</h2>
@@ -46,23 +49,31 @@
         <a href="{{ node.field_press_release.0.url }}" target="_blank"
            class="share-links__item">Press Release</a>
       {% endif %}
-      <a href="#"><img class="share-links__icon"
-                       src="/themes/cbcny_theme/images/download-icon.svg"></a>
-      <a href="#" class="share-links__item">Download Report</a>
+      {% if report_uri %}
+        <a href="{{ file_url(report_uri) }}" target="_blank"
+           class="share-links__icon_link"><img class="share-links__icon"
+                                               src="/themes/cbcny_theme/images/download-icon.svg"></a>
+        <a href="{{ file_url(report_uri) }}" target="_blank"
+           class="share-links__item">Download Report</a>
+      {% endif %}
       <a href="#" onclick="window.print();return false;"><img
           class="share-links__icon"
           src="/themes/cbcny_theme/images/printer-icon.svg"></a>
       <a href="#" class="share-links__item"
          onclick="window.print();return false;">Print</a>
-      <a class="addthis_button_compact"><img class="share-links__icon"  src="/themes/cbcny_theme/images/addthis-icon.svg"></a>
+      <a class="addthis_button_compact"><img class="share-links__icon"
+                                             src="/themes/cbcny_theme/images/addthis-icon.svg"></a>
       <a class="addthis_button_compact share-links__item"><span>Share</span></a>
     </div>
 
     <section class="section section--toc">
-	    <div class="button button--toc" style="display: block;">Expand Table of Contents</div>
-	     <div class="nav--toc" style="display: none;">
-         <h2 class="nav--toc__heading"><a href="#" class="close-toc">Hide Table of Contents</a></h2>
-         <nav class="nav--toc__menu"></nav>
+      <div class="button button--toc" style="display: block;">Expand Table of
+        Contents
+      </div>
+      <div class="nav--toc" style="display: none;">
+        <h2 class="nav--toc__heading"><a href="#" class="close-toc">Hide Table
+            of Contents</a></h2>
+        <nav class="nav--toc__menu"></nav>
       </div>
     </section>
 

@@ -22,25 +22,18 @@
     margin-bottom: 10px;
   }
 
+  .share-links__item:after {
+    content: none;
+  }
+
   .share-links__icon {
     width: 32px;
     margin-right: 10px;
     margin-left: 25px;
   }
 
-
-    .share-links__label {
-    color: $cbcny-dark-green;
-    flex-basis: 100%;
-    font-size: rem(map-get($font-size, xxxs));
-    font-weight: 600;
-    line-height: 1.2;
-    margin-right: 1em;
-    text-transform: uppercase;
-
-    @include breakpoint($bp-larger-font-size) {
-      flex-basis: auto;
-    }
+  .share-links__icon_link:after {
+    content: none;
   }
 
   .share-links__links {
