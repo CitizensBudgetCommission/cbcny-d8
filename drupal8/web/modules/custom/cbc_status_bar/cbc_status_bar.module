@@ -28,13 +28,13 @@ function cbc_status_bar_theme() {
  */
 function cbc_status_bar_preprocess_node(&$vars, $hook) {
   $node = $vars['node'];
-  if ($node->getType() == 'post' || $node->getType() == 'report') {
+  if ($node->getType() == 'post' || $node->getType() == 'report' || $node->getType() == 'news') {
     if (isset($node->field_page_content)) {
       $paragraph = $node->field_page_content->getValue();
       foreach ($paragraph as $element) {
         $p = Paragraph::load($element['target_id']);
         if ($p->getType() == 'download_callout') {
-          if (isset($p->field_file_upload) && isset($p->field_heading_plain) && (strtolower($p->field_heading_plain->value) == 'download report' || strtolower($p->field_heading_plain->value) == 'download blog')) {
+          if (isset($p->field_file_upload) && isset($p->field_file_upload->target_id) && isset($p->field_bind_to_top_download_link) && $p->field_bind_to_top_download_link->value == 1) {
             $file = File::load($p->field_file_upload->target_id);
             $vars['report_uri'] = $file->getFileUri();
           }
