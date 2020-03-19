@@ -2,6 +2,11 @@
 // Styles for share links.
 
 .share-links {
+  
+  @media print {
+    display: none !important;
+  }
+  
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -12,18 +17,23 @@
     justify-content: flex-end;
   }
 
-  .share-links__label {
-    color: $cbcny-dark-green;
-    flex-basis: 100%;
-    font-size: rem(map-get($font-size, xxxs));
-    font-weight: 600;
-    line-height: 1.2;
+  .share-links__item {
     margin-right: 1em;
-    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
 
-    @include breakpoint($bp-larger-font-size) {
-      flex-basis: auto;
-    }
+  .share-links__item:after {
+    content: none;
+  }
+
+  .share-links__icon {
+    width: 32px;
+    margin-right: 10px;
+    margin-left: 25px;
+  }
+
+  .share-links__icon_link:after {
+    content: none;
   }
 
   .share-links__links {
@@ -35,6 +45,7 @@
 
     //AddThis links fix - TA
     .at-share-btn {
+      margin-bottom: 10px !important;
       background-color: transparent !important;
 
       svg {
@@ -43,6 +54,8 @@
 
       .at-label {
         color: #007faa !important;
+        font-size: 18px !important;
+        font-family: Lato, sans-serif !important;
       }
     }
   }

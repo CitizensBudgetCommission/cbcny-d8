@@ -31,8 +31,20 @@
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <div class="share-links">
-      <div class="share-links__label">Share This Page</div>
-      <div class="share-links__links addthis_inline_share_toolbox"></div>
+      {% if node.field_press_release.0.url %}
+        <a href="{{ node.field_press_release.0.url }}" target="_blank"><img
+            class="share-links__icon"
+            src="/themes/cbcny_theme/images/press-release-icon.svg"></a>
+        <a href="{{ node.field_press_release.0.url }}" target="_blank"
+           class="share-links__item">Press Release</a>
+      {% endif %}
+      <a href="#" onclick="window.print();return false;"><img
+          class="share-links__icon"
+          src="/themes/cbcny_theme/images/printer-icon.svg"></a>
+      <a href="#" class="share-links__item"
+         onclick="window.print();return false;">Print</a>
+      <a class="addthis_button_compact"><img class="share-links__icon"  src="/themes/cbcny_theme/images/addthis-icon.svg"></a>
+      <a class="addthis_button_compact share-links__item"><span>Share</span></a>
     </div>
 
     {{ content.field_page_content }}

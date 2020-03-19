@@ -6,11 +6,13 @@ dependencies:
     - field.field.node.page.field_hero
     - field.field.node.page.field_metatags
     - field.field.node.page.field_page_content
+    - field.field.node.page.field_press_release
     - field.field.node.page.field_searchable
     - field.field.node.page.field_teaser_plain
     - field.field.node.page.field_term_section
     - node.type.page
   module:
+    - link
     - metatag
     - paragraphs
     - path
@@ -49,6 +51,14 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     type: entity_reference_paragraphs
+    region: content
+  field_press_release:
+    weight: 121
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_searchable:
     weight: 3

@@ -5,11 +5,16 @@ dependencies:
   config:
     - core.entity_view_mode.node.slider
     - field.field.node.report.field_hero
+    - field.field.node.report.field_is_featured
+    - field.field.node.report.field_metatags
     - field.field.node.report.field_page_content
+    - field.field.node.report.field_press_release
     - field.field.node.report.field_published_date
+    - field.field.node.report.field_searchable
     - field.field.node.report.field_subtitle
     - field.field.node.report.field_teaser_plain
     - field.field.node.report.field_term_post_type
+    - field.field.node.report.field_term_section
     - field.field.node.report.field_term_topic
     - node.type.report
   module:
@@ -74,7 +79,9 @@ hidden:
   field_is_featured: true
   field_metatags: true
   field_page_content: true
+  field_press_release: true
   field_searchable: true
   field_term_section: true
   field_term_topic: true
   links: true
+  search_api_excerpt: true

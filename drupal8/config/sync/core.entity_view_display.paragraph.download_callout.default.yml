@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.download_callout.field_bind_to_top_download_link
     - field.field.paragraph.download_callout.field_description_plain
     - field.field.paragraph.download_callout.field_file_upload
     - field.field.paragraph.download_callout.field_heading_plain
@@ -14,6 +15,16 @@ targetEntityType: paragraph
 bundle: download_callout
 mode: default
 content:
+  field_bind_to_top_download_link:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_description_plain:
     weight: 1
     label: hidden
@@ -38,4 +49,5 @@ content:
     region: content
 hidden:
   created: true
+  search_api_excerpt: true
   uid: true

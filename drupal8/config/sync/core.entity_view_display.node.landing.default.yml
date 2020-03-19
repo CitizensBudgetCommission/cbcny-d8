@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.landing.field_hero
     - field.field.node.landing.field_page_content
+    - field.field.node.landing.field_press_release
     - field.field.node.landing.field_searchable
     - field.field.node.landing.field_term_section
     - node.type.landing
   module:
     - entity_reference_revisions
+    - link
     - options
     - title
     - user
@@ -35,6 +37,18 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_press_release:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_searchable:
     weight: 4
@@ -64,3 +78,4 @@ content:
     region: content
 hidden:
   links: true
+  search_api_excerpt: true

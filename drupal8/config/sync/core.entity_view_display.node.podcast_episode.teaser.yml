@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
+    - field.field.node.podcast_episode.field_page_content
+    - field.field.node.podcast_episode.field_press_release
     - field.field.node.podcast_episode.field_published_date
     - field.field.node.podcast_episode.field_searchable
     - field.field.node.podcast_episode.field_soundcloud
@@ -86,5 +88,8 @@ content:
 hidden:
   field_hero: true
   field_metatags: true
+  field_page_content: true
+  field_press_release: true
   field_searchable: true
   links: true
+  search_api_excerpt: true

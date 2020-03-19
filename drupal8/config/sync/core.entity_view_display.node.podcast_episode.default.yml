@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.podcast_episode.field_hero
     - field.field.node.podcast_episode.field_metatags
     - field.field.node.podcast_episode.field_page_content
+    - field.field.node.podcast_episode.field_press_release
     - field.field.node.podcast_episode.field_published_date
     - field.field.node.podcast_episode.field_searchable
     - field.field.node.podcast_episode.field_soundcloud
@@ -16,6 +17,7 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
+    - link
     - metatag
     - options
     - soundcloudfield
@@ -50,6 +52,18 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  field_press_release:
+    weight: 9
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_published_date:
     weight: 5
@@ -120,3 +134,4 @@ content:
     region: content
 hidden:
   links: true
+  search_api_excerpt: true

@@ -1,0 +1,23 @@
+uuid: 90fb7895-1b2f-4427-8824-7d36ce6659ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bind_to_top_download_link
+    - paragraphs.paragraphs_type.download_callout
+id: paragraph.download_callout.field_bind_to_top_download_link
+field_name: field_bind_to_top_download_link
+entity_type: paragraph
+bundle: download_callout
+label: 'Bind to Top Download Link'
+description: 'If checked then the file can be downloaded using the Download button in the top menu.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
