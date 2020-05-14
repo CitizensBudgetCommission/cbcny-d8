@@ -2,6 +2,10 @@ uuid: 8d366349-e685-4e6d-a7a0-050fcc6860ec
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - search_api
+    - taxonomy
   config:
     - field.storage.node.field_term_topic
     - field.storage.node.field_term_post_type
@@ -11,10 +15,6 @@ dependencies:
     - field.storage.node.field_term_section
     - field.storage.node.field_searchable
     - search_api.server.solr
-  module:
-    - search_api
-    - node
-    - taxonomy
 id: nodes
 name: Nodes
 description: ''
@@ -44,6 +44,9 @@ field_settings:
     property_path: title
     type: text
     boost: !!float 13
+    dependencies:
+      module:
+        - node
   field_term_topic:
     label: Topic
     datasource_id: 'entity:node'
@@ -66,6 +69,9 @@ field_settings:
     property_path: type
     type: text
     boost: !!float 5
+    dependencies:
+      module:
+        - node
   field_published_date:
     label: 'Published date'
     datasource_id: 'entity:node'
@@ -97,6 +103,9 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: string
+    dependencies:
+      module:
+        - node
   field_term_section:
     label: Section
     datasource_id: 'entity:node'
@@ -133,23 +142,15 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  add_url:
-    plugin_id: add_url
-    settings: {  }
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
-  entity_status: {  }
-  highlight:
-    highlight: always
-    highlight_partial: false
-    excerpt: true
-    excerpt_length: 256
-    exclude_fields: {  }
-    prefix: '<strong>'
-    suffix: '</strong>'
-    weights:
-      postprocess_query: 0
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
   html_filter:
     all_fields: true
     fields:
@@ -190,37 +191,7 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
-  stemmer:
-    all_fields: true
-    fields:
-      - rendered_item
-      - title
-      - type
-      - field_subtitle
-      - field_teaser_plain
-    exceptions:
-      texan: texa
-      mexican: mexic
-    weights:
-      preprocess_index: 0
-      preprocess_query: 0
-  tokenizer:
-    all_fields: true
-    fields:
-      - rendered_item
-      - title
-      - type
-      - field_subtitle
-      - field_teaser_plain
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
-    weights:
-      preprocess_index: -6
-      preprocess_query: -6
+  language_with_fallback: {  }
   transliteration:
     all_fields: true
     fields:
@@ -236,8 +207,48 @@ processor_settings:
     weights:
       preprocess_index: -20
       preprocess_query: -20
+  entity_status: {  }
+  tokenizer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - type
+      - field_subtitle
+      - field_teaser_plain
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+  stemmer:
+    all_fields: true
+    fields:
+      - rendered_item
+      - title
+      - type
+      - field_subtitle
+      - field_teaser_plain
+    exceptions:
+      texan: texa
+      mexican: mexic
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
 tracker_settings:
-  default: {  }
+  default:
+    indexing_order: fifo
 options:
   index_directly: true
   cron_limit: 50
