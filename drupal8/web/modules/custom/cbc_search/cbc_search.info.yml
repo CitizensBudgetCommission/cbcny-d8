@@ -1,8 +1,0 @@
-name: CBC Search
-type: module
-description: Special search related behaviors for CBC
-core: 8.x
-package: Custom
-dependencies:
-  - search_api_solr
-  - facets
