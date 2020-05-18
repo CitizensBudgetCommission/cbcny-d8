@@ -84,7 +84,7 @@
     "drupal/stage_file_proxy": "^1.0@alpha",
     "drupal/template_mapper": "1.x-dev",
     "drupal/title": "dev-2.x#0ecac436d4e3a803e8a45215f843d68ee4516768",
-    "drupal/twig_tweak": "^2.5",
+    "drupal/twig_tweak": "^1.10",
     "drupal/video_embed_field": "^2.2",
     "drupal/webform": "^5.8",
     "drupal/xmlsitemap": "^1.0@RC",
