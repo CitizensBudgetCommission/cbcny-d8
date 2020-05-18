@@ -19,4 +19,5 @@ settings:
   label: 'Published date'
   provider: facets
   label_display: visible
+  block_id: blogpublisheddate
 visibility: {  }

@@ -19,4 +19,5 @@ settings:
   label: Type
   provider: facets
   label_display: visible
+  block_id: combined_type
 visibility: {  }

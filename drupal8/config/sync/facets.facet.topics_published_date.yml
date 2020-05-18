@@ -16,13 +16,16 @@ show_only_one_result: false
 field_identifier: field_published_date
 facet_source_id: 'search_api:views_default__topics_listing__default'
 widget:
-  type: datecbc
+  type: checkbox
   config:
     show_numbers: true
-    display_relative: '0'
-    granularity: '6'
-    date_display: ''
-    soft_limit: '10'
+    soft_limit: 10
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+    show_reset_link: false
+    reset_text: 'Show all'
+    hide_reset_when_no_selection: false
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -31,6 +34,14 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
+  date_item:
+    processor_id: date_item
+    weights:
+      build: 35
+    settings:
+      date_display: actual_date
+      granularity: 6
+      date_format: ''
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -45,3 +56,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
+show_title: false

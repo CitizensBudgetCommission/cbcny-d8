@@ -61,7 +61,7 @@
     "drupal/drupal-driver": "dev-links-without-title-1.2 as 1.2.1",
     "drupal/drupal-extension": "^3.1",
     "drupal/drush_delete": "^2.2",
-    "drupal/facets": "1.0-alpha11",
+    "drupal/facets": "^1.4",
     "drupal/field_group": "^3.0",
     "drupal/focal_point": "^1.2",
     "drupal/honeypot": "^1.30",

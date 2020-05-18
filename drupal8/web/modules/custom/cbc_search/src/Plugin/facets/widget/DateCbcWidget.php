@@ -4,10 +4,12 @@ declare(strict_types = 1);
 
 namespace Drupal\cbc_search\Plugin\facets\widget;
 
+use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\facets\Annotation\FacetsWidget;
 use Drupal\facets\FacetInterface;
-use Drupal\facets\Plugin\facets\widget\DateBasicWidget;
 use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
+use Drupal\facets\Plugin\facets\widget\LinksWidget;
 
 /**
  * CBC customized date widget.
@@ -18,7 +20,7 @@ use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
  *   description = @Translation("A checklist of dates with a soft limit."),
  * )
  */
-class DateCbcWidget extends DateBasicWidget {
+class DateCbcWidget extends LinksWidget {
 
   /**
    * {@inheritdoc}
