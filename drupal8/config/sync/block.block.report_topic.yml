@@ -19,4 +19,5 @@ settings:
   label: Topic
   provider: facets
   label_display: visible
+  block_id: report_topic
 visibility: {  }
