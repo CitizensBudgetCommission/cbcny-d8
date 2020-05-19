@@ -190,7 +190,7 @@ jobs:
               --non-html \
               --verbose \
               --color \
-              --suppress-deprecatoons \
+              --suppress-deprecations \
               --directory modules/custom
 
       - run:
