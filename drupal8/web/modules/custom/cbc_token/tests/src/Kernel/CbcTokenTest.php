@@ -137,7 +137,7 @@ class CbcTokenTest extends TokenKernelTestBase {
     $node->field_hero = $paragraph;
     $node->save();
     // The token for that node should return our image URI.
-    $this->assertToken('current-page', array('node' => $node), 'hero-image', $image->createFileUrl());
+    $this->assertToken('current-page', array('node' => $node), 'hero-image', $image->createFileUrl(FALSE));
 
     // Create a node without a hero field.
     $node = Node::create([
