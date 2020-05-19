@@ -181,6 +181,18 @@ jobs:
             PHP
 
       - run:
+          name: 'Run PHPUnit tests'
+          command: |
+            cd drupal8/web
+            php core/scripts/run-tests.sh \
+              --sqlite /tmp/tests.sqlite \
+              --dburl sqlite://localhost//tmp/tests.sqlite \
+              --non-html \
+              --verbose \
+              --color \
+              --directory modules/custom
+
+      - run:
           name: 'Create release artifact for Pantheon'
           command: |-
             cd ./drupal8
