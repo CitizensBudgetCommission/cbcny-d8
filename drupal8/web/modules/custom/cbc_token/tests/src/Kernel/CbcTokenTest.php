@@ -9,8 +9,8 @@ use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
+use Drupal\Tests\token\Functional\TokenTestTrait;
 use Drupal\Tests\token\Kernel\KernelTestBase as TokenKernelTestBase;
-use Drupal\token\Tests\TokenTestTrait;
 
 /**
  * Tests CBC custom tokens.
@@ -36,6 +36,7 @@ class CbcTokenTest extends TokenKernelTestBase {
     'node',
     'paragraphs',
     'user',
+    'pathauto',
   ];
 
   /**
@@ -49,8 +50,7 @@ class CbcTokenTest extends TokenKernelTestBase {
     $this->installEntitySchema('file');
     $this->installEntitySchema('user');
 
-    $this->installSchema('file', array('file_usage'));
-    $this->installSchema('system', ['sequences']);
+    $this->installSchema('file', ['file_usage']);
     $this->installSchema('node', ['node_access']);
 
     \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
@@ -137,7 +137,7 @@ class CbcTokenTest extends TokenKernelTestBase {
     $node->field_hero = $paragraph;
     $node->save();
     // The token for that node should return our image URI.
-    $this->assertToken('current-page', array('node' => $node), 'hero-image', $image->url());
+    $this->assertToken('current-page', array('node' => $node), 'hero-image', $image->createFileUrl(FALSE));
 
     // Create a node without a hero field.
     $node = Node::create([
