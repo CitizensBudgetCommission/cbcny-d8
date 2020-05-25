@@ -9,14 +9,13 @@ The local development environment uses docker, based on [docker4drupal](http://d
 ### Prerequisites
 
 * [Docker](https://docker.com) and [docker-compose](https://docs.docker.com/compose/install/)
-* [Platform.sh client](https://docs.platform.sh/overview/cli.html#how-do-i-get-it)
 * Nothing else running on your computer's port 80. On *nix/osx you can see what's using that port with `sudo netstat -tlpn |grep -E 'tcp[^6].*:80'`
 
 ### Start the development environment
 
-1) Download Drupal and its modules, by running: `composer install`.
-2) Download the site's database from prod, by running: `platform db:dump -A app -d docker`
-3) Start the development environment, by running: `docker-compose up -d`.
+1) Start the development environment, by running: `docker-compose up -d`.
+2) Download Drupal and its modules, by running: `composer install`.
+3) Download the site's database from prod, and import: `drush sql-cli < db.sql`
 
 Congratulations! You can now access your development version of the website at [http://localhost/](http://localhost/).
 
