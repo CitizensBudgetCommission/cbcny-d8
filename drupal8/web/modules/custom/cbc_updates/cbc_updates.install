@@ -9,6 +9,7 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Utility\UpdateException;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationInterface;
@@ -200,4 +201,104 @@ function cbc_updates_update_8011() {
     ->condition('collection', 'system.schema')
     ->condition('name', $modules, 'IN')
     ->execute();
+}
+
+/**
+ * Add new menu links.
+ */
+function cbc_updates_update_8012() {
+
+  $menus = [
+    [
+    'title' => t('Capital Spending'),
+    'link' => ['uri' => 'internal:/topics/capital-spending'],
+    'menu_name' => 'main',
+    'weight' => -15,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('City Budget'),
+    'link' => ['uri' => 'internal:/topics/city-budget'],
+    'menu_name' => 'main',
+    'weight' => -10,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Economic Development'),
+    'link' => ['uri' => 'internal:/topics/economic-development'],
+    'menu_name' => 'main',
+    'weight' => -5,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Health Care'),
+    'link' => ['uri' => 'internal:/topics/health-care'],
+    'menu_name' => 'main',
+    'weight' => 5,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Housing'),
+    'link' => ['uri' => 'internal:/topics/housing'],
+    'menu_name' => 'main',
+    'weight' => 10,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Pensions & Benefits'),
+    'link' => ['uri' => 'internal:/topics/pensions-benefits'],
+    'menu_name' => 'main',
+    'weight' => 15,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Public Workforce'),
+    'link' => ['uri' => 'internal:/topics/public-workforce'],
+    'menu_name' => 'main',
+    'weight' => 20,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('State Budget'),
+    'link' => ['uri' => 'internal:/topics/state-budget'],
+    'menu_name' => 'main',
+    'weight' => 25,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Taxes'),
+    'link' => ['uri' => 'internal:/topics/taxes'],
+    'menu_name' => 'main',
+    'weight' => 30,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+    [
+    'title' => t('Transportation'),
+    'link' => ['uri' => 'internal:/topics/transportation'],
+    'menu_name' => 'main',
+    'weight' => 35,
+    'expanded' => TRUE,
+    'parent' => 'menu_link_content:95c48a8d-f5b8-4ced-8474-c084a520a930',
+    ],
+  ];
+
+  foreach ($menus as $menu) {
+    $menu_link_content = MenuLinkContent::create($menu);
+
+    try {
+      $menu_link_content->save();
+    }
+    catch (Exception $e) {
+      Drupal::logger('cbc_updates')->error($e);
+    }
+  }
 }

@@ -24,6 +24,27 @@
     }
   }
 
+  .has-subnav {
+    position: relative;
+  }
+
+  .has-subnav > .nav__subnav {
+    display: block;
+    position: absolute;
+    top : -8px;
+    padding-top: 35px;
+    z-index: 4;
+
+    li {
+      list-style:none;
+    }
+
+    &:not(.is-open-menu) {
+      display: none;
+    }
+  }
+
+
   .nav__link {
     color: $cbcny-dark-gray;
     font-weight: 500;

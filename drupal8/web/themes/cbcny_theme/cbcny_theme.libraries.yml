@@ -12,6 +12,7 @@ global:
   dependencies:
     - core/jquery
     - core/drupal
+    - cbcny_theme/menu_dropdown
 
 mobile-menu:
   js:
@@ -51,3 +52,10 @@ selectability:
     bower_components/jquery-selectability/jquery.selectability.js: {}
   dependencies:
     - core/jquery
+
+menu_dropdown:
+  js:
+    js/dropdown.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
