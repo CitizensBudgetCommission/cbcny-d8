@@ -31,19 +31,52 @@
   .has-subnav > .nav__subnav {
     display: block;
     position: absolute;
-    top : -8px;
+    top : -12px;
+    left: -100px;
     padding-top: 35px;
-    z-index: 4;
+    z-index: 1;
 
     li {
       list-style:none;
+      text-align: center;
+      background-color: white;
+      padding: 5px;
+      width: auto;
+      box-shadow: 5px 0 5px -5px rgba(0,0,0,0.45), -5px 0 5px -5px rgba(0,0,0,0.45);
+
+      &:hover {
+        background-color:$cbcny-blue;
+      }
+
+      a {
+        text-transform: capitalize;
+        display: block;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      a:hover {
+        color: white;
+      }
+
+      &:first-of-type {
+        box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.4), -5px 0 5px -5px rgba(0, 0, 0, 0.4), 5px 0 5px -5px rgba(0, 0, 0, 0.4);
+        border-top-left-radius: 5px 5px;
+        border-top-right-radius: 5px 5px;
+      }
+
+      &:last-of-type {
+        box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4), -5px 0 5px -5px rgba(0, 0, 0, 0.4), 5px 0 5px -5px rgba(0, 0, 0, 0.4);
+        border-bottom-left-radius: 5px 5px;
+        border-bottom-right-radius: 5px 5px;
+      }
+
     }
 
     &:not(.is-open-menu) {
       display: none;
     }
   }
-
 
   .nav__link {
     color: $cbcny-dark-gray;
