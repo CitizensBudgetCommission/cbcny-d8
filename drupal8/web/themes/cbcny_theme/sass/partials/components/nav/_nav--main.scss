@@ -26,51 +26,56 @@
 
   .has-subnav {
     position: relative;
+    display: inline-flex;
+    justify-content: center;
   }
 
-  .has-subnav > .nav__subnav {
-    display: block;
+  .js-menu-dropdown-wrapper {
     position: absolute;
-    top : -12px;
-    left: -100px;
-    padding-top: 35px;
-    z-index: 1;
+    padding: 40px 0 0 0;
+    top: 25px;
+    z-index: 2;
+  }
+
+  .has-subnav .nav__subnav {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.45);
+    border: 0 solid transparent;
+    border-radius: 5px;
 
     li {
-      list-style:none;
+      list-style: none;
       text-align: center;
-      background-color: white;
-      padding: 5px;
+      margin: 0;
+      padding: 0;
       width: auto;
-      box-shadow: 5px 0 5px -5px rgba(0,0,0,0.45), -5px 0 5px -5px rgba(0,0,0,0.45);
+      border: 0 solid transparent;
+
+      &:first-of-type {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
 
       &:hover {
-        background-color:$cbcny-blue;
+        background-color: $cbcny-blue;
       }
 
       a {
         text-transform: capitalize;
         display: block;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+        padding: 3px 25px;
 
-      a:hover {
-        color: white;
+        &:hover {
+          color: white;
+        }
       }
-
-      &:first-of-type {
-        box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.4), -5px 0 5px -5px rgba(0, 0, 0, 0.4), 5px 0 5px -5px rgba(0, 0, 0, 0.4);
-        border-top-left-radius: 5px 5px;
-        border-top-right-radius: 5px 5px;
-      }
-
-      &:last-of-type {
-        box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4), -5px 0 5px -5px rgba(0, 0, 0, 0.4), 5px 0 5px -5px rgba(0, 0, 0, 0.4);
-        border-bottom-left-radius: 5px 5px;
-        border-bottom-right-radius: 5px 5px;
-      }
-
     }
 
     &:not(.is-open-menu) {
