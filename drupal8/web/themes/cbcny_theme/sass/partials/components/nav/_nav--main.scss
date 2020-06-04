@@ -32,9 +32,14 @@
 
   .js-menu-dropdown-wrapper {
     position: absolute;
+    z-index: 2;
     padding: 40px 0 0 0;
     top: 25px;
-    z-index: 2;
+
+    .is-stuck & {
+      padding: 22px 0 0 0;
+      top: 17px;
+    }
   }
 
   .has-subnav .nav__subnav {

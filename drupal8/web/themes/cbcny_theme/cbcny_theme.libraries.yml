@@ -57,5 +57,6 @@ menu_dropdown:
   js:
     js/dropdown.js: {}
   dependencies:
-    - core/jquery
     - core/drupal
+    - core/jquery
+    - core/jquery.once
