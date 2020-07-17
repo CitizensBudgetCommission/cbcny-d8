@@ -76,7 +76,7 @@
     "drupal/redirect": "^1.5",
     "drupal/redis": "~1",
     "drupal/restrict_ip": "^1.3",
-    "drupal/scheduler": "^1.1",
+    "drupal/scheduler": "^1.3",
     "drupal/search_api": "^1.15",
     "drupal/search_api_pantheon": "^1.0",
     "drupal/search_api_solr": "^1.3",
