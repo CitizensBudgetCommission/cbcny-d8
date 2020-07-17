@@ -110,4 +110,17 @@ $mobile-submenu-hover-color: #000 !default;
       }
     }
   }
+
+  .nav__subnav.js-menu-dropdown {
+    margin: 0;
+
+    .nav__item {
+      list-style: none;
+    }
+
+    .nav__link {
+      font-weight: normal;
+      padding: 5px 20px;
+    }
+  }
 }
