@@ -24,6 +24,70 @@
     }
   }
 
+  .has-subnav {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .js-menu-dropdown-wrapper {
+    position: absolute;
+    z-index: 2;
+    padding: 40px 0 0 0;
+    top: 25px;
+
+    .is-stuck & {
+      padding: 22px 0 0 0;
+      top: 17px;
+    }
+  }
+
+  .has-subnav .nav__subnav {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.45);
+    border: 0 solid transparent;
+    border-radius: 5px;
+
+    li {
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      border: 0 solid transparent;
+
+      &:first-of-type {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      &:hover {
+        background-color: $cbcny-blue;
+      }
+
+      a {
+        text-transform: capitalize;
+        display: block;
+        padding: 3px 25px;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+    &:not(.is-open-menu) {
+      display: none;
+    }
+  }
+
   .nav__link {
     color: $cbcny-dark-gray;
     font-weight: 500;
