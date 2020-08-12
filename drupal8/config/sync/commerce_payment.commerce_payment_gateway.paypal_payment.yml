@@ -24,6 +24,6 @@ configuration:
   display_label: PayPal
   mode: live
   payment_method_types:
-    - credit_card
+    - paypal_checkout
 conditions: {  }
 conditionOperator: AND
