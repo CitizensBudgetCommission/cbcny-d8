@@ -1,9 +1,12 @@
+uuid: ec77b310-139b-4efc-9865-89430fe88ca9
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: Mv7z8sI17hVNDdf2nOfg7y_jPAJ0JScp9y0iVbF0XhI
 open: null
 close: null
 weight: 0
@@ -200,7 +203,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: _default
+      to_mail: '[webform_submission:values:email:raw]'
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
@@ -227,7 +230,40 @@ handlers:
       theme_name: ''
       parameters: {  }
       sender_options: {  }
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 2
+    settings:
+      states:
+        - completed
+      to_mail: '[site:mail]'
+      to_options: {  }
+      cc_mail: kmedina@cbcny.org
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: '[webform:author:mail]'
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
 variants: {  }
-uuid: ec77b310-139b-4efc-9865-89430fe88ca9
-_core:
-  default_config_hash: Mv7z8sI17hVNDdf2nOfg7y_jPAJ0JScp9y0iVbF0XhI

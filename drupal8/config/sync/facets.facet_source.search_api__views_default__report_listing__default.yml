@@ -1,0 +1,9 @@
+uuid: 5528d59c-1ca3-46d8-8d3a-0e9eed0fbbe5
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_default__report_listing__default
+name: 'search_api:views_default__report_listing__default'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }
