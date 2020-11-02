@@ -9,7 +9,7 @@ label: 'Paypal payment'
 weight: null
 plugin: paypal_checkout
 configuration:
-  payment_solution: smart_payment_buttons
+  payment_solution: custom_card_fields
   client_id: AWTpN8Yo7T9fGituoQL1uD255l6hBH52Hq3JSeFcV74pic9ydFGIbNZu665E0wt8o7cEWyTdjrnAOktf
   secret: EKJcgEV6w6Gk3zWYVBrX-evOI9x53GgeZlorc1nP8yG1grjQO2JdggPZphzRBkeJdCG4Prcy8EYUjTLu
   intent: capture
