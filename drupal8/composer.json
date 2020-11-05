@@ -54,7 +54,7 @@
     "drupal/commerce": "^2.17",
     "drupal/commerce_cart": "^2.17",
     "drupal/commerce_cart_redirection": "^2.1",
-    "drupal/commerce_paypal": "1.x-dev@dev",
+    "drupal/commerce_paypal": "^1.0@RC",
     "drupal/content_lock": "^2.0",
     "drupal/core-recommended": "^8.9.3",
     "drupal/ctools": "^3.2",

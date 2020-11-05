@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61efa394c77d20188d71e882668fb0ea",
+    "content-hash": "d47f1a20fecc04e85d2d1043337911bf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3054,11 +3054,17 @@
         },
         {
             "name": "drupal/commerce_paypal",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/commerce_paypal.git",
-                "reference": "db907e6be3f83eadea2cae2a4c19b72c304e99a7"
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/commerce_paypal-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "d58f818f4e52f12176a741e4f2ae7c008377d588"
             },
             "require": {
                 "drupal/commerce": "^2.19",
@@ -3068,15 +3074,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-beta11+13-dev",
-                    "datestamp": "1604509032",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1604509246",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3106,8 +3109,7 @@
             "homepage": "http://drupal.org/project/commerce_paypal",
             "support": {
                 "source": "https://git.drupalcode.org/project/commerce_paypal"
-            },
-            "time": "2020-11-04T16:56:52+00:00"
+            }
         },
         {
             "name": "drupal/commerce_price",
@@ -12486,7 +12488,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/commerce_paypal": 20,
+        "drupal/commerce_paypal": 5,
         "drupal/drupal-driver": 20,
         "drupal/stage_file_proxy": 15,
         "drupal/template_mapper": 20,
