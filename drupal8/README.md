@@ -45,3 +45,7 @@ DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mys
 DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mysql drush en -y drush_delete
 DB_HOST=127.0.0.1 DB_USER=drupal DB_PASSWORD=drupal DB_NAME=drupal DB_DRIVER=mysql drush sql-dump --skip-tables-key=common --structure-tables-key=common --gzip --result-file=../../.circleci/circleci.sql
 ``` 
+
+### Deployment
+
+[Workflow](https://docs.google.com/document/d/1o8am6oKD34FNFce07AnlLTcfXIsk6OQzhEi3Is1HQG8)
