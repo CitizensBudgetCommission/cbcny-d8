@@ -97,5 +97,64 @@
       });
     }
   }
+  
+  Drupal.behaviors.modalSubscribe = {
+    attach: function (context, settings) {
+
+      jQuery(document).ready(function($) {
+        if (document.cookie.indexOf("subscribe_modal_cookie") >= 0) {
+          // They've been here before. Do Nothing
+        }
+        else {
+          var flagSubscribe = true;
+          jQuery(window).on('scroll', function(){
+            var windowHeight = jQuery(document).height();
+            var currentPosition = jQuery(document).scrollTop();
+            var windowViewingArea = jQuery(window).height();
+            var bottomScrollPosition = currentPosition + windowViewingArea;
+            var percentScrolled = parseInt((bottomScrollPosition / windowHeight * 100).toFixed(0));
+            if(percentScrolled >= 50 && flagSubscribe){
+              flagSubscribe = false;
+              var modal = document.getElementById("subscribeModal");
+              modal.style.display = "block";
+              var span = document.getElementById("closeSubscribeModal");
+              var btn = document.getElementsByClassName("button--subscribe")[0];
+              btn.onclick = function() {
+                modal.style.display = "none";
+              }
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              createCookie("subscribe_modal_cookie", "1", 30);
+            }
+          })
+        }
+      })
+    }
+  }
+
+  function createCookie(name, value, expires) {
+    var cookie = name + "=" + escape(value) + ";";
+   
+    if (expires) {
+      // If it's a date
+      if(expires instanceof Date) {
+        // If it isn't a valid date
+        if (isNaN(expires.getTime()))
+         expires = new Date();
+      }
+      else
+        expires = new Date(new Date().getTime() + parseInt(expires) * 1000 * 60 * 60 * 24);
+   
+      cookie += "expires=" + expires.toGMTString() + ";";
+    }
+
+    document.cookie = cookie;
+  }
 
 })(jQuery);

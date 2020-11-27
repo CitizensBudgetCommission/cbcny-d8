@@ -85,8 +85,28 @@
           background-size: 20px 16px;
         }
         &.nav__link--subscribe {
-          @include svg-background(icon-subscribe--gray);
-          background-size: 16px 16px;
+          background-color: $cbcny-blue;
+          font-size: .82em;
+          overflow: visible;
+          width: auto;
+          display: inline;
+          padding: 10px;
+          background-image: none;
+
+          &:before {
+            content:url(../images/bg/icon-subscribe.svg);
+            width: 16px;
+            height: 16px;
+            padding-right: 5px;
+            vertical-align: middle;
+          }
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 3px 21px -4px rgba(0,0,0,.66);
+            color: $cbcny-extra-light-blue;
+            outline: 0;
+          }
         }
         &.nav__link--donate {
           @include svg-background(icon-donate--gray);
@@ -102,10 +122,6 @@
           &.nav__link--contact-us {
           @include svg-background(icon-contact-us--blue);
           background-size: 20px 16px;
-          }
-          &.nav__link--subscribe {
-            @include svg-background(icon-subscribe--blue);
-            background-size: 16px 16px;
           }
           &.nav__link--donate {
             @include svg-background(icon-donate--blue);
