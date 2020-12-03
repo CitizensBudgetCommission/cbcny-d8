@@ -107,8 +107,7 @@
         }
         else {
           var pathname = window.location.pathname;
-          var arr = [ '/research', '/advocacy', 'research', 'advocacy' ];
-          if(jQuery.inArray( pathname, arr ) >= 0) {
+          if(pathname.indexOf('/research/') != -1 || pathname.indexOf('/advocacy/') != -1){
             var flagSubscribe = true;
             jQuery(window).on('scroll', function(){
               var windowHeight = jQuery(document).height();
