@@ -106,36 +106,46 @@
           // They've been here before. Do Nothing
         }
         else {
-          var flagSubscribe = true;
-          jQuery(window).on('scroll', function(){
-            var windowHeight = jQuery(document).height();
-            var currentPosition = jQuery(document).scrollTop();
-            var windowViewingArea = jQuery(window).height();
-            var bottomScrollPosition = currentPosition + windowViewingArea;
-            var percentScrolled = parseInt((bottomScrollPosition / windowHeight * 100).toFixed(0));
-            if(percentScrolled >= 50 && flagSubscribe){
-              flagSubscribe = false;
-              var modal = document.getElementById("subscribeModal");
-              modal.style.display = "block";
-              var span = document.getElementById("closeSubscribeModal");
-              var btn = document.getElementsByClassName("button--subscribe")[0];
-              btn.onclick = function() {
-                modal.style.display = "none";
-              }
-              span.onclick = function() {
-                modal.style.display = "none";
-              }
-              window.onclick = function(event) {
-                if (event.target == modal) {
+          var pathname = window.location.pathname;
+          if(pathname.indexOf('/research/') != -1 || pathname.indexOf('/advocacy/') != -1){
+            var flagSubscribe = true;
+            jQuery(window).on('scroll', function(){
+              var windowHeight = jQuery(document).height();
+              var currentPosition = jQuery(document).scrollTop();
+              var windowViewingArea = jQuery(window).height();
+              var bottomScrollPosition = currentPosition + windowViewingArea;
+              var percentScrolled = parseInt((bottomScrollPosition / windowHeight * 100).toFixed(0));
+              if(percentScrolled >= 50 && flagSubscribe){
+                flagSubscribe = false;
+                var modal = document.getElementById("subscribeModal");
+                modal.style.display = "block";
+                alignModal();
+                var span = document.getElementById("closeSubscribeModal");
+                var btn = document.getElementsByClassName("button--subscribe")[0];
+                btn.onclick = function() {
                   modal.style.display = "none";
                 }
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }
+                createCookie("subscribe_modal_cookie", "1", 30);
               }
-              createCookie("subscribe_modal_cookie", "1", 30);
-            }
-          })
+            })
+          }
         }
       })
     }
+  }
+
+  function alignModal(){
+      var modalDialog = $("#subscribeModal .modal-content");
+      // Applying the top margin on modal to align it vertically center
+      modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 3));
   }
 
   function createCookie(name, value, expires) {

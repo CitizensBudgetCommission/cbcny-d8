@@ -19,8 +19,39 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 40%;
+    max-width: 600px;
+    -webkit-animation-name: modal-animation; 
+    -webkit-animation-duration: 0.5s; 
+    animation-name: modal-animation; 
+    animation-duration: 0.5s;
+
+    .subscribe--container {
+      text-align: center;
+    }
   }
+
+  @-webkit-keyframes modal-animation { 
+      from { 
+          top: -100px; 
+          opacity: 0; 
+      } 
+      to { 
+          top: 0px; 
+          opacity: 1; 
+      } 
+  } 
+    
+  @keyframes modal-animation { 
+      from { 
+          top: -100px; 
+          opacity: 0; 
+      } 
+      to { 
+          top: 0px; 
+          opacity: 1; 
+      } 
+  } 
 
 
   .close {
