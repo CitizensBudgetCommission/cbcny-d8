@@ -1,3 +1,4 @@
+uuid: a0efb154-f1c1-43a9-b7f9-1d32708612f4
 langcode: en
 status: open
 dependencies: {  }
@@ -84,6 +85,8 @@ settings:
   wizard_progress_link: false
   wizard_progress_states: false
   wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -139,6 +142,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  serial_disabled: false
 access:
   create:
     roles:
@@ -188,4 +192,3 @@ access:
     permissions: {  }
 handlers: {  }
 variants: {  }
-uuid: a0efb154-f1c1-43a9-b7f9-1d32708612f4
