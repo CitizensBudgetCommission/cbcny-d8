@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - commerce_order.commerce_order_type.default
+    - field.field.commerce_order.default.field_first_name
+    - field.field.commerce_order.default.field_last_name
   module:
     - commerce_order
     - state_machine
@@ -35,10 +37,26 @@ content:
       timezone: ''
     third_party_settings: {  }
     region: content
+  field_first_name:
+    type: string
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 7
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   ip_address:
     label: inline
     type: string
-    weight: 7
+    weight: 9
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -46,7 +64,7 @@ content:
   mail:
     label: inline
     type: basic_string
-    weight: 6
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -70,7 +88,7 @@ content:
   state:
     label: hidden
     type: state_transition_form
-    weight: 8
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     region: content

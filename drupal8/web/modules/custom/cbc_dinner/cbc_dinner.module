@@ -61,3 +61,10 @@ function _cbc_dinner_submit(&$form, FormStateInterface $form_state) {
   $url->toString();
   $form_state->setRedirectUrl($url);
 }
+
+/**
+ * hook_commerce_checkout_pane_info_alter(&$checkout_panes).
+ */
+function cbc_dinner_commerce_checkout_pane_info_alter(array &$panes) {
+  $panes['contact_information']['class'] = 'Drupal\cbc_dinner\Plugin\Commerce\CheckoutPane\ContactInformationCustom';
+}
