@@ -84,7 +84,6 @@ class ContactInformationCustom extends CheckoutPaneBase implements CheckoutPaneI
    */
   public function buildPaneForm(array $pane_form, FormStateInterface $form_state, array &$complete_form) {
 
-    $customer = $this->order->getCustomer();
     $pane_form['given_name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('First Name'),
@@ -139,6 +138,9 @@ class ContactInformationCustom extends CheckoutPaneBase implements CheckoutPaneI
     }
     $this->order->setData('field_first_name', $values['given_name']);
     $this->order->setData('field_last_name', $values['family_name']);
+
+    $this->order->set('field_first_name', $values['given_name']);
+    $this->order->set('field_last_name', $values['family_name']);
 
   }
 
