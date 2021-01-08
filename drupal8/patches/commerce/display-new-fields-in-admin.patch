@@ -1,0 +1,13 @@
+diff --git a/modules/order/templates/commerce-order--admin.html.twig b/modules/order/templates/commerce-order--admin.html.twig
+index 2ed8848d..abefb99f 100644
+--- a/modules/order/templates/commerce-order--admin.html.twig
++++ b/modules/order/templates/commerce-order--admin.html.twig
+@@ -54,7 +54,7 @@
+           {{ 'Customer Information'|t }}
+         </summary>
+         <div class="details-wrapper seven-details__wrapper">
+-          {% for key in ['uid', 'mail', 'ip_address'] %}
++          {% for key in ['uid', 'mail', 'ip_address','field_first_name', 'field_last_name'] %}
+             {% if order[key] %}
+               <div class="form-item">
+                 {{ order[key] }}
