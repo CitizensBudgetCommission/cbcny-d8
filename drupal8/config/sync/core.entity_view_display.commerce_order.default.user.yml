@@ -5,6 +5,8 @@ dependencies:
   config:
     - commerce_order.commerce_order_type.default
     - core.entity_view_mode.commerce_order.user
+    - field.field.commerce_order.default.field_first_name
+    - field.field.commerce_order.default.field_last_name
   module:
     - commerce_order
     - entity_reference_revisions
@@ -18,7 +20,7 @@ mode: user
 content:
   billing_profile:
     type: entity_reference_revisions_entity_view
-    weight: 0
+    weight: 1
     label: above
     settings:
       view_mode: default
@@ -28,7 +30,7 @@ content:
   completed:
     label: inline
     type: timestamp
-    weight: 2
+    weight: 3
     settings:
       date_format: short
       custom_date_format: ''
@@ -38,13 +40,13 @@ content:
   mail:
     label: inline
     type: basic_string
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
   order_items:
     type: commerce_order_item_table
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     label: hidden
@@ -60,7 +62,7 @@ content:
   placed:
     label: inline
     type: timestamp
-    weight: 3
+    weight: 4
     settings:
       date_format: short
       custom_date_format: ''
@@ -69,21 +71,24 @@ content:
     region: content
   state:
     type: list_default
-    weight: 4
+    weight: 5
     label: inline
     settings: {  }
     third_party_settings: {  }
     region: content
   total_price:
     type: commerce_order_total_summary
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     label: hidden
     region: content
 hidden:
   changed: true
+  field_first_name: true
+  field_last_name: true
   ip_address: true
+  search_api_excerpt: true
   store_id: true
   total_paid: true
   uid: true

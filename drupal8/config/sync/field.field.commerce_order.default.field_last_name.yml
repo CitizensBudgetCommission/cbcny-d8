@@ -1,0 +1,19 @@
+uuid: 2906ebb5-74dc-4231-8499-2d3f5f49e8d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.storage.commerce_order.field_last_name
+id: commerce_order.default.field_last_name
+field_name: field_last_name
+entity_type: commerce_order
+bundle: default
+label: 'Last Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
