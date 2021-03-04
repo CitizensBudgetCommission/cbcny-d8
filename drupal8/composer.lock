@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b477f0fe6e909144ec1118ab6f3c8cd5",
+    "content-hash": "07aa9f7ae2de3e161b671050e715bad9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2790,6 +2790,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Display custom fields in amdin view as no admin subtheme": "patches/commerce/display-new-fields-in-admin.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5418,17 +5421,17 @@
         },
         {
             "name": "drupal/soundcloudfield",
-            "version": "1.0.0-alpha1",
+            "version": "1.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/soundcloudfield.git",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "8.x-1.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/soundcloudfield-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "0e05eab259271b5d8dd83b6d2f303dff27471966"
+                "url": "https://ftp.drupal.org/files/projects/soundcloudfield-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "27f7cd32be5770c0b8d8ec9a5c2275d252707e45"
             },
             "require": {
                 "drupal/core": "^8"
@@ -5436,17 +5439,14 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1450046339",
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1614206888",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 },
-                "patches_applied": {
-                    "Fix deprecated use of l() in soundcloudfield formatter": "https://www.drupal.org/files/issues/soundcloudfield-fatal_error_occurs_on_all_pages-2760787-10.patch",
-                    "Set oembed url to https": "https://www.drupal.org/files/issues/2019-08-15/soundcloud-oembed_https-3075203-2-D8.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -10200,12 +10200,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
