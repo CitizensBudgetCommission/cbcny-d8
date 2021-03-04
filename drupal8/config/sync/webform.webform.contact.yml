@@ -5,6 +5,8 @@ dependencies:
   enforced:
     module:
       - webform
+_core:
+  default_config_hash: Mv7z8sI17hVNDdf2nOfg7y_jPAJ0JScp9y0iVbF0XhI
 open: null
 close: null
 weight: 0
@@ -211,7 +213,7 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: kmedina@cbcny.org
+      from_mail: no-reply@cbcny.org
       from_options: {  }
       from_name: _default
       subject: 'Thank you for contacting us'
@@ -243,9 +245,9 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[site:mail]'
+      to_mail: kmedina@cbcny.org
       to_options: {  }
-      cc_mail: kmedina@cbcny.org
+      cc_mail: cbcinfo@gmail.com
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
@@ -270,5 +272,3 @@ handlers:
       theme_name: ''
       parameters: {  }
 variants: {  }
-_core:
-  default_config_hash: Mv7z8sI17hVNDdf2nOfg7y_jPAJ0JScp9y0iVbF0XhI
